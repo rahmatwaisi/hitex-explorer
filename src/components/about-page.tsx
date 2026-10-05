@@ -1,3 +1,4 @@
+import { CommunityLinks } from "@/components/community-links"
 import { HitexText } from "@/components/highlight"
 import { Logo } from "@/components/logo"
 import { Card, CardContent } from "@/components/ui/card"
@@ -7,8 +8,6 @@ import {
   BUY_ME_A_COFFEE_URL,
   GITHUB_URL,
   HITEX_URL,
-  TELEGRAM_URL,
-  WHATSAPP_URL,
 } from "@/lib/links"
 
 const external = "underline underline-offset-3 hover:text-foreground"
@@ -56,16 +55,10 @@ export function AboutPage() {
           <section className="flex flex-col gap-2">
             <h2 className="text-lg font-semibold text-foreground">Join the community</h2>
             <p>
-              Looking for work, hiring, or have an idea for this project? Join the community on{" "}
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={external}>
-                WhatsApp
-              </a>{" "}
-              or{" "}
-              <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" className={external}>
-                Telegram
-              </a>{" "}
-              to share opportunities and feedback.
+              Looking for work, hiring, or have an idea for this project? Join the community to share
+              opportunities and feedback:
             </p>
+            <CommunityLinks className="pt-1" />
           </section>
           <section className="flex flex-col gap-2">
             <h2 className="text-lg font-semibold text-foreground">Code and data</h2>
