@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useState } from "react"
 import { MoonIcon, SunIcon } from "lucide-react"
 
+import { AboutPage } from "@/components/about-page"
 import { DatasetPage } from "@/components/dataset-page"
+import { Footer } from "@/components/footer"
 import { HomePage } from "@/components/home-page"
+import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { useTheme } from "@/hooks/use-theme"
@@ -10,8 +13,11 @@ import { LANGS, type Lang } from "@/lib/data"
 import { datasetKeys, datasets, type DatasetKey } from "@/lib/datasets"
 import { nextColor, type Keyword } from "@/lib/keywords"
 
-function routeFromHash(): DatasetKey | null {
+type Route = DatasetKey | "about" | null
+
+function routeFromHash(): Route {
   const key = window.location.hash.replace(/^#\/?/, "")
+  if (key === "about") return "about"
   return key in datasets ? (key as DatasetKey) : null
 }
 
@@ -44,18 +50,22 @@ export default function App() {
   const clearKeywords = useCallback(() => setKeywords([]), [])
 
   return (
-    <div className="min-h-svh">
-      <header className="sticky top-0 z-20 h-14 border-b bg-background">
-        <div className="mx-auto flex h-full max-w-[1800px] items-center gap-2 px-4 sm:px-6">
-          <a href="#/" className="me-2 font-semibold tracking-tight">
-            HITEX
+    <div className="flex min-h-svh flex-col">
+      {/* one row from lg up; below that the nav moves to a second, scrollable row (height: --header-h in index.css) */}
+      <header className="sticky top-0 z-20 h-(--header-h) border-b bg-background">
+        <div className="mx-auto flex h-full max-w-[1800px] flex-wrap items-center gap-x-2 px-4 sm:px-6 lg:flex-nowrap">
+          <a href="#/" className="me-2 flex h-14 shrink-0 items-center" aria-label="HITEX Explorer home">
+            <Logo className="h-5 w-auto sm:h-7" />
           </a>
-          <nav className="-my-2 flex min-w-0 gap-1 overflow-x-auto py-2 [scrollbar-width:none]">
+          <nav className="order-last -mx-1 flex h-11 w-full min-w-0 items-center gap-1 overflow-x-auto px-1 [scrollbar-width:none] lg:order-none lg:h-auto lg:w-auto">
             {datasetKeys.map((key) => (
               <Button key={key} variant={route === key ? "secondary" : "ghost"} size="sm" asChild>
                 <a href={`#/${key}`}>{datasets[key].title}</a>
               </Button>
             ))}
+            <Button variant={route === "about" ? "secondary" : "ghost"} size="sm" asChild>
+              <a href="#/about">About</a>
+            </Button>
           </nav>
           <ToggleGroup
             type="single"
@@ -86,8 +96,10 @@ export default function App() {
         </div>
       </header>
 
-      <main>
-        {route ? (
+      <main className="flex-1">
+        {route === "about" ? (
+          <AboutPage />
+        ) : route ? (
           <DatasetPage
             key={route}
             dataset={route}
@@ -101,6 +113,7 @@ export default function App() {
           <HomePage />
         )}
       </main>
+      <Footer />
     </div>
   )
 }

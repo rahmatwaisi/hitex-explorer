@@ -73,7 +73,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
               title="Search Google for this person"
               className="group/title underline-offset-4 hover:underline"
             >
-              <Highlight text={card.title} matcher={matcher} />
+              <Highlight text={card.title} matcher={matcher} linkHitex={false} />
               <CircleQuestionMarkIcon className="ms-1.5 inline size-4 align-[-2px] text-muted-foreground group-hover/title:text-foreground" />
             </a>
           ) : (
@@ -123,7 +123,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
                 title={l.label}
               >
                 <ExternalLinkIcon className="size-3.5 shrink-0" />
-                <Highlight text={linkText(l)} matcher={matcher} />
+                <Highlight text={linkText(l)} matcher={matcher} linkHitex={false} />
               </a>
             ))}
           </div>

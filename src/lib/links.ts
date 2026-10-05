@@ -1,0 +1,6 @@
+export const HITEX_URL = "https://hitex.tech/en"
+export const HITEX_PASS_URL = "https://www.hitex.tech/en/getyourpass"
+export const AUTHOR_NAME = "Rahmat Waisi"
+export const AUTHOR_LINKEDIN_URL = "https://www.linkedin.com/in/rahmatwaisi/"
+export const BUY_ME_A_COFFEE_URL = "https://buymeacoffee.com/rahmatwaisi"
+export const GITHUB_URL = "https://github.com/rahmatwaisi/hitex-explorer"

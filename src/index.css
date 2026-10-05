@@ -186,3 +186,27 @@
 .dark {
   color-scheme: dark;
 }
+
+/* every HITEX mention links to the official site */
+.hitex-link {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: color-mix(in oklch, currentColor 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.hitex-link:hover {
+  text-decoration-style: solid;
+  text-decoration-color: currentColor;
+}
+
+/* header height: two rows (logo + controls, then nav) below lg, one row from lg up */
+:root {
+  --header-h: 101px;
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --header-h: 3.5rem;
+  }
+}

@@ -77,7 +77,7 @@ export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPag
     <div className="flex flex-col">
       <style>{keyframes}</style>
 
-      <div className="sticky top-14 z-10 border-b bg-background/85 backdrop-blur supports-backdrop-filter:bg-background/70">
+      <div className="sticky top-(--header-h) z-10 border-b bg-background/85 backdrop-blur supports-backdrop-filter:bg-background/70">
         <div className="mx-auto flex max-w-[1800px] flex-col gap-3 px-4 py-4 sm:px-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h1 className="text-xl font-semibold">
