@@ -1,0 +1,541 @@
+[
+  {
+    "id": "5cc37af7-3708-478c-94ec-c165f03cd7e9",
+    "name": {
+      "ar": "ئاڤا میدیا",
+      "en": "AVA Media",
+      "ku": "ئاڤا میدیا",
+      "fa": "AVA Media"
+    },
+    "description": {
+      "ar": "مجموعة آفا الإعلامية هي مجموعة إعلامية مسؤولة تعمل باحترافية وبجودة عالية لتقديم خدمات ومنتجات ترفيهية وإخبارية.",
+      "en": "Ava Media is a responsible media group that works professionally and with high quality to provide entertainment and news services and products.",
+      "ku": "گرووپی میدیایی ئاڤا میدیایەکی بەرپرسیارە، کە بەشێوەیەکی پیشەگەرانە و بە کوالێتییەکی بەرز کاردەکات.",
+      "fa": "Ava Media یک گروه رسانه‌ای مسئولیت‌پذیر است که به‌صورت حرفه‌ای و با کیفیت بالا برای ارائه خدمات و محصولات سرگرمی و خبری فعالیت می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/TjCGVP0oEqUufevWIAnwg.png",
+    "website_url": "http://ava.news/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025,
+      2026
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 1,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 11,
+    "created_at": "2026-04-20T11:47:37.483Z",
+    "updated_at": "2026-09-23T08:25:26.895Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "66e13179-bea0-4767-8a11-5fd72752c09c",
+    "name": {
+      "ar": "روداو",
+      "en": "Rudaw",
+      "ku": "ڕووداو",
+      "fa": "Rudaw"
+    },
+    "description": {
+      "ar": "شبكة روداو الإعلامية هي مؤسسة إعلامية مستقلة مملوكة لشركة روداو المحدودة للشؤون الإعلامية.",
+      "en": "Rudaw Media Network is an independent media establishment owned by RUDAW Co. FOR MEDIA AFFAIRS /Ltd.",
+      "ku": "تۆڕی میدیایی ڕووداو دامەزراوەیەکی میدیایی سەربەخۆیە و خاوەنەکەی کۆمپانیای ڕوداو FOR MEDIA AFFAIRS /Ltd.",
+      "fa": "Rudaw Media Network یک مؤسسه رسانه‌ای مستقل است که مالکیت آن در اختیار RUDAW Co. FOR MEDIA AFFAIRS /Ltd. است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/dRsrax1WPHS12l2mobjvW.png",
+    "website_url": "https://www.rudaw.net/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 2,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 87,
+    "created_at": "2026-05-10T10:13:53.165Z",
+    "updated_at": "2026-09-23T08:25:03.403Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "e82fe6fa-8ac2-4e17-9796-77b9f3177539",
+    "name": {
+      "ar": "سکای نیوز عربیة",
+      "en": "Sky News Arabia",
+      "ku": "سکای نیوز عەرەبی",
+      "fa": "Sky News Arabia"
+    },
+    "description": {
+      "ar": "سكاي نيوز عربية هي ثمرة شراكة بين الشركة الدولية للاستثمارات الإعلامية (IMI)، وشركة سكاي البريطانية، الشبكة التلفزيونية الرائدة في المملكة المتحدة.",
+      "en": "Sky News Arabia was established through a strategic partnership between International Media Investments and Sky UK, one of the United Kingdom’s leading television networks.",
+      "ku": "سکای نیوز عەرەبی لە ڕێگەی هاوبەشییەکی ستراتیژی نێوان وەبەرهێنانی میدیای نێودەوڵەتی و سکای بەریتانیا کە یەکێکە لە تۆڕە تەلەفزیۆنییە پێشەنگەکانی بەریتانیا دامەزراو.",
+      "fa": "Sky News Arabia از طریق یک مشارکت راهبردی میان International Media Investments و Sky UK، یکی از شبکه‌های تلویزیونی پیشرو بریتانیا، تأسیس شد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/gOYjDUyuYvZ0IKTd35EK0.png",
+    "website_url": "https://www.skynewsarabia.com/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 3,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 14,
+    "created_at": "2026-04-20T11:53:41.388Z",
+    "updated_at": "2026-05-13T10:51:21.565Z",
+    "country": {
+      "id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+      "name": {
+        "ar": "الإمارات العربية المتحدة",
+        "en": "United Arab Emirates",
+        "ku": "ئیمارات",
+        "fa": "امارات متحده عربی"
+      },
+      "code": "AE"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "b365bf47-0278-4a69-8d01-5df345d3a8ff",
+    "name": {
+      "ar": "سي إن إن العربية",
+      "en": "CNN Arabic",
+      "ku": "سی ئێن ئێن عەرەبی",
+      "fa": "CNN Arabic"
+    },
+    "description": {
+      "ar": "موقع CNN بالعربية هو جزء من شبكة CNN الإخبارية العالمية ويُعنى بتقديم الأخبار الدولية من منظور عربي، ويقدم تغطية لأهم أحداث الدول العربية ومنطقة الشرق الأوسط وأبرز الأحداث العالمية التي قد تهم الجمهور العربي.",
+      "en": "CNN Arabic is part of the global CNN news network and is concerned with providing international news from an Arab perspective.",
+      "ku": "سی ئێن ئێن عەرەبی بەشێکە لە تۆڕی هەواڵی جیهانی سی ئێن ئێن و هەواڵە نێودەوڵەتییە پێشکەش دەکات  لە ڕوانگەی عەرەبییەوە.",
+      "fa": "CNN Arabic بخشی از شبکه خبری جهانی CNN است و به ارائه اخبار بین‌المللی از منظری عربی می‌پردازد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/UOUQURery2mIlz5gV8RBg.png",
+    "website_url": "https://arabic.cnn.com/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 4,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 13,
+    "created_at": "2026-04-20T11:52:48.603Z",
+    "updated_at": "2026-05-13T10:51:29.463Z",
+    "country": {
+      "id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+      "name": {
+        "ar": "الإمارات العربية المتحدة",
+        "en": "United Arab Emirates",
+        "ku": "ئیمارات",
+        "fa": "امارات متحده عربی"
+      },
+      "code": "AE"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "c8dde2d5-0dd3-4a56-9963-815bcc6093d2",
+    "name": {
+      "ar": "كردستان 24",
+      "en": "Kurdistan 24",
+      "ku": "کوردستان ٢٤",
+      "fa": "Kurdistan 24"
+    },
+    "description": {
+      "ar": "كوردستان 24 مؤسسة اخبارية معلوماتية كوردية تبث من اقلیم كوردستان- العراق. تتطلع أن تكون مركزا اعلاميا متميزا لإيصال المعلومة بدقة وفق اسس اعلامية ومهنية.",
+      "en": "Kurdistan 24 has set itself a challenge: to provide up-to-date, impartial, and quality information to the widest possible Kurdish-speaking public in the region.",
+      "ku": "دامەزراوەی كوردستان24 بۆ توێژینه‌وه‌ و راگه‌یاندن، نێوەندێكی میدیاییە. بێلایەنانە و پیشەییانە، بەرهەمێكی پوختی میدیایی بە شێوەیەكی پرۆفیشناڵانە پێشكەشى بینه‌ر و بیسه‌ر و خوێنه‌رانی دەكات.",
+      "fa": "Kurdistan 24 چالشی را پیش روی خود قرار داده است: ارائه اطلاعات به‌روز، بی‌طرفانه و باکیفیت به گسترده‌ترین مخاطبان کردزبان ممکن در منطقه."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/LOc_kCuMKGtcbJ0TXI717.png",
+    "website_url": "https://www.kurdistan24.net/ckb",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 5,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 12,
+    "created_at": "2026-04-20T11:50:17.840Z",
+    "updated_at": "2026-05-13T10:53:35.658Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "795d9360-c570-4105-ae45-f94e13a94c5d",
+    "name": {
+      "ar": "كردستان كرونيكل",
+      "en": "Kurdistan Chronicles",
+      "ku": "کوردستان کرۆنیکل",
+      "fa": "Kurdistan Chronicles"
+    },
+    "description": {
+      "ar": "\"كردستان كرونيكل\" هي مجلة شهرية غير حزبية تصدر باللغة الإنجليزية في إقليم كردستان العراق.",
+      "en": "Kurdistan Chronicle is a non-partisan monthly magazine in English, published in the Kurdistan Region of Iraq.",
+      "ku": "گۆڤاری کوردستان کرۆنیکڵ گۆڤارێکی مانگانەی بێ لایەنە بە زمانی ئینگلیزی، لە هەرێمی کوردستان چاپ دەکرێت.",
+      "fa": "Kurdistan Chronicle یک ماهنامه غیرحزبی به زبان انگلیسی است که در اقلیم کردستان عراق منتشر می‌شود."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ZOgztFibuHWg8vjBs0Ovy.png",
+    "website_url": "https://kurdistanchronicle.com/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 6,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 88,
+    "created_at": "2026-05-10T10:16:26.771Z",
+    "updated_at": "2026-05-13T10:54:33.230Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "ac17be0f-094d-4f66-96da-b623f83f8560",
+    "name": {
+      "ar": "السومرية",
+      "en": "Al Sumaria TV",
+      "ku": "ئەلسۆمەریە",
+      "fa": "Al Sumaria TV"
+    },
+    "description": {
+      "ar": "قناة السومرية التلفزيونية، وهي قناة فضائية عراقية ذات مسؤولية محدودة، هي شبكة تلفزيونية عراقية مستقلة تأسست في سبتمبر 2004.",
+      "en": "Alsumaria TV, a limited liability Iraqi satellite channel, is an independent Iraqi television network established in September 2004.",
+      "ku": "کەناڵی ئەلسۆمەریە تیڤی، کەناڵێکی مانگی دەستکردی عێراقییە کە بەرپرسیارێتی سنووردارە، تۆڕێکی تەلەفزیۆنی سەربەخۆی عێراقییە و لە ئەیلوولی ٢٠٠٤ دامەزراوە.",
+      "fa": "Alsumaria TV، یک شبکه ماهواره‌ای عراقی با مسئولیت محدود، شبکه تلویزیونی مستقلی در عراق است که در سپتامبر ۲۰۰۴ تأسیس شد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ACxrTVX4wZkFiiIJ5907N.png",
+    "website_url": "https://www.alsumaria.tv/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 7,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 133,
+    "created_at": "2026-05-13T10:35:38.592Z",
+    "updated_at": "2026-05-13T10:55:23.760Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "1c9e88dc-4154-4cff-8f08-a0721a27736b",
+    "name": {
+      "ar": "الشرقية",
+      "en": "Al Sharqiya TV",
+      "ku": "ئەلشەرقیە",
+      "fa": "Al Sharqiya TV"
+    },
+    "description": {
+      "ar": "قناة الشرقية هي أول قناة فضائية عراقية مملوكة للقطاع الخاص، أطلقها قطب الإعلام العراقي سعد البزاز في مارس 2004. مقرها في بغداد ودبي.",
+      "en": "Al Sharqiya is Iraq's first privately owned satellite channel, launched in March 2004 by Iraqi media tycoon Saad al-Bazzaz. Based in Baghdad and Dubai.",
+      "ku": "ئەلشەرقییە یەکەم کەناڵی مانگی دەستکردی عێراقە کە خاوەندارێتی تایبەتی عێراقە، لە مانگی ئازاری ٢٠٠٤ لەلایەن سەرمایەداری میدیایی عێراقی سەعد ئەلبەزازەوە خرایە بازاڕەوە. بنکەکەی لە بەغدا و دوبەیە.",
+      "fa": "Al Sharqiya نخستین شبکه ماهواره‌ای خصوصی عراق است که سعد البزاز، سرمایه‌دار بزرگ رسانه‌ای عراقی، آن را در مارس ۲۰۰۴ راه‌اندازی کرد. مقر آن در بغداد و دبی است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/L-CS3s3nuGJZHUt-nPkCN.png",
+    "website_url": "https://www.alsharqiya.com/ar",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 8,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 134,
+    "created_at": "2026-05-13T10:59:20.560Z",
+    "updated_at": "2026-05-13T10:59:20.560Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "179a7b3c-bb6a-4e77-8d5b-9aa1d9a11205",
+    "name": {
+      "ar": "قناة دجلة الفضائية‎",
+      "en": "Dijlah TV",
+      "ku": "کەناڵی دیجلە",
+      "fa": "Dijlah TV"
+    },
+    "description": {
+      "ar": "قناة دجلة هي قناة تلفزيونية فضائية عراقية مقرها عمّان، الأردن. وهي من أكثر القنوات الإخبارية مشاهدة في العراق.",
+      "en": "Dijlah TV is an Iraqi satellite television channel based in Amman, Jordan. It is one of the most watched news channels in Iraq.",
+      "ku": "دیجلە تیڤی کەناڵێکی تەلەفزیۆنی مانگی دەستکردی عێراقییە و بنکەکەی لە شاری عەممانی پایتەختی ئوردنە. یەکێکە لە کەناڵە هەواڵییەکانی عێراق کە زۆرترین بینەری هەیە.",
+      "fa": "Dijlah TV یک شبکه تلویزیونی ماهواره‌ای عراقی مستقر در امان، اردن است. این شبکه یکی از پربیننده‌ترین شبکه‌های خبری در عراق است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/feAKZw-Da42pfvBy-lUXR.jpg",
+    "website_url": "https://www.facebook.com/DIJLAHtv/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 9,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 135,
+    "created_at": "2026-05-13T11:04:51.056Z",
+    "updated_at": "2026-05-13T11:04:51.056Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "6d1526ba-bca2-4dc1-bbce-29cd426209fa",
+    "name": {
+      "ar": "کوردسات",
+      "en": "Kurdsat",
+      "ku": "کوردسات",
+      "fa": "Kurdsat"
+    },
+    "description": {
+      "ar": "كوردسات هي قناة تلفزيونية كردية. بدأت بثها في الأول من ديسمبر عام 2000 في السليمانية. تبث كوردسات برامجها بعدة لغات كردية، وخاصة اللغة الكردية الوسطى.",
+      "en": "Kurdsat is a Kurdish television channel. It started broadcasting on December 1, 2000 in Sulaimani. Kurdsat broadcasts in several Kurdish languages, especially Central Kurdish.",
+      "ku": "کوردسات کەناڵێکی تەلەڤیزیۆنیی کوردییە، لە ١ی کانوونی دووەمی ٢٠٠٠ لە شاری سلێمانی وەشانی بەرنامەکانی دەستپێکردووە کوردسات بە چەند زاری زمانی کوردی، بەتایبەتی کوردیی ناوەندی. بەرنامەکانی پێشکەش دەکات.",
+      "fa": "Kurdsat یک شبکه تلویزیونی کردی است. این شبکه پخش خود را در ۱ دسامبر ۲۰۰۰ در سلیمانیه آغاز کرد. Kurdsat به چندین زبان کردی، به‌ویژه کردی مرکزی، برنامه پخش می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/O9-r8GfTiFTZziURxeUBt.jpg",
+    "website_url": "https://www.kurdsat.tv/ckb",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 10,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 136,
+    "created_at": "2026-05-13T11:08:13.406Z",
+    "updated_at": "2026-05-13T11:13:22.625Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "f664812a-6fe9-4dd8-a202-41b96c23b2ed",
+    "name": {
+      "ar": "القناة ٨",
+      "en": "Channel 8",
+      "ku": "کەناڵ ٨",
+      "fa": "Channel 8"
+    },
+    "description": {
+      "ar": "القناة ٨ هي مؤسسة إعلامية مستقلة ومعاصرة، تأسست عام 2023 في إقليم كردستان ويقع مقرها الرئيسي في السليمانية، المعروفة باسم عاصمة الثقافة.",
+      "en": "Channel 8 is an independent and contemporary media institution, established in 2023 in the Kurdistan Region and is headquartered in Sulaimani, known as the capital of culture.",
+      "ku": "کەناڵ ٨ دامەزراوەیەکی میدیایی سەربەخۆ و هاوچەرخە، ساڵی 2023 لە هەرێمی کوردستان دامەزراوە و ناوەندی سەرەکیی کەناڵەکە لە شاری سلێمانییە کە بە پایتەختی رۆشنبیری ناسراوە.",
+      "fa": "Channel 8 یک مؤسسه رسانه‌ای مستقل و معاصر است که در سال ۲۰۲۳ در اقلیم کردستان تأسیس شد و دفتر مرکزی آن در سلیمانیه قرار دارد؛ شهری که به پایتخت فرهنگ شهرت دارد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Pp9ZEAZ_2FC0e4lRvXFq1.jpg",
+    "website_url": "https://channel8.com/",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 11,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 137,
+    "created_at": "2026-05-13T11:17:34.278Z",
+    "updated_at": "2026-05-13T11:17:34.278Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "abf1f5f7-8ef2-4676-8497-a76f49fd4e5b",
+    "name": {
+      "ar": "كوردماكس",
+      "en": "Kurdmax TV",
+      "ku": "كوردماكس",
+      "fa": "Kurdmax TV"
+    },
+    "description": {
+      "ar": "تم تأسيس قناة Kurdmax TV من قبل مجموعة Edico في عام 2012. وقد ولدت الأفكار الرائعة والبرامج المميزة في القناة.",
+      "en": "Kurdmax TV was established by Edico Group in 2012.brilliant ideas and wonderful programs in the channel come to birth.",
+      "ku": "تەلەفزيۆنى كوردماكس لە ساڵی 2012 لەلايەن گروپى ئيديكۆ وە دامەزراوە.\nبەهۆى سەركەوتنەكانى كوردماكس گۆرانكارى لە كەنالە تەلەفزيۆنەكان كرا لە كوردستان دا.",
+      "fa": "Kurdmax TV در سال ۲۰۱۲ توسط Edico Group تأسیس شد. ایده‌های درخشان و برنامه‌های فوق‌العاده در این شبکه متولد می‌شوند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/-OjsFinDh4t1j4JXUSd0L.jpg",
+    "website_url": "https://www.kurdmax.tv/ku",
+    "type": "media",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 12,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 138,
+    "created_at": "2026-05-13T11:23:10.765Z",
+    "updated_at": "2026-05-13T11:23:10.765Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  }
+]

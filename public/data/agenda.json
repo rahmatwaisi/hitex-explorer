@@ -1,0 +1,2791 @@
+{
+  "agendas": [
+    {
+      "id": "55d027e1-b664-4e4a-a61e-f0db657c2991",
+      "title": {
+        "ar": "مراسم الافتتاح",
+        "en": "Opening Ceremony",
+        "ku": "ڕێوڕەسمی کردنەوە",
+        "fa": "مراسم افتتاحیه"
+      },
+      "date": "2026-10-06",
+      "description": {
+        "en": "",
+        "fa": ""
+      },
+      "day_number": 1,
+      "year": 2026,
+      "mobile_id": 3,
+      "is_active": true,
+      "created_at": "2026-09-21T11:57:50.513Z",
+      "updated_at": "2026-09-30T13:04:19.931Z",
+      "sessions": []
+    },
+    {
+      "id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+      "title": {
+        "ar": "الاقتصاد",
+        "en": "Economy",
+        "ku": "ئابووری",
+        "fa": "اقتصاد"
+      },
+      "date": "2026-10-07",
+      "description": {
+        "en": "",
+        "fa": ""
+      },
+      "day_number": 2,
+      "year": 2026,
+      "mobile_id": 1,
+      "is_active": true,
+      "created_at": "2026-09-21T11:57:25.789Z",
+      "updated_at": "2026-09-21T12:09:20.260Z",
+      "sessions": [
+        {
+          "id": "a98fe015-facc-4263-978d-de63d061cab2",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "من الفوضى إلى الذكاء الاصطناعي: رحلة التحول الرقمي",
+            "en": "From Chaos to AI: The Digital Transformation Journey",
+            "ku": "لە ئاڵۆزییەوە بۆ زیرەکی دەستکرد: گەشتی گۆڕانکاریی دیجیتاڵ",
+            "fa": "از آشوب تا هوش مصنوعی: سفر تحول دیجیتال"
+          },
+          "description": {},
+          "start_time": "11:00:00",
+          "end_time": "11:30:00",
+          "type": "presentation",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 40,
+          "is_active": true,
+          "created_at": "2026-10-04T11:46:19.821Z",
+          "updated_at": "2026-10-04T11:46:19.821Z",
+          "speakers": [
+            {
+              "id": "9756403e-be1f-41a8-81e1-7ba655efd642",
+              "name": {
+                "ar": "مازن بياض",
+                "en": "Mazen Bayadh",
+                "ku": "مازن بەیاز",
+                "fa": "مازن بیاض"
+              },
+              "title": {
+                "ar": "مدير العمليات – أركيلا",
+                "en": "Chief Operating Officer – Arcella",
+                "ku": "بەڕێوەبەری کارگێڕی – Arcella",
+                "fa": "مدیر عملیات – Arcella"
+              },
+              "company": {},
+              "country": {},
+              "bio": {},
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/gMGm8mdWmzPD6PM6Jg8Iv.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": true,
+              "mobile_id": 184,
+              "is_active": true,
+              "created_at": "2026-10-04T10:43:52.654Z",
+              "updated_at": "2026-10-04T10:47:04.803Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "cbf84e1e-c2e5-43ed-b7d6-83e26ef1afbf",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "مستقبل الاستثمار الأجنبي المباشر: كيف تُحوِّل التكنولوجيا والذكاء الاصطناعي الاستثمار والقطاعات الاقتصادية الرئيسية",
+            "en": "The Future of FDI: How Technology and AI Are Transforming Investment and Key Economic Sectors.",
+            "ku": "داهاتووی وەبەرهێنانی ڕاستەوخۆی بیانی: چۆن تەکنەلۆژیا و زیرەکی دەستکرد وەبەرهێنان و کەرتە سەرەکییە ئابوورییەکان دەگۆڕن",
+            "fa": "آینده سرمایه‌گذاری مستقیم خارجی (FDI): فناوری و هوش مصنوعی چگونه سرمایه‌گذاری و بخش‌های کلیدی اقتصاد را متحول می‌کنند."
+          },
+          "description": {},
+          "start_time": "14:00:00",
+          "end_time": "14:45:00",
+          "type": "panel",
+          "topic_tag": {
+            "ar": "جلسة نقاشية",
+            "en": "Panel",
+            "ku": "پانێڵی گفتوگۆ",
+            "fa": "پنل"
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 27,
+          "is_active": true,
+          "created_at": "2026-09-29T20:28:47.599Z",
+          "updated_at": "2026-09-29T20:28:47.599Z",
+          "speakers": [
+            {
+              "id": "4694ae57-4936-4c99-824f-74e61db73c5a",
+              "name": {
+                "ar": "ميفان حسن",
+                "en": "Mevan Hassan",
+                "ku": "مێڤان حەسەن",
+                "fa": "میوان حسن"
+              },
+              "title": {
+                "ar": "مديرة العلاقات العامة",
+                "en": "Public Relations Director",
+                "ku": "بەڕێوەبەری پەیوەندییە گشتییەکان",
+                "fa": "مدیر روابط عمومی"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "ميفان حسن هي مديرة العلاقات العامة في استثمر كردستان، حيث تركز على علاقات المستثمرين والاتصالات الاستراتيجية والمشاركة الدولية وترويج الاستثمار. وهي تعمل مع المستثمرين الدوليين والمؤسسات الحكومية وغرف التجارة والمنظمات التنموية، وتدعم منتديات الاستثمار والوفود والفعاليات الدولية. وهي حاصلة على درجة الماجستير في السياسة والعلاقات الدولية، وتركزت أبحاثها على الاستثمار الأجنبي المباشر والتنويع الاقتصادي في إقليم كردستان.",
+                "en": "Mevan Hassan is the Public Relations Director at Invest Kurdistan, where she focuses on investor relations, strategic communications, international engagement, and investment promotion. She works with international investors, government institutions, chambers of commerce, and development organizations, and supports investment forums, delegations, and international events. She holds a Master's degree in Politics and International Relations, with research focused on foreign direct investment and economic diversification in the Kurdistan Region.",
+                "ku": "مێڤان حەسەن بەڕێوەبەری پەیوەندییە گشتییەکانە لە ئینڤێست کوردستان، کە تیایدا گرنگی بە پەیوەندییەکانی وەبەرهێنەران، پەیوەندییە ستراتیژییەکان، بەشداریکردنی نێودەوڵەتی، و بەرەوپێشبردنی وەبەرهێنان دەدات. لەگەڵ وەبەرهێنەرانی نێودەوڵەتی و دامەزراوە حکومییەکان و ژوورەکانی بازرگانی و ڕێکخراوەکانی گەشەپێدان کاردەکات، هەروەها پشتگیری لە مەکۆکانی وەبەرهێنان و شاندەکان و بۆنە نێودەوڵەتییەکان دەکات. خاوەنی بڕوانامەی ماستەرە لە سیاسەت و پەیوەندییە نێودەوڵەتییەکان، توێژینەوەکانی تایبەتن بە وەبەرهێنانی ڕاستەوخۆی دەرەکی و هەمەچەشنکردنی ئابووری لە هەرێمی کوردستان.",
+                "fa": "میوان حسن مدیر روابط عمومی Invest Kurdistan است و در این سمت بر روابط با سرمایه‌گذاران، ارتباطات راهبردی، تعاملات بین‌المللی و ترویج سرمایه‌گذاری تمرکز دارد. او با سرمایه‌گذاران بین‌المللی، نهادهای دولتی، اتاق‌های بازرگانی و سازمان‌های توسعه‌ای همکاری می‌کند و از همایش‌های سرمایه‌گذاری، هیئت‌ها و رویدادهای بین‌المللی پشتیبانی می‌کند. او دارای مدرک کارشناسی ارشد سیاست و روابط بین‌الملل است و پژوهش او بر سرمایه‌گذاری مستقیم خارجی و تنوع‌بخشی اقتصادی در اقلیم کردستان متمرکز بوده است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/23u1NUAZuupUVrAz3RtLg.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 160,
+              "is_active": true,
+              "created_at": "2026-09-29T09:48:09.766Z",
+              "updated_at": "2026-09-29T09:48:09.766Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "d9d2b330-4f1c-4227-a12f-c44ece2a93b0",
+              "name": {
+                "ar": "رضوان اكرم",
+                "en": "Redwan Akram",
+                "ku": "ڕێدوان ئەکرەم",
+                "fa": "رضوان اکرم"
+              },
+              "title": {
+                "ar": "أخصائي قانوني أول",
+                "en": "Senior Legal Specialist",
+                "ku": "پسپۆڕی باڵای یاسایی",
+                "fa": "کارشناس ارشد حقوقی"
+              },
+              "company": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "رضوان أكرم هو أحد كبار المتخصصين القانونيين في مؤسسة استثمر كردستان وخريج القانون من جامعة صلاح الدين. ويقدم الاستشارات للمستثمرين بشأن قوانين الاستثمار والشركات والعمل والقوانين ذات الصلة في إقليم كردستان. ويعمل أيضًا مع المؤسسات الدولية، بما في ذلك البنك الدولي ومؤسسة التمويل الدولية، لدعم التحسينات في مناخ الاستثمار والنمو الاقتصادي المستدام.",
+                "en": "Redwan Akram is a Senior Legal Specialist at Invest Kurdistan and a Law graduate from Salahaddin University. He advises investors on the Kurdistan Region's Investment, Company, Labor, and related laws. He also works with international institutions, including the World Bank and IFC, to support improvements in the investment climate and sustainable economic growth.",
+                "ku": "ڕێدوان ئەکرەم پسپۆڕی باڵای یاساییە لە ئینڤێست کوردستان و دەرچووی یاسا لە زانکۆی سەلاحەدین. ئامۆژگاری وەبەرهێنەران دەکات لەسەر وەبەرهێنان، کۆمپانیا، کار، و یاساکانی پەیوەندیدار بە هەرێمی کوردستان. هەروەها لەگەڵ دامەزراوە نێودەوڵەتییەکان کاردەکات، لەوانە بانکی نێودەوڵەتی و دامەزراوەی دارایی نێودەوڵەتی، بۆ پشتگیریکردن لە باشترکردنی کەشوهەوای وەبەرهێنان و گەشەی ئابووری بەردەوام.",
+                "fa": "رضوان اکرم متخصص ارشد حقوقی در Invest Kurdistan و دانش‌آموخته رشته حقوق از دانشگاه صلاح‌الدین است. او درباره قوانین سرمایه‌گذاری، شرکت‌ها، کار و دیگر قوانین مرتبط اقلیم کردستان به سرمایه‌گذاران مشاوره می‌دهد. او همچنین با نهادهای بین‌المللی، از جمله بانک جهانی و مؤسسه مالی بین‌المللی (IFC)، برای حمایت از بهبود فضای سرمایه‌گذاری و رشد اقتصادی پایدار همکاری می‌کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/y1NKXdd7bGF4LMUY836-d.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 159,
+              "is_active": true,
+              "created_at": "2026-09-29T09:46:43.151Z",
+              "updated_at": "2026-09-29T09:46:43.151Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "87e9fe67-076e-447c-b54d-03cc3d0d070e",
+              "name": {
+                "ar": "علاء ابراهيم موسى",
+                "en": "Ala Ibrahim Musa",
+                "ku": "ئاڵا ئیبراهیم موسا",
+                "fa": "آلا ابراهیم موسی"
+              },
+              "title": {
+                "ar": "محللة استثمار أولى – قطاع الزراعة",
+                "en": "Senior Investment Analyst – Agriculture Sector",
+                "ku": "شیکاری باڵای وەبەرهێنان – کەرتی کشتوکاڵ",
+                "fa": "تحلیلگر ارشد سرمایه‌گذاری – بخش کشاورزی"
+              },
+              "company": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "علاء إبراهيم موسى هي مهندسة زراعية ومحللة استثمارية أولى متخصصة في قطاع الزراعة في استثمر كردستان. وبفضل 11 عامًا من الخبرة في مجال الزراعة، تجمع بين الخبرة الفنية وتشجيع الاستثمار وتنمية القطاع الخاص. حاصلة على درجة البكالوريوس في وقاية النبات من جامعة صلاح الدين وعملت في الإنتاج الزراعي ومشاريع التنمية ومبادرات الزراعة المستدامة. يركز عملها على ربط الإمكانات الزراعية في كردستان بفرص الاستثمار والأعمال التجارية الزراعية.",
+                "en": "Ala Ibrahim Musa is an Agricultural Engineer and Senior Investment Analyst specializing in the Agriculture Sector at Invest Kurdistan. With 11 years of experience in agriculture, she combines technical expertise with investment promotion and private-sector development. She holds a Bachelor's degree in Plant Protection from Salahaddin University and has worked in agricultural production, development projects, and permaculture initiatives. Her work focuses on connecting Kurdistan's agricultural potential with investment and agribusiness opportunities.",
+                "ku": "ئاڵا ئیبراهیم موسا ئەندازیاری کشتوکاڵی و شرۆڤەکاری باڵای وەبەرهێنانە و پسپۆڕە لە کەرتی کشتوکاڵ لە ئینڤێست کوردستان. بە ئەزموونی ١١ ساڵ لە کشتوکاڵدا، شارەزایی تەکنیکی لەگەڵ بەرەوپێشبردنی وەبەرهێنان و پەرەپێدانی کەرتی تایبەت تێکەڵ دەکات. خاوەنی بڕوانامەی بەکالۆریۆسە لە پاراستنی ڕووەک لە زانکۆی سەلاحەدین و لە بەرهەمهێنانی کشتوکاڵی و پڕۆژەکانی گەشەپێدان و دەستپێشخەرییەکانی کشتوکاڵی هەمیشەیی کاری کردووە. کارەکانی لەسەر بەستنەوەی توانای کشتوکاڵی کوردستان بە هەلی وەبەرهێنان و بازرگانی کشتوکاڵییەوەیە.",
+                "fa": "آلا ابراهیم موسی مهندس کشاورزی و تحلیلگر ارشد سرمایه‌گذاری در Invest Kurdistan با تخصص در بخش کشاورزی است. او با ۱۱ سال تجربه در کشاورزی، دانش فنی را با ترویج سرمایه‌گذاری و توسعه بخش خصوصی تلفیق می‌کند. او دارای مدرک کارشناسی گیاه‌پزشکی از دانشگاه صلاح‌الدین است و در تولید کشاورزی، پروژه‌های توسعه‌ای و ابتکارهای پرماکالچر فعالیت داشته است. فعالیت او بر پیوند دادن ظرفیت‌های کشاورزی کردستان با فرصت‌های سرمایه‌گذاری و کسب‌وکار کشاورزی متمرکز است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/y5Jg89TnjozpeYrNMJxN_.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 157,
+              "is_active": true,
+              "created_at": "2026-09-28T20:16:24.205Z",
+              "updated_at": "2026-09-28T20:16:24.205Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "de42468d-db7f-452f-b13d-34395353ecd4",
+              "name": {
+                "ar": "إسراء سيف الله مصطفى",
+                "en": "Israa Saefulla Mustafa",
+                "ku": "ئیسرا سەیفوڵڵا مستەفا",
+                "fa": "اسراء سیف‌الله مصطفی"
+              },
+              "title": {
+                "ar": "محللة استثمار أولى",
+                "en": "Senior Investment Analyst",
+                "ku": "شیکاری باڵای وەبەرهێنان",
+                "fa": "تحلیلگر ارشد سرمایه‌گذاری"
+              },
+              "company": {
+                "ar": "استثمر في كوردستان – هيئة الاستثمار",
+                "en": "Invest Kurdistan – Board of Investment",
+                "ku": "وەبەرهێنان لە کوردستان – دەستەی وەبەرهێنان",
+                "fa": "Invest Kurdistan – هیئت سرمایه‌گذاری"
+              },
+              "country": {
+                "ar": "كوردستان، العراق",
+                "en": "Kurdistan, Iraq",
+                "ku": "کوردستان، عێراق",
+                "fa": "کردستان، عراق"
+              },
+              "bio": {
+                "ar": "إسراء سيف الله مصطفى هي محللة استثمارية أولى في مؤسسة انفست كردستان، وهي متخصصة في الاستثمار الأجنبي المباشر، وأبحاث القطاع، وتطوير فرص الاستثمار، وإشراك المستثمرين. وهي تقود حاليًا قطاع السياحة ضمن وحدة الاستثمار الأجنبي المباشر، مع التركيز على تحليل السوق والتحليل المالي وتطوير فرص الاستثمار في جميع أنحاء إقليم كردستان. وهي حاصلة على شهادة في الهندسة الكيميائية وأكملت التدريب الدولي في مجال ترويج الاستثمار من خلال مجموعة البنك الدولي.",
+                "en": "Israa Saefulla Mustafa is a Senior Investment Analyst at Invest Kurdistan, specializing in foreign direct investment, sector research, investment opportunity development, and investor engagement. She currently leads the tourism sector within the FDI Unit, focusing on market and financial analysis and developing investment opportunities across the Kurdistan Region. She holds a degree in Chemical Engineering and has completed international training in investment promotion through the World Bank Group.",
+                "ku": "ئیسرا سەیفوڵڵا مستەفا شرۆڤەکاری باڵای وەبەرهێنانە لە کۆمپانیای ئینڤێست کوردستان، پسپۆڕە لە وەبەرهێنانی ڕاستەوخۆی بیانی، توێژینەوەی کەرتەکان، پەرەپێدانی دەرفەتی وەبەرهێنان، و بەشداریکردنی وەبەرهێنەران. لە ئێستادا سەرکردایەتی کەرتی گەشتیاری دەکات لە چوارچێوەی یەکەی وەبەرهێنانی بیانی ڕاستەوخۆ، گرنگی بە شیکاری بازاڕ و دارایی و پەرەپێدانی دەرفەتەکانی وەبەرهێنان لە سەرانسەری هەرێمی کوردستان دەدات. خاوەنی بڕوانامەی ئەندازیاری کیمیایە و لەڕێگەی گروپی بانکی جیهانییەوە ڕاهێنانی نێودەوڵەتی لە بواری بەرەوپێشبردنی وەبەرهێنان تەواو کردووە.",
+                "fa": "اسراء سیف‌الله مصطفی تحلیلگر ارشد سرمایه‌گذاری در Invest Kurdistan است و در زمینه سرمایه‌گذاری مستقیم خارجی، پژوهش‌های بخشی، توسعه فرصت‌های سرمایه‌گذاری و تعامل با سرمایه‌گذاران تخصص دارد. او در حال حاضر هدایت بخش گردشگری را در واحد سرمایه‌گذاری مستقیم خارجی (FDI) بر عهده دارد و بر تحلیل بازار و تحلیل مالی و توسعه فرصت‌های سرمایه‌گذاری در سراسر اقلیم کردستان تمرکز دارد. او دارای مدرک مهندسی شیمی است و دوره‌های آموزشی بین‌المللی در زمینه ترویج سرمایه‌گذاری را از طریق گروه بانک جهانی گذرانده است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/s62oG8tCEQJVNeYWbXft9.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 158,
+              "is_active": true,
+              "created_at": "2026-09-28T20:18:18.874Z",
+              "updated_at": "2026-09-28T20:18:18.874Z",
+              "SessionSpeaker": {
+                "sort_order": 3,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "5bccdb64-4683-488d-a880-4140409eab71",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "من الخرسانة إلى البرمجة: إعادة التفكير في كيفية صنع القيمة",
+            "en": "From Concrete to Code: Rethinking How We Build Value",
+            "ku": "لە کۆنکریتەوە بۆ کۆد: تێڕوانینێکی نوێ بۆ خولقاندنی بەها",
+            "fa": "از بتن تا کد: بازاندیشی در شیوه خلق ارزش"
+          },
+          "description": {},
+          "start_time": "14:50:00",
+          "end_time": "15:20:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 2,
+          "mobile_id": 34,
+          "is_active": true,
+          "created_at": "2026-09-30T18:33:04.754Z",
+          "updated_at": "2026-10-01T10:33:56.323Z",
+          "speakers": [
+            {
+              "id": "3abaaad6-7253-4c97-861b-3a9c210a3c2f",
+              "name": {
+                "ar": "رهبر عمر",
+                "en": "Rahbar Omer",
+                "ku": "ڕەهبەر عومەر",
+                "fa": "رهبر عمر"
+              },
+              "title": {
+                "ar": "مهندس إنشاءات ومتخصص في الإعلام الهندسي",
+                "en": "Construction Engineer & Engineering Media Specialist",
+                "ku": "ئەندازیاری بیناسازی و پسپۆڕی میدیای ئەندازیاری",
+                "fa": "مهندس ساختمان و متخصص رسانه‌های مهندسی"
+              },
+              "company": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "رهبر عمر مهندس إنشاءات ومؤسس فريق Nishan Engineering Team. تشمل خبراته أعمال الإنشاء والتصميم المعماري والإشراف على المشروعات والتعليم الهندسي.\n\nكما ينشط في مجال الإعلام والتواصل الهندسي، حيث ينتج محتوى احترافياً يسهّل الوصول إلى المعرفة والممارسات الهندسية. ويسعى رهبر، من خلال عمله التقني والإعلامي، إلى الإسهام في التطوير المستمر لقطاعي الهندسة والإنشاءات في إقليم كردستان.",
+                "en": "Rahbar Omer is a construction engineer and the Founder of Nishan Engineering Team. His work spans construction, architectural design, project supervision, and engineering education.\n\nHe is also active in engineering media and communication, creating professional content that makes engineering knowledge and practice more accessible. Through his technical and media work, Rahbar aims to contribute to the continued development of the engineering and construction sector in the Kurdistan Region.",
+                "ku": "ڕەهبەر عومەر ئەندازیاری بیناسازی و دامەزرێنەری Nishan Engineering Team ـە. ئەزموونەکانی بواری بیناسازی، دیزاینی تەلارسازی، سەرپەرشتی پڕۆژە و پەروەردەی ئەندازیاری دەگرێتەوە.\n\nهەروەها لە بواری میدیا و پەیوەندیی ئەندازیاریدا چالاکە و ناوەڕۆکی پیشەیی دروست دەکات بۆ ئەوەی زانیاری و پراکتیزی ئەندازیاری بە شێوەیەکی ئاسانتر بگاتە خەڵک. ڕێبەر لە ڕێگەی کاری تەکنیکی و میدیایی خۆیەوە هەوڵ دەدات بەشداری لە پەرەپێدانی بەردەوامی کەرتی ئەندازیاری و بیناسازی لە هەرێمی کوردستان بکات.",
+                "fa": "رهبر عمر مهندس ساختمان و بنیان‌گذار Nishan Engineering Team است. فعالیت او ساخت‌وساز، طراحی معماری، نظارت بر پروژه و آموزش مهندسی را در بر می‌گیرد.\n\nاو همچنین در حوزه رسانه و ارتباطات مهندسی فعال است و محتوای حرفه‌ای تولید می‌کند که دانش و عملکرد مهندسی را در دسترس‌تر می‌سازد. رهبر از طریق فعالیت‌های فنی و رسانه‌ای خود می‌کوشد به توسعه مستمر بخش مهندسی و ساخت‌وساز در اقلیم کردستان کمک کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ulM-T4zB3AiWymlwvSdV3.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 175,
+              "is_active": true,
+              "created_at": "2026-09-30T14:27:55.988Z",
+              "updated_at": "2026-09-30T14:27:55.988Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "7d18ddb7-837b-4637-957a-589bc75a1f99",
+              "name": {
+                "ar": "دانيا كاوه فائق",
+                "en": "Danya Kawa Faeq",
+                "ku": "دانیا کاوە فایق",
+                "fa": "دانیا کاوه فائق"
+              },
+              "title": {
+                "ar": "نائب الرئيس التنفيذي لمجموعة SK والمدير العام لشركة SK Estate",
+                "en": "DEPUTY CEO OF SK GROUP & MANAGING DIRECTOR OF SK ESTATE",
+                "ku": "جێگری سەرۆکی جێبەجێکاری گروپی SK و بەڕێوەبەری گشتی SK Estate",
+                "fa": "معاون مدیرعامل SK GROUP و مدیر اجرایی SK ESTATE"
+              },
+              "company": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "دانيا كاوه فائق هي نائبة الرئيس التنفيذي لمجموعة SK، وهي مجموعة عائلية تضم 14 شركة ونحو 1,500 موظف، وتعمل في قطاعات العقارات والتنقل والضيافة والتصنيع. كما تشغل منصب المديرة العامة لشركة SK Estate، حيث تشرف على مشروعات كبرى من بينها شاري دايك في السليمانية وفلوريا سيتي في أربيل، وهي أيضاً إحدى مؤسسات منصة Yalla SK المحلية لخدمات النقل التشاركي.\n\nوبصفتها الراعية التنفيذية لبرنامج التحول في مجموعة SK، تقود دانيا انتقال المجموعة نحو أنظمة تخطيط موارد مؤسسية متكاملة، وإجراءات عمل موحدة، وعمليات خالية من الورق. وتركز على بناء مؤسسات قادرة على الاستمرار والنمو بعيداً عن الاعتماد على أشخاص بعينهم، من خلال توظيف التكنولوجيا لتعزيز المساءلة وتحسين عملية اتخاذ القرار وتمكين العاملين.\n\nسبق لدانيا أن درّست نظم المعلومات الإدارية في الجامعة الأمريكية في العراق – السليمانية، حيث حصلت أيضاً على درجة الماجستير في إدارة الأعمال. كما تحمل درجة الماجستير في إدارة الأعمال الدولية من كلية هولت الدولية لإدارة الأعمال في لندن. وتهتم بصورة خاصة بكيفية تحديث الشركات الراسخة دون التفريط في قيمها أو ثقافتها أو إرثها.",
+                "en": "Danya Kawa Faeq is the Deputy CEO of SK Group, a family-owned group comprising 14 companies and approximately 1,500 employees across real estate, mobility, hospitality, and manufacturing. She also serves as Managing Director of SK Estate, overseeing major developments including Shary Daik in Sulaymaniyah and Floria City in Erbil, and is a co-founder of Yalla SK, a local ride-hailing platform.\n\nAs Executive Sponsor of the SK Transformation Program, Danya is leading the Group’s transition toward integrated ERP systems, standardized processes, and paperless operations. Her focus is on building organizations that can thrive beyond individual leaders by using technology to strengthen accountability, improve decision-making, and empower people.\n\nDanya previously taught Management Information Systems at the American University of Iraq, Sulaimani, where she also earned her MBA. She holds a Master of International Business from Hult International Business School in London. Her particular interest lies in helping established businesses modernize without losing their values, culture, or legacy.",
+                "ku": "دانیا کاوە فایق جێگری بەڕێوەبەری جێبەجێکاری گروپی SK ـە؛ گروپێکی خێزانی کە لە ١٤ کۆمپانیا و نزیکەی ١,٥٠٠ کارمەند پێک دێت و لە کەرتەکانی خانووبەرە، گواستنەوە، میوانداری و بەرهەمهێناندا چالاکی دەکات. هەروەها بەڕێوەبەری گشتیی SK Estate ـە و سەرپەرشتی پڕۆژە گەورەکانی وەک شاری دایک لە سلێمانی و Floria City لە هەولێر دەکات. دانیا یەکێکە لە هاودامەزرێنەرانی Yalla SK، پلاتفۆرمێکی ناوخۆیی داواکردنی ئۆتۆمبێل.\n\nوەک پشتگیری جێبەجێکاریی بەرنامەی گۆڕانکاریی گروپی SK، دانیا پێشەنگایەتی گواستنەوەی گروپەکە بەرەو سیستەمە یەکگرتووەکانی ERP، پڕۆسە ستانداردەکان و کارکردنی بێ کاغەز دەکات. ئامانجی ئەو دروستکردنی دامەزراوەیەکە کە سەرکەوتنی بە تاکە کەسەکانەوە بەستراو نەبێت و تەکنەلۆژیا بۆ بەهێزکردنی بەرپرسیارێتی، باشترکردنی بڕیاردان و تواناسازیی کارمەندان بەکاربهێنێت.\n\nدانیا پێشتر مامۆستای سیستەمی زانیاریی بەڕێوەبردن بووە لە زانکۆی ئەمریکی لە عێراق – سلێمانی، هەر لەوێش بڕوانامەی ماستەری بەڕێوەبردنی بازرگانی بەدەستهێناوە. هەروەها ماستەری بازرگانیی نێودەوڵەتی لە Hult International Business School لە لەندەن هەیە. بایەخێکی تایبەت بەوە دەدات کە چۆن کۆمپانیا بنیاتنراوەکان دەتوانن خۆیان نوێ بکەنەوە، بەبێ ئەوەی بەها، کەلتوور یان میراتی خۆیان لەدەست بدەن.",
+                "fa": "دانیا کاوه فائق قائم‌مقام مدیرعامل SK Group است؛ گروهی خانوادگی متشکل از ۱۴ شرکت و حدود ۱٬۵۰۰ کارمند در حوزه‌های املاک و مستغلات، حمل‌ونقل، هتلداری و تولید. او همچنین مدیر اجرایی SK Estate است و بر پروژه‌های بزرگی از جمله Shary Daik در سلیمانیه و Floria City در اربیل نظارت دارد و از هم‌بنیان‌گذاران Yalla SK، یک پلتفرم محلی درخواست آنلاین خودرو، است.\n\nدانیا به‌عنوان حامی اجرایی برنامه تحول SK، گذار این گروه به سوی سیستم‌های یکپارچه برنامه‌ریزی منابع سازمانی (ERP)، فرایندهای استانداردشده و عملیات بدون کاغذ را هدایت می‌کند. تمرکز او بر ساختن سازمان‌هایی است که بتوانند فراتر از رهبران منفرد شکوفا شوند؛ با بهره‌گیری از فناوری برای تقویت پاسخ‌گویی، بهبود تصمیم‌گیری و توانمندسازی افراد.\n\nدانیا پیش‌تر در دانشگاه آمریکایی عراق، سلیمانیه، درس سیستم‌های اطلاعات مدیریت را تدریس می‌کرد و مدرک MBA خود را نیز از همین دانشگاه دریافت کرد. او دارای مدرک کارشناسی ارشد تجارت بین‌الملل از دانشکده بین‌المللی کسب‌وکار هالت در لندن است. علاقه ویژه او کمک به کسب‌وکارهای باسابقه برای نوسازی بدون از دست دادن ارزش‌ها، فرهنگ یا میراثشان است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/8FFGvte1gAJ9W0FkFCpbf.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 174,
+              "is_active": true,
+              "created_at": "2026-09-30T14:24:22.283Z",
+              "updated_at": "2026-10-03T10:16:23.644Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "46515d49-ab9b-49b1-a06f-7be1287c2c2e",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "إطلاق العنان للابتكار: دور التنظيم في الاقتصاد الرقمي العراقي",
+            "en": "Unlocking Innovation: The Role of Regulation in Iraq’s Digital Economy",
+            "ku": "ڕێگەخۆشکردن بۆ داهێنان: ڕۆڵی ڕێکخستن لە ئابووریی دیجیتاڵی عێراق",
+            "fa": "گشودن راه نوآوری: نقش تنظیم‌گری در اقتصاد دیجیتال عراق"
+          },
+          "description": {},
+          "start_time": "15:25:00",
+          "end_time": "15:55:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 3,
+          "mobile_id": 28,
+          "is_active": true,
+          "created_at": "2026-09-29T20:29:49.437Z",
+          "updated_at": "2026-09-30T18:34:06.448Z",
+          "speakers": [
+            {
+              "id": "b9837e30-090c-47b7-bb5e-3162e05fb599",
+              "name": {
+                "ar": "مهناز صباح عبدالله",
+                "en": "Mahnaz Sabah Abdullah",
+                "ku": "مەهناز سەباح عەبدوڵڵا",
+                "fa": "مهناز صباح عبدالله"
+              },
+              "title": {
+                "ar": "مدير الموارد البشرية والإدارة في کوردنفت",
+                "en": "HR & Administration Manager at Kurdneft",
+                "ku": "بەڕێوەبەری سەرچاوە مرۆییەکان و کارگێڕی لە Kurdneft",
+                "fa": "مدیر منابع انسانی و امور اداری در Kurdneft"
+              },
+              "company": {},
+              "country": {},
+              "bio": {},
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/FG9cj0RTH8eqgbcuyq7yM.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 167,
+              "is_active": true,
+              "created_at": "2026-09-29T10:10:08.463Z",
+              "updated_at": "2026-10-02T12:28:23.767Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "03d0d6a0-2b63-411f-b1c4-a1807f76892f",
+              "name": {
+                "ar": "عبدالرحمن بابير",
+                "en": "Abdurrahman Bapir",
+                "ku": "عەبدوڕەحمان باپیر",
+                "fa": "عبدالرحمن باپیر"
+              },
+              "title": {
+                "ar": "المستشار الاستراتيجي لأو كي إكس في الشرق الأوسط وشمال أفريقيا",
+                "en": "FOUNDER AND CEO OF KURDCOIN STRATEGIC ADVISOR AT OKX-MENA",
+                "ku": "دامەزرێنەر و سەرۆکی جێبەجێکاری KurdCoin، و ڕاوێژکاری ستراتیژی لە OKX بۆ ناوچەی ڕۆژهەڵاتی ناوەڕاست و باکووری ئەفریقا",
+                "fa": "بنیان‌گذار و مدیرعامل KURDCOIN، مشاور استراتژیک در OKX-MENA"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "عبد الرحمن بابير هو المستشار الاستراتيجي لمنطقة الشرق الأوسط وشمال أفريقيا في أو كي إكس. أسس كوردكوين في عام ٢٠١٧ كأول شركة وساطة للعملات المشفرة في العراق. يشمل عمله الأصول الرقمية والتكنولوجيا الرائدة والتنمية الاقتصادية، مع التركيز على العراق والأسواق الناشئة الأخرى. وهو مهتم بشكل خاص بكيفية تشكيل التنظيم والتكنولوجيا للابتكار المالي، وكيف يمكن للمؤسسات الأقوى أن تدعم الاستثمار والنمو طويل الأجل في المنطقة. وهو حاصل على درجة الماجستير في السياسة والاقتصاد في الشرق الأوسط من جامعة كينجز كوليدج في لندن.",
+                "en": "Abdurrahman Bapir is Strategic Advisor for the Middle East and North Africa at OKX. He founded Kurdcoin in 2017 as Iraq's first crypto brokerage. His work spans digital assets, frontier tech and economic development, with a focus on Iraq and other emerging markets. He is particularly interested in how regulation and technology shape financial innovation, and how stronger institutions can support investment and long-term growth in the region. He holds an MA in Politics and Economics of the Middle East from King's College London.",
+                "ku": "عەبدولڕەحمان باپیر ڕاوێژکاری ستراتیژی ڕۆژهەڵاتی ناوەڕاست و باکووری ئەفریقایە لە ئۆک ئێکس. لە ساڵی ٢٠١٧دا کوردکۆین وەک یەکەم دەڵاڵی کریپتۆی عێراق دامەزراند. کارەکانی بریتین لە سەروەت و سامانی دیجیتاڵی و تەکنەلۆژیای میحوەری و گەشەپێدانی ئابووری، لەگەڵ گرنگیدان بە عێراق و بازاڕە تازەپێگەیشتووەکانی دیکە. ئەو بە تایبەتی گرنگی بەو شتانە دەدات کە چۆن ڕێکخستن و تەکنەلۆژیا داهێنانی دارایی لە قاڵب دەدەن، و چۆن دامەزراوە بەهێزەکان دەتوانن پشتگیری وەبەرهێنان و گەشەی درێژخایەن بکەن لە ناوچەکەدا. خاوەنی بڕوانامەی ماستەرە لە سیاسەت و ئابووری ڕۆژهەڵاتی ناوەڕاست لە کۆلێژی کینگز لەندەن.",
+                "fa": "عبدالرحمن باپیر مشاور راهبردی OKX در خاورمیانه و شمال آفریقا است. او در سال ۲۰۱۷ Kurdcoin را به‌عنوان نخستین کارگزاری رمزارز عراق تأسیس کرد. فعالیت او دارایی‌های دیجیتال، فناوری‌های پیشرو و توسعه اقتصادی را با تمرکز بر عراق و دیگر بازارهای نوظهور در بر می‌گیرد. او به‌ویژه به این موضوع علاقه‌مند است که مقررات و فناوری چگونه نوآوری مالی را شکل می‌دهند و نهادهای قوی‌تر چگونه می‌توانند از سرمایه‌گذاری و رشد بلندمدت در منطقه پشتیبانی کنند. او دارای مدرک کارشناسی ارشد سیاست و اقتصاد خاورمیانه از کینگز کالج لندن است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/A8vKpYAPHymwsF6h1JtwN.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 166,
+              "is_active": true,
+              "created_at": "2026-09-29T10:09:00.786Z",
+              "updated_at": "2026-10-03T10:19:05.277Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "37cac8b4-ed66-45a4-a294-75131b2e59f8",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "عالم أكثر خضرة تصنعه التكنولوجيا",
+            "en": "A Greener World, Powered by Technology",
+            "ku": "جیهانێکی سەوزتر کە تەکنەلۆژیا دروستی دەکات",
+            "fa": "جهانی سبزتر با نیروی فناوری"
+          },
+          "description": {},
+          "start_time": "16:00:00",
+          "end_time": "16:45:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "ar": "حوار",
+            "en": "Dialogue",
+            "ku": "گفتوگۆ",
+            "fa": "گفت‌وگو"
+          },
+          "location": {},
+          "sort_order": 4,
+          "mobile_id": 29,
+          "is_active": true,
+          "created_at": "2026-09-29T20:30:33.151Z",
+          "updated_at": "2026-09-30T18:34:12.108Z",
+          "speakers": [
+            {
+              "id": "3d60480c-3847-4ed8-ba8e-bb88352bd804",
+              "name": {
+                "ar": "دلبند رواندزي",
+                "en": "Delband Rawanduzi",
+                "ku": "دڵبەند ڕەواندزی",
+                "fa": "دلبند رواندزی"
+              },
+              "title": {
+                "ar": "جيولوجي منسق مشاريع في مركز بحوث تغير المناخ والتنمية المستدامة - جامعة سوران",
+                "en": "Geologist and project coordinator at CCSDRC",
+                "ku": "جیۆلۆجیست (زەویناس) رێکخەری پڕۆژە لە ناوەندی توێژینەوەی گۆڕانی کەش و هەوا و پەرەپێدانی بەردەوام - زانکۆی سۆران",
+                "fa": "زمین‌شناس و هماهنگ‌کننده پروژه در CCSDRC"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "دلبند رواندزي متخصصة في علم الجيولوجيا وتمتلك خبرة تزيد على خمس سنوات في مجال التغير المناخي. حصلت على منحة Guan Eden Grant عام 2021، كما تعاونت مع عدد من المؤسسات البارزة، من بينها USAID، ومعهد غوته في العراق، وشبكة رووداو الإعلامية. وتعمل حالياً منسقةً للمشاريع في مركز أبحاث التغير المناخي بجامعة سوران.",
+                "en": "Delband Rawanduzi is a geologist with over five years of experience in climate change. \nShe was awarded Guan Eden Grant in 2021 and has collaborated with several prominent organizations, including USAID, Goethe-Institut Iraq, and Rudaw Media Network. Currently, she is working as a Project Coordinator at Climate Change Research Center at Soran University.",
+                "ku": "دڵبەند ڕەواندزی جیۆلۆجیستێکە و زیاتر لە پێنج ساڵ ئەزموونی کاری لە بواری گۆڕانی کەشوهەوا هەیە. لە ساڵی ٢٠٢١ خەڵاتی Guan Eden Grantی پێ بەخشرا، هەروەها لەگەڵ چەندین دامەزراوەی ناسراو کاری کردووە، لەوانە USAID، Goethe-Institut Iraq، و تۆڕی میدیایی ڕووداو. لە ئێستادا وەک هەماهەنگکەری پڕۆژە لە ناوەندی توێژینەوەی گۆڕانی کەشوهەوا لە زانکۆی سۆران کار دەکات.",
+                "fa": "دلبند رواندزی زمین‌شناسی با بیش از پنج سال تجربه در حوزه تغییرات اقلیمی است.\nاو در سال ۲۰۲۱ موفق به دریافت کمک‌هزینه Guan Eden شد و با چندین سازمان برجسته، از جمله آژانس توسعه بین‌المللی ایالات متحده (USAID)، انستیتو گوته عراق و شبکه رسانه‌ای Rudaw، همکاری داشته است. او در حال حاضر به‌عنوان هماهنگ‌کننده پروژه در مرکز پژوهش‌های تغییرات اقلیمی دانشگاه سوران فعالیت می‌کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/46zQ68uel0aIAl31YJFk5.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 155,
+              "is_active": true,
+              "created_at": "2026-09-23T12:48:23.126Z",
+              "updated_at": "2026-10-03T15:30:45.856Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "842d91d6-0277-4aeb-92d2-5d43842e569a",
+              "name": {
+                "ar": "هيرش صباح نوري",
+                "en": "Herish Sabah Nori",
+                "ku": "هێرش سەباح نوری",
+                "fa": "هیرش صباح نوری"
+              },
+              "title": {
+                "ar": "مؤسس ومدير عام إي في مول",
+                "en": "Founder & General Manager, EV Mall",
+                "ku": "دامەزرێنەر و بەڕێوەبەری گشتیی ئی ڤی مۆڵ",
+                "fa": "بنیان‌گذار و مدیر کل، EV Mall"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "هيرش صباح نوري هو مؤسس ومدير عام إي في مول. ومنذ تأسيس الشركة في أربيل عام ٢٠٢٢، قاد نموها من تطوير بنية تحتية للشحن السريع بالتيار المستمر للمركبات الكهربائية إلى العمل ضمن منظومة التنقل الكهربائي الأوسع في كردستان والعراق، بما يشمل مبيعات المركبات وحلول الشحن وخدمات ما بعد البيع والشراكات الاستراتيجية. وإي في مول موزع فرعي معتمد لشركة بي واي دي العراق في إقليم كردستان.",
+                "en": "Herish Sabah Nori is the Founder and General Manager of EV Mall. Since establishing the company in Erbil in 2022, he has led its growth from developing DC fast-charging infrastructure for electric vehicles to operating across the wider electric mobility ecosystem in Kurdistan and Iraq, including vehicle sales, charging solutions, after-sales services, and strategic partnerships. EV Mall is an authorized sub-dealer of BYD Iraq in the Kurdistan Region.\n",
+                "ku": "هێرش سەباح نوری دامەزرێنەر و بەڕێوەبەری گشتیی ئی ڤی مۆڵە. لە دوای دامەزراندنی کۆمپانیاکە لە هەولێر لە ساڵی ٢٠٢٢، گەشەکردنی لە پەرەپێدانی ژێرخانی پڕکردنەوەی خێرای کارەبای ڕاستەوخۆ بۆ ئۆتۆمبێلی کارەباییەوە بەرەو چالاکی لە تەواوی ژینگەی جووڵەی کارەبایی لە کوردستان و عێراق ڕابەرایەتی کردووە. ئەم چالاکییانە فرۆشتنی ئۆتۆمبێل، چارەسەری پڕکردنەوەی کارەبا، خزمەتگوزاریی دوای فرۆشتن و هاوبەشیی ستراتیژی دەگرنەوە. ئی ڤی مۆڵ فرۆشیاری لاوەکیی ڕێپێدراوی بی وای دی عێراقە لە هەرێمی کوردستان.\n",
+                "fa": "هیرش صباح نوری بنیان‌گذار و مدیر کل EV Mall است. او از زمان تأسیس این شرکت در اربیل در سال ۲۰۲۲، رشد آن را از توسعه زیرساخت شارژ سریع DC برای خودروهای برقی تا فعالیت در سراسر اکوسیستم گسترده‌تر حمل‌ونقل برقی در کردستان و عراق، از جمله فروش خودرو، راه‌حل‌های شارژ، خدمات پس از فروش و شراکت‌های راهبردی، هدایت کرده است. EV Mall نماینده فرعی مجاز BYD Iraq در اقلیم کردستان است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/xdYrkFdhd4cr5IdZzXF1p.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 153,
+              "is_active": true,
+              "created_at": "2026-09-23T12:41:55.737Z",
+              "updated_at": "2026-09-23T12:41:55.737Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "a5814585-314c-4e34-a3da-daecddabd3a7",
+              "name": {
+                "ar": "محمد علاف",
+                "en": "Mohammed Allaf",
+                "ku": "محەمەد عەلاف",
+                "fa": "محمد علاف"
+              },
+              "title": {
+                "ar": "الرئيس التنفيذي لشركة مابكوم",
+                "en": "CEO, MAPCOM",
+                "ku": "بەڕێوەبەری جێبەجێکاری ماپکۆم",
+                "fa": "مدیرعامل، MAPCOM"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "محمد علاف هو الرئيس التنفيذي لشركة مابكوم، وهي شركة استشارات بيئية وهندسية في العراق. يمتلك أكثر من ١٥ عامًا من الخبرة المهنية في الهندسة المدنية ونظم المعلومات الجغرافية والاستشعار عن بعد والإدارة البيئية وتغير المناخ والحد من مخاطر الكوارث. سبق أن عمل مع المنظمة الدولية للهجرة ضمن منظومة الأمم المتحدة، متخصصًا في إدارة المعلومات ونظم المعلومات الجغرافية والاستشعار عن بعد والأمن المناخي. يركز عمله على التقنيات الجغرافية المكانية والتحديات البيئية والقدرة على التكيف مع المناخ والتنمية المستدامة.",
+                "en": "Mohammed Allaf is the CEO of MAPCOM, an environmental and engineering consultancy in Iraq, with more than 15 years of professional experience in civil engineering, GIS, remote sensing, environmental management, climate change, and disaster risk reduction. He previously worked with the International Organization for Migration (IOM) within the UN system, specializing in information management, GIS, remote sensing, and climate security. His work focuses on geospatial technology, environmental challenges, climate resilience, and sustainable development.\n",
+                "ku": "محەمەد عەلاف بەڕێوەبەری جێبەجێکاری ماپکۆمە، کۆمپانیایەکی ڕاوێژکاری ژینگەیی و ئەندازیاری لە عێراق. زیاتر لە ١٥ ساڵ ئەزموونی پیشەیی لە ئەندازیاری شارستانی، سیستەمی زانیاریی جوگرافی، هەستپێکردن لە دوورەوە، بەڕێوەبردنی ژینگە، گۆڕانی کەشوهەوا و کەمکردنەوەی مەترسیی کارەسات هەیە. پێشتر لە چوارچێوەی سیستەمی نەتەوە یەکگرتووەکان لەگەڵ ڕێکخراوی نێودەوڵەتیی کۆچ کار کردووە و لە بەڕێوەبردنی زانیاری، سیستەمی زانیاریی جوگرافی، هەستپێکردن لە دوورەوە و ئاسایشی کەشوهەوا پسپۆڕ بووە. کارەکانی لەسەر تەکنەلۆژیای شوێنناس، ئالنگارییە ژینگەییەکان، خۆڕاگریی کەشوهەوا و گەشەپێدانی بەردەوام چڕ دەبنەوە.\n",
+                "fa": "محمد علاف مدیرعامل MAPCOM، یک شرکت مشاوره زیست‌محیطی و مهندسی در عراق، است و بیش از ۱۵ سال تجربه حرفه‌ای در مهندسی عمران، GIS، سنجش از دور، مدیریت محیط زیست، تغییرات اقلیمی و کاهش خطر بلایا دارد. او پیش‌تر در سازمان بین‌المللی مهاجرت (IOM) در چارچوب نظام سازمان ملل فعالیت می‌کرد و در مدیریت اطلاعات، GIS، سنجش از دور و امنیت اقلیمی تخصص داشت. فعالیت او بر فناوری‌های مکانی، چالش‌های زیست‌محیطی، تاب‌آوری اقلیمی و توسعه پایدار متمرکز است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/gOfWZM8JlbtrpsTlQOtr1.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 154,
+              "is_active": true,
+              "created_at": "2026-09-23T12:46:08.887Z",
+              "updated_at": "2026-09-23T12:46:08.887Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "dd42af3b-9efb-4e4a-a6eb-e129ae83e708",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "من سيقود موجة الاتصال القادمة؟",
+            "en": "Who Owns the Next Connection?",
+            "ku": "کێ پێشەنگایەتی شەپۆلی داهاتووی پەیوەندی دەکات؟",
+            "fa": "اتصال بعدی متعلق به کیست؟"
+          },
+          "description": {},
+          "start_time": "16:50:00",
+          "end_time": "17:20:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 5,
+          "mobile_id": 30,
+          "is_active": true,
+          "created_at": "2026-09-29T20:31:11.762Z",
+          "updated_at": "2026-09-30T18:34:18.475Z",
+          "speakers": [
+            {
+              "id": "91afe548-e16e-447a-ab4f-798ef3c407f8",
+              "name": {
+                "ar": "بركار آزاد",
+                "en": "Barkar Azad",
+                "ku": "بەرکار ئازاد",
+                "fa": "برکار آزاد"
+              },
+              "title": {
+                "ar": "مدير الحسابات الرئيسية في شركة دل تكنولوجي",
+                "en": "Key Account Manager at DIL Technology",
+                "ku": "بەڕێوەبەری هەژمارە سەرەکییەکان لە دل تەکنەلۆجی",
+                "fa": "مدیر حساب‌های کلیدی در DIL Technology"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "ولد باركر آزاد ونشأ في أربيل. حصل على شهادة في هندسة الكمبيوتر ولديه أكثر من ١٠ سنوات من الخبرة المهنية في العمل مع شركات مزودي خدمة الإنترنت. وتشمل خبرته قطاعات الاتصالات والتكنولوجيا، مع التركيز القوي على خدمات الشبكات والإنترنت.",
+                "en": "Barkar Azad was born and raised in Erbil. He graduated with a degree in Computer Engineering and has over 10 years of professional experience working with Internet Service Provider (ISP) companies. His experience spans the telecommunications and technology sectors, with a strong focus on networking and internet services.",
+                "ku": "بەرکار ئازاد لە شاری هەولێر لەدایک بووە و گەورە بووە. بڕوانامەی ئەندازیاری کۆمپیوتەر بەدەستهێناوە و زیاتر لە ١٠ ساڵ ئەزموونی پیشەیی لە کارکردن لەگەڵ کۆمپانیاکانی دابینکەری خزمەتگوزاری ئینتەرنێت هەیە. ئەزموونەکەی لە کەرتەکانی پەیوەندی و تەکنەلۆژیا دەگرێتەوە، بە گرنگیدانێکی بەهێز بە تۆڕ و خزمەتگوزارییەکانی ئینتەرنێت.",
+                "fa": "برکار آزاد در اربیل به دنیا آمد و بزرگ شد. او در رشته مهندسی کامپیوتر فارغ‌التحصیل شده و بیش از ۱۰ سال تجربه حرفه‌ای در شرکت‌های ارائه‌دهنده خدمات اینترنت (ISP) دارد. تجربه او بخش‌های مخابرات و فناوری را در بر می‌گیرد و تمرکز ویژه‌ای بر شبکه و خدمات اینترنتی دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/qgtzx1SNSj_UpJhwL0rM6.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 165,
+              "is_active": true,
+              "created_at": "2026-09-29T10:07:21.436Z",
+              "updated_at": "2026-10-04T11:45:04.500Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "1cfa6c20-3b39-44dd-9426-f1315f5f0068",
+              "name": {
+                "ar": "جمال أحمد حسين البرزنجي",
+                "en": "Jamal Ahmed Hussein Barznjy",
+                "ku": "جەمال احمد حسێن بەرزنجی",
+                "fa": "جمال احمد حسین برزنجی"
+              },
+              "title": {
+                "ar": "المدير العام للبريد والاتصالات في وزارة النقل والاتصالات، حكومة إقليم كوردستان، العراق",
+                "en": "General Director of Post and Communications at the Ministry of Transportation and Communications, KRG, Iraq",
+                "ku": "بەڕێوەبەری گشتیی پۆست و پەیوەندییەکان لە وەزارەتی گواستنەوە و پەیوەندییەکان، حکومەتی هەرێمی کوردستان، عێراق",
+                "fa": "مدیر کل پست و ارتباطات در وزارت حمل‌ونقل و ارتباطات، حکومت اقلیم کردستان، عراق"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "الدكتور جمال برزنجي هو المدير العام للبريد والاتصالات في وزارة النقل والاتصالات، موتاك، حكومة إقليم كردستان العراق. يتمتع بخبرة تزيد عن ٢٠ عامًا في الهندسة الكهربائية والاتصالات وشبكات الاتصالات والبنية التحتية الرقمية. حصل على درجة الدكتوراه في الاتصالات ومعالجة الإشارات من جامعة نيوكاسل بالمملكة المتحدة. يركز عمله الحالي على تنظيم الاتصالات والاتصال الرقمي والخدمات البريدية والتحول الرقمي في إقليم كردستان.",
+                "en": "Dr. Jamal A. Barznjy is the Director General of Post and Communications at the Ministry of Transport and Communications (MOTAC), Kurdistan Regional Government of Iraq. He has more than 20 years of experience in electrical engineering, telecommunications, communications networks, and digital infrastructure. He holds a PhD in Communications and Signal Processing from Newcastle University, UK. His current work focuses on telecommunications regulation, digital connectivity, postal services, and digital transformation in the Kurdistan Region.",
+                "ku": "د. جەمال بەرزنجی بەڕێوەبەری گشتی پۆست و پەیوەندییەکانە لە وەزارەتی گواستنەوە و گەیاندن، مۆتاک، حکومەتی هەرێمی کوردستان. خاوەنی زیاتر لە ٢٠ ساڵ ئەزموونی ئەندازیاری کارەبا و پەیوەندییەکان و تۆڕەکانی پەیوەندییەکان و ژێرخانی دیجیتاڵییە. خاوەنی دکتۆرایە لە پەیوەندییەکان و پرۆسێسی سیگناڵ لە زانکۆی نیوکاسڵ لە بەریتانیا. کارەکانی ئێستای تیشک دەخاتە سەر ڕێکخستنی پەیوەندییەکان، پەیوەندی دیجیتاڵی، خزمەتگوزاری پۆستە، و گۆڕینی دیجیتاڵی لە هەرێمی کوردستان.",
+                "fa": "دکتر جمال ای. برزنجی مدیر کل پست و ارتباطات در وزارت حمل‌ونقل و ارتباطات (MOTAC) حکومت اقلیم کردستان عراق است. او بیش از ۲۰ سال تجربه در مهندسی برق، مخابرات، شبکه‌های ارتباطی و زیرساخت دیجیتال دارد. وی دارای مدرک دکترای ارتباطات و پردازش سیگنال از دانشگاه نیوکاسل بریتانیا است. فعالیت کنونی او بر تنظیم‌گری مخابرات، اتصال دیجیتال، خدمات پستی و تحول دیجیتال در اقلیم کردستان متمرکز است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/2_-7X-bFM20KKXFey3IVR.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": 62,
+              "is_featured": false,
+              "mobile_id": 61,
+              "is_active": true,
+              "created_at": "2026-04-22T07:01:48.086Z",
+              "updated_at": "2026-09-29T10:05:50.991Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "db12d799-3cb7-4341-bbf0-8c0e8e3957aa",
+          "agenda_id": "b2772d74-1b6d-4491-b85c-ae8ef15cf393",
+          "title": {
+            "ar": "وداعاً للنقد!",
+            "en": "Goodbye, Cash!",
+            "ku": "خوات لەگەڵ، پارەی کاش!",
+            "fa": "خداحافظ، پول نقد!"
+          },
+          "description": {},
+          "start_time": "17:25:00",
+          "end_time": "18:10:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 6,
+          "mobile_id": 35,
+          "is_active": true,
+          "created_at": "2026-09-30T18:33:52.223Z",
+          "updated_at": "2026-10-01T10:22:25.760Z",
+          "speakers": [
+            {
+              "id": "e8dfd2e3-d0ec-40af-ab91-52aab7238d2c",
+              "name": {
+                "ar": "بيوار لطيف",
+                "en": "Bewar Lateef",
+                "ku": "بێوار لەتیف",
+                "fa": "بیوار لطیف"
+              },
+              "title": {
+                "ar": "محاضرة في الجامعة الكاثوليكية في أربيل",
+                "en": "Lecturer at the Catholic University in Erbil",
+                "ku": "مامۆستا لە زانکۆی کاتۆلیکی لە هەولێر",
+                "fa": "مدرس دانشگاه کاتولیک اربیل"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "بيوار لطيف محاضرة في قسم العلاقات الدولية والدبلوماسية في الجامعة الكاثوليكية في أربيل. كما تشرف على ركن تمكين المرأة في الجامعة، حيث تدعم المبادرات الهادفة إلى تعزيز تمكين النساء وتنمية مهاراتهن القيادية وتوسيع مشاركتهن في الحياة الأكاديمية والمهنية.",
+                "en": "Bewar Lateef is a lecturer in the Department of International Relations and Diplomacy at the Catholic University in Erbil. She also oversees the university’s Women Empowerment Corner, supporting initiatives that advance women’s empowerment, leadership, and active participation in academic and professional life.",
+                "ku": "بێوار لەتیف مامۆستای بەشی پەیوەندییە نێودەوڵەتییەکان و دیپلۆماسییە لە زانکۆی کاتۆلیکی لە هەولێر. هەروەها بەرپرسی گۆشەی بەهێزکردنی ژنان لە زانکۆکەیە و پشتگیری لە دەستپێشخەرییەکان دەکات کە ئامانجیان بەهێزکردنی ژنان، پەرەپێدانی تواناکانی سەرکردایەتی و فراوانکردنی بەشدارییانە لە ژیانی ئەکادیمی و پیشەییدا.",
+                "fa": "بیوار لطیف مدرس گروه روابط بین‌الملل و دیپلماسی در دانشگاه کاتولیک اربیل است. او همچنین بر «گوشه توانمندسازی زنان» این دانشگاه نظارت دارد و از ابتکارهایی حمایت می‌کند که توانمندسازی، رهبری و مشارکت فعال زنان در زندگی دانشگاهی و حرفه‌ای را پیش می‌برند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/FLU9C2U2kl-aBraOPA05K.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 182,
+              "is_active": true,
+              "created_at": "2026-09-30T19:40:15.560Z",
+              "updated_at": "2026-09-30T19:40:15.560Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "02dbff0b-ca73-4741-aebd-73dab0e3268e",
+              "name": {
+                "ar": "وسام حيدر",
+                "en": "Wisam S. Hayder",
+                "ku": "ویسام حەیدەر",
+                "fa": "وسام اس. حیدر"
+              },
+              "title": {
+                "ar": "فاست بي | رئيس قسم تكنولوجيا المعلومات",
+                "en": "FastPay | Head of Information Technology",
+                "ku": "فاستپەی | سەرۆکی بەشی تەکنەلۆژیای زانیاری",
+                "fa": "FastPay | رئیس فناوری اطلاعات"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "وسام حيدر مهندس معماري للأنظمة المؤسسية، يتمتع بخبرة عالمية تمتد إلى 20 عاماً في وادي السيليكون وقطاع التكنولوجيا المالية والاتصالات. يتخصص في الأنظمة عالية التوافر، والأمن السيبراني للمؤسسات، والبنى السحابية الأصلية. وخلال مسيرته المهنية، قاد مبادرات للبنى التحتية الحيوية لدى مؤسسات بارزة، من بينها Cisco Systems وBrocade وMoney Management International وPremera Blue Cross.",
+                "en": "Wisam Hayder is an enterprise architect with 20 years of global experience spanning Silicon Valley, fintech, and telecommunications. He specializes in high-availability systems, enterprise cybersecurity, and cloud-native architecture. Throughout his career, Wisam has led mission-critical infrastructure initiatives for organizations including Cisco Systems, Brocade, Money Management International, and Premera Blue Cross.",
+                "ku": "ویسام حەیدەر ئەندازیاری تەلارسازیی سیستەمی دامەزراوەییە و ٢٠ ساڵ ئەزموونی جیهانی لە سیلیکۆن ڤاڵی، تەکنەلۆژیای دارایی و پەیوەندییەکاندا هەیە. پسپۆڕە لە سیستەمە بەردەوام و زۆر بەردەستەکان، ئاسایشی سایبریی دامەزراوەیی و تەلارسازیی بنچینە-هەورەکاندا. لە ماوەی کاری خۆیدا، سەرکردایەتیی پڕۆژە ژێرخانییە گرنگ و هەستیارەکانی بۆ دامەزراوە ناسراوەکانی وەک Cisco Systems، Brocade، Money Management International و Premera Blue Cross کردووە.",
+                "fa": "وسام حیدر معمار سازمانی با ۲۰ سال تجربه جهانی در سیلیکون‌ولی و حوزه‌های فین‌تک و مخابرات است. او در سیستم‌های با دسترس‌پذیری بالا، امنیت سایبری سازمانی و معماری بومی ابری تخصص دارد. وسام در طول فعالیت حرفه‌ای خود، ابتکارهای زیرساختی حیاتی را برای سازمان‌هایی از جمله Cisco Systems، Brocade، Money Management International و Premera Blue Cross هدایت کرده است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/xS-sZ7E10Y51zT7UU1L_E.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 181,
+              "is_active": true,
+              "created_at": "2026-09-30T19:38:35.414Z",
+              "updated_at": "2026-09-30T19:38:35.414Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "d777f332-803e-4838-98de-3c3f1e2e13cc",
+              "name": {
+                "ar": "سارة ابراهيم",
+                "en": "Sara Ibrahim",
+                "ku": "سارا ئیبراهیم",
+                "fa": "سارا ابراهیم"
+              },
+              "title": {
+                "ar": "مديرة مركز أربيل – قسم أعمال الخدمات المصرفية الخاصة | NBI",
+                "en": "Erbil Center Manager – Private Banking Business Department | NBI",
+                "ku": "بەڕێوەبەری ناوەندی هەولێر – بەشی کاروباری بانکداری تایبەت | NBI",
+                "fa": "مدیر مرکز اربیل – اداره کسب‌وکار بانکداری خصوصی | NBI"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "أخذتني رحلتي المهنية عبر عدة مجالات، من حقوق الإنسان والاتصالات إلى تطوير الأعمال والخدمات المصرفية. لقد عشت وعملت سابقًا في لندن قبل أن أعود إلى أربيل منذ عامين تقريبًا، حيث واصلت بناء مسيرتي المهنية في القطاع المصرفي. أعمل حاليًا كمديرة مركز للخدمات المصرفية الخاصة في البنك الوطني العراقي في أربيل، حيث أعمل بشكل وثيق مع نخبة عملاء الخدمات المصرفية الخاصة، مع التركيز على بناء علاقات قوية مع العملاء، وتطوير الأعمال وإنشاء اتصالات مفيدة. لقد شكلت تجربتي في مختلف القطاعات الطريقة التي أتعامل بها مع القيادة والتواصل والأعمال، مع إيمان قوي بقيمة فهم الأشخاص وكذلك الأعمال التجارية نفسها. أحمل درجة الماجستير في إدارة الأعمال ولدي خلفية في التصميم الداخلي، مما أضاف بعدًا إبداعيًا إلى منظوري المهني. كما أنني أعمل حاليًا على الحصول على درجة الدكتوراه في إدارة الأعمال، حيث يركز بحثي على التدقيق وصلته بالخدمات المصرفية الخاصة. تكمن اهتماماتي المهنية بشكل خاص في القيادة وتطوير الأعمال والاتصالات والمخاطر والتدقيق. أنا أقدر التعلم المستمر وأعتقد أن الجمع بين الخبرات ووجهات النظر والتخصصات المختلفة كان جزءًا مهمًا في تشكيل هويتي المهنية.",
+                "en": "My professional journey has taken me across several fields, from human rights and communication to business development and banking. I previously lived and worked in London before returning to Erbil nearly two years ago, where I continued to build my career in the banking sector. I currently serve as a Centre Manager in Private Banking at NBI in Erbil, where I work closely with an elite private-banking clientele, focusing on building strong client relationships, developing business and creating meaningful connections. My experience across different sectors has shaped the way I approach leadership, communication and business, with a strong belief in the value of understanding people as well as the business itself. I hold an MBA and have a background in Interior Design, which has added a creative dimension to my professional perspective. I am also currently pursuing a PhD in Business, with my research focused on auditing and its relevance to Private Banking. My professional interests lie particularly in leadership, business development, communication, risk and auditing. I value continuous learning and believe that the combination of different experiences, perspectives and disciplines has been an important part of shaping who I am professionally.",
+                "ku": "گەشتە پیشەییەکەم منی بردۆتە سەر چەندین بوار، لە مافی مرۆڤ و پەیوەندییەوە تا پەرەپێدانی بازرگانی و بانکی. پێشتر لە لەندەن ژیاوم و کارم دەکرد پێش ئەوەی نزیکەی دوو ساڵ لەمەوبەر بگەڕێمەوە هەولێر، لەوێ بەردەوام بووم لە بنیاتنانی پیشەی خۆم لە کەرتی بانکیدا. لە ئێستادا وەک بەڕێوەبەری سەنتەر لە بانکی تایبەت لە بانکی نیشتمانیی عێراق لە هەولێر کاردەکەم، کە لە نزیکەوە لەگەڵ موکلیفی نوخبەی بانکی ئەهلی کاردەکەم، سەرنجم لەسەر دروستکردنی پەیوەندی بەهێزی موکل و پەرەپێدانی بازرگانی و دروستکردنی پەیوەندییەکی مانادارە. ئەزموونی من لە سەرانسەری کەرتە جیاوازەکاندا شێوازی نزیکبوونەوەم لە سەرکردایەتی و پەیوەندیکردن و بازرگانی لە قاڵب داوە، لەگەڵ باوەڕێکی بەهێز بە بەهای تێگەیشتن لە خەڵک و هەروەها خودی بزنسەکە. من خاوەنی بڕوانامەی ماستەر لە بەڕێوەبردنی بازرگانیم و پێشینەی دیزاینی ناوەوەم هەیە، ئەمەش ڕەهەندێکی داهێنەرانەی بۆ دیدگای پیشەییم زیاد کردووە. هەروەها لە ئێستادا خەریکی خوێندنی دکتۆرام لە بواری بازرگانیدا، توێژینەوەکانم لەسەر وردبینی و پەیوەندییەکەی بە بانکی تایبەتەوە بووە. بەرژەوەندییە پیشەییەکانم بە تایبەتی لە سەرکردایەتی، پەرەپێدانی بازرگانی، پەیوەندیکردن، مەترسی و وردبینیدایە. من بەهای فێربوونی بەردەوام دەدەم و پێموایە تێکەڵکردنی ئەزموون و دیدگا و دیسیپلینە جیاوازەکان بەشێکی گرنگ بووە لە داڕشتنی ئەوەی کە من لە ڕووی پیشەییەوە کێم.",
+                "fa": "مسیر حرفه‌ای من مرا به حوزه‌های مختلفی کشانده است؛ از حقوق بشر و ارتباطات گرفته تا توسعه کسب‌وکار و بانکداری. پیش‌تر در لندن زندگی و کار می‌کردم و حدود دو سال پیش به اربیل بازگشتم و در آنجا به ساختن مسیر شغلی خود در بخش بانکداری ادامه دادم. در حال حاضر به‌عنوان مدیر مرکز در بخش بانکداری خصوصی NBI در اربیل فعالیت می‌کنم و در آنجا از نزدیک با مشتریان برگزیده بانکداری خصوصی کار می‌کنم و بر ایجاد روابط مستحکم با مشتریان، توسعه کسب‌وکار و ایجاد ارتباطات معنادار تمرکز دارم. تجربه من در بخش‌های مختلف، شیوه نگرش من به رهبری، ارتباطات و کسب‌وکار را شکل داده است و باور راسخی به ارزش شناخت انسان‌ها در کنار شناخت خود کسب‌وکار دارم. دارای مدرک MBA هستم و پیشینه‌ای در طراحی داخلی دارم که بُعدی خلاقانه به دیدگاه حرفه‌ای من افزوده است. همچنین در حال حاضر در مقطع دکترای کسب‌وکار تحصیل می‌کنم و پژوهش من بر حسابرسی و ارتباط آن با بانکداری خصوصی متمرکز است. علایق حرفه‌ای من به‌ویژه در حوزه‌های رهبری، توسعه کسب‌وکار، ارتباطات، ریسک و حسابرسی است. برای یادگیری مستمر ارزش قائلم و باور دارم که ترکیب تجربه‌ها، دیدگاه‌ها و رشته‌های مختلف نقش مهمی در شکل‌دادن به هویت حرفه‌ای من داشته است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/mHHE1H5ADxM_yaMI2o6eJ.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 171,
+              "is_active": true,
+              "created_at": "2026-09-29T10:21:36.825Z",
+              "updated_at": "2026-10-02T12:24:28.443Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+      "title": {
+        "ar": "التكنولوجيا",
+        "en": "Technology",
+        "ku": "تەکنەلۆجیا",
+        "fa": "فناوری"
+      },
+      "date": "2026-10-08",
+      "description": {
+        "en": "",
+        "fa": ""
+      },
+      "day_number": 3,
+      "year": 2026,
+      "mobile_id": 2,
+      "is_active": true,
+      "created_at": "2026-09-21T11:57:48.989Z",
+      "updated_at": "2026-09-21T12:09:27.240Z",
+      "sessions": [
+        {
+          "id": "daf14e5e-5895-44aa-90c4-ec8fce4f8bde",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "مركز بيانات جاهز للذكاء الاصطناعي",
+            "en": "AI-Ready Data Center",
+            "ku": "سەنتەری داتای ئامادە بۆ زیرەکی دەستکرد",
+            "fa": "دیتاسنتر آماده برای هوش مصنوعی"
+          },
+          "description": {},
+          "start_time": "11:30:00",
+          "end_time": "12:00:00",
+          "type": "presentation",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 41,
+          "is_active": true,
+          "created_at": "2026-10-04T11:46:35.200Z",
+          "updated_at": "2026-10-04T11:46:35.200Z",
+          "speakers": [
+            {
+              "id": "7e27d8ef-d02d-45bb-ac6a-f5fbb288c0c9",
+              "name": {
+                "ar": "كرم الشكر",
+                "en": "Karam Alshukur",
+                "ku": "کەرەم ئەلشوکور",
+                "fa": "کرم الشکر"
+              },
+              "title": {
+                "ar": "مدير التكنولوجيا – أركيلا",
+                "en": "Chief Technology Officer – Arcella",
+                "ku": "بەڕێوەبەری تەکنەلۆجیا – Arcella",
+                "fa": "مدیر ارشد فناوری – Arcella"
+              },
+              "company": {},
+              "country": {},
+              "bio": {},
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/abw2rk--a5WWmQl_xHhXe.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 185,
+              "is_active": true,
+              "created_at": "2026-10-04T10:44:00.713Z",
+              "updated_at": "2026-10-04T11:41:58.174Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "c0805993-d60d-4c80-93c4-bfa9697dc9c3",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "KRDPass: هوية واحدة، وعالم من الخدمات",
+            "en": "KRDPass: One Identity. A World of Services.",
+            "ku": "KRDPass: ناسنامەیەک، جیهانێک خزمەتگوزاری",
+            "fa": "KRDPass: یک هویت. دنیایی از خدمات."
+          },
+          "description": {},
+          "start_time": "14:00:00",
+          "end_time": "14:20:00",
+          "type": "presentation",
+          "topic_tag": {
+            "ar": "عرض تقديمي",
+            "en": "Presentation",
+            "ku": "پێشکەشکردن",
+            "fa": "ارائه"
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 31,
+          "is_active": true,
+          "created_at": "2026-09-29T20:39:16.496Z",
+          "updated_at": "2026-09-29T20:39:16.496Z",
+          "speakers": [
+            {
+              "id": "15cc2b99-52bd-4bb1-9485-d6a21170d75c",
+              "name": {
+                "ar": "هيوا أفندي",
+                "en": "Hiwa Afandy",
+                "ku": "هیوا ئەفەندی",
+                "fa": "هیوا افندی"
+              },
+              "title": {
+                "ar": "حكومة إقليم كردستان | رئيس قسم تكنولوجيا المعلومات | كردستان، العراق",
+                "en": "KRG | ‌Head of department of Information Technology | Kurdistan, Iraq",
+                "ku": "بەرپرسی بەشی تەکنەلۆژیای زانیاری حکومەتی هەرێمی کوردستان، عێراق",
+                "fa": "حکومت اقلیم کردستان | رئیس اداره فناوری اطلاعات | کردستان، عراق"
+              },
+              "company": {},
+              "country": {},
+              "bio": {},
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/xbZzelaOPLKxm_eaIjtdV.jpg",
+              "year": 2022,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": 5,
+              "is_featured": false,
+              "mobile_id": 6,
+              "is_active": true,
+              "created_at": "2026-04-19T11:14:01.463Z",
+              "updated_at": "2026-08-03T11:25:52.082Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "41da2f92-d5dd-4171-a059-85f1ab5e2665",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "قوة البيانات",
+            "en": "The Power of Data",
+            "ku": "هێزی داتا",
+            "fa": "قدرت داده"
+          },
+          "description": {},
+          "start_time": "14:25:00",
+          "end_time": "15:00:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 2,
+          "mobile_id": 5,
+          "is_active": true,
+          "created_at": "2026-09-21T12:05:22.086Z",
+          "updated_at": "2026-10-01T08:54:41.750Z",
+          "speakers": [
+            {
+              "id": "9fcb02b4-e1a8-4796-b273-2f6d0a295ab4",
+              "name": {
+                "ar": "دعاء نبيل",
+                "en": "Doaa Nabeel",
+                "ku": "دوعا نەبیل",
+                "fa": "دعا نبیل"
+              },
+              "title": {
+                "ar": "مهندسة برمجيات وأخصائية أولى في تكنولوجيا المعلومات لدى مجموعة سردار",
+                "en": "Software Engineer & Senior IT Professional, Sardar Group",
+                "ku": "ئەندازیاری سۆفوەیر و پسپۆڕی باڵای تەکنەلۆژیای زانیاری لە گرووپی سەردار",
+                "fa": "مهندس نرم‌افزار و متخصص ارشد فناوری اطلاعات، Sardar Group"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "دعاء نبيل مهندسة برمجيات تخرجت عام ٢٠٢٢ وحصلت على المرتبة الثالثة على دفعتها. تعمل حاليًا أخصائية أولى في تكنولوجيا المعلومات لدى جاكوار لاند روفر كردستان، التابعة لمجموعة سردار. تمتلك خبرة في البرمجة والإدارة والتسويق والإشراف على الفرق والعمل الدولي، وتهتم بصورة خاصة بالذكاء الاصطناعي والتقنيات الناشئة. كما أسست فريق القلب الكبير، وهو مبادرة تطوعية تدعم الأطفال والعائلات المحتاجة.",
+                "en": "Doaa Nabeel is a Software Engineer who graduated in 2022, ranking third in her graduating class. She currently works as a Senior IT professional at Jaguar Land Rover Kurdistan, part of Sardar Group. She has experience in programming, management, marketing, team supervision, and international work, with strong interests in artificial intelligence and emerging technologies. She is also the founder of Big Heart Team, a volunteer initiative supporting children and families in need.\n",
+                "ku": "دوعا نەبیل ئەندازیاری سۆفتوەیرە و ساڵی ٢٠٢٢ بە پلەی سێیەمی قۆناغی خۆی دەرچووە. ئێستا وەک پسپۆڕی باڵای تەکنەلۆژیای زانیاری لە جاگوار لاند ڕۆڤەری کوردستان، کە بەشێکە لە گرووپی سەردار، کار دەکات. ئەزموونی لە بەرنامەسازی، بەڕێوەبردن، بازاڕگەری، سەرپەرشتی تیم و کاری نێودەوڵەتی هەیە و حەزێکی زۆری بە زیرەکی دەستکرد و تەکنەلۆژیا نوێدەرکەوتووەکانەوە هەیە. هەروەها دامەزرێنەری تیمی دڵی گەورەیە؛ دەستپێشخەرییەکی خۆبەخشانە بۆ پشتگیری منداڵان و خێزانە پێویستمەندەکان.\n",
+                "fa": "دعا نبیل مهندس نرم‌افزاری است که در سال ۲۰۲۲ با کسب رتبه سوم در میان هم‌دوره‌ای‌های خود فارغ‌التحصیل شد. او در حال حاضر به‌عنوان متخصص ارشد فناوری اطلاعات در Jaguar Land Rover Kurdistan، از زیرمجموعه‌های Sardar Group، فعالیت می‌کند. او در برنامه‌نویسی، مدیریت، بازاریابی، سرپرستی تیم و کار بین‌المللی تجربه دارد و علاقه زیادی به هوش مصنوعی و فناوری‌های نوظهور دارد. او همچنین بنیان‌گذار Big Heart Team است؛ ابتکاری داوطلبانه که از کودکان و خانواده‌های نیازمند حمایت می‌کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/w90Jnmt3pk5e5Fg7dgwKq.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 142,
+              "is_active": true,
+              "created_at": "2026-09-23T12:11:06.476Z",
+              "updated_at": "2026-09-23T12:11:06.476Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "5ec5097f-0f5e-4f79-bf76-80ecdb5f075a",
+              "name": {
+                "ar": "د. شەمال دهوکی",
+                "en": "Dr. Shamal Al- Duhoki",
+                "ku": "د. شەمال دهۆکی",
+                "fa": "دکتر شمال الدهوکی"
+              },
+              "title": {
+                "ar": "رئيس قسم علوم الحاسوب وتكنولوجيا المعلومات (CSIT) في الجامعة الأمريكية في كوردستان (AUK)",
+                "en": "Head of the Computer Science and Information Technology (CSIT)",
+                "ku": "سەرۆک بەشی CSIT لە AUK",
+                "fa": "رئیس گروه علوم کامپیوتر و فناوری اطلاعات (CSIT)"
+              },
+              "company": {
+                "en": "",
+                "fa": ""
+              },
+              "country": {},
+              "bio": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/K0I3S0qBMTCMZwm_ucjt8.jpg",
+              "year": 2023,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": 57,
+              "is_featured": false,
+              "mobile_id": 56,
+              "is_active": true,
+              "created_at": "2026-04-22T06:54:12.457Z",
+              "updated_at": "2026-10-02T12:27:27.935Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "c906d468-ddb3-479d-b375-3e8b74959055",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "عصر الذكاء الاصطناعي: الابتكار الحكومي والشراكات التكنولوجية العالمية",
+            "en": "The AI Era: Government Innovation & Global Technology Partnerships",
+            "ku": "سەردەمی زیرەکیی دەستکرد: داهێنانی حکومەت و هاوبەشییە تەکنەلۆژییە جیهانییەکان",
+            "fa": "عصر هوش مصنوعی: نوآوری دولتی و شراکت‌های جهانی در فناوری"
+          },
+          "description": {},
+          "start_time": "15:05:00",
+          "end_time": "15:45:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 3,
+          "mobile_id": 36,
+          "is_active": true,
+          "created_at": "2026-09-30T18:34:45.649Z",
+          "updated_at": "2026-10-01T08:54:51.801Z",
+          "speakers": [
+            {
+              "id": "acd0c165-c74d-456e-b9d3-ef60ce2348bf",
+              "name": {
+                "ar": "چراخان فرج حامد",
+                "en": "Chrakhan Faraj Hamid",
+                "ku": "چراخان فەرەج حامد",
+                "fa": "چراخان فرج حامد"
+              },
+              "title": {
+                "ar": "ممثلة HITEX في بادينان | طالبة في المرحلة النهائية بقسم علوم الحاسوب وتكنولوجيا المعلومات في AUK",
+                "en": "HITEX Badinan Representative | Senior CSIT Student at AUK",
+                "ku": "نوێنەری HITEX لە بادینان | خوێندکاری قۆناغی کۆتایی CSIT لە AUK",
+                "fa": "نماینده HITEX در بادینان | دانشجوی سال آخر CSIT در AUK"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "چراخان فرج حامد شغوفة بالتكنولوجيا والقيادة، وتعمل منظمةً للمؤتمرات وممثلةً لـHITEX في منطقة بادينان. وهي طالبة في المرحلة النهائية بقسم علوم الحاسوب وتكنولوجيا المعلومات في الجامعة الأمريكية في كردستان، وتهتم بالتكنولوجيا والابتكار والقيادة والمشاركة المجتمعية.\n\nتسعى چراخان من خلال عملها إلى جمع الأشخاص والأفكار والفرص، وتولي اهتماماً خاصاً بالتواصل والتعاون وبناء علاقات هادفة. كما تهتم بتوظيف التكنولوجيا والابتكار لإحداث أثر إيجابي وخلق فرص قيّمة للآخرين.",
+                "en": "Chrakhan Faraj Hamid is passionate about technology and leadership and serves as a Conference Organizer and Badinan Representative at HITEX. She is a senior Computer Science and Information Technology student at the American University of Kurdistan, with strong interests in technology, innovation, leadership, and community engagement.\n\nThrough her work, Chrakhan connects people, ideas, and opportunities. She is passionate about communication, collaboration, and building meaningful relationships, with a particular interest in using technology and innovation to create positive impact and valuable opportunities for others.",
+                "ku": "چراخان فەرەج حەمید حەز و سۆزێکی زۆری بۆ تەکنەلۆژیا و سەرکردایەتی هەیە و وەک ڕێکخەری کۆنفرانس و نوێنەری HITEX لە ناوچەی بادینان کار دەکات. ئەو خوێندکاری قۆناغی کۆتاییی زانستی کۆمپیوتەر و تەکنەلۆژیای زانیارییە لە زانکۆی ئەمریکی لە کوردستان، و بایەخێکی زۆر بە تەکنەلۆژیا، داهێنان، سەرکردایەتی و بەشداریی کۆمەڵایەتی دەدات.\n\nچراخان لە ڕێگەی کارەکانییەوە خەڵک، بیرۆکە و دەرفەتەکان بەیەکەوە دەبەستێتەوە. حەزێکی زۆری بۆ پەیوەندی، هاوکاری و دروستکردنی پەیوەندیی مانادار هەیە، و بە تایبەتی بایەخ بە بەکارهێنانی تەکنەلۆژیا و داهێنان دەدات بۆ دروستکردنی کاریگەریی ئەرێنی و دەرفەتی بەسوود بۆ کەسانی تر.",
+                "fa": "چراخان فرج حامد شیفته فناوری و رهبری است و به‌عنوان برگزارکننده کنفرانس و نماینده بادینان در HITEX فعالیت می‌کند. او دانشجوی سال آخر رشته علوم کامپیوتر و فناوری اطلاعات در دانشگاه آمریکایی کردستان است و علاقه زیادی به فناوری، نوآوری، رهبری و مشارکت اجتماعی دارد.\n\nچراخان از طریق فعالیت‌های خود، افراد، ایده‌ها و فرصت‌ها را به هم پیوند می‌دهد. او شیفته ارتباطات، همکاری و ایجاد روابط معنادار است و به‌ویژه به استفاده از فناوری و نوآوری برای ایجاد تأثیر مثبت و فرصت‌های ارزشمند برای دیگران علاقه دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/PSbmH2_PizhmuzcdSS1-h.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 180,
+              "is_active": true,
+              "created_at": "2026-09-30T18:29:56.777Z",
+              "updated_at": "2026-10-02T12:25:10.030Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "1fa4e352-3eef-40df-93bb-6774ae193990",
+              "name": {
+                "ar": "شكار طيب نوري",
+                "en": "Shkar Taib Noori",
+                "ku": "شکار تەیب نوری",
+                "fa": "شکار طیب نوری"
+              },
+              "title": {
+                "ar": "رئيس قسم DevOps",
+                "en": "Head of DevOps",
+                "ku": "سەرۆکی بەشی DevOps",
+                "fa": "رئیس بخش DevOps"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "يقود شكار طيب نوري فريق DevSecOps في دائرة تكنولوجيا المعلومات التابعة لحكومة إقليم كردستان، حيث يساهم في بناء وتأمين المنصات التي تعتمد عليها الخدمات الحكومية الرقمية.\n\nيركز عمله على هندسة منصات Kubernetes وGitOps والتسليم الآمن للبرمجيات عبر بنية تحتية مستضافة ذاتياً، مع اعتبار سيادة البيانات متطلباً أساسياً. ومن خلال دوره، يساهم في تطوير أنظمة حكومية رقمية آمنة ومرنة وقابلة للتوسع.",
+                "en": "Shkar Taib Noori leads the DevSecOps team at the Department of Information Technology of the Kurdistan Regional Government, where he helps build and secure the platforms that power government digital services.\n\nHis work focuses on Kubernetes platform engineering, GitOps, and secure software delivery on self-hosted infrastructure, with data sovereignty as a core requirement. Through this role, he supports the development of resilient, secure, and scalable digital-government systems.",
+                "ku": "شکار تەیب نوری سەرکردایەتی تیمی DevSecOps دەکات لە بەشی تەکنەلۆژیای زانیاریی حکومەتی هەرێمی کوردستان، کە تێیدا بەشداری لە دروستکردن و پاراستنی ئەو پلاتفۆرمانە دەکات کە خزمەتگوزارییە دیجیتاڵییە حکومییەکان لەسەریان کار دەکەن.\n\nکاری ئەو سەرنج دەخاتە سەر ئەندازیاریی پلاتفۆرمی Kubernetes، سیستەمی GitOps و گەیاندنی پارێزراوی نەرمەکاڵا لەسەر ژێرخانی self-hosted، لەگەڵ دانانی سەروەریی داتا وەک مەرجێکی بنەڕەتی. لە ڕێگەی ئەم ڕۆڵەوە، بەشداری لە پەرەپێدانی سیستەمی حکومەتی دیجیتاڵیی پارێزراو، بەردەوام و فراوانبوون‌پذیر دەکات.",
+                "fa": "شکار طیب نوری سرپرست تیم DevSecOps در اداره فناوری اطلاعات حکومت اقلیم کردستان است و در آنجا به ساخت و ایمن‌سازی پلتفرم‌هایی کمک می‌کند که زیربنای خدمات دیجیتال دولت هستند.\n\nفعالیت او بر مهندسی پلتفرم Kubernetes، GitOps و تحویل امن نرم‌افزار روی زیرساخت خودمیزبان متمرکز است و حاکمیت داده در آن یک الزام اصلی به شمار می‌رود. او از طریق این نقش، از توسعه سامانه‌های دولت دیجیتال تاب‌آور، امن و مقیاس‌پذیر پشتیبانی می‌کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ydJnsLovSaNQdU0bvfG9G.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 179,
+              "is_active": true,
+              "created_at": "2026-09-30T18:28:19.276Z",
+              "updated_at": "2026-09-30T18:28:19.276Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "695827f5-23be-4ecb-96aa-ca82b2086a77",
+              "name": {
+                "ar": "آكام عمر",
+                "en": "Akam Omar",
+                "ku": "ئاکام عومەر",
+                "fa": "آکام عمر"
+              },
+              "title": {
+                "ar": "استراتيجي تكنولوجيا المعلومات ومستشار التحول الرقمي",
+                "en": "IT Strategist & Digital Transformation Consultant",
+                "ku": "ستراتیژکاری تەکنەلۆژیای زانیاری و ڕاوێژکاری گۆڕانکاریی دیجیتاڵی",
+                "fa": "استراتژیست فناوری اطلاعات و مشاور تحول دیجیتال"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "المهندس آكام عمر قيادي واستراتيجي في مجال تكنولوجيا المعلومات ومستشار في التحول الرقمي، ويتمتع بخبرة تزيد على 20 عاماً في قطاعات الاتصالات والتعليم والرعاية الصحية والأمن السيبراني.\n\nيشغل منصب الرئيس التنفيذي لشركة Standing Company، وهو مؤسس BulkSMSIraq وKurdAI وVerifyWay وAkidni وKurdtrack. كما يعمل مديراً لتكنولوجيا المعلومات في جمعية كردستان لاعتماد التعليم (KAAE).\n\nيحمل آكام درجة الماجستير في إدارة نظم المعلومات من جامعة ليفربول، ويجمع بين القيادة التقنية وريادة الأعمال لتطوير حلول عملية في الذكاء الاصطناعي والاتصالات الرقمية والأمن السيبراني والتحول الرقمي للمؤسسات.",
+                "en": "Eng. Akam Omar is an IT leader, strategist, and digital transformation consultant with more than 20 years of experience across telecommunications, education, healthcare, and cybersecurity.\n\nHe is the CEO of Standing Company and the founder of BulkSMSIraq, KurdAI, VerifyWay, Akidni, and Kurdtrack. He also serves as Manager of Information Technology at the Kurdistan Accrediting Association for Education (KAAE).\n\nHolding an MSc in Information Systems Management from the University of Liverpool, Akam combines technology leadership with entrepreneurship to develop practical solutions in artificial intelligence, digital communications, cybersecurity, and organizational digital transformation.",
+                "ku": "ئەندازیار ئاکام عومەر سەرکردە و ستراتیژکارێکی بواری تەکنەلۆژیای زانیاری و ڕاوێژکاری گۆڕانکاریی دیجیتاڵییە، کە زیاتر لە ٢٠ ساڵ ئەزموونی لە کەرتەکانی پەیوەندی، پەروەردە، تەندروستی و ئاسایشی سایبەریدا هەیە.\n\nئاکام بەڕێوەبەری جێبەجێکاری Standing Company و دامەزرێنەری BulkSMSIraq، KurdAI، VerifyWay، Akidni و Kurdtrack ـە. هەروەها بەڕێوەبەری تەکنەلۆژیای زانیارییە لە کۆمەڵەی کوردستان بۆ پەسەندکردنی پەروەردە (KAAE).\n\nبڕوانامەی ماستەری لە بەڕێوەبردنی سیستەمی زانیاری لە زانکۆی لیڤەرپوول هەیە. ئاکام سەرکردایەتیی تەکنەلۆژیا و کارگێڕیی داهێنەرانە یەکدەخات بۆ پەرەپێدانی چارەسەری پراکتیکی لە بواری زیرەکی دەستکرد، پەیوەندیی دیجیتاڵی، ئاسایشی سایبەری و گۆڕانکاریی دیجیتاڵیی دامەزراوەکان.",
+                "fa": "مهندس آکام عمر از چهره‌های پیشرو در حوزه فناوری اطلاعات، استراتژیست و مشاور تحول دیجیتال است و بیش از ۲۰ سال تجربه در حوزه‌های مخابرات، آموزش، بهداشت و درمان و امنیت سایبری دارد.\n\nاو مدیرعامل Standing Company و بنیان‌گذار BulkSMSIraq، KurdAI، VerifyWay، Akidni و Kurdtrack است. او همچنین مدیر فناوری اطلاعات در انجمن اعتباربخشی آموزش کردستان (KAAE) است.\n\nآکام با داشتن مدرک کارشناسی ارشد مدیریت سیستم‌های اطلاعاتی از دانشگاه لیورپول، رهبری فناوری را با کارآفرینی تلفیق می‌کند تا راه‌حل‌هایی کاربردی در زمینه هوش مصنوعی، ارتباطات دیجیتال، امنیت سایبری و تحول دیجیتال سازمانی توسعه دهد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/tUIvPovx6TuFykwdKWZJp.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 178,
+              "is_active": true,
+              "created_at": "2026-09-30T18:27:01.161Z",
+              "updated_at": "2026-09-30T18:27:01.161Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "51177339-a2da-481f-b192-1cc45b88e289",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "لا تثق بأحد",
+            "en": "Trust No One",
+            "ku": "متمانە بە هیچ کەس مەکە",
+            "fa": "به هیچ‌کس اعتماد نکن"
+          },
+          "description": {},
+          "start_time": "15:50:00",
+          "end_time": "16:30:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "ar": "حوار",
+            "en": "Dialogue",
+            "ku": "گفتوگۆ",
+            "fa": "گفت‌وگو"
+          },
+          "location": {},
+          "sort_order": 4,
+          "mobile_id": 8,
+          "is_active": true,
+          "created_at": "2026-09-21T12:05:29.328Z",
+          "updated_at": "2026-10-01T08:55:04.332Z",
+          "speakers": [
+            {
+              "id": "080694a0-16d4-473a-9ae6-957f77c16c00",
+              "name": {
+                "ar": "ريان سوار سليمان",
+                "en": "Rayan Swar Sulaiman",
+                "ku": "ڕەیان سوار سلێمان",
+                "fa": "ریان سوار سلیمان"
+              },
+              "title": {
+                "ar": "متخصصة في العلوم السياسية والشؤون الرقمية ـ مديرة الجلسة",
+                "en": "Political Science & Digital Affairs Professional — Moderator",
+                "ku": "پسپۆڕی زانستی سیاسی و کاروباری دیجیتاڵ ـ بەڕێوەبەری گفتوگۆ",
+                "fa": "متخصص علوم سیاسی و امور دیجیتال — مدیر جلسه"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "رايان سوار سليمان متخصصة في التسويق والاتصالات الاستراتيجية، وتحمل درجة الماجستير في العلوم السياسية. وبصفتها مديرة التسويق في لكزس العراق، تعمل على الحملات وصياغة السرديات وربط العلامات التجارية بجمهورها. تتركز اهتماماتها عند تقاطع التكنولوجيا والمجتمع والحوكمة والتحول الرقمي والأمن السيبراني والخصوصية والاتصال والحوار العام.",
+                "en": "Rayan Swar Sulaiman is a marketing and strategic communications professional with a Master's degree in Political Science. As Marketing Manager at Lexus Iraq, she works on campaigns, narratives, and connecting brands with audiences. Her interests lie at the intersection of technology, society, governance, digital transformation, cybersecurity, privacy, communication, and public dialogue.\n",
+                "ku": "ڕایان سوار سلێمان پسپۆڕی بازاڕگەری و پەیوەندیی ستراتیژییە و ماستەری لە زانستی سیاسی هەیە. وەک بەڕێوەبەری بازاڕگەری لە لێکسسی عێراق، لەسەر کەمپینەکان، گێڕانەوەی پەیام و پەیوەستکردنی براندەکان بە جەماوەر کار دەکات. ئارەزووەکانی لە خاڵی یەکگرتنی تەکنەلۆژیا، کۆمەڵگا، حوکمڕانی، گۆڕانکاریی دیجیتاڵ، ئاسایشی سایبەری، تایبەتمەندی، پەیوەندی و گفتوگۆی گشتی دایە.\n",
+                "fa": "ریان سوار سلیمان متخصص بازاریابی و ارتباطات راهبردی و دارای مدرک کارشناسی ارشد علوم سیاسی است. او به‌عنوان مدیر بازاریابی Lexus Iraq روی کمپین‌ها و روایت‌ها و پیوند دادن برندها با مخاطبان کار می‌کند. علایق او در نقطه تلاقی فناوری، جامعه، حکمرانی، تحول دیجیتال، امنیت سایبری، حریم خصوصی، ارتباطات و گفت‌وگوی عمومی قرار دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/2ApXZqZKJ0cJ7uHhbvrvr.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 152,
+              "is_active": true,
+              "created_at": "2026-09-23T12:40:41.186Z",
+              "updated_at": "2026-09-23T12:40:41.186Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "8c44ab86-00a9-4bdc-aa62-6a48b6f445eb",
+              "name": {
+                "ar": "د. سرمد مجيد",
+                "en": "Dr. Sarmad I. Majeed",
+                "ku": "د. سەرمەد مەجید",
+                "fa": "دکتر سرمد آی. مجید"
+              },
+              "title": {
+                "ar": "المستشار القانوني العام للجامعة الأمريكية في كردستان",
+                "en": "General Counsel, American University of Kurdistan",
+                "ku": "ڕاوێژکاری یاسایی گشتیی زانکۆی ئەمەریکی کوردستان",
+                "fa": "مشاور حقوقی ارشد، دانشگاه آمریکایی کردستان"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "د. سرمد مجيد هو المستشار القانوني العام للجامعة الأمريكية في كردستان وعضو هيئة تدريس في جامعة دهوك التقنية. يحمل درجتي دكتوراه في القانون من جامعة كانساس وجامعة ميزوري في كانساس سيتي. يركز عمله على حوكمة الذكاء الاصطناعي وحماية البيانات وقانون الأمن السيبراني والاستخدام المسؤول والأخلاقي للتقنيات الناشئة والامتثال التنظيمي والحوكمة المؤسسية. كما يتمتع بخبرة أوسع في قانون الأعمال والاستثمار وحقوق الإنسان والحوكمة.",
+                "en": "Dr. Sarmad Majeed is General Counsel at the American University of Kurdistan and faculty at Duhok Polytechnic University. He holds dual law doctorate degrees from the University of Kansas and the University of Missouri-Kansas City. His work focuses on AI governance, data protection, cybersecurity law, responsible and ethical use of emerging technologies, regulatory compliance, and institutional governance, with broader expertise in business and investment law, human rights, and governance.\n",
+                "ku": "د. سەرمەد مەجید ڕاوێژکاری یاسایی گشتیی زانکۆی ئەمەریکی کوردستان و ئەندامی دەستەی وانەبێژانە لە زانکۆی پۆلیتەکنیکی دهۆک. دوو بڕوانامەی دکتۆرای یاسای لە زانکۆی کانساس و زانکۆی میزوری لە کانساس سیتی هەیە. کارەکانی لەسەر حوکمڕانیی زیرەکی دەستکرد، پاراستنی داتا، یاسای ئاسایشی سایبەری، بەکارهێنانی بەرپرسانە و ئەخلاقیی تەکنەلۆژیا نوێدەرکەوتووەکان، پابەندبوون بە ڕێساکان و حوکمڕانیی دامەزراوەیی چڕ دەبنەوە. هەروەها شارەزایی فراوانی لە یاسای بازرگانی و وەبەرهێنان، مافەکانی مرۆڤ و حوکمڕانی هەیە.\n",
+                "fa": "دکتر سرمد مجید مشاور حقوقی ارشد دانشگاه آمریکایی کردستان و عضو هیئت علمی دانشگاه پلی‌تکنیک دهوک است. او دارای دو مدرک دکترای حقوق از دانشگاه کانزاس و دانشگاه میزوری-کانزاس سیتی است. فعالیت او بر حکمرانی هوش مصنوعی، حفاظت از داده‌ها، حقوق امنیت سایبری، استفاده مسئولانه و اخلاقی از فناوری‌های نوظهور، انطباق با مقررات و حکمرانی نهادی متمرکز است و در حقوق تجارت و سرمایه‌گذاری، حقوق بشر و حکمرانی نیز تخصص گسترده‌تری دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/qPgJS5cYU8S2z0Ti8TmxR.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 150,
+              "is_active": true,
+              "created_at": "2026-09-23T12:37:48.822Z",
+              "updated_at": "2026-09-28T08:58:39.172Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "f2cab466-18b3-44ef-ba4f-6c9b1e9f3571",
+              "name": {
+                "ar": "سركوت شابان",
+                "en": "Sarkawt Shaban",
+                "ku": "سەرکەوت شابان",
+                "fa": "سرکوت شابان"
+              },
+              "title": {
+                "ar": "الرئيس التنفيذي لشركة بروتكس",
+                "en": "CEO, PROTEX Company",
+                "ku": "بەڕێوەبەری جێبەجێکاری کۆمپانیای پڕۆتێکس",
+                "fa": "مدیرعامل، شرکت PROTEX"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "سركوت شعبان هو الرئيس التنفيذي لشركة بروتكس، وهي شركة تقنية مقرها أربيل ومتخصصة في الأمن السيبراني والخصوصية الرقمية. شارك خبرته في التوعية بالأمن السيبراني من خلال محاضرات عامة، من بينها محاضرة في تيد إكس نيشتمان عام ٢٠٢٢ تناولت أهمية الوعي بالأمن السيبراني.",
+                "en": "Sarkawt Shaban is the CEO of PROTEX Company, an Erbil-based technology company specializing in cybersecurity and digital privacy. He has shared his expertise in cybersecurity awareness through public talks, including a 2022 TEDxNishtiman talk on the importance of cybersecurity awareness.\n",
+                "ku": "سەرکەوت شەعبان بەڕێوەبەری جێبەجێکاری کۆمپانیای پڕۆتێکسە، کۆمپانیایەکی تەکنەلۆژیای نیشتەجێی هەولێر کە لە ئاسایشی سایبەری و تایبەتمەندیی دیجیتاڵ پسپۆڕە. لە ڕێگەی وتار و گفتوگۆ گشتییەکانەوە شارەزایی خۆی لە هۆشیاریی ئاسایشی سایبەری بڵاوکردووەتەوە؛ لەوانە وتاری ساڵی ٢٠٢٢ لە تێدئێکس نیشتمان دەربارەی گرنگی هۆشیاریی ئاسایشی سایبەری.\n",
+                "fa": "سرکوت شابان مدیرعامل شرکت PROTEX است؛ یک شرکت فناوری مستقر در اربیل که در زمینه امنیت سایبری و حریم خصوصی دیجیتال تخصص دارد. او دانش تخصصی خود در زمینه آگاهی از امنیت سایبری را از طریق سخنرانی‌های عمومی به اشتراک گذاشته است؛ از جمله سخنرانی‌ای در TEDxNishtiman در سال ۲۰۲۲ درباره اهمیت آگاهی از امنیت سایبری."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/fFxr48LEgU01FlBPGw1YC.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 151,
+              "is_active": true,
+              "created_at": "2026-09-23T12:39:21.724Z",
+              "updated_at": "2026-09-28T08:58:56.012Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "904c85d3-a9f9-410d-a030-2c5ab96795ba",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "هل نكتب أمراً… أم نفكر؟",
+            "en": "Prompt or Think",
+            "ku": "پڕۆمپت بنووسین یان بیر بکەینەوە؟",
+            "fa": "پرامپت یا تفکر"
+          },
+          "description": {},
+          "start_time": "16:35:00",
+          "end_time": "17:20:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "ar": "حوار",
+            "en": "Dialogue",
+            "ku": "گفتوگۆ",
+            "fa": "گفت‌وگو"
+          },
+          "location": {},
+          "sort_order": 5,
+          "mobile_id": 6,
+          "is_active": true,
+          "created_at": "2026-09-21T12:05:24.307Z",
+          "updated_at": "2026-10-01T09:07:01.086Z",
+          "speakers": [
+            {
+              "id": "86bd4300-ae01-4a62-840f-decd6622e5e2",
+              "name": {
+                "ar": "نور عبد القادر",
+                "en": "Noor Abdulqader",
+                "ku": "نوور عەبدولقادر",
+                "fa": "نور عبدالقادر"
+              },
+              "title": {
+                "ar": "مدربة تعلم محترفة معتمدة واستراتيجية نمو ـ مديرة الجلسة",
+                "en": "Professional Certified Learning Coach & Growth Strategist — Moderator",
+                "ku": "ڕاهێنەری فێربوونی پیشەیی بڕوانامەدار و ستراتیژیستی گەشە ـ بەڕێوەبەری گفتوگۆ",
+                "fa": "مربی یادگیری حرفه‌ای دارای گواهینامه و استراتژیست رشد — مدیر جلسه"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "نور عبد القادر مدربة تعلم واستراتيجية نمو مقيمة في أربيل، تركز على تحديث التعليم والتطوير المهني في المنطقة. تحمل درجة الماجستير في علم الأحياء، وتجمع بين خلفيتها العلمية ومنهجيات التدريب القائمة على الأدلة، والتعلم المعرفي، والاسترجاع النشط، والتعلم فوق المعرفي. تعمل بانتظام مع الطلبة والتربويين في كردستان والعراق وعلى المستوى الدولي، وتسهم في وسائل الإعلام والمنشورات الإقليمية. وتتحدث الكردية والعربية والإنجليزية والألمانية بطلاقة.",
+                "en": "Noor Abdulqader is an Erbil-based Learning Coach and Growth Strategist focused on modernizing educational and professional development across the region. With a Master's degree in Biology, she combines her scientific background with evidence-based coaching methodologies, cognitive learning, active recall, and meta-learning. She regularly works with students and educators across Kurdistan, Iraq, and internationally, and contributes to regional media and publications. She is fluent in Kurdish, Arabic, English, and German.\n",
+                "ku": "نوور عەبدولقادر ڕاهێنەری فێربوون و ستراتیژیستی گەشەی نیشتەجێی هەولێرە و کار لەسەر نوێکردنەوەی فێرکردن و پەرەپێدانی پیشەیی لە ناوچەکەدا دەکات. ماستەری لە زیندەزانی هەیە و بنەمای زانستیی خۆی لەگەڵ شێوازە ڕاهێنانییە پشتبەستوو بە بەڵگە، فێربوونی مەعریفی، بیرخستنەوەی چالاک و فێربوون لەسەر فێربوون یەکدەخات. بەردەوام لەگەڵ خوێندکاران و پەروەردەکاران لە کوردستان و عێراق و دەرەوەی وڵات کار دەکات و بەشداری میدیا و بڵاوکراوە ناوچەییەکان دەکات. بە کوردی، عەرەبی، ئینگلیزی و ئەڵمانی بە باشی دەدوێت.\n",
+                "fa": "نور عبدالقادر مربی یادگیری و استراتژیست رشد مستقر در اربیل است که بر نوسازی آموزش و توسعه حرفه‌ای در سراسر منطقه تمرکز دارد. او با داشتن مدرک کارشناسی ارشد زیست‌شناسی، پیشینه علمی خود را با روش‌های کوچینگ مبتنی بر شواهد، یادگیری شناختی، یادآوری فعال و فرایادگیری تلفیق می‌کند. او به‌طور منظم با دانشجویان و مربیان آموزشی در سراسر کردستان، عراق و در سطح بین‌المللی کار می‌کند و با رسانه‌ها و نشریات منطقه‌ای همکاری دارد. او به زبان‌های کردی، عربی، انگلیسی و آلمانی تسلط دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/8y1_soxaoW0zjOk_ndPW8.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 145,
+              "is_active": true,
+              "created_at": "2026-09-23T12:16:13.643Z",
+              "updated_at": "2026-09-23T12:16:13.643Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "877b369c-3386-47b7-9e1e-9fd7f58ce090",
+              "name": {
+                "ar": "د. هيمن إبراهيم",
+                "en": "Dr. Hemin Ibrahim",
+                "ku": "د. هێمن ئیبراهیم",
+                "fa": "دکتر هیمن ابراهیم"
+              },
+              "title": {
+                "ar": "رئيس قسم الذكاء الاصطناعي في جامعة تيشك الدولية",
+                "en": "Head of AI Department, Tishk International University",
+                "ku": "سەرۆکی بەشی زیرەکی دەستکرد لە زانکۆی نێودەوڵەتی تیشک",
+                "fa": "رئیس گروه هوش مصنوعی، دانشگاه بین‌المللی تیشک"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "يحمل د. هيمن إبراهيم درجة الدكتوراه في الذكاء الاصطناعي، والماجستير في هندسة البرمجيات المتقدمة، والبكالوريوس في تكنولوجيا المعلومات. ويشغل حاليًا منصب رئيس قسم الذكاء الاصطناعي في جامعة تيشك الدولية.",
+                "en": "Dr. Hemin Ibrahim holds a PhD in Artificial Intelligence, an MSc in Advanced Software Engineering, and a BSc in IT. He currently serves as the Head of the AI Department at Tishk International University.\n",
+                "ku": "د. هێمن ئیبراهیم دکتۆرای لە زیرەکی دەستکرد، ماستەری لە ئەندازیاری پێشکەوتووی نەرمامێر و بەکالۆریۆسی لە تەکنەلۆژیای زانیاری هەیە. ئێستا سەرۆکی بەشی زیرەکی دەستکردە لە زانکۆی نێودەوڵەتی تیشک.\n",
+                "fa": "دکتر هیمن ابراهیم دارای مدرک دکترای هوش مصنوعی، کارشناسی ارشد مهندسی نرم‌افزار پیشرفته و کارشناسی فناوری اطلاعات است. او در حال حاضر رئیس گروه هوش مصنوعی دانشگاه بین‌المللی تیشک است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/fWR4derZxQdSyV6fwdA9a.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 144,
+              "is_active": true,
+              "created_at": "2026-09-23T12:14:48.403Z",
+              "updated_at": "2026-09-23T12:14:48.403Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "94f9641a-24ff-4b04-92b1-e5128f4aac5f",
+              "name": {
+                "ar": "د. هوراز عوني أحمد",
+                "en": "Dr. Hawraz Auny Ahmad",
+                "ku": "د. هەوراز عەونی ئەحمەد",
+                "fa": "دکتر هوراز عونی احمد"
+              },
+              "title": {
+                "ar": "رئيس قسم الحاسوب في نقابة مهندسي كردستان ومحاضر في جامعة صلاح الدين",
+                "en": "Head of Computer Department, Kurdistan Engineering Syndicate & Lecturer, Salahaddin University",
+                "ku": "سەرۆکی بەشی کۆمپیوتەر لە سندیکای ئەندازیارانی کوردستان و وانەبێژ لە زانکۆی سەلاحەدین",
+                "fa": "رئیس بخش کامپیوتر، سندیکای مهندسان کردستان و مدرس، دانشگاه صلاح‌الدین"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "د. هوراز أ. أحمد دزيي مهندس برمجيات ومتخصص في الذكاء الاصطناعي وأكاديمي ورائد أعمال تقني. يحمل الدكتوراه في الذكاء الاصطناعي مع تركيز على معالجة اللغات الطبيعية، ويتمتع بخبرة في الذكاء الاصطناعي وتعلّم الآلة ومعالجة اللغة وهندسة البرمجيات وتقنيات الكلام ونظم المعلومات والتحول الرقمي. يشغل حاليًا منصب رئيس قسم الحاسوب في نقابة مهندسي كردستان، وهو مؤسس والرئيس التنفيذي لشركة جيجانت للتكنولوجيا، حيث يقود تطوير حلول تقنية لمختلف القطاعات.",
+                "en": "Dr. Hawraz A. Ahmad Dizayi is a software engineer, artificial intelligence specialist, academic, and technology entrepreneur. He holds a PhD in AI with a focus on Natural Language Processing and has expertise in AI, machine learning, NLP, software engineering, speech technologies, information systems, and digital transformation. He is currently Head of the Computer Department at the Kurdistan Engineering Syndicate and Founder & CEO of Gigant Technology, where he leads the development of technology solutions across different sectors.\n",
+                "ku": "د. هەوراز ع. ئەحمەد دزەیی ئەندازیاری نەرمامێر، پسپۆڕی زیرەکی دەستکرد، ئەکادیمی و خاوەنکاری تەکنەلۆژیایە. دکتۆرای لە زیرەکی دەستکرد هەیە و تایبەتمەندیی سەرەکیی لە چارەسەرکردنی زمانی سروشتییە. شارەزایی لە زیرەکی دەستکرد، فێربوونی ئامێر، چارەسەرکردنی زمان، ئەندازیاری نەرمامێر، تەکنەلۆژیای دەنگ، سیستەمی زانیاری و گۆڕانکاریی دیجیتاڵ هەیە. ئێستا سەرۆکی بەشی کۆمپیوتەرە لە سندیکای ئەندازیارانی کوردستان و دامەزرێنەر و بەڕێوەبەری جێبەجێکاری تەکنەلۆژیای گیگانتە، کە تێیدا سەرپەرشتی گەشەپێدانی چارەسەرە تەکنەلۆژییەکان بۆ کەرتە جیاوازەکان دەکات.\n",
+                "fa": "دکتر هوراز ای. احمد دزه‌یی مهندس نرم‌افزار، متخصص هوش مصنوعی، عضو جامعه دانشگاهی و کارآفرین حوزه فناوری است. او دارای مدرک دکترای هوش مصنوعی با تمرکز بر پردازش زبان طبیعی است و در زمینه‌های هوش مصنوعی، یادگیری ماشین، پردازش زبان طبیعی (NLP)، مهندسی نرم‌افزار، فناوری‌های گفتار، سیستم‌های اطلاعاتی و تحول دیجیتال تخصص دارد. او در حال حاضر رئیس بخش کامپیوتر سندیکای مهندسان کردستان و بنیان‌گذار و مدیرعامل Gigant Technology است و در آنجا توسعه راه‌حل‌های فناورانه را در بخش‌های مختلف هدایت می‌کند."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/jO2m9p3z8XCx26iEKvlaz.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 143,
+              "is_active": true,
+              "created_at": "2026-09-23T12:13:16.651Z",
+              "updated_at": "2026-09-23T12:13:16.651Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "46a948eb-fed0-4021-8cbe-4d603bfc5a6a",
+          "agenda_id": "daf5cc08-7513-46fe-89aa-67e98cbc7a28",
+          "title": {
+            "ar": "هل نستطيع بناء ما نستخدمه؟",
+            "en": "Can We Build What We Use?",
+            "ku": "ئایا دەتوانین ئەو تەکنەلۆژیایەی بەکاری دەهێنین خۆمان دروستی بکەین؟",
+            "fa": "آیا می‌توانیم آنچه را که استفاده می‌کنیم بسازیم؟"
+          },
+          "description": {},
+          "start_time": "17:25:00",
+          "end_time": "18:15:00",
+          "type": "panel",
+          "topic_tag": {
+            "ar": "جلسة نقاشية",
+            "en": "Dialogue",
+            "ku": "پانێڵی گفتوگۆ",
+            "fa": "گفت‌وگو"
+          },
+          "location": {},
+          "sort_order": 6,
+          "mobile_id": 7,
+          "is_active": true,
+          "created_at": "2026-09-21T12:05:26.669Z",
+          "updated_at": "2026-10-01T10:31:25.662Z",
+          "speakers": [
+            {
+              "id": "9ced4dc1-f577-452c-b6ab-69ca1bc5eb0c",
+              "name": {
+                "ar": "هيفي خسروي",
+                "en": "Hevi Khosrawi",
+                "ku": "هێڤی خۆسڕەوی",
+                "fa": "هیوی خسروی"
+              },
+              "title": {
+                "ar": "باحثة في الذكاء الاصطناعي ومحاضرة جامعية ـ مديرة الجلسة",
+                "en": "AI Researcher & University Lecturer — Moderator",
+                "ku": "توێژەری زیرەکی دەستکرد و وانەبێژی زانکۆ ـ بەڕێوەبەری گفتوگۆ",
+                "fa": "پژوهشگر هوش مصنوعی و مدرس دانشگاه — مدیر جلسه"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "هيفي أحمد عبد الله محاضرة في علوم الحاسوب ومتخصصة في تكنولوجيا المعلومات، ولديها خبرة في التعليم العالي والقيادة الأكاديمية والتقنيات الرقمية. تشغل حاليًا منصب رئيسة قسم تكنولوجيا المعلومات في معهد آيندا التقني الخاص في أربيل، كما تعمل محاضرة في جامعة تيشك الدولية. تحمل درجة الماجستير في علوم الحاسوب من جامعة كردستان هولير، وتركز اهتماماتها الأكاديمية على الذكاء الاصطناعي وتعليم علوم الحاسوب والإعلام الرقمي والتقنيات الناشئة.",
+                "en": "Hevi Ahmed Abdulla is a Computer Science lecturer and IT professional with experience in higher education, academic leadership, and digital technologies. She currently serves as Head of the IT Department at Aynda Private Technical Institute in Erbil and as a lecturer at Tishk International University. She holds an MSc in Computer Science from the University of Kurdistan Hewler, with academic interests in AI, computer science education, digital media, and emerging technologies.\n",
+                "ku": "هێڤی ئەحمەد عەبدوڵڵا وانەبێژی زانستی کۆمپیوتەر و پسپۆڕی تەکنەلۆژیای زانیارییە و ئەزموونی لە خوێندنی باڵا، ڕابەرایەتی ئەکادیمی و تەکنەلۆژیا دیجیتاڵەکان هەیە. ئێستا سەرۆکی بەشی تەکنەلۆژیای زانیارییە لە پەیمانگای تەکنیکی تایبەتی ئایندە لە هەولێر و وانەبێژە لە زانکۆی نێودەوڵەتی تیشک. ماستەری لە زانستی کۆمپیوتەر لە زانکۆی کوردستان هەولێر هەیە و ئارەزووە ئەکادیمییەکانی زیرەکی دەستکرد، پەروەردەی زانستی کۆمپیوتەر، میدیای دیجیتاڵ و تەکنەلۆژیا نوێدەرکەوتووەکان دەگرێتەوە.\n",
+                "fa": "هیوی احمد عبدالله مدرس علوم کامپیوتر و متخصص فناوری اطلاعات با تجربه در آموزش عالی، رهبری دانشگاهی و فناوری‌های دیجیتال است. او در حال حاضر رئیس گروه فناوری اطلاعات در مؤسسه فنی خصوصی آینده در اربیل و مدرس دانشگاه بین‌المللی تیشک است. او دارای مدرک کارشناسی ارشد علوم کامپیوتر از دانشگاه کردستان هولیر است و علایق دانشگاهی او شامل هوش مصنوعی، آموزش علوم کامپیوتر، رسانه دیجیتال و فناوری‌های نوظهور است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/hHS_TkhOY1DPs2aLyJnnk.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 149,
+              "is_active": true,
+              "created_at": "2026-09-23T12:35:50.241Z",
+              "updated_at": "2026-09-23T12:35:50.241Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "33151a9a-2421-445a-93a5-4c391334b6a3",
+              "name": {
+                "ar": "بهار سليمان أحمد (بهار العمادية)",
+                "en": "Buhar Sulaiman Ahmed (Buhar Amedi)",
+                "ku": "بەهار سلێمان ئەحمەد (بەهار ئامێدی)",
+                "fa": "بهار سلیمان احمد (بهار آمیدی)"
+              },
+              "title": {
+                "ar": "متخصصة في الذكاء الاصطناعي والابتكار، ومبرمجة ومدربة في الروبوتات والتكنولوجيا، ومؤسسة مختبر بهار للابتكار، ومنظمة فعاليات تيد إكس",
+                "en": "AI & Innovation Specialist, Coder, Robotics & Technology Educator, Founder of Buhar Innovation Lab, TEDx Organizer",
+                "ku": "پسپۆڕی زیرەکی دەستکرد و نوێکاری، بەرنامەساز و پەروەردەکاری ڕۆبۆتیک و تەکنەلۆژیا، دامەزرێنەری تاقیگەی نوێکاری بوهار و ڕێکخەری تێدئێکس",
+                "fa": "متخصص هوش مصنوعی و نوآوری، برنامه‌نویس، مربی رباتیک و فناوری، بنیان‌گذار Buhar Innovation Lab، برگزارکننده TEDx"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "بهار العمادية مبتكرة ومتخصصة في التكنولوجيا ومبرمجة ومدربة في الروبوتات وقائدة في مجال الابتكار من دهوك. تمتلك خبرة تزيد على ١٦ عامًا في التعليم والتكنولوجيا، وعملت على نطاق واسع في البرمجة والروبوتات وتعليم العلوم والتكنولوجيا والهندسة والرياضيات وإتاحة الفرص للفتيات والشباب في كردستان والعراق. دعمت أكثر من ٤٠٠ مشروع تقني وابتكاري، وقادت برامج لمئات الطلبة، وشاركت حكمًا في مسابقات الروبوتات ومنظمةً لها. وهي مؤسسة مختبر بهار للابتكار ومنظمة فعالية تيد إكس بارزاني بارك، ونالت عام ٢٠٢٦ جائزة مؤتمر السلام السنوي للوكالة الألمانية للتعاون الدولي في مجال العلوم والتكنولوجيا والابتكار.",
+                "en": "Buhar Amedi is an innovator, technology specialist, coder, robotics educator, and innovation leader from Duhok. With 16+ years of experience in education and technology, she has worked extensively in coding, robotics, STEM education, and creating opportunities for girls and young people in Kurdistan and Iraq. She has supported 400+ technology and innovation projects, led programs for hundreds of students, and served as a robotics judge and competition organizer. She is the Founder of Buhar Innovation Lab and Organizer of TEDx Barzani Park, and in 2026 was recognized as a GIZ Annual Peace Conference Award winner in Science, Technology & Innovation.\n",
+                "ku": "بەهار ئامێدی داهێنەر، پسپۆڕی تەکنەلۆژیا، بەرنامەساز، پەروەردەکاری ڕۆبۆتیک و ڕابەری نوێکارییە لە دهۆک. زیاتر لە ١٦ ساڵ ئەزموونی لە پەروەردە و تەکنەلۆژیا هەیە و بە فراوانی لە بەرنامەسازی، ڕۆبۆتیک، پەروەردەی زانست و تەکنەلۆژیا و ئەندازیاری و بیرکاری و دروستکردنی دەرفەت بۆ کچان و گەنجان لە کوردستان و عێراق کاری کردووە. پشتگیری زیاتر لە ٤٠٠ پڕۆژەی تەکنەلۆژیا و نوێکاری کردووە، بەرنامەی بۆ سەدان خوێندکار بەڕێوەبردووە و وەک دادوەری ڕۆبۆتیک و ڕێکخەری پێشبڕکێ خزمەتی کردووە. دامەزرێنەری تاقیگەی نوێکاری بوهار و ڕێکخەری تێدئێکس پارکی بارزانییە و لە ٢٠٢٦ خەڵاتی کۆنفرانسی ساڵانەی ئاشتیی ڕێکخراوی هاوکاری نێودەوڵەتیی ئەڵمانیا لە بواری زانست و تەکنەلۆژیا و نوێکاری پێبەخشرا.\n",
+                "fa": "بهار آمیدی نوآور، متخصص فناوری، برنامه‌نویس، مربی رباتیک و رهبر حوزه نوآوری از دهوک است. او با بیش از ۱۶ سال تجربه در آموزش و فناوری، به‌طور گسترده در زمینه‌های کدنویسی، رباتیک، آموزش STEM و ایجاد فرصت برای دختران و جوانان در کردستان و عراق فعالیت کرده است. او از بیش از ۴۰۰ پروژه فناوری و نوآوری پشتیبانی کرده، برنامه‌هایی را برای صدها دانش‌آموز هدایت کرده و به‌عنوان داور رباتیک و برگزارکننده مسابقات فعالیت داشته است. او بنیان‌گذار Buhar Innovation Lab و برگزارکننده TEDx Barzani Park است و در سال ۲۰۲۶ به‌عنوان برنده جایزه کنفرانس سالانه صلح GIZ در بخش علم، فناوری و نوآوری شناخته شد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/AM8c70nt7EnGneRaeQx_o.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 146,
+              "is_active": true,
+              "created_at": "2026-09-23T12:31:30.440Z",
+              "updated_at": "2026-09-23T12:31:30.440Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "595e730b-1f61-46a1-b226-b7a7c8979c4d",
+              "name": {
+                "ar": "محمد السادة",
+                "en": "Mohammed Alsada",
+                "ku": "محەمەد ئەلسەدا",
+                "fa": "محمد الساده"
+              },
+              "title": {
+                "ar": "مؤسس ومدير عام مركز صناع أربيل",
+                "en": "Founder & Managing Director, Erbil Makers Hub",
+                "ku": "دامەزرێنەر و بەڕێوەبەری گشتیی ناوەندی داهێنەرانی هەولێر",
+                "fa": "بنیان‌گذار و مدیر اجرایی، Erbil Makers Hub"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "محمد السادة هو مؤسس ومدير عام مركز صناع أربيل، وهو مركز غير ربحي للابتكار والتصنيع الرقمي في أربيل، يكرس عمله للتعليم الهندسي والتصنيع الرقمي والابتكار القائم على التكنولوجيا. وهو مهندس متخصص في الإلكترونيات والأنظمة المدمجة والأتمتة الصناعية وإنترنت الأشياء والنمذجة الأولية السريعة، وقد قاد مبادرات تربط التعليم بالصناعة. ومن خلال المركز يقدم تدريبًا عمليًا في الروبوتات والأتمتة باستخدام المتحكمات المنطقية، والتصميم والتصنيع بمساعدة الحاسوب، والإلكترونيات، وبرمجة الأنظمة المدمجة، والتصنيع بالإضافة.",
+                "en": "Mohammed Alsada is the Founder and Managing Director of Erbil Makers Hub, a non-profit innovation and digital fabrication center in Erbil dedicated to engineering education, digital manufacturing, and technology-driven innovation. An engineer specializing in electronics, embedded systems, industrial automation, IoT, and rapid prototyping, he has led initiatives connecting education and industry. Through Erbil Makers Hub, he provides hands-on training in robotics, PLC automation, CAD/CAM, electronics, embedded programming, and additive manufacturing.\n",
+                "ku": "محەمەد ئەلسەدا دامەزرێنەر و بەڕێوەبەری گشتیی ناوەندی داهێنەرانی هەولێرە؛ ناوەندێکی قازانجنەویستی نوێکاری و بەرهەمهێنانی دیجیتاڵ کە بە پەروەردەی ئەندازیاری، دروستکردنی دیجیتاڵ و نوێکاریی پشتبەستوو بە تەکنەلۆژیا تەرخان کراوە. ئەندازیارێکە کە لە ئەلیکترۆنیات، سیستەمە چێنراوەکان، خۆکارسازیی پیشەسازی، ئینتەرنێتی شتەکان و دروستکردنی نموونەی خێرا پسپۆڕە و دەستپێشخەرییەکانی پەیوەستکردنی پەروەردە بە پیشەسازی ڕابەرایەتی کردووە. لە ڕێگەی ناوەندەکەوە ڕاهێنانی کرداری لە ڕۆبۆتیک، خۆکارسازی بە کۆنترۆڵەری لۆژیکی، دیزاین و بەرهەمهێنانی یارمەتیدراو بە کۆمپیوتەر، ئەلیکترۆنیات، بەرنامەسازیی سیستەمە چێنراوەکان و بەرهەمهێنانی زیادکراو پێشکەش دەکات.\n",
+                "fa": "محمد الساده بنیان‌گذار و مدیر اجرایی Erbil Makers Hub است؛ مرکزی غیرانتفاعی برای نوآوری و ساخت دیجیتال در اربیل که به آموزش مهندسی، تولید دیجیتال و نوآوری مبتنی بر فناوری اختصاص دارد. او مهندسی متخصص در الکترونیک، سیستم‌های نهفته، اتوماسیون صنعتی، اینترنت اشیا و نمونه‌سازی سریع است و ابتکارهایی را برای پیوند آموزش و صنعت هدایت کرده است. او از طریق Erbil Makers Hub آموزش‌های عملی در زمینه رباتیک، اتوماسیون PLC، CAD/CAM، الکترونیک، برنامه‌نویسی سیستم‌های نهفته و ساخت افزایشی ارائه می‌دهد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/CMpwkszaKvcoz2OmFV0o7.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 147,
+              "is_active": true,
+              "created_at": "2026-09-23T12:32:54.614Z",
+              "updated_at": "2026-09-23T12:32:54.614Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "ab35a618-b960-4b38-a85b-ed6e0ccad3c2",
+              "name": {
+                "ar": "دانا محمود",
+                "en": "Dana Mahmood",
+                "ku": "دانا مەحموود",
+                "fa": "دانا محمود"
+              },
+              "title": {
+                "ar": "باحث ومهندس في الذكاء الاصطناعي",
+                "en": "AI Researcher & Engineer",
+                "ku": "توێژەر و ئەندازیاری زیرەکی دەستکرد",
+                "fa": "پژوهشگر و مهندس هوش مصنوعی"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "دانا محمود مهندس أول وباحث في الذكاء الاصطناعي. وهو مؤسس وكبير مهندسي البرمجيات في ميدفيرس، أول منصة طبية مدعومة بالذكاء الاصطناعي في العراق وكردستان، كما أسس ديافولد، وهي منصة لإدارة المشاريع بالذكاء الاصطناعي. تشمل خبراته النماذج اللغوية الكبيرة والرؤية الحاسوبية وأنظمة الذكاء الاصطناعي المخصصة للإنتاج، كما يستكشف في أبحاثه مواءمة الذكاء الاصطناعي وقابليته للتفسير وفلسفته.",
+                "en": "Dana Mahmood is a senior AI engineer and researcher. He is the Founder and Chief Software Engineer of Medverus AI, Iraq and Kurdistan's first AI-powered medical platform, and Diafold, an AI-powered project management platform. His expertise includes large language models, computer vision, and production AI systems, while his work also explores AI alignment, interpretability, and the philosophy of artificial intelligence.\n",
+                "ku": "دانا مەحموود ئەندازیاری باڵا و توێژەرێکی زیرەکی دەستکردە. دامەزرێنەر و سەرۆک ئەندازیاری نەرمامێری میدفێرەسە، یەکەم سەکۆی پزیشکیی پشتبەستوو بە زیرەکی دەستکرد لە عێراق و کوردستان، هەروەها دامەزرێنەری دیا فۆڵدە کە سەکۆیەکی بەڕێوەبردنی پڕۆژە بە زیرەکی دەستکردە. شارەزاییەکانی بریتین لە مۆدێلە زمانییە گەورەکان، بینینی کۆمپیوتەر و سیستەمەکانی زیرەکی دەستکرد بۆ بەرهەمهێنان. توێژینەوەکانی هەروەها هاوتەریبکردن، لێکدانەوە و فەلسەفەی زیرەکی دەستکرد دەگرێتەوە.\n",
+                "fa": "دانا محمود مهندس ارشد و پژوهشگر هوش مصنوعی است. او بنیان‌گذار و مدیر ارشد مهندسی نرم‌افزار Medverus AI، نخستین پلتفرم پزشکی مبتنی بر هوش مصنوعی در عراق و کردستان، و Diafold، پلتفرم مدیریت پروژه مبتنی بر هوش مصنوعی، است. تخصص او شامل مدل‌های زبانی بزرگ، بینایی ماشین و سیستم‌های هوش مصنوعی عملیاتی است و در کار خود به همسویی هوش مصنوعی، تفسیرپذیری و فلسفه هوش مصنوعی نیز می‌پردازد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/uoIR8OOxLTWbklTDMhJsC.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 148,
+              "is_active": true,
+              "created_at": "2026-09-23T12:34:22.559Z",
+              "updated_at": "2026-09-23T12:34:22.559Z",
+              "SessionSpeaker": {
+                "sort_order": 3,
+                "is_moderator": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+      "title": {
+        "ar": "المحتوى",
+        "en": "Content",
+        "ku": "ناوەڕۆک",
+        "fa": "محتوا"
+      },
+      "date": "2026-10-09",
+      "description": {
+        "en": "",
+        "fa": ""
+      },
+      "day_number": 4,
+      "year": 2026,
+      "mobile_id": 4,
+      "is_active": true,
+      "created_at": "2026-09-21T11:57:51.830Z",
+      "updated_at": "2026-09-21T12:09:34.261Z",
+      "sessions": [
+        {
+          "id": "6410627a-b197-4032-ad55-5774aaecc8af",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "العصر الجديد للذكاء الاصطناعي",
+            "en": "The New Era of AI",
+            "ku": "سەردەمی نوێی زیرەکی دەستکرد",
+            "fa": "عصر جدید هوش مصنوعی"
+          },
+          "description": {},
+          "start_time": "12:00:00",
+          "end_time": "12:30:00",
+          "type": "presentation",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 42,
+          "is_active": true,
+          "created_at": "2026-10-04T11:46:53.420Z",
+          "updated_at": "2026-10-04T11:46:53.420Z",
+          "speakers": [
+            {
+              "id": "980325fd-6779-429a-8041-8e5f9761605a",
+              "name": {
+                "ar": "يحيى لازكين",
+                "en": "Yahya Lazgin",
+                "ku": "یەحیا لەزگین",
+                "fa": "یحیی لزگین"
+              },
+              "title": {
+                "ar": "الرئيس التنفيذي – أوفانيا",
+                "en": "Chief Executive Officer – Ovanya",
+                "ku": "بەڕێوەبەری جێبەجێکاری – Ovanya",
+                "fa": "مدیرعامل – Ovanya"
+              },
+              "company": {},
+              "country": {},
+              "bio": {},
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/hkyw25Y9Tbg9m9bA3tcJr.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 186,
+              "is_active": true,
+              "created_at": "2026-10-04T10:44:07.882Z",
+              "updated_at": "2026-10-04T11:43:01.863Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "0a46d9af-addc-44a8-993e-2dbd713e5b53",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "الوجه الكردي للتكنولوجيا",
+            "en": "The Kurdish Side of Technology",
+            "ku": "ڕەهەندی کوردیی تەکنەلۆژیا",
+            "fa": "وجه کردی فناوری"
+          },
+          "description": {},
+          "start_time": "14:00:00",
+          "end_time": "14:30:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 1,
+          "mobile_id": 12,
+          "is_active": true,
+          "created_at": "2026-09-21T12:17:46.877Z",
+          "updated_at": "2026-10-03T07:33:59.319Z",
+          "speakers": [
+            {
+              "id": "639b5ae1-d0af-4313-b700-c5fb3ca8c569",
+              "name": {
+                "ar": "بيكرد سربست ياسين",
+                "en": "Begard Sarbast Yasin",
+                "ku": "بێگەرد سەربەست یاسین",
+                "fa": "بیگرد سربست یاسین"
+              },
+              "title": {
+                "ar": "المدير العام لبودكاست ديوان",
+                "en": "General Manager, Diwaxan Podcast",
+                "ku": "بەڕێوەبەری گشتیی پۆدکاستی دیوەخان",
+                "fa": "مدیر کل، پادکست Diwaxan"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "بيكرد سربست ياسين متخصص في الإعلام الإبداعي والمدير العام لبودكاست ديوان ووكالة مارس لابس. كما يقدم برنامج شيرة كج، وهو برنامج تاريخي كردي يجمع بين السرد والبحث والإعلام المرئي. وإلى جانب أدواره القيادية والتقديمية، يعمل باحتراف في التصوير والمونتاج، ويتمتع بخبرة في السرد البصري والإنتاج.",
+                "en": "Begard Sarbast Yasin is a creative media professional and the General Manager of Diwaxan Podcast and MarsLabs Agency. He is also the host of Shera Kch, a Kurdish historical program combining storytelling, research, and visual media. Alongside his leadership and hosting roles, he works professionally as a videographer and video editor, with experience in visual storytelling and production.\n",
+                "ku": "بێگەرد سەربەست یاسین پسپۆڕێکی میدیای داهێنەرانە و بەڕێوەبەری گشتیی پۆدکاستی دیوەخان و ئاژانسی مارس لابسە. هەروەها پێشکەشکاری شێرە کچە، بەرنامەیەکی مێژوویی کوردی کە چیرۆکگێڕانەوە، توێژینەوە و میدیای بینراو یەکدەخات. لەگەڵ ئەرکەکانی ڕابەرایەتی و پێشکەشکاری، بە شێوەیەکی پیشەیی وەک وێنەگری ڤیدیۆ و دەستکاریکەری ڤیدیۆ کار دەکات و ئەزموونی لە چیرۆکگێڕانەوەی بینراو و بەرهەمهێنان هەیە.\n",
+                "fa": "بیگرد سربست یاسین فعال خلاق حوزه رسانه و مدیر کل Diwaxan Podcast و MarsLabs Agency است. او همچنین مجری Shera Kch است؛ برنامه‌ای تاریخی به زبان کردی که روایتگری، پژوهش و رسانه تصویری را با هم تلفیق می‌کند. او در کنار نقش‌های مدیریتی و اجرایی خود، به‌صورت حرفه‌ای به‌عنوان فیلم‌بردار و تدوینگر ویدئو فعالیت می‌کند و در روایتگری بصری و تولید تجربه دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/5IvUxVSMSY8djur2MFSdG.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": 200,
+              "is_featured": false,
+              "mobile_id": 156,
+              "is_active": true,
+              "created_at": "2026-09-23T12:50:52.873Z",
+              "updated_at": "2026-09-23T17:34:43.014Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "e296579a-f801-4a6b-8e98-ff7a13fbd627",
+              "name": {
+                "ar": "بوتان لوقمان",
+                "en": "Botan Luqman",
+                "ku": "بۆتان لوقمان",
+                "fa": "بوتان لقمان"
+              },
+              "title": {
+                "ar": "ناشط وطني",
+                "en": "National Activist",
+                "ku": "چالاکوانی نەتەوەیی",
+                "fa": "فعال ملی"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "بوتان لقمان صديق ناشط وطني من أربيل، ينتج وينشر محتوى على منصات التواصل الاجتماعي يركز على الوعي الوطني. عمل سابقًا صحفيًا متخصصًا في التكنولوجيا، ودرس علوم الحاسوب في جامعة صلاح الدين.",
+                "en": "Botan Luqman Sadeeq is a national activist from Erbil who creates and shares social media content focused on national awareness. He previously worked as a technology journalist and studied Computer Science at Salahaddin University.",
+                "ku": "بۆتان لوقمان سەدیق چالاکێکی نەتەوەییە لە هەولێر و ناوەڕۆکی تۆڕە کۆمەڵایەتییەکان دروست و بڵاو دەکاتەوە کە لەسەر هۆشیاریی نەتەوەیی چڕ دەبێتەوە. پێشتر وەک ڕۆژنامەنووسی تەکنەلۆژیا کاری کردووە و زانستی کۆمپیوتەری لە زانکۆی سەلاحەدین خوێندووە.\n",
+                "fa": "بوتان لقمان صدیق فعالی ملی از اربیل است که محتوایی با محوریت آگاهی ملی در شبکه‌های اجتماعی تولید و منتشر می‌کند. او پیش‌تر به‌عنوان روزنامه‌نگار حوزه فناوری فعالیت می‌کرد و در رشته علوم کامپیوتر در دانشگاه صلاح‌الدین تحصیل کرده است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/izSmEe711cAXqq5Fv0Jcc.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 141,
+              "is_active": true,
+              "created_at": "2026-09-23T12:00:20.469Z",
+              "updated_at": "2026-09-23T12:00:20.469Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "b470224c-f4e4-4ef2-8c2a-0411e8821f1d",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "ما بعد العيادة: التغذية في العصر الرقمي",
+            "en": "Beyond the Clinic: Nutrition in the Digital Age",
+            "ku": "لە دەرەوەی کلینیک: خۆراک لە سەردەمی دیجیتاڵدا",
+            "fa": "فراتر از کلینیک: تغذیه در عصر دیجیتال"
+          },
+          "description": {},
+          "start_time": "14:35:00",
+          "end_time": "15:05:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 2,
+          "mobile_id": 13,
+          "is_active": true,
+          "created_at": "2026-09-21T12:21:15.923Z",
+          "updated_at": "2026-10-03T07:34:19.958Z",
+          "speakers": [
+            {
+              "id": "91c93898-b53d-4b40-ad94-3e9bfa53218a",
+              "name": {
+                "ar": "مصطفى علي مصطفى",
+                "en": "Mustafa Ali Mustafa",
+                "ku": "مستەفا عەلی مستەفا",
+                "fa": "مصطفی علی مصطفی"
+              },
+              "title": {
+                "ar": "مقدم برامج تقنية وأخصائي محتوى الذكاء الاصطناعي",
+                "en": "Tech TV Presenter & AI Content Specialist",
+                "ku": "پێشکەشکاری بەرنامەی تەکنەلۆژیا و پسپۆڕی ناوەڕۆکی زیرەکی دەستکرد",
+                "fa": "مجری تلویزیونی حوزه فناوری و متخصص محتوای هوش مصنوعی"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "مصطفى علي مقدم إعلامي يستضيف البرنامج التكنولوجي الأسبوعي «تيك زون» على قناة سبيدا. يعمل في مجال البث منذ عام 2014، وهو متخصص في التسويق الرقمي، واستراتيجية وسائل التواصل الاجتماعي، وإنشاء المحتوى، مع التركيز القوي على أدوات الذكاء الاصطناعي واتجاهات التكنولوجيا الناشئة.",
+                "en": "Mustafa Ali is a media presenter hosting the weekly technology program \"Tech Zone\" on Speda TV. Working in broadcasting since 2014, he specializes in digital marketing, social media strategy, and content creation, with a strong focus on artificial intelligence tools and emerging tech trends.",
+                "ku": "مستەفا عەلی پێشکەشکاری میدیاییە و میوانداریی هەفتانەی بەرنامەی تەکنەلۆژیای «ناوچەی تەکنەلۆژی» لە کەناڵی سپێدا دەکات. لە ساڵی ٢٠١٤ەوە لە بواری پەخشدا کاردەکات، پسپۆڕە لە مارکێتینگی دیجیتاڵی، ستراتیژی سۆشیال میدیا، و دروستکردنی ناوەڕۆک، بە گرنگیدانێکی بەهێز بە ئامرازەکانی زیرەکی دەستکرد و ڕەوتە تەکنەلۆژییەکانی سەرهەڵداو.",
+                "fa": "مصطفی علی مجری رسانه‌ای است که برنامه هفتگی فناوری «Tech Zone» را در Speda TV اجرا می‌کند. او از سال ۲۰۱۴ در حوزه پخش رادیویی و تلویزیونی فعالیت دارد و در بازاریابی دیجیتال، راهبرد شبکه‌های اجتماعی و تولید محتوا تخصص دارد و تمرکز ویژه‌ای بر ابزارهای هوش مصنوعی و روندهای نوظهور فناوری دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/gyVd44rDixLS0Qh5x-_nt.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 162,
+              "is_active": true,
+              "created_at": "2026-09-29T09:50:45.304Z",
+              "updated_at": "2026-09-29T09:50:45.304Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "92323cba-1178-46df-baa1-6c4302511f0c",
+              "name": {
+                "ar": "مهاباد عارف حسن",
+                "en": "Mihabad Aref Hassan",
+                "ku": "مهاباد عارف حەسەن",
+                "fa": "مهاباد عارف حسن"
+              },
+              "title": {
+                "ar": "أخصائية تغذية – التغذية البشرية والأيض",
+                "en": "Nutritionist – Human Nutrition & Metabolism",
+                "ku": "پسپۆڕی خۆراک – خۆراکی مرۆڤ و میتابۆلیزم",
+                "fa": "متخصص تغذیه – تغذیه انسانی و متابولیسم"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "مهاباد عارف حسن هي أخصائية تغذية حاصلة على درجة الماجستير المتكاملة في التغذية السريرية والتمثيل الغذائي من كلية الطب نوفا في لشبونة. شغوفة بالطعام والصحة والحياة المتوازنة، وقد بنت حياتها المهنية حول مساعدة الناس على تطوير علاقة صحية مع التغذية. إلى جانب عملها السريري، تعتبر مهاباد رائدة أعمال ومنشئة محتوى، حيث تشارك أساليب عملية وواقعية لتناول الطعام الصحي والرفاهية اليومية.",
+                "en": "Mihabad Aref Hassan is a nutritionist with an Integrated Master’s in Clinical Nutrition and Metabolism from NOVA Medical School in Lisbon. Passionate about food, health, and balanced living, she has built her career around helping people develop a healthier relationship with nutrition. Alongside her clinical work, Mihabad is an entrepreneur and content creator, sharing practical, realistic approaches to healthy eating and everyday wellbeing.",
+                "ku": "مهاباد عارف حەسەن پسپۆڕی خۆراکە و ماستەرێکی یەکگرتووی هەیە لە خۆراکی کلینیکی و میتابۆلیزم لە قوتابخانەی پزیشکی نۆڤا لە لیسبۆن. بە سۆزەوە بۆ خۆراک و تەندروستی و ژیانی هاوسەنگ، پیشەکەی لە دەوری یارمەتیدانی خەڵک بۆ پەرەپێدانی پەیوەندییەکی تەندروستتر لەگەڵ خۆراکدا بنیات ناوە. شانبەشانی کارە کلینیکیەکانی، میهاباد خاوەنکار و دروستکەری ناوەڕۆکە، ڕێبازە پراکتیکی و واقیعیەکان بۆ خواردنی تەندروست و خۆشگوزەرانی ڕۆژانە هاوبەش دەکات.",
+                "fa": "مهاباد عارف حسن متخصص تغذیه است و مدرک کارشناسی ارشد پیوسته تغذیه بالینی و متابولیسم را از دانشکده پزشکی NOVA در لیسبون دریافت کرده است. او که شیفته غذا، سلامت و زندگی متعادل است، مسیر حرفه‌ای خود را بر کمک به مردم برای ایجاد رابطه‌ای سالم‌تر با تغذیه بنا کرده است. مهاباد در کنار فعالیت بالینی، کارآفرین و تولیدکننده محتوا نیز هست و رویکردهایی کاربردی و واقع‌بینانه به تغذیه سالم و تندرستی روزمره را به اشتراک می‌گذارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/bpDG-55JgltVQruI4yW11.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 161,
+              "is_active": true,
+              "created_at": "2026-09-29T09:49:30.714Z",
+              "updated_at": "2026-09-29T09:49:30.714Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "d7c05b1a-365e-4e24-a966-2bb96336a50d",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "الكتب في عصر التكنولوجيا",
+            "en": "Books in the Age of Technology",
+            "ku": "کتێب لە سەردەمی تەکنەلۆژیا",
+            "fa": "کتاب در عصر فناوری"
+          },
+          "description": {},
+          "start_time": "15:10:00",
+          "end_time": "15:40:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "en": "",
+            "fa": ""
+          },
+          "location": {},
+          "sort_order": 3,
+          "mobile_id": 38,
+          "is_active": true,
+          "created_at": "2026-10-03T07:35:18.260Z",
+          "updated_at": "2026-10-03T10:10:37.553Z",
+          "speakers": [
+            {
+              "id": "999db105-3510-447a-b254-126b0cb8240d",
+              "name": {
+                "ar": "كژان عبد الوهاب",
+                "en": "Kazhan Abdulwahab",
+                "ku": "کەژان عەبدولوەهاب",
+                "fa": "کژان عبدالوهاب"
+              },
+              "title": {
+                "ar": "مقدمة برامج تلفزيونية",
+                "en": "TV Presenter",
+                "ku": "پێشکەشکاری تەلەفزیۆن",
+                "fa": "مجری تلویزیون"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "كژان عبد الوهاب مقدمة برامج تلفزيونية تنشط في مجال الإعلام والبث منذ عام 2018. قدمت خلال مسيرتها عدداً من البرامج التلفزيونية، وكان أحدثها برنامج «Pennws» على قناة كوردماكس.",
+                "en": "Kazhan Abdulwahab is a television presenter who has been active in broadcasting and media since 2018. Throughout her career, she has presented a range of television programmes. Most recently, she hosted “Pennws” on Kurdmax.",
+                "ku": "کەژان عەبدولوەهاب پێشکەشکارێکی تەلەفزیۆنییە کە لە ساڵی ٢٠١٨ەوە لە بواری تەلەفزیۆن و میدیادا چالاکە. لە ماوەی کاری میدیایی خۆیدا چەندین بەرنامەی پێشکەش کردووە؛ نوێترین کاریشی پێشکەشکردنی بەرنامەی «Pennws» لە کوردماکس بووە.",
+                "fa": "کژان عبدالوهاب مجری تلویزیونی است که از سال ۲۰۱۸ در حوزه پخش و رسانه فعالیت دارد. او در طول فعالیت حرفه‌ای خود، برنامه‌های تلویزیونی متنوعی را اجرا کرده است. تازه‌ترین برنامه‌ای که او اجرا کرده، «Pennws» در Kurdmax است."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ti35yBCTG6qMAPC69BFo6.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 177,
+              "is_active": true,
+              "created_at": "2026-09-30T18:25:57.795Z",
+              "updated_at": "2026-09-30T18:25:57.795Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "52c3f5e1-6f12-44ba-b91b-4809f5ce26ac",
+              "name": {
+                "ar": "طلعت طاهر",
+                "en": "Talaat Tahir",
+                "ku": "تەڵعەت تاهیر",
+                "fa": "طلعت طاهر"
+              },
+              "title": {
+                "ar": "كاتب",
+                "en": "Writer",
+                "ku": "نووسەر",
+                "fa": "نویسنده"
+              },
+              "company": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "ولد طلعت طاهر في 18 كانون الثاني/يناير 1971 في قضاء مخمور بمحافظة أربيل. يحمل دبلوماً في الإعلام والاتصالات، وهو متزوج وله ابنتان.\n\nبدأ الكتابة عام 1986، وعمل ضمن هيئات تحرير عدد من المجلات والملاحق الأدبية. وهو عضو فاعل في اتحاد الأدباء الكرد، ويشغل حالياً منصب نائب رئيس مركز گەلاوێژ الثقافي.\n\nتتنوع أعماله المنشورة بين الشعر والنقد الأدبي والبحوث والنثر والترجمة، ومن بينها:\n\n• صوت لا يريد أن يصبح أغنية — شعر، دار آراس للنشر، 2009.\n• الدخول في دائرة المعنى — مقالات وبحوث أدبية، وزارة الثقافة، 2008.\n• أصل الزنبق — ترجمات لقصائد أدونيس، دار چاودێر للنشر، 2010.\n• عطر أولئك العشاق الذين ماتوا — مختارات مترجمة من شعر أدونيس، دار غەزەلنووس للنشر، 2016.\n• اسمك توقيعي — شعر، دار FAM للنشر.\n• أيام جافة وعيون مبتلة — تأملات أدبية، دار FAM للنشر، أيار 2021.\n• أزهار الرمان التي أصبحت توتاً — نثر، دار FAM للنشر، أربيل، 2022.\n• خريف الزعيم — شعر، دار FAM للنشر، 2025.",
+                "en": "Talaat Tahir was born on January 18, 1971, in Makhmur, Erbil Governorate. He holds a diploma in Media and Communications, is married, and has two daughters.\n\nHe has been writing since 1986 and has served on the editorial teams of several magazines and literary supplements. He is an active member of the Kurdish Writers’ Union and currently serves as Deputy Head of the Gelaywezh Cultural Center.\n\nHis published works span poetry, literary criticism, research, prose, and translation. They include:\n\n• A Voice That Does Not Want to Become a Song — poetry, Aras Publishing House, 2009.\n• Entering the Circle of Meaning — literary essays and research, Ministry of Culture, 2008.\n• The Origin of the Lily — translations of poems by Adonis, Chawder Publishing House, 2010.\n• The Scent of Those Lovers Who Died — translated poems by the Arab poet Adonis, Ghazalnus Publishing House, 2016.\n• Your Name Is My Signature — poetry, FAM Publishing House.\n• Dry Days and Wet Eyes — literary reflections, FAM Publishing House, May 2021.\n• Those Pomegranate Flowers That Became Berries — prose, FAM Publishing House, Erbil, 2022.\n• The Autumn of the Leader — poetry, FAM Publishing House, 2025.",
+                "ku": "تەڵعەت تاهیر لە ١٨ی کانوونی دووەمی ١٩٧١ لە شارۆچکەی مەخمور، سەر بە پارێزگای هەولێر، لەدایک بووە. دبلۆمی لە ڕاگەیاندن و پەیوەندییەکان هەیە، خێزاندارە و باوکی دوو کچە.\n\nلە ساڵی ١٩٨٦ەوە دەنووسێت و ئەندامی دەستەی نووسەرانی چەندین گۆڤار و پاشکۆی ئەدەبی بووە. ئەندامێکی چالاکی یەکێتیی نووسەرانی کوردە و لە ئێستادا جێگری سەرۆکی بنکەی ڕووناکبیریی گەلاوێژە.\n\nبەرهەمە چاپکراوەکانی شیعر، ڕەخنەی ئەدەبی، لێکۆڵینەوە، پەخشان و وەرگێڕان دەگرنەوە، لەوانە:\n\n• لەبەر ئاوازێک نایەوێت ببێتە گۆرانی — شیعر، دەزگای ئاراس، ٢٠٠٩.\n• چوونە ناو سووڕی مانا — وتار و لێکۆڵینەوەی ئەدەبی، وەزارەتی ڕۆشنبیری، ٢٠٠٨.\n• بنەچەی سەوسەن — وەرگێڕانی شیعری ئەدۆنیس، دەزگای ڕۆشەنگەریی چاودێر، ٢٠١٠.\n• عەتری ئەو عاشقانەی مردن — کۆبەندی وەرگێڕدراوی شیعرەکانی ئەدۆنیس، دەزگای غەزەلنووس، ٢٠١٦.\n• ناوی تۆ ئیمزای منە — شیعر، دەزگای FAM.\n• ڕۆژگاری وشک و چاوی تەڕ — دنیابینی ئەدەبی، دەزگای FAM، ئایاری ٢٠٢١.\n• ئەو گوڵەگەنمانەی بوونە گسک — دەقی واڵا، دەزگای FAM، هەولێر، ٢٠٢٢.\n• پایزی زەعیم — شیعر، دەزگای FAM، ٢٠٢٥.",
+                "fa": "طلعت طاهر در ۱۸ ژانویه ۱۹۷۱ در مخمور، استان اربیل، به دنیا آمد. او دارای مدرک دیپلم در رشته رسانه و ارتباطات است، متأهل است و دو دختر دارد.\n\nاو از سال ۱۹۸۶ می‌نویسد و در هیئت تحریریه چندین مجله و ضمیمه ادبی فعالیت داشته است. او عضو فعال اتحادیه نویسندگان کرد است و در حال حاضر معاون رئیس مرکز فرهنگی گلاویژ است.\n\nآثار منتشرشده او شعر، نقد ادبی، پژوهش، نثر و ترجمه را در بر می‌گیرد. از جمله:\n\n• صدایی که نمی‌خواهد آواز شود — شعر، انتشارات Aras، ۲۰۰۹.\n• ورود به دایره معنا — جستارها و پژوهش‌های ادبی، وزارت فرهنگ، ۲۰۰۸.\n• خاستگاه سوسن — ترجمه اشعار آدونیس، انتشارات Chawder، ۲۰۱۰.\n• عطر آن عاشقانی که مردند — ترجمه اشعار شاعر عرب، آدونیس، انتشارات Ghazalnus، ۲۰۱۶.\n• نام تو امضای من است — شعر، انتشارات FAM.\n• روزهای خشک و چشمان خیس — تأملات ادبی، انتشارات FAM، مه ۲۰۲۱.\n• آن گل‌های انار که توت شدند — نثر، انتشارات FAM، اربیل، ۲۰۲۲.\n• پاییز رهبر — شعر، انتشارات FAM، ۲۰۲۵."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/QzkkOINXypSb2R7DaXSgH.png",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 176,
+              "is_active": true,
+              "created_at": "2026-09-30T18:24:35.987Z",
+              "updated_at": "2026-09-30T18:24:35.987Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "e1e2c2e5-2860-4bc5-bff6-09b907dd2601",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "أن تكون مشهوراً أم مؤثراً؟",
+            "en": "Being Famous or Being Influential?",
+            "ku": "بەناوبانگ بوون یا کاریگەر بوون؟",
+            "fa": "مشهور بودن یا تأثیرگذار بودن؟"
+          },
+          "description": {},
+          "start_time": "15:45:00",
+          "end_time": "16:15:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 3,
+          "mobile_id": 10,
+          "is_active": true,
+          "created_at": "2026-09-21T12:10:41.799Z",
+          "updated_at": "2026-10-03T10:09:59.213Z",
+          "speakers": [
+            {
+              "id": "00fce42e-8006-4cb6-9d11-eb355d6610ca",
+              "name": {
+                "ar": "يوسف الكزرجي",
+                "en": "Yousif A Al-Kazragy",
+                "ku": "یوسف ئەلکەزراگی",
+                "fa": "یوسف ای. الکزرجی"
+              },
+              "title": {
+                "ar": "رائد أعمال وشخصية إعلامية | الرئيس التنفيذي بالنيابة، شركة أريدو الدولية للنفط والغاز",
+                "en": "Entrepreneur & Media Personality | Acting CEO, Arido International Oil & Gas",
+                "ku": "خاوەنکار و کەسایەتیی میدیایی | بەڕێوەبەری جێبەجێکاری بە وەکالەت، کۆمپانیای ئاریدۆی نێودەوڵەتیی نەوت و گاز",
+                "fa": "کارآفرین و چهره رسانه‌ای | مدیرعامل موقت، Arido International Oil & Gas"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "يوسف الكزرجي هو محترف في مجال الأعمال، ومنشئ محتوى، ومدون لأسلوب الحياة، وشخصية أمام الكاميرا يتمتع بخبرة في تطوير الأعمال، والتسويق، والعلامات التجارية الشخصية، والإعلام.\n\nيشغل حاليًا منصب الرئيس التنفيذي بالنيابة لشركة أريدو الدولية للنفط والغاز، بينما يعمل أيضًا على تعزيز حضوره كمدرب للياقة البدنية، ومنشئ أسلوب حياة، ووجه للعلامة التجارية. يجمع عمله بين الأعمال وريادة الأعمال والمحتوى الرقمي والاتصالات والعلامات التجارية الشخصية.\n\nبفضل خبرته في العمل عبر بيئات الشركات، والحملات التجارية، والأحداث، والوسائط الرقمية، يقدم يوسف منظورًا يربط بين الأعمال وأسلوب الحياة وريادة الأعمال ووسائل الإعلام الحديثة.\n\nفي هايتكس ٢٠٢٦، ينضم إلى الحدث كمنسق للجنة، حيث يقدم خبرته في مجال الاتصال وإنشاء المحتوى والتدريب والأعمال لتسهيل المحادثات الهادفة وربط المتحدثين بالجمهور.",
+                "en": "Yousif A Al-Kazragy is a business professional, content creator, lifestyle blogger, and on-camera personality with experience across business development, marketing, personal branding, and media.\n\nHe currently serves as Acting CEO of Arido International Oil & Gas, while also building his presence as a fitness coach, lifestyle creator, and commercial brand face. His work combines business and entrepreneurship with digital content, communication, and personal branding.\n\nWith experience working across corporate environments, commercial campaigns, events, and digital media, Yousif brings a perspective that connects business, lifestyle, entrepreneurship, and modern media.\n\nAt HITEX 2026, he joins the event as a panel moderator, bringing his experience in communication, content creation, coaching, and business to facilitate meaningful conversations and connect speakers with the audience.",
+                "ku": "یوسف ئەلکەزراگی پیشەیی بازرگانییە، دروستکەری ناوەڕۆک، بلۆگەری شێوازی ژیانە، و کەسایەتییەکی سەر کامێرایە و ئەزموونی هەیە لە سەرانسەری پەرەپێدانی بازرگانی، بازاڕکردن، براندکردنی کەسی و میدیا.\n\nلە ئێستادا وەک بەڕێوەبەری جێبەجێکاری بە وەکالەتی کۆمپانیای ئاریدۆ ئینتەرناشناڵ ئۆیل و غاز کاردەکات، لە هەمان کاتدا ئامادەبوونی خۆی وەک ڕاهێنەری لەشجوانی و دروستکەری شێوازی ژیان و ڕووخساری براندی بازرگانی دروست دەکات. کارەکانی بازرگانی و کارگێڕی لەگەڵ ناوەڕۆکی دیجیتاڵی و پەیوەندیکردن و براندکردنی کەسی تێکەڵ دەکات.\n\nبە ئەزموونی کارکردن لە سەرانسەری ژینگە کۆمپانیاکان، هەڵمەتە بازرگانییەکان، بۆنە و میدیای دیجیتاڵی، یوسف دیدگایەک دەهێنێت کە بازرگانی، شێوازی ژیان، کارگێڕی و میدیای مۆدێرن بەیەکەوە دەبەستێتەوە.\n\nلە هیتێکس ٢٠٢٦، وەک بەڕێوەبەری پانێڵ بەشداری چالاکییەکە دەکات، ئەزموونی خۆی لە پەیوەندیکردن، دروستکردنی ناوەڕۆک، ڕاهێنەرایەتی، و بازرگانی دەهێنێت بۆ ئاسانکاری گفتوگۆی مانادار و پەیوەستکردنی وتاردەران لەگەڵ ئامادەبووان.",
+                "fa": "یوسف ای. الکزرجی فعال حوزه کسب‌وکار، تولیدکننده محتوا، بلاگر سبک زندگی و چهره جلوی دوربین است و در زمینه‌های توسعه کسب‌وکار، بازاریابی، برندسازی شخصی و رسانه تجربه دارد.\n\nاو در حال حاضر مدیرعامل موقت Arido International Oil & Gas است و هم‌زمان حضور خود را به‌عنوان مربی تناسب اندام، تولیدکننده محتوای سبک زندگی و چهره تبلیغاتی برندهای تجاری گسترش می‌دهد. کار او کسب‌وکار و کارآفرینی را با محتوای دیجیتال، ارتباطات و برندسازی شخصی پیوند می‌دهد.\n\nیوسف با تجربه کار در محیط‌های سازمانی، کمپین‌های تجاری، رویدادها و رسانه‌های دیجیتال، دیدگاهی را ارائه می‌کند که کسب‌وکار، سبک زندگی، کارآفرینی و رسانه‌های مدرن را به هم پیوند می‌دهد.\n\nاو در HITEX 2026 به‌عنوان گرداننده پنل به این رویداد می‌پیوندد و تجربه خود در ارتباطات، تولید محتوا، مربیگری و کسب‌وکار را به کار می‌گیرد تا گفت‌وگوهایی معنادار را تسهیل کند و سخنرانان را با مخاطبان پیوند دهد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Z_luuw0T2PVrX9K1EyJaA.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 164,
+              "is_active": true,
+              "created_at": "2026-09-29T10:00:58.192Z",
+              "updated_at": "2026-09-29T10:00:58.192Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "47266182-ca76-4e14-b97a-b727695b70d2",
+              "name": {
+                "ar": "إيفين آسو",
+                "en": "Evin Aso",
+                "ku": "ئەڤین ئاسۆ",
+                "fa": "اوین آسو"
+              },
+              "title": {
+                "ar": "مقدمة برامج تلفزيونية | منتجة | شخصية إعلامية",
+                "en": "TV Presenter | Producer | Media Figure",
+                "ku": "پێشکەشکاری تەلەفزیۆن | بەرهەمهێنەر | کەسایەتیی میدیایی",
+                "fa": "مجری تلویزیون | تهیه‌کننده | چهره رسانه‌ای"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "إيفين آسو هي شخصية إعلامية كردية بارزة ومعروفة للغاية ومقدمة برامج تلفزيونية تتمتع بخبرة مهنية واسعة تمتد لـ ٢٦ عامًا تغطي مختلف مراحل التطوير ومنصات البث. خلال مسيرتها المهنية الطويلة في صناعة الإعلام، عملت عبر العديد من القنوات المتنوعة التي وضعت ثقتها فيها، وقامت ببناء علاقة قوية مع الجماهير، وخاصة جيل الشباب الذين يدركون جيدًا بصمتها الثقافية الهامة. ومن بين مساهماتها الأكثر تأثيرًا برنامجها المميز إيفين ژن و ژيان، الذي أطلقته وحوّلته إلى منصة قوية. أصبح العرض مصدرًا حيويًا أفاد المجتمع بشدة، ومس حياة عدد لا يحصى من الأشخاص، وعزز تنمية المجتمع، وتناول الموضوعات الاجتماعية الأساسية في جميع أنحاء كردستان.",
+                "en": "Evin Aso is a prominent and highly recognized Kurdish media personality and television show host with an extensive 26-year career spanning various developmental stages and broadcasting platforms. Over her long-standing career in the media industry, she has worked across multiple diverse channels that placed their trust in her, building a strong connection with audiences—particularly the younger generation who are well-aware of her significant cultural footprint. Among her most impactful contributions is her signature program, Evîn Jin û Jiyan, which she initiated and shaped into a powerful platform. The show became a vital resource that deeply benefited society, touching countless lives, fostering community development, and addressing essential social themes across Kurdistan.",
+                "ku": "ئەڤین ئاسۆ کەسایەتییەکی دیاری و ناسراوی میدیایی کوردییە و پێشکەشکاری بەرنامەی تەلەفزیۆنییە و کارێکی بەرفراوانی ٢٦ ساڵەی قۆناغە جۆراوجۆرەکانی گەشەپێدان و پلاتفۆرمی پەخش دەگرێتەوە. لە ماوەی کارکردنی درێژخایەنیدا لە پیشەسازی میدیادا، لە چەندین کەناڵی جۆراوجۆردا کاردەکات کە متمانەیان پێی داناوە، پەیوەندییەکی بەهێز لەگەڵ بینەران دروستکردووە، بەتایبەتی نەوەی گەنج کە بە باشی ئاگاداری شوێنپێی کولتووری بەرچاوی ئەون. لە کاریگەرترین بەشدارییەکانیدا بەرنامەی واژۆکردنی بە ناوی ئەڤین ژن و ژیان کە دەستیپێکردووە و لە قاڵبی پلاتفۆرمێکی بەهێزدایە. نمایشەکە بوو بە سەرچاوەیەکی گرنگ کە بە قووڵی سوودی بۆ کۆمەڵگا هەبوو، دەستی لە ژیانی بێشومار دا، پەرەپێدانی کۆمەڵگای پەروەردە کرد، و باس لە تەوەرە کۆمەڵایەتییە جەوهەرییەکان لە سەرانسەری کوردستاندا کرد.",
+                "fa": "اوین آسو چهره‌ای برجسته و بسیار شناخته‌شده در رسانه‌های کردی و مجری برنامه‌های تلویزیونی است که کارنامه‌ای گسترده و ۲۶ ساله دارد؛ کارنامه‌ای که مراحل مختلف تحول و بسترهای گوناگون پخش را در بر می‌گیرد. او در طول فعالیت طولانی خود در صنعت رسانه، در شبکه‌های متعدد و متنوعی کار کرده است که به او اعتماد کردند، و پیوندی قوی با مخاطبان برقرار کرده است؛ به‌ویژه با نسل جوان که به‌خوبی از ردپای فرهنگی چشمگیر او آگاه‌اند. از جمله اثرگذارترین دستاوردهای او، برنامه شاخصش Evîn Jin û Jiyan است که خود آن را آغاز کرد و به بستری قدرتمند بدل ساخت. این برنامه به منبعی حیاتی تبدیل شد که عمیقاً به سود جامعه بود، بر زندگی افراد بی‌شماری اثر گذاشت، توسعه اجتماعی را تقویت کرد و به موضوعات اجتماعی اساسی در سراسر کردستان پرداخت."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/O8ubdPTnzA1pQGJibipyB.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 163,
+              "is_active": true,
+              "created_at": "2026-09-29T09:54:20.991Z",
+              "updated_at": "2026-09-29T09:54:20.991Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "6016dd0d-3d53-42bf-8e93-d1ecd8279ab3",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "هل ما زلنا نشاهد بشراً؟",
+            "en": "Are We Watching Humans Anymore?",
+            "ku": "مرۆڤ یان زیرەکیی دەستکرد: ئایا چیتر سەیری مرۆڤی ڕاستەقینە دەکەین؟",
+            "fa": "آیا هنوز انسان‌ها را تماشا می‌کنیم؟"
+          },
+          "description": {},
+          "start_time": "16:20:00",
+          "end_time": "16:50:00",
+          "type": "fireside_chat",
+          "topic_tag": {
+            "ar": "حوار خاص",
+            "en": "Fireside Chat",
+            "ku": "گفتوگۆی تایبەت",
+            "fa": "گفت‌وگوی صمیمانه"
+          },
+          "location": {},
+          "sort_order": 5,
+          "mobile_id": 14,
+          "is_active": true,
+          "created_at": "2026-09-21T12:22:07.581Z",
+          "updated_at": "2026-10-03T07:36:07.328Z",
+          "speakers": [
+            {
+              "id": "6d9931d3-4dba-4932-8cdc-4e4fbaad32f3",
+              "name": {
+                "ar": "لانا محمد طاهر",
+                "en": "Lana Mohammed Tahir",
+                "ku": "لانە محەمەد تاهیر",
+                "fa": "لانا محمد طاهر"
+              },
+              "title": {
+                "ar": "تربوية وصانعة محتوى رقمي",
+                "en": "Educator & Digital Creator",
+                "ku": "پەروەردەکار و دروستکەری ناوەڕۆکی دیجیتاڵ",
+                "fa": "مدرس و تولیدکننده محتوای دیجیتال"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "محترفة متعددة التخصصات تتمتع بمزيج فريد من الأسس العلمية والخبرة التعليمية والطلاقة في الوسائط الرقمية.",
+                "en": "Multidisciplinary professional with a unique blend of scientific grounding, educational expertise, and digital media fluency.",
+                "ku": "پیشەیی فرە پسپۆڕیی بە تێکەڵەیەکی ناوازە لە زەمینەسازی زانستی، شارەزایی پەروەردەیی، و ڕوانینی میدیای دیجیتاڵی.",
+                "fa": "متخصصی چندرشته‌ای با ترکیبی منحصربه‌فرد از پشتوانه علمی، تخصص آموزشی و تسلط بر رسانه‌های دیجیتال."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/xRmSENGHxKuzsMXMlbJvW.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 169,
+              "is_active": true,
+              "created_at": "2026-09-29T10:13:10.121Z",
+              "updated_at": "2026-09-29T10:13:10.121Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "88aebfbb-ea37-449d-9da2-a756f58fd332",
+              "name": {
+                "ar": "راستگۆ يادگار غريب",
+                "en": "Rastgo Yadgar Gharib",
+                "ku": "ڕاستگۆ یادگار غەریب",
+                "fa": "راستگو یادگار غریب"
+              },
+              "title": {
+                "ar": "المدير الإبداعي",
+                "en": "Creative Director",
+                "ku": "بەڕێوەبەری داهێنەرانە",
+                "fa": "مدیر خلاقیت"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "أنا مخرج إبداعي وصانع أفلام للعلامة التجارية مقيم في أربيل، ولدي أكثر من ١٢ عامًا خلف العدسة. لقد أنتجت محتوى لعلامات تجارية عالمية بما في ذلك سامسونج وأونر وفيفو وتكنو، وشاركت في تأسيس وكالة إبداعية في السليمانية، وأدير الآن ممارسة مستقلة تركز على رواية قصص العلامات التجارية المتميزة. لقد قمت أيضًا بتدريب أكثر من ٦٥٠ مبدعًا من خلال دورة صناعة الأفلام عبر الهاتف المحمول.",
+                "en": "I am a Creative director and brand filmmaker based in Erbil, with 12+ years behind the lens. I have produced content for global brands including Samsung, Honor, Vivo, and Tecno, co-founded a creative agency in Sulaymaniyah, and now run an independent practice focused on premium brand storytelling. I have also trained more than 650 creators through my mobile filmmaking course.",
+                "ku": "من دەرهێنەرێکی داهێنەر و سینەماکاری براندم کە بنکەکەی لە هەولێرە، زیاتر لە ١٢ ساڵ لە پشت عەدەسەکەوەم. من ناوەڕۆکم بۆ براندە جیهانییەکان بەرهەمهێناوە لەوانە سامسۆنگ، ئۆنەر، ڤیڤۆ و تەکنۆ، هاوبەشی دامەزراندنی دەزگایەکی داهێنەرم لە سلێمانی، ئێستاش پراکتیکێکی سەربەخۆ بەڕێوەدەبەم کە گرنگی بە چیرۆکگێڕانی براندی پریمیۆم دەدات. هەروەها لە ڕێگەی خولی فیلمسازی مۆبایلەکەمەوە زیاتر لە ٦٥٠ داهێنەرم ڕاهێناوە.",
+                "fa": "من کارگردان خلاق و فیلم‌ساز برند مستقر در اربیل هستم و بیش از ۱۲ سال پشت دوربین بوده‌ام. برای برندهای جهانی از جمله Samsung، Honor، Vivo و Tecno محتوا تولید کرده‌ام، در تأسیس یک آژانس خلاق در سلیمانیه مشارکت داشته‌ام و اکنون یک فعالیت مستقل با تمرکز بر روایتگری ممتاز برند را اداره می‌کنم. همچنین از طریق دوره فیلم‌سازی با موبایل خود، بیش از ۶۵۰ تولیدکننده محتوا را آموزش داده‌ام."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/-sif5u5sehJoq0X2Ajm09.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 168,
+              "is_active": true,
+              "created_at": "2026-09-29T10:11:36.494Z",
+              "updated_at": "2026-09-29T10:11:36.494Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "fd29bfab-f9e4-4c5d-91d4-a720025d7c42",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "من التصفح إلى البيع: كيف تعيد وسائل التواصل والتكنولوجيا تشكيل قطاع العقارات",
+            "en": "From Scroll to Sold: How Social Media and Technology Are Reshaping Real Estate",
+            "ku": "لە سکرۆڵکردنەوە تا فرۆشتن: چۆن سۆشیال میدیا و تەکنەلۆژیا کەرتی خانووبەرە دەگۆڕن",
+            "fa": "از اسکرول تا فروش: شبکه‌های اجتماعی و فناوری چگونه بازار املاک را دگرگون می‌کنند"
+          },
+          "description": {},
+          "start_time": "16:55:00",
+          "end_time": "17:35:00",
+          "type": "dialogue",
+          "topic_tag": {
+            "ar": "حوار",
+            "en": "Dialogue",
+            "ku": "گفتوگۆ",
+            "fa": "گفت‌وگو"
+          },
+          "location": {},
+          "sort_order": 6,
+          "mobile_id": 33,
+          "is_active": true,
+          "created_at": "2026-09-29T20:43:01.404Z",
+          "updated_at": "2026-10-03T07:36:07.329Z",
+          "speakers": [
+            {
+              "id": "d6ea0b04-69e9-4aed-af54-69aec7567fea",
+              "name": {
+                "ar": "زينة جباري",
+                "en": "Zina Jabbary",
+                "ku": "زینا جەباری",
+                "fa": "زینا جباری"
+              },
+              "title": {
+                "ar": "مؤسسة Dare to Hire ورئيسة قسم التسويق في SK Estate",
+                "en": "Founder of Dare to Hire & Head of Marketing at SK Estate",
+                "ku": "دامەزرێنەری Dare to Hire و سەرۆکی بەشی مارکێتینگ لە SK Estate",
+                "fa": "بنیان‌گذار Dare to Hire و رئیس بازاریابی در SK Estate"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "زينة جباري قيادية في مجالي التسويق وتطوير الأعمال، ورائدة أعمال ومتخصصة في العمل الإنساني، تتمتع بخبرة تتجاوز 13 عاماً في القطاع الخاص والمنظمات الدولية والمبادرات المجتمعية.\n\nتشغل حالياً منصب رئيسة قسم التسويق في شركة SK Estate، حيث تقود الاستراتيجية التسويقية وتطوير العلامة التجارية لمشروعات عقارية بارزة في إقليم كردستان، من بينها فلوريا سيتي وشاري دايك.\n\nكما أنها مؤسسة ورئيسة تنفيذية لشركة Dare to Hire، وهي شركة متخصصة في التوظيف والاستشارات التجارية، تدعم الشركات في استقطاب المواهب والبحث عن القيادات التنفيذية والاستشارات في الموارد البشرية وبناء العلامة الوظيفية وتطوير الأعمال.\n\nوفي مرحلة سابقة من مسيرتها المهنية، عملت زينة لسنوات في القطاع الإنساني، بما في ذلك عملها مع المفوضية السامية للأمم المتحدة لشؤون اللاجئين، حيث أدارت وأشرفت على فرق وبرامج واسعة في مجالات الحماية وحماية الطفل والتعليم والدعم النفسي والاجتماعي والحماية المجتمعية والتنسيق مع الشركاء.\n\nوبفضل خلفيتها الأكاديمية في علم الاجتماع والصحة النفسية، تجمع زينة بين القيادة المرتكزة على الإنسان والاستراتيجية التجارية والتسويق وريادة الأعمال. وإلى جانب مسيرتها المهنية، تشارك بفاعلية في المبادرات المجتمعية والخيرية، مع اهتمام خاص بدعم الأطفال والشباب والعائلات المحتاجة.",
+                "en": "Zina Jabbary is a marketing and business development leader, entrepreneur, and humanitarian professional with more than 13 years of experience across the private sector, international organizations, and community initiatives.\n\nShe currently serves as Head of Marketing at SK Estate, where she leads marketing strategy and brand development for major real estate projects in the Kurdistan Region, including Floria City and Shari Daik.\n\nShe is also the Founder and CEO of Dare to Hire, a recruitment and business consultancy that supports companies through talent acquisition, executive search, HR consulting, employer branding, and business growth.\n\nEarlier in her career, Zina worked extensively in the humanitarian sector, including with UNHCR, where she managed and supervised large teams and programmes focused on protection, child protection, education, psychosocial support, community-based protection, and partner coordination.\n\nWith an academic background in sociology and mental health, she combines people-centred leadership with business strategy, marketing, and entrepreneurship. Beyond her professional work, she is actively involved in community and charitable initiatives, with a strong commitment to supporting children, young people, and families in need.",
+                "ku": "زینا جەباری سەرکردەیەکە لە بواری مارکێتینگ و پەرەپێدانی بازرگانی، هەروەها کارگێڕێکی داهێنەر و پسپۆڕێکی کاری مرۆییە کە زیاتر لە ١٣ ساڵ ئەزموونی لە کەرتی تایبەت، ڕێکخراوە نێودەوڵەتییەکان و دەستپێشخەرییە کۆمەڵایەتییەکاندا هەیە.\n\nلە ئێستادا سەرۆکی بەشی مارکێتینگ لە SK Estate ـە و ستراتیژی مارکێتینگ و پەرەپێدانی براند بۆ پڕۆژە گەورەکانی خانووبەرە لە هەرێمی کوردستان بەڕێوە دەبات، لەوانە Floria City و Shari Daik.\n\nهەروەها دامەزرێنەر و بەڕێوەبەری جێبەجێکاری Dare to Hire ـە؛ کۆمپانیایەکی دامەزراندن و ڕاوێژکاری بازرگانی کە لە بواری دۆزینەوەی بەهرە، گەڕان بەدوای بەڕێوەبەرانی باڵا، ڕاوێژکاری سەرچاوە مرۆییەکان، براندسازیی خاوەنکار و گەشەپێدانی بازرگانی پشتگیری کۆمپانیاکان دەکات.\n\nلە قۆناغێکی پێشووی ژیانی پیشەییدا، زینا بە فراوانی لە کەرتی مرۆییدا کاری کردووە، لەوانە لەگەڵ کۆمیساریای باڵای نەتەوە یەکگرتووەکان بۆ پەنابەران، کە تێیدا بەڕێوەبردن و چاودێری تیم و بەرنامە گەورەکانی پەیوەست بە پاراستن، پاراستنی منداڵ، پەروەردە، پشتگیری دەروونی و کۆمەڵایەتی، پاراستنی بنەماکۆمەڵگەیی و هەماهەنگی لەگەڵ هاوبەشەکان لە ئەستۆ گرتووە.\n\nبە پشتبەستن بە پاشخانی ئەکادیمیی خۆی لە کۆمەڵناسی و تەندروستیی دەروونی، زینا سەرکردایەتیی مرۆڤ‌تەوەر لەگەڵ ستراتیژی بازرگانی، مارکێتینگ و کارگێڕیی داهێنەرانە یەکدەخات. لە دەرەوەی کاری پیشەیی، بە چالاکی بەشداری دەستپێشخەرییە کۆمەڵایەتی و خێرخوازییەکان دەکات و گرنگییەکی تایبەت بە پشتگیری منداڵان، گەنجان و خێزانە پێویستەکان دەدات.",
+                "fa": "زینا جباری از چهره‌های پیشرو در حوزه بازاریابی و توسعه کسب‌وکار، کارآفرین و فعال حوزه بشردوستانه است که بیش از ۱۳ سال تجربه در بخش خصوصی، سازمان‌های بین‌المللی و ابتکارهای اجتماعی دارد.\n\nاو در حال حاضر مدیر بازاریابی SK Estate است و در آنجا راهبرد بازاریابی و توسعه برند پروژه‌های بزرگ املاک و مستغلات در اقلیم کردستان، از جمله Floria City و Shari Daik، را هدایت می‌کند.\n\nاو همچنین بنیان‌گذار و مدیرعامل Dare to Hire است؛ شرکتی در زمینه مشاوره استخدام و کسب‌وکار که از طریق جذب استعداد، جست‌وجوی مدیران ارشد، مشاوره منابع انسانی، برندسازی کارفرمایی و رشد کسب‌وکار از شرکت‌ها پشتیبانی می‌کند.\n\nزینا در سال‌های نخست فعالیت حرفه‌ای خود به‌طور گسترده در بخش بشردوستانه، از جمله در کمیساریای عالی سازمان ملل متحد در امور پناهندگان (UNHCR)، فعالیت کرد و در آنجا تیم‌ها و برنامه‌های بزرگی را با تمرکز بر حفاظت، حفاظت از کودکان، آموزش، حمایت روانی-اجتماعی، حفاظت جامعه‌محور و هماهنگی با شرکا مدیریت و سرپرستی کرد.\n\nاو با پیشینه تحصیلی در جامعه‌شناسی و سلامت روان، رهبری مردم‌محور را با راهبرد کسب‌وکار، بازاریابی و کارآفرینی تلفیق می‌کند. او فراتر از فعالیت حرفه‌ای خود، فعالانه در ابتکارهای اجتماعی و خیریه مشارکت دارد و تعهدی جدی به حمایت از کودکان، جوانان و خانواده‌های نیازمند دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/0biAPjQNY0KExz905CMEZ.png",
+              "year": 2025,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": 131,
+              "is_featured": false,
+              "mobile_id": 130,
+              "is_active": true,
+              "created_at": "2026-04-28T12:38:57.022Z",
+              "updated_at": "2026-09-29T20:52:44.093Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": true
+              }
+            },
+            {
+              "id": "6ddc8c7c-abc2-4b04-8402-29b6f5b69a7f",
+              "name": {
+                "ar": "بلال سعيد فرج",
+                "en": "Bilal Saeed Faraj",
+                "ku": "بیلال سەعید فەرەج",
+                "fa": "بلال سعید فرج"
+              },
+              "title": {
+                "ar": "مؤسس مؤسسة Mulk ومدير Mulk News",
+                "en": "Founder of Mulk Foundation & Director of Mulk News",
+                "ku": "دامەزرێنەری دامەزراوەی Mulk و بەڕێوەبەری Mulk News",
+                "fa": "بنیان‌گذار بنیاد Mulk و مدیر Mulk News"
+              },
+              "company": {
+                "ar": "مؤسسة Mulk / Mulk News",
+                "en": "Mulk Foundation / Mulk News",
+                "ku": "دامەزراوەی Mulk / Mulk News",
+                "fa": "بنیاد Mulk / Mulk News"
+              },
+              "country": {
+                "ar": "",
+                "en": "",
+                "ku": "",
+                "fa": ""
+              },
+              "bio": {
+                "ar": "بلال سعيد فرج صحفي ومتخصص في سوق العقارات، وهو مؤسس مؤسسة Mulk ومدير Mulk News. يركز في عمله على تقديم معلومات واضحة وموثوقة وتحليلات معمقة لأسواق العقارات والاستثمار في العراق وإقليم كردستان.",
+                "en": "Bilal Saeed Faraj is a journalist and real estate market specialist, as well as the Founder of Mulk Foundation and Director of Mulk News. He focuses on delivering clear, reliable information and in-depth analysis of the real estate and investment markets in Iraq and the Kurdistan Region.",
+                "ku": "بیلال سەعید فەرەج ڕۆژنامەنووس و پسپۆڕی بازاڕی خانووبەرەیە، هەروەها دامەزرێنەری دامەزراوەی Mulk و بەڕێوەبەری Mulk News ـە. لە کارەکانی خۆیدا جەخت لە پێشکەشکردنی زانیاریی ڕوون و متمانەپێکراو و شیکردنەوەی قووڵی بازاڕی خانووبەرە و وەبەرهێنان لە عێراق و هەرێمی کوردستان دەکات.",
+                "fa": "بلال سعید فرج روزنامه‌نگار و متخصص بازار املاک و مستغلات و همچنین بنیان‌گذار بنیاد Mulk و مدیر Mulk News است. او بر ارائه اطلاعات روشن و قابل‌اعتماد و تحلیل‌های عمیق از بازارهای املاک و مستغلات و سرمایه‌گذاری در عراق و اقلیم کردستان تمرکز دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/GWHREFoEUpJxUU9SBQvyu.jpg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 173,
+              "is_active": true,
+              "created_at": "2026-09-29T20:57:17.319Z",
+              "updated_at": "2026-09-29T20:57:17.319Z",
+              "SessionSpeaker": {
+                "sort_order": 1,
+                "is_moderator": false
+              }
+            },
+            {
+              "id": "f91b8f83-ea44-4805-94ca-48e484e42d03",
+              "name": {
+                "ar": "ميران سفيني",
+                "en": "Miran Safiny",
+                "ku": "میران سەفینی",
+                "fa": "میران سفینی"
+              },
+              "title": {
+                "ar": "خبير استراتيجيات سوق العقارات",
+                "en": "Property Market Strategist",
+                "ku": "ستراتیژکاری بازاڕی خانووبەرە",
+                "fa": "استراتژیست بازار املاک"
+              },
+              "company": {
+                "ar": "MIRAN Real Estate",
+                "en": "MIRAN Real Estate",
+                "ku": "MIRAN Real Estate",
+                "fa": "MIRAN Real Estate"
+              },
+              "country": {
+                "ar": "إقليم كردستان، العراق",
+                "en": "Kurdistan Region, Iraq",
+                "ku": "هەرێمی کوردستان، عێراق",
+                "fa": "اقلیم کردستان، عراق"
+              },
+              "bio": {
+                "ar": "ميران سفيني رائد أعمال وخبير بارز في قطاع العقارات، يقيم في أربيل بإقليم كردستان، ويُعرف بصفته مؤسساً ورئيساً تنفيذياً لشركة MIRAN Real Estate.\n\nيمتلك ميران خبرة تمتد إلى 14 عاماً في شراء العقارات وبيعها وتأجيرها وإدارتها. ومن خلال فروعها المتعددة في المشروعات السكنية الكبرى بأربيل، تقدم شركته رؤى متخصصة حول السوق وخدمات استشارية في مجال الاستثمار للعملاء المحليين والدوليين.\n\nوإلى جانب نشاطه العقاري، أسس شركة Zillion Max للاستشارات ومنشأة Zillion Crane الصناعية. كما تشمل خبراته تطوير الأعمال والاستراتيجية التسويقية وقيادة الفرق والتدريب على مهارات المبيعات.\n\nيظهر ميران بانتظام في وسائل الإعلام الكردية بصفته خبيراً اقتصادياً وعقارياً، مقدماً تحليلات حول اتجاهات السوق وحركة الاستثمار. ويركز في رؤيته على الحفاظ على الاستقرار الاقتصادي ومتابعة القطاع السكني ودفع التحول الرقمي في قطاع العقارات.",
+                "en": "Miran Safiny is a prominent entrepreneur and real estate expert based in Erbil, Kurdistan Region. He is best known as the Founder and CEO of MIRAN Real Estate.\n\nWith 14 years of experience in property acquisition, sales, leasing, and management, Miran has built a strong presence across major residential projects in Erbil. Through its multiple branches, MIRAN Real Estate provides market insight and investment advisory services to both local and international clients.\n\nBeyond real estate, he is the founder of the consulting firm Zillion Max and the manufacturing facility Zillion Crane. His work also spans business development, marketing strategy, team leadership, and sales training.\n\nMiran regularly appears in Kurdish media as an economic and real estate expert, offering analysis of market trends and investment dynamics. His work emphasizes economic stability, close monitoring of the residential sector, and the digital transformation of real estate.",
+                "ku": "میران سەفینی کارگێڕێکی ناسراو و پسپۆڕێکی بواری خانووبەرەیە کە لە هەولێری هەرێمی کوردستان نیشتەجێیە. ئەو زیاتر وەک دامەزرێنەر و بەڕێوەبەری جێبەجێکاری MIRAN Real Estate ناسراوە.\n\nمیران ١٤ ساڵ ئەزموونی لە کڕین و فرۆشتن، بەکرێدان و بەڕێوەبردنی موڵکدا هەیە. کۆمپانیاکەی لە ڕێگەی چەندین لقی خۆی لە پڕۆژە نیشتەجێبوونە سەرەکییەکانی هەولێر، زانیاریی بازاڕ و ڕاوێژکاریی وەبەرهێنان بۆ کڕیار و کۆمپانیا ناوخۆیی و نێودەوڵەتییەکان دابین دەکات.\n\nلە دەرەوەی بواری خانووبەرە، میران دامەزرێنەری کۆمپانیای ڕاوێژکاری Zillion Max و کارگەی بەرهەمهێنانی Zillion Crane ـە. ئەزموونەکانی هەروەها پەرەپێدانی بازرگانی، ستراتیژی مارکێتینگ، سەرکردایەتی تیم و ڕاهێنانی فرۆشتن دەگرێتەوە.\n\nمیران بەردەوام لە میدیای کوردیدا وەک پسپۆڕێکی ئابووری و خانووبەرە دەردەکەوێت و شیکردنەوە بۆ ئاراستەکانی بازاڕ و جووڵەی وەبەرهێنان پێشکەش دەکات. لە دیدگاکانی خۆیدا جەخت لە پاراستنی سەقامگیریی ئابووری، چاودێریکردنی کەرتی نیشتەجێبوون و دیجیتاڵکردنی بواری خانووبەرە دەکات.",
+                "fa": "میران سفینی کارآفرین و کارشناس برجسته املاک و مستغلات مستقر در اربیل، اقلیم کردستان، است. او بیش از هر چیز به‌عنوان بنیان‌گذار و مدیرعامل MIRAN Real Estate شناخته می‌شود.\n\nمیران با ۱۴ سال تجربه در خرید، فروش، اجاره و مدیریت املاک، حضوری پررنگ در پروژه‌های بزرگ مسکونی اربیل ایجاد کرده است. MIRAN Real Estate از طریق شعبه‌های متعدد خود، خدمات تحلیل بازار و مشاوره سرمایه‌گذاری را به مشتریان داخلی و بین‌المللی ارائه می‌کند.\n\nاو فراتر از حوزه املاک و مستغلات، بنیان‌گذار شرکت مشاوره‌ای Zillion Max و واحد تولیدی Zillion Crane است. فعالیت‌های او همچنین توسعه کسب‌وکار، راهبرد بازاریابی، رهبری تیم و آموزش فروش را در بر می‌گیرد.\n\nمیران به‌طور منظم به‌عنوان کارشناس اقتصادی و املاک و مستغلات در رسانه‌های کردی حضور می‌یابد و تحلیل‌هایی از روندهای بازار و پویایی‌های سرمایه‌گذاری ارائه می‌دهد. کار او بر ثبات اقتصادی، پایش دقیق بخش مسکونی و تحول دیجیتال در حوزه املاک و مستغلات تأکید دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Xl5rf6WPj8mYdjyT-VYZp.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 172,
+              "is_active": true,
+              "created_at": "2026-09-29T20:55:34.109Z",
+              "updated_at": "2026-09-29T20:55:34.109Z",
+              "SessionSpeaker": {
+                "sort_order": 2,
+                "is_moderator": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "8b555a3c-3ab5-4c76-a870-c98f72e0793c",
+          "agenda_id": "71109e97-9a82-4a2e-9197-a437e92038e7",
+          "title": {
+            "ar": "تسخير التكنولوجيا لخدمة الهوية والثقافة",
+            "en": "Using Technology to Serve Identity and Culture",
+            "ku": "بەکارهێنانی تەکنەلۆژیا بۆ خزمەتکردنی ناسنامە و کەلتوور",
+            "fa": "به‌کارگیری فناوری در خدمت هویت و فرهنگ"
+          },
+          "description": {},
+          "start_time": "17:40:00",
+          "end_time": "18:00:00",
+          "type": "presentation",
+          "topic_tag": {
+            "ar": "عرض تقديمي",
+            "en": "Presentation",
+            "ku": "پێشکەشکردن",
+            "fa": "ارائه"
+          },
+          "location": {},
+          "sort_order": 7,
+          "mobile_id": 32,
+          "is_active": true,
+          "created_at": "2026-09-29T20:41:35.595Z",
+          "updated_at": "2026-10-03T07:36:07.330Z",
+          "speakers": [
+            {
+              "id": "08595e03-38c9-4b44-a9d2-a786ed93ff2b",
+              "name": {
+                "ar": "هيرش شيخ عمر",
+                "en": "Hersh Sekh Omar",
+                "ku": "هێرش شێخ عومەر",
+                "fa": "هیرش شیخ عمر"
+              },
+              "title": {
+                "ar": "المدير التنفيذي لأغورا فيجن",
+                "en": "Executive Director, Agora Vision",
+                "ku": "بەڕێوەبەری جێبەجێکاری ئاگۆرا ڤیژن",
+                "fa": "مدیر اجرایی، Agora Vision"
+              },
+              "company": {},
+              "country": {},
+              "bio": {
+                "ar": "يشغل هيرش شيخ عمر منصب المدير التنفيذي لأغورا فيجن على مدى السنوات الخمس الماضية، وهي منظمة نشطة في مجال النشر والبث الرقمي. يركز عمله على تطوير المحتوى الرقمي والصوتي مع الترويج للثقافة والهوية والأدب والكتب واللغة الكردية.\n\nبصفته كاتبًا وابن الكاتب الكردي الشهير عمر شيخ لطيف، ساهم في تطوير المحتوى الرقمي الكردي وإنتاج الكتب الصوتية، مع اهتمام خاص بالحفاظ على التراث الثقافي والأدبي الكردي وتطويره.",
+                "en": "Hersh Sheikh Omer has been serving as the Executive Director of Agora Vision for the past five years, an organization active in digital publishing and broadcasting. His work focuses on developing digital and audio content while promoting Kurdish culture, identity, literature, books, and language.\n\nAs a writer and the son of renowned Kurdish writer Omar Sheikh Latif, he has contributed to the development of Kurdish digital content and audiobook production, with a particular interest in preserving and advancing Kurdish cultural and literary heritage.",
+                "ku": "هێرش شێخ عومەر لە ماوەی پێنج ساڵی ڕابردوودا وەک بەڕێوەبەری جێبەجێکاری کۆمپانیای ئاگۆرا ڤیژن کاری کردووە، کە ڕێکخراوێکە لە بواری بڵاوکردنەوە و پەخشی دیجیتاڵیدا چالاکە. کارەکانی لەسەر پەرەپێدانی ناوەڕۆکی دیجیتاڵی و دەنگی لە هەمان کاتدا پەرەپێدانی کولتوور، شوناس، ئەدەب، کتێب، و زمانی کوردییە.\n\nوەک نووسەر و کوڕی نووسەری بەناوبانگی کورد عومەر شێخ لەتیف، بەشداری کردووە لە پەرەپێدانی ناوەڕۆکی دیجیتاڵی کوردی و بەرهەمهێنانی کتێبی دەنگی، بە حەزێکی تایبەت لە پاراستن و پێشخستنی میراتی کولتووری و ئەدەبی کوردی.",
+                "fa": "هیرش شیخ عمر طی پنج سال گذشته مدیر اجرایی Agora Vision بوده است؛ سازمانی که در حوزه نشر دیجیتال و پخش فعالیت دارد. فعالیت او بر توسعه محتوای دیجیتال و صوتی و در عین حال ترویج فرهنگ، هویت، ادبیات، کتاب و زبان کردی متمرکز است.\n\nاو که نویسنده و فرزند نویسنده سرشناس کرد، عمر شیخ لطیف، است، در توسعه محتوای دیجیتال کردی و تولید کتاب صوتی نقش داشته و علاقه ویژه‌ای به حفظ و اعتلای میراث فرهنگی و ادبی کردی دارد."
+              },
+              "photo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Jqov-zJ9Yf9cZPM2LV30t.jpeg",
+              "year": 2026,
+              "facebook_url": null,
+              "instagram_url": null,
+              "twitter_url": null,
+              "linkedin_url": null,
+              "sort_order": null,
+              "is_featured": false,
+              "mobile_id": 170,
+              "is_active": true,
+              "created_at": "2026-09-29T10:14:27.109Z",
+              "updated_at": "2026-09-29T10:14:48.249Z",
+              "SessionSpeaker": {
+                "sort_order": 0,
+                "is_moderator": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "opening": {
+    "id": "3a471421-8807-4df1-b851-f4ae46703e96",
+    "page": "conferences-agenda",
+    "section_key": "opening",
+    "title": {
+      "ar": "الافتتاح الرسمي لهايتكس 2026",
+      "en": "The Official Opening of HITEX 2026",
+      "ku": "کردنەوەی فەرمی هایتێکس 2026",
+      "fa": "افتتاحیه رسمی HITEX 2026"
+    },
+    "subtitle": {
+      "ar": "يفتتح رئيس وزراء إقليم كوردستان معرض هايتكس 2026، بحضور الوزراء وكبار المسؤولين. ويمهد حفل الافتتاح رسمياً الطريق لأربعة أيام من التكنولوجيا والابتكار.",
+      "en": "The Prime Minister of the Kurdistan Region opens HITEX 2026, joined by ministers and senior officials. Following the ceremony, the guests of honour tour the exhibition, officially setting the tone for four days of technology and innovation.",
+      "ku": "سەرۆک وەزیرانی هەرێمی کوردستان بە ئامادەبوونی وەزیرەکان و بەرپرسە باڵاکان پێشانگای هایتێکس ٢٠٢٦ دەکاتەوە، ڕێوڕەسمی کردنەوەکە بە فەرمی دەستپێکی چوار ڕۆژ لە تەکنەلۆژیا و داهێنان ڕادەگەیەنێت.",
+      "fa": "نخست‌وزیر اقلیم کردستان، همراه با وزیران و مقامات ارشد، HITEX 2026 را افتتاح می‌کند. پس از مراسم، میهمانان ویژه از نمایشگاه بازدید می‌کنند و بدین‌سان به‌طور رسمی سرآغاز چهار روز فناوری و نوآوری را رقم می‌زنند."
+    },
+    "cta_text": {
+      "ar": "احجز تذكرتك",
+      "en": "Get Your Pass",
+      "ku": "خۆت تۆمار بکە",
+      "fa": "کارت ورود خود را دریافت کنید"
+    },
+    "cta_url": "/getyourpass",
+    "item_ids": [
+      {
+        "time": "",
+        "entry": {
+          "ar": "مفتوح لجميع حاملي تذاكر هايتكس، والتسجيل مجاني.",
+          "en": "Open to all HITEX pass holders. Registration is free.",
+          "ku": "کراوەیە بۆ هەموو ئەوانەی خۆیان تۆمارکردووە، خۆتۆمارکردن بەخۆڕاییە.",
+          "fa": "برای همه دارندگان کارت ورود HITEX آزاد است. ثبت‌نام رایگان است."
+        },
+        "guest": {
+          "ar": "رئيس وزراء إقليم كوردستان",
+          "en": "Prime Minister of the Kurdistan Region",
+          "ku": "سەرۆکی ئەنجومەنی وەزیرانی هەرێمی کوردستان",
+          "fa": "نخست‌وزیر اقلیم کردستان"
+        },
+        "venue": {
+          "ar": "أرض المعارض الدولية في أربيل",
+          "en": "Erbil International Fairground",
+          "ku": "پێشانگای نێودەوڵەتی هەولێر",
+          "fa": "نمایشگاه بین‌المللی اربیل"
+        },
+        "guest_note": {
+          "ar": "بحضور الوزراء وكبار المسؤولين",
+          "en": "with ministers and senior officials",
+          "ku": "لەگەڵ وەزیران و بەرپرسانی باڵا",
+          "fa": "با حضور وزیران و مقامات ارشد"
+        }
+      }
+    ],
+    "media_url": null,
+    "media_type": null,
+    "thumbnail_url": null,
+    "media_label": {
+      "ar": "مراسم الافتتاح",
+      "en": "Opening Ceremony",
+      "ku": "ڕێوڕەسمی کردنەوە",
+      "fa": "مراسم افتتاحیه"
+    },
+    "media_muted": true,
+    "is_active": true,
+    "created_at": "2026-10-03T09:39:27.794Z",
+    "updated_at": "2026-10-03T12:00:42.186Z"
+  },
+  "opening_details": {
+    "time": "",
+    "entry": {
+      "ar": "مفتوح لجميع حاملي تذاكر هايتكس، والتسجيل مجاني.",
+      "en": "Open to all HITEX pass holders. Registration is free.",
+      "ku": "کراوەیە بۆ هەموو ئەوانەی خۆیان تۆمارکردووە، خۆتۆمارکردن بەخۆڕاییە.",
+      "fa": "برای همه دارندگان کارت ورود HITEX آزاد است. ثبت‌نام رایگان است."
+    },
+    "guest": {
+      "ar": "رئيس وزراء إقليم كوردستان",
+      "en": "Prime Minister of the Kurdistan Region",
+      "ku": "سەرۆکی ئەنجومەنی وەزیرانی هەرێمی کوردستان",
+      "fa": "نخست‌وزیر اقلیم کردستان"
+    },
+    "venue": {
+      "ar": "أرض المعارض الدولية في أربيل",
+      "en": "Erbil International Fairground",
+      "ku": "پێشانگای نێودەوڵەتی هەولێر",
+      "fa": "نمایشگاه بین‌المللی اربیل"
+    },
+    "guest_note": {
+      "ar": "بحضور الوزراء وكبار المسؤولين",
+      "en": "with ministers and senior officials",
+      "ku": "لەگەڵ وەزیران و بەرپرسانی باڵا",
+      "fa": "با حضور وزیران و مقامات ارشد"
+    }
+  },
+  "documents": [
+    {
+      "files": {
+        "ku": "https://hitex.s3.us-east-1.amazonaws.com/uploads/xVXd6F_uHTX50iQORvPNO.pdf"
+      },
+      "title": {
+        "ar": "بلان",
+        "en": "Agenda",
+        "ku": "پڕۆگرام و ئەجێندای کۆنفڕانس",
+        "fa": "برنامه"
+      }
+    },
+    {
+      "files": {
+        "en": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Rfx1brcyO7Dj3emYSQcSR.pdf"
+      },
+      "title": {
+        "ar": "خطط أرضية HITEX26",
+        "en": "HITEX26 Floor Plan",
+        "ku": "شوێنی کۆمپانیاکان",
+        "fa": "نقشه جانمایی HITEX26"
+      }
+    },
+    {
+      "files": {
+        "ar": "https://hitex.s3.us-east-1.amazonaws.com/uploads/gcVU7rPQw2DKCAmnSrzxL.pdf",
+        "ku": "https://hitex.s3.us-east-1.amazonaws.com/uploads/tfq-l1QjoO6vpEHhOSNJd.pdf"
+      },
+      "title": {
+        "ar": "موجز إخباري",
+        "en": "Media Brief",
+        "ku": "پوختەی میدیا",
+        "fa": "خلاصه رسانه‌ای"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1612 @@
+[
+  {
+    "id": "dc39d242-ac8f-4a7a-bd6a-16c2edb1a080",
+    "name": {
+      "ar": "أو كي إكس",
+      "en": "OKX",
+      "ku": "ئۆ کەی ئێکس",
+      "fa": "OKX"
+    },
+    "description": {
+      "ar": "OKX منصة عالمية للأصول الرقمية تقدم تداول العملات المشفرة وخدمات Web3 والمحافظ والتخزين وحلول المؤسسات.",
+      "en": "OKX is a global digital asset platform offering cryptocurrency trading, Web3 services, wallets, staking, and institutional solutions.",
+      "ku": "OKX پلاتفۆرمێکی جیهانی سامانی دیجیتاڵە کە بازرگانی دراوی دیجیتاڵ، خزمەتگوزاری Web3، جزدان، ستەیکینگ و چارەسەری دامەزراوەیی پێشکەش دەکات.",
+      "fa": "OKX یک پلتفرم جهانی دارایی‌های دیجیتال است که خدمات معاملات رمزارز، خدمات Web3، کیف پول، استیکینگ و راهکارهای ویژه مشتریان نهادی ارائه می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/v0dswKRCx_ouhxBo4dBb4.png",
+    "website_url": "",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": null,
+    "years": [
+      2026
+    ],
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": {
+      "ar": "Trading App",
+      "en": "Trading App",
+      "ku": "Trading App",
+      "fa": "اپلیکیشن معاملاتی"
+    },
+    "sort_order": 7,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 223,
+    "created_at": "2026-09-22T13:37:02.268Z",
+    "updated_at": "2026-09-22T16:36:55.327Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "6d2fdd42-39b5-4be8-909d-17ee7ad56ecf",
+    "name": {
+      "ar": "البنك الأهلي العراقي",
+      "en": "National Bank of Iraq",
+      "ku": "بانکی نیشتمانی عێراق",
+      "fa": "National Bank of Iraq"
+    },
+    "description": {
+      "ar": "يقدم البنك الأهلي العراقي خدمات مصرفية رقمية وتقليدية للأفراد والشركات، تشمل الحسابات والبطاقات والقروض والمدفوعات والخدمات المصرفية عبر الإنترنت.",
+      "en": "National Bank of Iraq provides digital and traditional banking services for individuals and businesses, including accounts, cards, loans, payments, and online banking.",
+      "ku": "بانکی نیشتمانی عێراق خزمەتگوزاری بانکی دیجیتاڵ و نەریتی بۆ تاک و کۆمپانیاکان پێشکەش دەکات، لەوانە هەژمار، کارت، قەرز، پارەدان و بانکی ئۆنلاین.",
+      "fa": "National Bank of Iraq خدمات بانکی دیجیتال و سنتی را برای افراد و کسب‌وکارها ارائه می‌کند؛ از جمله حساب، کارت، وام، پرداخت و بانکداری آنلاین."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/5kPc6GWJR4nEX5U3bdTdY.png",
+    "website_url": null,
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": null,
+    "years": [
+      2026
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {
+      "ar": "بنک",
+      "en": "Bank",
+      "ku": "بانک",
+      "fa": "بانک"
+    },
+    "sort_order": 8,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 225,
+    "created_at": "2026-09-22T13:46:16.797Z",
+    "updated_at": "2026-09-22T16:41:44.623Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "3344d38f-23c5-43d4-9923-a777511af833",
+    "name": {
+      "ar": "أرسيلا",
+      "en": "Arcella",
+      "ku": "ئارسێلا",
+      "fa": "Arcella"
+    },
+    "description": {
+      "ar": "تقدم أرسيلا بنية تحتية ذكية لتقنية المعلومات والشبكات والأمن السيبراني وحلول المباني والمدن الذكية وشحن المركبات الكهربائية والطاقة الخضراء.",
+      "en": "Arcella provides intelligent IT infrastructure, networking, cybersecurity, smart building and city solutions, EV charging infrastructure, and green energy solutions.",
+      "ku": "ئارسێلا ژێرخانی زیرەکی IT، تۆڕ، ئاسایشی سایبەری، چارەسەری بینا و شارە زیرەکەکان، شەحنی ئۆتۆمبێلی کارەبایی و وزەی سەوز پێشکەش دەکات.",
+      "fa": "Arcella ارائه‌دهنده زیرساخت هوشمند فناوری اطلاعات، شبکه، امنیت سایبری، راهکارهای ساختمان و شهر هوشمند، زیرساخت شارژ خودروهای برقی و راهکارهای انرژی سبز است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/V4X0EdOgIP2bNM2kw-roo.png",
+    "website_url": "https://arcellaco.com/",
+    "type": "sponsor",
+    "tier": "diamond",
+    "booth_number": "D01",
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {
+      "ar": "حلول التكنولوجيا والاتصالات",
+      "en": "Technology & ICT Solutions",
+      "ku": "چارەسەری تەکنەلۆژیا و پەیوەندی",
+      "fa": "فناوری و راهکارهای فناوری اطلاعات و ارتباطات"
+    },
+    "sort_order": 105,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 164,
+    "created_at": "2026-09-19T17:56:42.668Z",
+    "updated_at": "2026-09-22T13:48:05.989Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "13f5623f-2993-4ac4-9ca6-0242ce0a3362",
+    "name": {
+      "ar": "فاست باي",
+      "en": "FastPay",
+      "ku": "فاستپەی",
+      "fa": "FastPay"
+    },
+    "description": {
+      "ar": "فاست باي منصة رائدة للدفع الرقمي والمحفظة الإلكترونية في العراق للأفراد والشركات.",
+      "en": "FastPay is a leading digital payment and mobile wallet platform in Iraq for individuals and businesses.",
+      "ku": "فاستپەی پلاتفۆرمێکی پێشەنگی پارەدانی دیجیتاڵ و جزدانی ئەلیکترۆنییە لە عێراق بۆ تاک و کۆمپانیاکان.",
+      "fa": "FastPay پلتفرم پیشرو پرداخت دیجیتال و کیف پول موبایلی در عراق برای افراد و کسب‌وکارهاست."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/VmEAch2zkeg75LhrfkAGl.png",
+    "website_url": "https://www.fast-pay.iq/",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": "P01",
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {
+      "ar": "محفظة رقمية",
+      "en": "Digital Wallet",
+      "ku": "جزدانی دیجیتاڵ",
+      "fa": "کیف پول دیجیتال"
+    },
+    "sort_order": 106,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 165,
+    "created_at": "2026-09-19T17:56:46.632Z",
+    "updated_at": "2026-09-22T13:09:28.075Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "20bc31ea-ec8a-4415-b2fc-d2f03852b2c2",
+    "name": {
+      "ar": "إف تي تي إتش",
+      "en": "FTTH",
+      "ku": "ئێف تی تی ئێچ",
+      "fa": "FTTH"
+    },
+    "description": {
+      "ar": "تقدم FTTH خدمات إنترنت ألياف ضوئية سريعة وموثوقة للمنازل والشركات.",
+      "en": "FTTH provides high-speed and reliable fiber internet services for homes and businesses.",
+      "ku": "FTTH خزمەتگوزاری ئینتەرنێتی فایبەری خێرا و جێی متمانە بۆ ماڵ و کۆمپانیاکان پێشکەش دەکات.",
+      "fa": "FTTH خدمات اینترنت فیبر نوری پرسرعت و قابل‌اعتماد را برای منازل و کسب‌وکارها ارائه می‌دهد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/I1lTNJIA1tL9C77FeQA6J.png",
+    "website_url": "https://www.o3-telecom.com/",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": "P03",
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {
+      "ar": "الاتصالات / إنترنت الألياف الضوئية",
+      "en": "Telecommunications / Fiber Optic Internet",
+      "ku": "پەیوەندی / ئینتەرنێتی فایبەر",
+      "fa": "مخابرات / اینترنت فیبر نوری"
+    },
+    "sort_order": 107,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 166,
+    "created_at": "2026-09-19T17:56:57.537Z",
+    "updated_at": "2026-09-22T13:07:06.168Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "7526a588-7d52-453b-a7a0-e9840d0d63a4",
+    "name": {
+      "ar": "ويد",
+      "en": "Wade",
+      "ku": "وەید",
+      "fa": "Wade"
+    },
+    "description": {
+      "ar": "ويد دليفري منصة رقمية للتوصيل والخدمات اللوجستية تقدم خدمات مريحة عند الطلب.",
+      "en": "Wade Delivery is a digital delivery and logistics platform providing convenient on-demand services.",
+      "ku": "وەید دێلیڤەری پلاتفۆرمێکی دیجیتاڵی گەیاندن و لۆجستیکە کە خزمەتگوزاری ئاسان بە داواکاری پێشکەش دەکات.",
+      "fa": "Wade Delivery یک پلتفرم دیجیتال تحویل و لجستیک است که خدماتی راحت و مبتنی بر درخواست ارائه می‌دهد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/iQ7Rd6JuVxKqM7nI5OVj6.png",
+    "website_url": "https://wadedelivery.com/en",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G04",
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {
+      "ar": "تطبيق توصيل",
+      "en": "Delivery App",
+      "ku": "ئەپڵیکەیشنی گەیاندن",
+      "fa": "اپلیکیشن تحویل"
+    },
+    "sort_order": 108,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 167,
+    "created_at": "2026-09-19T17:57:01.466Z",
+    "updated_at": "2026-09-22T13:09:59.168Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "36d68fd1-d3a7-4ea2-bf78-47b7c38213b8",
+    "name": {
+      "ar": "ستارلينك",
+      "en": "Starlink",
+      "ku": "ستارلینک",
+      "fa": "Starlink"
+    },
+    "description": {},
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/hpbn4j-6qovaKdXtLy1ck.png",
+    "website_url": null,
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G06",
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {
+      "ar": "الإنترنت",
+      "en": "Internet",
+      "ku": "ئینتەرنێت",
+      "fa": "اینترنت"
+    },
+    "sort_order": 109,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 168,
+    "created_at": "2026-09-19T17:57:05.287Z",
+    "updated_at": "2026-09-22T13:10:11.049Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "6f4b3f79-b1ea-4a28-9ca5-1ec7dd595e2c",
+    "name": {
+      "ar": "أسواق في تي",
+      "en": "VT Markets",
+      "ku": "بازاڕەکانی VT",
+      "fa": "VT Markets"
+    },
+    "description": {
+      "ar": "تقدم في تي ماركتس خدمات وأدوات تداول إلكتروني سهلة الوصول للأسواق المالية العالمية.",
+      "en": "VT Markets provides accessible online trading services and tools for global financial markets.",
+      "ku": "ڤی تی مارکێتس خزمەتگوزاری و ئامرازی بازرگانی ئۆنلاین بۆ بازاڕە داراییە جیهانییەکان پێشکەش دەکات.",
+      "fa": "VT Markets خدمات و ابزارهای معاملاتی آنلاین و در دسترس را برای بازارهای مالی جهانی ارائه می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/NhwXaELMTRALPBR4dgxyd.png",
+    "website_url": "https://www.vglobaltrader.com/",
+    "type": "sponsor",
+    "tier": "silver",
+    "booth_number": "S07",
+    "years": [
+      2025,
+      2026
+    ],
+    "country_id": "43f20037-fe24-4b3b-9c70-e71c5e97db86",
+    "industry_id": null,
+    "sector": {
+      "ar": "Trading",
+      "en": "Trading",
+      "ku": "Trading",
+      "fa": "بازرگانی"
+    },
+    "sort_order": 200,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 227,
+    "created_at": "2026-09-22T16:49:58.441Z",
+    "updated_at": "2026-09-26T08:34:32.364Z",
+    "country": {
+      "id": "43f20037-fe24-4b3b-9c70-e71c5e97db86",
+      "name": {
+        "ar": "أستراليا",
+        "en": "Australia",
+        "ku": "ئوسترالیا",
+        "fa": "استرالیا"
+      },
+      "code": "AU"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "bae1c2f1-1f4c-4945-9fa6-9c4229310a7b",
+    "name": {
+      "ar": "دي آي إل للتكنولوجيا",
+      "en": "DIL Technology",
+      "ku": "دی ئای ئێڵ تەکنەلۆژی",
+      "fa": "DIL Technology"
+    },
+    "description": {
+      "ar": "تقدم دي آي إل للتكنولوجيا حلول البنية التحتية لتقنية المعلومات والشبكات والأمن السيبراني والبرمجيات والحوسبة السحابية والحلول الرقمية للشركات.",
+      "en": "DIL Technology provides IT infrastructure, networking, cybersecurity, software, cloud, and digital solutions for businesses.",
+      "ku": "دی ئای ئێڵ تەکنەلۆجی چارەسەری ژێرخانی تەکنەلۆژیای زانیاری، تۆڕ، ئاسایشی سایبەری، نەرمەکاڵا، هەور و چارەسەری دیجیتاڵ بۆ کۆمپانیاکان پێشکەش دەکات.",
+      "fa": "DIL Technology راهکارهای زیرساخت فناوری اطلاعات، شبکه، امنیت سایبری، نرم‌افزار، رایانش ابری و راهکارهای دیجیتال را برای کسب‌وکارها ارائه می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/v94HIybGJDT7nl5yXH2bK.png",
+    "website_url": null,
+    "type": "sponsor",
+    "tier": "bronze",
+    "booth_number": null,
+    "years": [
+      2026
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {},
+    "sort_order": null,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 226,
+    "created_at": "2026-09-22T16:44:40.770Z",
+    "updated_at": "2026-09-22T16:44:40.770Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "e49f2966-5a04-44dc-992f-27cb98e793e4",
+    "name": {
+      "ar": "مركز كردستان للفنون والثقافة (KCAC)",
+      "en": "Kurdistan Center for Arts & Culture (KCAC)",
+      "ku": "ناوەندی کوردستان بۆ هونەر و کەلتوور (KCAC)",
+      "fa": "مرکز هنر و فرهنگ کردستان (KCAC)"
+    },
+    "description": {
+      "ar": "يبني مركز كردستان للفنون والثقافة مجتمعاً عالمياً شاملاً يحتفي بتراث كردستان وثقافتها وفنونها ويحافظ عليها ويروج لها.",
+      "en": "KCAC builds an inclusive global community that celebrates, preserves, and promotes Kurdistan’s heritage, culture, and art.",
+      "ku": "KCAC کۆمەڵگەیەکی جیهانی گشتگیر دروست دەکات کە میرات، کەلتوور و هونەری کوردستان بەرز دەنرخێنێت و دەپارێزێت و ناساندنیان دەکات.",
+      "fa": "KCAC جامعه‌ای جهانی و فراگیر می‌سازد که میراث، فرهنگ و هنر کردستان را گرامی می‌دارد، حفظ می‌کند و ترویج می‌دهد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/j7yjyViuiI_79rRMkZTTm.png",
+    "website_url": null,
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2026
+    ],
+    "country_id": null,
+    "industry_id": null,
+    "sector": {},
+    "sort_order": null,
+    "is_featured": true,
+    "is_active": true,
+    "mobile_id": 224,
+    "created_at": "2026-09-22T13:44:14.488Z",
+    "updated_at": "2026-09-22T13:44:14.488Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "e9d072d1-e0d8-41f8-bb24-1a831408f981",
+    "name": {
+      "ar": "مجموعة ZMC",
+      "en": "ZMC Group",
+      "ku": "گروپی ZMC",
+      "fa": "ZMC Group"
+    },
+    "description": {
+      "ar": "مجموعة ZMC هي تكتل متعدد الجنسيات تأسس في بغداد ومتخصص في الاتصالات والخدمات اللوجستية وتوزيع الإلكترونيات والتجارة الإلكترونية وخدمات الشحن.",
+      "en": "ZMC Group is a multinational conglomerate established in Baghdad, specializing in telecommunications, logistics, electronics distribution, e-commerce, and cargo services.",
+      "ku": "گروپی ZMC کۆمەڵەیەکی فرەنەتەوەییە کە لە بەغدا دامەزراوە و پسپۆڕە لە پەیوەندی، لۆجستیک، دابەشکردنی ئەلیکترۆنیات، بازرگانی ئەلیکترۆنی و خزمەتگوزاری بارکردن.",
+      "fa": "ZMC Group یک هلدینگ چندملیتی است که در بغداد تأسیس شده و در زمینه‌های مخابرات، لجستیک، توزیع لوازم الکترونیکی، تجارت الکترونیک و خدمات حمل بار تخصص دارد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/ageEYetddNO1x8DRxvNxx.png",
+    "website_url": "https://zmcgroup.net/",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": "P02",
+    "years": [
+      2026
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {
+      "ar": "الاتصالات والخدمات اللوجستية والإلكترونيات",
+      "en": "Telecommunications, Logistics & Electronics",
+      "ku": "پەیوەندی، لۆجستیک و ئەلیکترۆنیات",
+      "fa": "مخابرات، لجستیک و الکترونیک"
+    },
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 169,
+    "created_at": "2026-09-19T18:13:33.877Z",
+    "updated_at": "2026-09-22T13:06:03.972Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "7b56a4e7-18e5-4e11-9f9b-22331fc86065",
+    "name": {
+      "ar": "سوبرسيل",
+      "en": "Supercell",
+      "ku": "سوپەرسێل",
+      "fa": "Supercell"
+    },
+    "description": {
+      "ar": "مرحباً بكم في شبكة سوبرسيل، بوابتكم إلى اتصال إنترنت عالمي المستوى في العراق. بصفتنا أحد أبرز مزودي خدمات الإنترنت في البلاد، فإننا ملتزمون بإحداث ثورة في تجربتكم على الإنترنت من خلال أحدث التقنيات والتزامنا الراسخ.",
+      "en": "Welcome to Supercell Network, your gateway to world-class internet connectivity in Iraq. As one of the leading Internet Service Providers (ISPs) in the country, we are dedicated to revolutionizing your online experience through cutting-edge technology and unwavering commitment.",
+      "ku": "بەخێربێن بۆ تۆڕی سوپەرسێل، دەروازەی ئێوە بۆ پەیوەندی ئینتەرنێتی ئاستی جیهانی لە عێراق. وەک یەکێک لە پێشەنگەکانی پێشکەشکارانی خزمەتگوزاری ئینتەرنێت (ISP) لە وڵاتدا، ئێمە تایبەتین بە شۆڕشکردن لە ئەزموونی ئۆنلاینتان لە ڕێگەی تەکنەلۆژیای پێشکەوتوو و پابەندبوونی بێوچان.",
+      "fa": "به Supercell Network خوش آمدید؛ دروازه شما به اتصال اینترنتی در سطح جهانی در عراق. ما به‌عنوان یکی از ارائه‌دهندگان پیشرو خدمات اینترنت (ISP) در این کشور، خود را وقف متحول‌کردن تجربه آنلاین شما با فناوری‌های پیشرفته و تعهدی تزلزل‌ناپذیر کرده‌ایم."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/tZAOyj7wpzYCMQUU1dtFg.png",
+    "website_url": "https://supercell.iq/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 99,
+    "created_at": "2026-05-10T11:32:01.426Z",
+    "updated_at": "2026-05-10T11:32:01.426Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "af11e9b6-2db5-465a-9592-63163c0ef8c2",
+    "name": {
+      "ar": "مصرف العراق الأول FIB",
+      "en": "First Iraqi Bank FIB",
+      "ku": "یەکەم بانکی دیجیتاڵی عێراق FIB",
+      "fa": "First Iraqi Bank FIB"
+    },
+    "description": {
+      "ar": "FIB (المصرف العراقي الأول) هو مؤسسة مصرفية رقمية رائدة في العراق، تركز على تقديم حلول مالية حديثة وآمنة وسهلة الوصول للأفراد والشركات في جميع أنحاء البلاد.",
+      "en": "FIB (First Iraqi Bank) is a pioneering digital banking institution in Iraq, focused on offering modern, secure, and accessible financial solutions to individuals and businesses across the country.",
+      "ku": "FIB (یەکەم بانکی دیجیتاڵی عێراق) دامەزراوەیەکی پێشەنگی بانکی دیجیتاڵییە لە عێراق، سەرنجی لەسەر پێشکەشکردنی چارەسەری دارایی مۆدێرن و پارێزراو و دەستڕاگەیشتن بە تاک و بزنسەکان لە سەرانسەری وڵاتدا.",
+      "fa": "FIB (First Iraqi Bank) یک مؤسسه بانکداری دیجیتال پیشگام در عراق است که بر ارائه راهکارهای مالی مدرن، امن و در دسترس به افراد و کسب‌وکارها در سراسر این کشور تمرکز دارد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Ykm1NM9sbpBpfcLlYAO8t.png",
+    "website_url": "https://fib.iq/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2024
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 98,
+    "created_at": "2026-05-10T11:28:01.445Z",
+    "updated_at": "2026-05-10T11:28:01.445Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "69d91be7-2a12-4065-8fdf-486710dc063e",
+    "name": {
+      "ar": "تیكنو",
+      "en": "Tecno",
+      "ku": "تێکنۆ",
+      "fa": "Tecno"
+    },
+    "description": {
+      "ar": "تعد TECNO Mobile علامة تجارية رائدة للهواتف المحمولة تحت شركة Transsion Holdings، والمعروفة بإنتاج الهواتف الذكية المبتكرة وبأسعار معقولة والهواتف ذات الميزات المميزة والأجهزة اللوحية. تأسست شركة TECNO في عام 2006، ولديها حضور قوي في الأسواق الناشئة، وخاصة في إفريقيا وجنوب آسيا وجنوب شرق آسيا والشرق الأوسط. تركز TECNO على توفير التكنولوجيا المتقدمة والتصميمات الأنيقة، مع ميزات رئيسية مثل الكاميرات التي تعمل بالذكاء الاصطناعي والتصاميم المتينة. تلتزم TECNO Mobile بتقديم تجارب محمولة عالية الجودة لمستخدميها، مما يجعل التكنولوجيا المتقدمة في متناول جمهور واسع.",
+      "en": "TECNO Mobile is a leading mobile phone brand under Transsion Holdings, known for producing innovative and affordable smartphones, feature phones, and tablets. Established in 2006, TECNO has a strong presence in emerging markets, particularly in Africa, South Asia, Southeast Asia, and the Middle East. TECNO focuses on providing advanced technology and stylish designs, with key features like AI-powered cameras and durable builds. TECNO Mobile is committed to bringing high-quality mobile experiences to its users, making advanced technology accessible to a wide audience.",
+      "ku": "کۆمپانیای TECNO Mobile براندێکی پێشەنگی مۆبایلە لە ژێر دەستی کۆمپانیای Transsion Holdings کە بە بەرهەمهێنانی مۆبایلی زیرەکی داهێنەرانە و گونجاو و مۆبایلی تایبەتمەند و تابلێت ناسراوە. کۆمپانیای TECNO لە ساڵی ٢٠٠٦ دامەزراوە و ئامادەیییەکی بەهێزی لە بازاڕە تازەپێگەیشتوەکاندا هەیە، بەتایبەتی لە ئەفریقا، باشووری ئاسیا، باشووری ڕۆژهەڵاتی ئاسیا و ڕۆژهەڵاتی ناوەڕاست. کۆمپانیای TECNO گرنگی بە دابینکردنی تەکنەلۆژیای پێشکەوتوو و دیزاینی شیک دەدات، لەگەڵ تایبەتمەندییە سەرەکییەکانی وەک کامێرای AI. کۆمپانیای TECNO Mobile پابەندە بە هێنانی ئەزموونی مۆبایل بە کوالیتی بەرز بۆ بەکارهێنەرانی، کە تەکنەلۆژیای پێشکەوتوو بۆ ئامادەبووانێکی بەرفراوان دەستەبەر دەکات.",
+      "fa": "TECNO Mobile برند پیشرو تلفن همراه و زیرمجموعه Transsion Holdings است که به تولید گوشی‌های هوشمند، گوشی‌های ساده و تبلت‌های نوآورانه و مقرون‌به‌صرفه شهرت دارد. TECNO که در سال ۲۰۰۶ تأسیس شد، حضور پررنگی در بازارهای نوظهور، به‌ویژه آفریقا، جنوب آسیا، جنوب شرق آسیا و خاورمیانه دارد. TECNO بر ارائه فناوری پیشرفته و طراحی‌های شیک تمرکز دارد و ویژگی‌های کلیدی‌ای مانند دوربین‌های مجهز به هوش مصنوعی و بدنه‌های بادوام را عرضه می‌کند. TECNO Mobile متعهد است تجربه‌ای باکیفیت از تلفن همراه را برای کاربرانش فراهم کند و فناوری پیشرفته را در دسترس مخاطبان گسترده‌ای قرار دهد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/VajN2q8aDEjK7CQ3AjEyf.png",
+    "website_url": "https://www.tecno-mobile.com/iq/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2024
+    ],
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 97,
+    "created_at": "2026-05-10T11:22:44.324Z",
+    "updated_at": "2026-05-10T11:37:08.108Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "cf919abd-b8b1-4a40-8815-62485cdf6238",
+    "name": {
+      "ar": "هايسنس",
+      "en": "Hisense",
+      "ku": "هایسێنس",
+      "fa": "Hisense"
+    },
+    "description": {
+      "ar": "هايسنس شركة عالمية رائدة في تصنيع الإلكترونيات الاستهلاكية والأجهزة المنزلية، تأسست عام 1969 في الصين، وتشتهر بإنتاج أجهزة تلفزيون عالية الجودة وبأسعار معقولة، بما في ذلك أجهزة التلفزيون الليزرية والثلاجات ومكيفات الهواء. وبحلول عام 2026، أصبحت من بين أفضل علامتين تجاريتين عالميتين في مجال أجهزة التلفزيون، متصدرةً فئة أجهزة التلفزيون التي يزيد حجمها عن 100 بوصة وأجهزة التلفزيون الليزرية، ولها حضور قوي في أسواق الصين وأستراليا وجنوب إفريقيا.",
+      "en": "Hisense is a leading global consumer electronics and home appliance manufacturer, founded in 1969 in China and known for producing affordable, high-quality TVs, laser TVs, refrigerators, and air conditioners. As of 2026, it is a top-two global TV brand, leading in 100-inch+ and laser TV segments, with strong market presence in China, Australia, and South Africa.",
+      "ku": "کۆمپانیای Hisense کۆمپانیایەکی پێشەنگی جیهانییە لە بەرهەمهێنانی ئەلیکترۆنیاتی بەکاربەر و ئامێری ناوماڵ، لە ساڵی ١٩٦٩ لە چین دامەزراوە و بە بەرهەمهێنانی تەلەفزیۆن و تەلەفزیۆنی لەیزەر و ساردکەرەوە و تەندروستی بە نرخێکی گونجاو و کوالیتی بەرز ناسراوە. لە ساڵی ٢٠٢٦ەوە، دوو براندی سەرەکی جیهانی تەلەفزیۆنییە، پێشەنگی لە بەشی تەلەفزیۆنی ١٠٠ ئینج+ و لەیزەردایە، لەگەڵ بوونی بەهێزی بازاڕ لە چین و ئوسترالیا و باشووری ئەفریقا.",
+      "fa": "Hisense تولیدکننده پیشرو جهانی لوازم الکترونیکی مصرفی و لوازم خانگی است که در سال ۱۹۶۹ در چین تأسیس شد و به تولید تلویزیون‌ها، تلویزیون‌های لیزری، یخچال‌ها و کولرهای گازی مقرون‌به‌صرفه و باکیفیت شهرت دارد. این شرکت تا سال ۲۰۲۶ یکی از دو برند برتر تلویزیون در جهان است، در بخش تلویزیون‌های ۱۰۰ اینچ و بزرگ‌تر و تلویزیون‌های لیزری پیشتاز است و حضور پررنگی در بازارهای چین، استرالیا و آفریقای جنوبی دارد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/05sALjseZWyY98Xz3wzz0.webp",
+    "website_url": "https://hisenseme.com/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 96,
+    "created_at": "2026-05-10T11:20:38.228Z",
+    "updated_at": "2026-05-10T11:20:38.228Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "85b1b4f3-e06f-4abc-b06c-f2805cd3b434",
+    "name": {
+      "ar": "إنفينيكس",
+      "en": "Infinix",
+      "ku": "ئینفینیکس",
+      "fa": "Infinix"
+    },
+    "description": {
+      "ar": "المستقبل الآن\nتهدف روح العلامة التجارية Infinix إلى تمكين حياة شباب اليوم حتى يتمكنوا من تحدي القاعدة والتميز عن الآخرين في جميع أنحاء العالم.\n\nعلامة تجارية INFINIX\nتأسست في عام 2013 مع الالتزام ببناء تكنولوجيا متطورة مصممة بشكل أنيق مع التركيز على الأجهزة الذكية المصممة لتقديم تجارب رائعة للهواتف الذكية. تُصنع منتجات Infinix من الألف إلى الياء باستخدام تكنولوجيا من المستوى التالي وتصميم استثنائي في صميم كل إبداع",
+      "en": "THE FUTURE IS NOW\nInfinix’s brand spirit aims at empowering the lives of today’s youth so they can challenge the norm and stand out from the crowd all around the world.\n\nINFINIX BRAND\nFounded in 2013 with the commitment of building stylishly designed cutting-edge technology with a focus on smart devices built to deliver fantastic smartphone experiences. Infinix products are made from the ground up with next-level technology & exceptional design at the core of every creation",
+      "ku": "ئایندە ئێستایە\nڕۆحی براندی ئینفنیکس ئامانجی بەهێزکردنی ژیانی گەنجانی ئەمڕۆیە بۆ ئەوەی بتوانن تەحەدای نۆرمەکە بکەن و لەنێو خەڵکدا جیاواز بن لە سەرانسەری جیهان.\n\nبراندی INFINIX\nلە ساڵی ٢٠١٣ دامەزراوە بە پابەندبوون بە دروستکردنی تەکنەلۆژیای پێشکەوتووی دیزاینکراو بە شێوەیەکی شیک بە گرنگیدان بە ئامێرە زیرەکەکان کە بۆ گەیاندنی ئەزموونی مۆبایلە زیرەکەکانی خەیاڵی دروستکراون. بەرهەمەکانی ئینفنیکس لە بنەڕەتەوە دروست دەکرێن بە تەکنەلۆژیای ئاستی داهاتوو و دیزاینێکی ناوازە لە ناوەڕۆکی هەموو دروستکردنێکدا",
+      "fa": "آینده همین حالاست\nروح برند Infinix بر توانمندسازی زندگی جوانان امروز متمرکز است تا آن‌ها بتوانند در سراسر جهان هنجارها را به چالش بکشند و از میان جمع متمایز شوند.\n\nبرند INFINIX\nدر سال ۲۰۱۳ با تعهد به ساخت فناوری پیشرفته با طراحی شیک و با تمرکز بر دستگاه‌های هوشمندی تأسیس شد که برای ارائه تجربه‌های فوق‌العاده از گوشی هوشمند ساخته شده‌اند. محصولات Infinix از پایه ساخته می‌شوند و فناوری سطح بالا و طراحی استثنایی در کانون هر محصول قرار دارد"
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/okRgm_AOGUudGedCP0do-.png",
+    "website_url": "https://iq.infinixmobility.com/EN",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2024
+    ],
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 95,
+    "created_at": "2026-05-10T11:16:53.853Z",
+    "updated_at": "2026-05-10T11:35:47.293Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "347fdff7-4e26-451e-804e-bf7431e5c1e1",
+    "name": {
+      "ar": "هواوي",
+      "en": "Huawei",
+      "ku": "هواوی",
+      "fa": "Huawei"
+    },
+    "description": {
+      "ar": "تأسست هواوي عام 1987، وهي شركة عالمية رائدة في مجال توفير البنية التحتية لتكنولوجيا المعلومات والاتصالات والأجهزة الذكية. يعمل لدينا حوالي 213,000 موظف، ونعمل في أكثر من 170 دولة ومنطقة، ونخدم أكثر من 3 مليارات شخص حول العالم. نلتزم بتوفير التكنولوجيا الرقمية لكل فرد ومنزل ومؤسسة، من أجل عالم متصل وذكي بالكامل.",
+      "en": "Founded in 1987, Huawei is a leading global provider of information and communications technology (ICT) infrastructure and smart devices. We have approximately 213,000 employees and we operate in more than 170 countries and regions, serving more than 3 billion people around world. We are committed to bringing digital to every person, home and organization for a fully connected, intelligent world.",
+      "ku": "کۆمپانیای هواوی لە ساڵی ١٩٨٧ دامەزراوە و پێشەنگی جیهانە لە دابینکردنی ژێرخانی تەکنەلۆژیای زانیاری و پەیوەندییەکان (ICT) و ئامێرە زیرەکەکان. ئێمە نزیکەی ٢١٣ هەزار کارمەندمان هەیە و لە زیاتر لە ١٧٠ وڵات و ناوچەدا کاردەکەین، خزمەت بە زیاتر لە ٣ ملیار کەس دەکەین لە سەرانسەری جیهان. ئێمە پابەندین بە هێنانی دیجیتاڵ بۆ هەموو کەسێک و ماڵ و ڕێکخراوێک بۆ جیهانێکی تەواو پەیوەست و زیرەک.",
+      "fa": "Huawei که در سال ۱۹۸۷ تأسیس شد، ارائه‌دهنده پیشرو جهانی زیرساخت‌های فناوری اطلاعات و ارتباطات (ICT) و دستگاه‌های هوشمند است. ما حدود ۲۱۳٬۰۰۰ کارمند داریم و در بیش از ۱۷۰ کشور و منطقه فعالیت می‌کنیم و به بیش از ۳ میلیارد نفر در سراسر جهان خدمات ارائه می‌دهیم. ما متعهدیم دنیای دیجیتال را به هر فرد، هر خانه و هر سازمان برسانیم تا جهانی کاملاً متصل و هوشمند شکل بگیرد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/Ld8CrAhlBQXwVQbzTJ9DG.png",
+    "website_url": "https://www.huawei.com/en/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2024
+    ],
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 94,
+    "created_at": "2026-05-10T11:15:15.605Z",
+    "updated_at": "2026-05-10T11:36:33.551Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "b87a4408-dd5d-40bd-b2a7-41bb6be9577c",
+    "name": {
+      "ar": "فاستلینک",
+      "en": "Fastlink",
+      "ku": "فاستلینک",
+      "fa": "Fastlink"
+    },
+    "description": {
+      "ar": "فاستلینک، أول مشغل لشبكة الجيل الرابع LTE في العراق وأحد القلائل عالميًا، تهدف إلى إحداث ثورة في خدمات الاتصالات والبيانات في كردستان. بصفتها شركة خاصة مملوكة لشركاء محليين، تركز فاست لينك على تبني أحدث التقنيات لتصبح مزود البيانات الرائد في المنطقة. استمتع بأعلى سرعات إنترنت وباقات مرنة مصممة خصيصًا لتلبية احتياجاتك مع خدمات فاست لينك المتطورة لشبكة الجيل الرابع LTE. ابقَ على اتصال دائم في أي وقت ومن أي مكان مع جهاز توجيه واي فاي المحمول MiFi، الذي يضمن لك اتصالاً سلسًا أينما كنت.",
+      "en": "Fastlink, the first 4G LTE operator in Iraq and one of the few worldwide, aims to revolutionize telecommunications and data services in Kurdistan. As a privately owned company by national partners, Fastlink focuses on adopting cutting-edge technology to become the leading data provider in the region. Enjoy the highest internet speeds and flexible plans tailored to your needs with Fastlink's state-of-the-art 4G LTE services. Stay connected anytime, anywhere with our portable Wi-Fi router, MiFi, ensuring seamless connectivity wherever you go.",
+      "ku": "کۆمپانیای فاستلینک کە یەکەمین ئۆپەراتۆری 4G LTE لە عێراق و یەکێکە لە کەمترین کۆمپانیاکانی جیهان، ئامانجی شۆڕشە لە خزمەتگوزارییەکانی پەیوەندی و داتا لە کوردستان. وەک کۆمپانیایەکی تایبەت کە لەلایەن هاوبەشە نیشتمانییەکانەوە خاوەندارێتی دەکرێت، فاستلینک گرنگی بە وەرگرتنی تەکنەلۆژیای پێشکەوتوو دەدات بۆ ئەوەی ببێتە پێشەنگی دابینکەری داتا لە ناوچەکەدا. چێژ لە بەرزترین خێرایی ئینتەرنێت و پلانی نەرم و نیان وەربگرە کە بەپێی پێداویستییەکانتان بێت لەگەڵ خزمەتگوزارییە پێشکەوتووەکانی 4G LTE ی فاستلینک. لە هەر کاتێکدا و لە هەر شوێنێک بە پەیوەندی بمێنەرەوە لەگەڵ ڕاوتەری وای فای پۆرتەبڵمان، میفای، دڵنیابوون لە پەیوەندی بێ کێشە لە هەر شوێنێک بچیت.",
+      "fa": "Fastlink، نخستین اپراتور 4G LTE در عراق و یکی از معدود اپراتورهای این‌چنینی در جهان، در پی ایجاد تحولی بنیادین در خدمات مخابراتی و داده در کردستان است. Fastlink به‌عنوان شرکتی خصوصی متعلق به شرکای ملی، بر به‌کارگیری فناوری‌های پیشرفته تمرکز دارد تا به ارائه‌دهنده پیشرو خدمات داده در منطقه تبدیل شود. با خدمات پیشرفته 4G LTE شرکت Fastlink از بالاترین سرعت‌های اینترنت و بسته‌های منعطف متناسب با نیازهای خود بهره‌مند شوید. با روتر Wi-Fi قابل‌حمل ما، MiFi، هر زمان و هر جا متصل بمانید و هر کجا که بروید از اتصالی بی‌وقفه برخوردار باشید."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/lS4PFad2vjWtQxIySDT1P.png",
+    "website_url": "https://fast-link.com/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2023
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 93,
+    "created_at": "2026-05-10T11:12:10.610Z",
+    "updated_at": "2026-05-10T11:12:10.610Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "e781045d-79e6-46ea-8bad-708e5bdf17e5",
+    "name": {
+      "ar": "دائرة الإعلام والمعلومات",
+      "en": "Department of Information Technology",
+      "ku": "فەرمانگەی میدیا و زانیاری",
+      "fa": "اداره فناوری اطلاعات"
+    },
+    "description": {
+      "ar": "تعمل دائرة الإعلام و المعلومات علی صياغة إستراتيجة للإعلام و المعلومات لحکومة إقلیم کوردستان و نشاطات وزاراتها و دوائرها کافة.",
+      "en": "KRG Department of Information Technology (DIT) is responsible for government digital services and the Digital Transformation of the Kurdistan Regional Government",
+      "ku": "فەرمانگەی میدیا و زانیاری، ستراتیژیەتی ڕاگەیاندن و سیاسەتی گەیاندن بۆ حکومەتی هەرێمی کوردستان دادەڕێژێت.",
+      "fa": "اداره فناوری اطلاعات حکومت اقلیم کردستان (DIT) مسئول خدمات دیجیتال دولتی و تحول دیجیتال حکومت اقلیم کردستان است"
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/65VnX-TYsWU2o6R7BLx3W.png",
+    "website_url": "https://gov.krd/dit-en/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {},
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 92,
+    "created_at": "2026-05-10T11:02:22.205Z",
+    "updated_at": "2026-09-28T13:00:15.930Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "8c3ee33d-27ad-40e9-8052-903c05a40e00",
+    "name": {
+      "ar": "حكومة إقليم كردستان",
+      "en": "Kurdistan Regional Government (KRG)",
+      "ku": "حکومەتی هەرێمی کوردستان",
+      "fa": "حکومت اقلیم کردستان (KRG)"
+    },
+    "description": {
+      "ar": "حكومة إقليم كردستان هي الهيئة التنفيذية الرسمية لإقليم كردستان شبه المستقل في شمال العراق، وقد تأسست عام 1992 ومقرها أربيل. وهي تحكم محافظات أربيل ودهوك والسليمانية، ولها برلمانها ورئيسها وقواتها العسكرية (البشمركة)، بينما تعمل ضمن الإطار الاتحادي للجمهورية العراقية.",
+      "en": "The Kurdistan Regional Government (KRG) is the official executive body of the semi-autonomous Kurdistan Region in northern Iraq, established in 1992 and based in Erbil. It governs the provinces of Erbil, Duhok, and Sulaymaniyah, maintaining its own parliament, president, and military forces (Peshmerga), while functioning within the federal framework of the Iraqi Republic.",
+      "ku": "حکومەتی هەرێمی کوردستان دەستەی جێبەجێکاری فەرمی هەرێمی نیمچە سەربەخۆی کوردستانە لە باکوری عێراق، لە ساڵی 1992 دامەزراوە و بنکەکەی لە هەولێرە. پارێزگاکانی هەولێر و دهۆک و سلێمانی بەڕێوەدەبات، پەرلەمان و سەرۆک کۆمار و هێزە سەربازییەکانی (پێشمەرگە)ی خۆی دەپارێزێت، هاوکات لە چوارچێوەی فیدراڵی کۆماری عێراقدا کاردەکات.",
+      "fa": "حکومت اقلیم کردستان (KRG) نهاد اجرایی رسمی اقلیم نیمه‌خودمختار کردستان در شمال عراق است که در سال ۱۹۹۲ تأسیس شد و مقر آن در اربیل است. این حکومت استان‌های اربیل، دهوک و سلیمانیه را اداره می‌کند و پارلمان، رئیس اقلیم و نیروهای نظامی (پیشمرگه) خاص خود را دارد و در عین حال در چارچوب فدرال جمهوری عراق فعالیت می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/UONZZd3N6FUp3s6ycI-aD.png",
+    "website_url": "https://gov.krd/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": null,
+    "country_id": null,
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 91,
+    "created_at": "2026-05-10T10:51:02.147Z",
+    "updated_at": "2026-05-10T10:51:02.147Z",
+    "country": null,
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "7674146d-48e5-4115-bce8-6b0efd9c0c37",
+    "name": {
+      "ar": "هيأة الاعلام والاتصالات CMC",
+      "en": "Communications and Media Commission CMC",
+      "ku": "کۆمیسیۆنی پەیوەندی و میدیا CMC",
+      "fa": "کمیسیون ارتباطات و رسانه (CMC)"
+    },
+    "description": {
+      "ar": "أسست هيأة الإعلام والإتصالات في العراق في حزيران عام 2004 ، وتعد الهيأة الأولى من نوعها في الشرق الأوسط من ناحية التنظيم المتداخل بين الإعلام والإتصالات ، وهي هيأة مستقلة غير مرتبطة بأي جهة حكومية .\nتعد هيأة الاعلام والاتصالات في العراق الاولى من نوعها في الشرق الاوسط، فيما يخص إرساء معايير التنظيم المتداخل لقطاعي الاعلام والاتصالات واصلاحهما، كون الفصل بين القطاعين صار يمثل عائقاً يحول دون نموهما وتطورهما. وهي هيأة مستقلة غير مرتبطة بأية جهة حكومية بموجب الدستور العراقي، مهمتها تنظيم وتطوير الاعلام والاتصالات في العراق ضمن المعايير الدولية الحديثة.",
+      "en": "he Media and Communications Commission in Iraq was established in June 2004. It is the first commission of its kind in the Middle East in terms of the overlapping regulation between media and communications, and it is an independent commission not affiliated with any government entity.\nThe Iraqi Media and Communications Commission is the first of its kind in the Middle East in terms of establishing integrated regulatory standards for the media and communications sectors and reforming them, as the separation between the two sectors had become an obstacle to their growth and development. It is an independent body, not affiliated with any government entity, as stipulated by the Iraqi Constitution, and its mission is to regulate and develop media and communications in Iraq according to modern international standards.",
+      "ku": "he کۆمیسیۆنی میدیا و پەیوەندییەکان لە عێراق لە مانگی حوزەیرانی ٢٠٠٤ دامەزراوە، یەکەم کۆمیسیۆنی لەم جۆرەیە لە ڕۆژهەڵاتی ناوەڕاست لە ڕووی ڕێکخستنی سەریەککەوتووی نێوان میدیا و پەیوەندییەکان، هەروەها کۆمیسیۆنێکی سەربەخۆیە کە پەیوەندی بە هیچ قەوارەیەکی حکومییەوە نییە.\nکۆمیسیۆنی ڕاگەیاندن و پەیوەندییەکانی عێراق یەکەم کۆمیسیۆنە لە جۆری خۆی لە ڕۆژهەڵاتی ناوەڕاست لە ڕووی دانانی ستانداردی ڕێکخراوەیی یەکگرتوو بۆ کەرتەکانی ڕاگەیاندن و پەیوەندییەکان و چاکسازیکردنیان، بەو پێیەی جیابوونەوەی ئەو دوو کەرتە بووبووە بەربەست لەبەردەم گەشەکردن و گەشەکردنیان. دەزگایەکی سەربەخۆیە، سەر بە هیچ قەوارەیەکی حکومی نییە، وەک لە دەستووری عێراقدا هاتووە و ئەرکی ڕێکخستن و پەرەپێدانی میدیا و پەیوەندییەکانە لە عێراق بە پێی ستانداردە نێودەوڵەتییە هاوچەرخەکان",
+      "fa": "کمیسیون رسانه و ارتباطات عراق در ژوئن ۲۰۰۴ تأسیس شد. این کمیسیون از نظر تنظیم‌گری هم‌پوشان رسانه و ارتباطات، نخستین کمیسیون از نوع خود در خاورمیانه است و کمیسیونی مستقل است که به هیچ نهاد دولتی وابسته نیست.\nکمیسیون رسانه و ارتباطات عراق از نظر ایجاد استانداردهای تنظیم‌گری یکپارچه برای بخش‌های رسانه و ارتباطات و اصلاح آن‌ها، نخستین نهاد از نوع خود در خاورمیانه است، چرا که جدایی میان این دو بخش به مانعی بر سر راه رشد و توسعه آن‌ها تبدیل شده بود. این کمیسیون، همان‌طور که در قانون اساسی عراق تصریح شده، نهادی مستقل است که به هیچ نهاد دولتی وابسته نیست و مأموریت آن تنظیم‌گری و توسعه رسانه و ارتباطات در عراق مطابق با استانداردهای نوین بین‌المللی است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/E_Lzm08jD19geQiELPkx1.webp",
+    "website_url": "https://cmc.iq/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {},
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 90,
+    "created_at": "2026-05-10T10:40:26.072Z",
+    "updated_at": "2026-05-17T11:11:36.080Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "755e656a-d805-4964-91c7-c373fcffa6a4",
+    "name": {
+      "ar": "کورک تیلیکوم",
+      "en": "Korek Telecom",
+      "ku": "کۆڕەک تیلیکۆم",
+      "fa": "Korek Telecom"
+    },
+    "description": {
+      "ar": "شركة كورك تيليكوم للاتصالات هي أسرع شركة اتصالات متنقلة نموًا في العراق، والمعروفة بتقديم أكبر شبكة اتصالات متنقلة وأكثرها موثوقية في البلاد. مع تغطية جميع محافظات العراق الثماني عشرة، تستخدم كورك تكنولوجيا GSM المتطورة لتوفير خدمات الاتصالات اللاسلكية عالية الجودة للمستهلكين والشركات والمستخدمين الحكوميين. تأسست شركة كورك في عام 2000، وركزت في البداية على إقليم كردستان وشمال العراق، ومنذ ذلك الحين توسعت لتغطية عدد سكان يزيد عن 45 مليون نسمة. وهي أقدم شركة اتصالات عراقية. حصلت شركة كورك تيليكوم على ترخيص وطني للاتصالات المتنقلة في عام 2007، وتظل رائدة في تقديم جودة شبكة من الدرجة الأولى وأفضل الخدمات في فئتها، مما يميزها بقيمة استثنائية وتغطية شاملة.",
+      "en": "Korek Telecom Company for Communication Ltd is the fastest-growing mobile operator in Iraq, known for offering the largest and most reliable mobile network in the country. With coverage across all 18 provinces of Iraq, Korek utilizes cutting-edge GSM technology to provide high-quality wireless communication services to consumers, businesses, and government users. Established in 2000, Korek initially focused on the Kurdistan Region and Northern Iraq and has since expanded to cover a population of over 45 million.  and it is the oldest Iraqi Telecom company. Awarded a nationwide mobile license in 2007, Korek Telecom remains a leader in delivering top-tier network quality and best-in-class services, setting itself apart with exceptional value and comprehensive coverage.",
+      "ku": "کۆمپانیای کۆرەک تێلیکۆم خێراترین کۆمپانیای گەشەسەندنی مۆبایلە لە عێراق، بە پێشکەشکردنی گەورەترین و متمانەپێکراوترین تۆڕی مۆبایل لە وڵاتدا ناسراوە. بە ڕووماڵکردن لە سەرانسەری هەر ١٨ پارێزگای عێراق، کۆرەک تەکنەلۆژیای پێشکەوتووی GSM بەکاردەهێنێت بۆ پێشکەشکردنی خزمەتگوزاری پەیوەندی بێ وایەر بە کوالیتی بەرز بۆ بەکارهێنەران، بازرگانان و بەکارهێنەرانی حکومەت. کۆڕەک لە ساڵی ٢٠٠٠ دامەزراوە، سەرەتا سەرنجی لەسەر هەرێمی کوردستان و باکوری عێراق بووە و لەو کاتەوە فراوانتر بووە و ژمارەی دانیشتووانی زیاتر لە ٤٥ ملیۆن کەس دەگرێتەوە. و کۆنترین کۆمپانیای تێلیکۆمی عێراقییە. لە ساڵی ٢٠٠٧دا مۆڵەتی مۆبایلی سەرتاسەری وڵاتی پێبەخشرا، کۆمپانیای کۆرەک تێلیکۆم وەک پێشەنگێک دەمێنێتەوە لە پێشکەشکردنی کوالیتی تۆڕی پلە یەک و باشترین خزمەتگوزارییەکانی لە پلەی یەکەمدا، بە بەهای ناوازە و ڕووماڵێکی گشتگیر خۆی جیا دەکاتەوە.",
+      "fa": "Korek Telecom Company for Communication Ltd اپراتور تلفن همراهی با سریع‌ترین رشد در عراق است و به ارائه بزرگ‌ترین و قابل‌اعتمادترین شبکه تلفن همراه در این کشور شهرت دارد. Korek با پوشش هر ۱۸ استان عراق، از فناوری پیشرفته GSM برای ارائه خدمات ارتباطی بی‌سیم باکیفیت به مصرف‌کنندگان، کسب‌وکارها و کاربران دولتی استفاده می‌کند. Korek که در سال ۲۰۰۰ تأسیس شد، در ابتدا بر اقلیم کردستان و شمال عراق تمرکز داشت و از آن زمان تاکنون گسترش یافته و جمعیتی بیش از ۴۵ میلیون نفر را پوشش می‌دهد. این شرکت قدیمی‌ترین شرکت مخابراتی عراق است. Korek Telecom که در سال ۲۰۰۷ مجوز سراسری تلفن همراه دریافت کرد، همچنان در ارائه کیفیت شبکه درجه‌یک و خدمات برتر پیشتاز است و با ارزش استثنایی و پوشش جامع خود متمایز می‌شود."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/SbgbAUNdILPpJVpcRdQMb.png",
+    "website_url": "https://www.korektel.com/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 89,
+    "created_at": "2026-05-10T10:36:06.936Z",
+    "updated_at": "2026-05-10T10:36:06.936Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "98db69f8-03cb-43c9-826d-12faf519f7d2",
+    "name": {
+      "ar": "Five One Labs",
+      "en": "Five One Labs",
+      "ku": "Five One Labs",
+      "fa": "Five One Labs"
+    },
+    "description": {
+      "ar": "فايف ون لابز هي حاضنة أعمال دولية تساعد رواد الأعمال الموهوبين من مختلف الخلفيات على إطلاق مشاريعهم الناشئة. من خلال برامجنا المبتكرة متعددة اللغات، نوفر تدريبًا مكثفًا، وإرشادًا، وتمويلًا، ودعمًا استشاريًا للشركات الناشئة القابلة للتوسع التي تسعى إلى إطلاق أعمالها أو تنميتها.",
+      "en": "Five One Labs is an international startup incubator that helps talented entrepreneurs from diverse communities launch their startups. Through our innovative multi-lingual programming, we provide intensive training, mentorship, funding, and advisory support to scalable startups looking to launch or grow their businesses.",
+      "ku": "تاقیگەی پێنج یەک ئینکوباتۆرێکی نێودەوڵەتییە بۆ دەستپێکردن کە یارمەتی خاوەنکارە بەتواناکان دەدات لە کۆمەڵگە جۆراوجۆرەکان بۆ دەستپێکردنی دەستپێکردنەکانیان. لە ڕێگەی بەرنامەسازی فرە زمانی داهێنەرانەمانەوە، ئێمە ڕاهێنانی چڕ، ڕاهێنەرایەتی، پارەدان و پشتگیری ڕاوێژکاری پێشکەش بەو کۆمپانیا دەستپێشخەرە گەورەکان دەکەین کە دەیانەوێت بزنسەکانیان دەستپێبکەن یان گەشەپێبدەن.",
+      "fa": "Five One Labs یک مرکز رشد بین‌المللی استارتاپی است که به کارآفرینان مستعد از جوامع گوناگون کمک می‌کند استارتاپ‌های خود را راه‌اندازی کنند. ما از طریق برنامه‌های نوآورانه و چندزبانه خود، آموزش فشرده، منتورینگ، تأمین مالی و پشتیبانی مشاوره‌ای را برای استارتاپ‌های مقیاس‌پذیری فراهم می‌کنیم که به دنبال راه‌اندازی یا رشد کسب‌وکار خود هستند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/pDNIrhiJsQcDWGzbDtJRk.webp",
+    "website_url": "https://fiveonelabs.org/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": null,
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 86,
+    "created_at": "2026-05-10T08:37:57.173Z",
+    "updated_at": "2026-05-10T08:37:57.173Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "startups"
+    ]
+  },
+  {
+    "id": "eee69eb8-5d92-4021-9f3a-e7d33f8c05f1",
+    "name": {
+      "ar": "Visit Kurdistan",
+      "en": "Visit Kurdistan",
+      "ku": "Visit Kurdistan",
+      "fa": "Visit Kurdistan"
+    },
+    "description": {
+      "ar": "الهدف الرئيسي للمنظمة هو تسهيل وصول السياح الأجانب إلى المنطقة، وضمان سير رحلتهم بسلاسة، وتوفير قدر كبير من الترفيه لهم أثناء إقامتهم في كردستان. علاوة على ذلك، تتولى Visit Kurdistan مسؤولية تنظيم مجموعة متنوعة من الأحداث لتعزيز الترفيه والرياضة والأنشطة التفاعلية الأخرى في المنطقة.",
+      "en": "The organization's principal objective is to facilitate the arrival of foreign tourists to the region, ensuring that their journey is seamless, and they are provided with ample entertainment during their stay in Kurdistan. Moreover, Visit Kurdistan assumes the responsibility of arranging a diverse range of events to promote entertainment, sports, and other interactive activities in the region.",
+      "ku": "ئامانجی سەرەکی ڕێکخراوەکە ئاسانکارییە بۆ هاتنی گەشتیارانی بیانی بۆ ناوچەکە، دڵنیابوون لەوەی کە گەشتەکەیان بێ کێشە بێت، هەروەها لە ماوەی مانەوەیان لە کوردستان کات بەسەربردنێکی فراوانیان بۆ دابین دەکرێت. جگە لەوەش، Visit Kurdistan بەرپرسیارێتی ڕێکخستنی کۆمەڵێک بۆنەی هەمەچەشن بۆ بەرەوپێشبردنی کات بەسەربردن و وەرزش و چالاکییە کارلێککارەکانی دیکە لە ناوچەکەدا لە ئەستۆ دەگرێت.",
+      "fa": "هدف اصلی این سازمان تسهیل ورود گردشگران خارجی به منطقه است، به‌گونه‌ای که سفرشان بی‌دغدغه باشد و در طول اقامت خود در کردستان از سرگرمی کافی برخوردار شوند. افزون بر این، Visit Kurdistan مسئولیت برگزاری طیف متنوعی از رویدادها را برای ترویج سرگرمی، ورزش و دیگر فعالیت‌های تعاملی در منطقه بر عهده دارد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/_9kXOM5TkCRedLM8xSbnE.png",
+    "website_url": "https://visitkurdistan.krd/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": "F02-A",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 85,
+    "created_at": "2026-05-10T08:35:46.311Z",
+    "updated_at": "2026-05-10T08:40:46.326Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "startups"
+    ]
+  },
+  {
+    "id": "ce483ad4-d862-4dcd-a550-922fa4a41ee0",
+    "name": {
+      "ar": "مؤسسة روانغا",
+      "en": "Rwanga Foundation",
+      "ku": "دەزگای ڕوانگە",
+      "fa": "بنیاد روانگه"
+    },
+    "description": {
+      "ar": "مؤسسة روانغا هي منظمة غير حكومية، تتطلع إلى عالم يكون فيه التعليم الجيد متاحاً للجميع. وتتمثل مهمتها في تقديم الخدمات، وبناء القدرات، ووضع السياسات لضمان سهولة الوصول إلى التعليم للجميع، وتحسين المعايير التعليمية العامة في إقليم كردستان العراق والعراق والمجتمع الدولي ككل.",
+      "en": "Rwanga Foundation is a non-governmental organization, which envisages a world where quality education is accessible for all. Its mission is to provide services, build capacities and design policies to ensure easy access to education for all and improve the overall educational standards in KRI, Iraq and the greater global community.",
+      "ku": "دەزگای ڕوانگە ڕێکخراوێکی ناحکومییە، کە پێشبینی جیهانێک دەکات کە خوێندنی کوالیتی بۆ هەمووان دەستڕاگەیشتن بێت. ئەرکی پێشکەشکردنی خزمەتگوزارییەکان و بنیاتنانی تواناکان و داڕشتنی سیاسەتەکانە بۆ دەستەبەرکردنی دەستڕاگەیشتن بە خوێندن بە ئاسانی بۆ هەمووان و باشترکردنی ستانداردە پەروەردەییە گشتییەکان لە KRI و عێراق و کۆمەڵگەی جیهانی گەورەتر.",
+      "fa": "بنیاد روانگه یک سازمان مردم‌نهاد است که جهانی را در نظر دارد که در آن آموزش باکیفیت برای همه در دسترس باشد. مأموریت این بنیاد ارائه خدمات، ظرفیت‌سازی و طراحی سیاست‌ها برای تضمین دسترسی آسان همگان به آموزش و ارتقای کلی استانداردهای آموزشی در اقلیم کردستان، عراق و جامعه جهانی گسترده‌تر است."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/o-o-kOdScZ4wMqOuVu7nO.png",
+    "website_url": "https://www.rwanga.org/",
+    "type": "sponsor",
+    "tier": null,
+    "booth_number": "F1",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 84,
+    "created_at": "2026-05-10T08:30:44.079Z",
+    "updated_at": "2026-05-10T08:30:44.079Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "startups"
+    ]
+  },
+  {
+    "id": "52107d00-5c61-41ef-b05a-13e9831854f7",
+    "name": {
+      "ar": "مستر تاكسي",
+      "en": "Mr Taxi",
+      "ku": "مستەر تەکسی",
+      "fa": "Mr Taxi"
+    },
+    "description": {
+      "ar": "أهلاً بكم في شركة سيارات الأجرة الخاصة بنا! نلتزم بتطوير تجربة النقل لديكم. مهمتنا هي توفير خدمات سيارات أجرة سريعة وآمنة وموثوقة، مع إعطاء الأولوية لراحتكم. سواء كنتم متوجهين إلى العمل، أو للحاق برحلة طيران، أو لاستكشاف المدينة، نسعى لجعل كل رحلة سلسة وخالية من التوتر. مع سائقين محترفين، ومركبات بحالة ممتازة، واهتمامنا برضا العملاء، نضمن لكم أفضل تجربة سفر في كل مرة تستقلون فيها سياراتنا.",
+      "en": "Welcome to our taxi company! We are committed to redefining the way you experience transportation. Our mission is to provide fast, safe, and reliable taxi services that prioritize your comfort and convenience. Whether you're heading to work, catching a flight, or exploring the city, we aim to make every journey smooth and stress-free. With professional drivers, well-maintained vehicles, and a focus on customer satisfaction, we're here to ensure you get the best travel experience every time you ride with us.",
+      "ku": "بەخێربێن بۆ کۆمپانیای تەکسیەکەمان! ئێمە پابەندین بە پێناسەکردنەوەی شێوازی ئەزموونکردنی گواستنەوە. ئەرکی ئێمە پێشکەشکردنی خزمەتگوزاری تەکسی خێرا و سەلامەت و متمانەپێکراوە کە ئاسوودەیی و ئاسانکارییەکانتان لە پێشینەدا بێت. جا تۆ بەرەو کارەکەت دەڕۆیت، گەشتێک دەگریت، یان بە شاردا دەگەڕێیت، ئامانجمان ئەوەیە هەموو گەشتێک بە ئاسانی و بێ سترێس بێت. بە شۆفێری پیشەگەر و ئۆتۆمبێلی باش پارێزراو و گرنگیدان بە ڕازیبوونی کڕیار، ئێمە لێرەین بۆ ئەوەی دڵنیا بین کە باشترین ئەزموونی گەشتکردن بەدەست دەهێنیت هەر جارێک کە لەگەڵ ئێمە سوار دەبیت.",
+      "fa": "به شرکت تاکسی ما خوش آمدید! ما متعهدیم شیوه تجربه حمل‌ونقل شما را از نو تعریف کنیم. مأموریت ما ارائه خدمات تاکسی سریع، ایمن و قابل‌اعتماد است که آسایش و راحتی شما را در اولویت قرار می‌دهد. چه در راه محل کار باشید، چه بخواهید به پرواز خود برسید و چه در حال گشت‌وگذار در شهر باشید، هدف ما این است که هر سفر را روان و بی‌دغدغه کنیم. با رانندگان حرفه‌ای، خودروهایی که به‌خوبی نگهداری می‌شوند و تمرکز بر رضایت مشتری، اینجا هستیم تا مطمئن شویم هر بار که با ما سفر می‌کنید، بهترین تجربه سفر را خواهید داشت."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/pU6gUM3n-vXm9WKWfcB1s.png",
+    "website_url": "https://mrtaxiiq.com",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G06",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 10,
+    "created_at": "2026-04-19T08:47:42.873Z",
+    "updated_at": "2026-05-04T10:03:38.781Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "665946ff-e825-4d80-8ec6-3f2bd3895688",
+    "name": {
+      "ar": "Mannai TechHub",
+      "en": "Mannai TechHub",
+      "ku": "Mannai TechHub",
+      "fa": "Mannai TechHub"
+    },
+    "description": {
+      "ar": "الاتصالات، والمالية، والحكومة، والدفاع، والرعاية الصحية، والتعليم، والنقل، والطاقة، والضيافة. يشمل دورنا تصميم مراكز البيانات، والشبكات، والأمن السيبراني، والحوسبة السحابية، والبرمجيات، وحلول نقاط النهاية، واستشارات التحول الرقمي، مما يجعلنا شركة مساهمة تكنولوجية متعددة القطاعات.",
+      "en": "telecommunications, finance, government, defense, healthcare, education, transportation, energy, and hospitality. Our role spans datacenter design, networking, cybersecurity, cloud, software, endpoint solutions, and digital transformation consultancy — making us a cross-sector technology enabler.",
+      "fa": "مخابرات، امور مالی، بخش دولتی، دفاع، بهداشت و درمان، آموزش، حمل‌ونقل، انرژی و هتلداری. حوزه فعالیت ما طراحی دیتاسنتر، شبکه، امنیت سایبری، رایانش ابری، نرم‌افزار، راهکارهای اندپوینت و مشاوره تحول دیجیتال را در بر می‌گیرد؛ و همین امر ما را به توانمندساز فناوری در بخش‌های مختلف تبدیل می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/-UllqFWlbUKRXMyfu_uLG.png",
+    "website_url": "https://mannai-ict.com/",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G01",
+    "years": [
+      2025
+    ],
+    "country_id": "40d5f0b3-25b7-4230-ab96-f8e4b489af93",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 9,
+    "created_at": "2026-04-19T08:45:10.531Z",
+    "updated_at": "2026-05-07T11:13:54.434Z",
+    "country": {
+      "id": "40d5f0b3-25b7-4230-ab96-f8e4b489af93",
+      "name": {
+        "ar": "قطر",
+        "en": "Qatar",
+        "ku": "قەتەر",
+        "fa": "قطر"
+      },
+      "code": "QA"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "8664d1f9-3c2f-46e7-86b7-287789bcb9e9",
+    "name": {
+      "ar": "تطبيق ديلز",
+      "en": "Deals.Krd",
+      "ku": "ديلز",
+      "fa": "Deals.Krd"
+    },
+    "description": {
+      "ar": "تطبيق \"ديلز\" هو الأول من نوعه الذي يُقدم خصومات حصرية في جميع أنحاء إقليم كردستان على مجموعة واسعة من المنتجات والخدمات، بدءًا من المطاعم واللياقة البدنية، مرورًا بالوقود ومستحضرات التجميل والعلامات التجارية، وصولًا إلى السفر والترفيه والخدمات العقارية وغيرها الكثير. مع \"ديلز\"، يُمكن لمستخدمي التطبيق الاستمتاع بتوفير كبير من أشهر العلامات التجارية، وكسب نقاط ولاء يُمكن استبدالها لاحقًا بمزيد من التوفير. حمّل تطبيق \"ديلز\" الآن للاستمتاع بالعروض والمكافآت من أكثر من 130 مُزودًا للسلع والخدمات، ودعم الشركات المحلية في الوقت نفسه.\nوتزداد التوفيرات روعةً مع \"ديلز بلس\"، حيث يُمكن للمشتركين الحصول على عروض حصرية وخصومات حصرية قبل الجميع، لتجربة توفير لا مثيل لها.",
+      "en": "Deals is the first app dedicated to offering exclusive discounts across the Kurdistan Region on anything from dining and fitness, gasoline, beauty and retail brands, to travel, entertainment, real-estate services and more. With Deals, users of the app can enjoy big savings from popular brands and earn loyalty points to redeem in future for more savings. Download the Deals app to enjoy offers and be rewarded by over 130 goods and services providers while supporting local businesses.\nThe savings get even sweeter with Deals Plus, where subscribers can unlock VIP offers and get early access to discounts for the ultimate savings experience.",
+      "ku": " لەشجوانی، بەنزین، جوانکاری و براندەکانی فرۆشتنی تاکەکەسی، تا دەگاتە سەفەر، کات بەسەربردن، خزمەتگوزاری خانووبەرە و زۆر شتی تر. لەگەڵ Deals بەکارهێنەرانی ئەپەکە دەتوانن چێژ لە پاشەکەوتی گەورە وەربگرن لە براندە بەناوبانگەکان و خاڵەکانی دڵسۆزی بەدەستبهێنن بۆ ئەوەی لە داهاتوودا بیکەنەوە بۆ پاشەکەوتی زیاتر. ئەپی Deals دابەزێنە بۆ ئەوەی چێژ لە ئۆفەرەکان وەربگریت و لەلایەن زیاتر لە 130 پێشکەشکاری کاڵا و خزمەتگوزارییەوە خەڵات بکرێت لەکاتێکدا پشتگیری لە بازرگانییە ناوخۆییەکان دەکەیت.\nپاشەکەوتەکان لەگەڵ دیڵز پڵەس شیرینتر دەبن، کە بەشداربووان دەتوانن ئۆفەرەکانی ڤی ئای پی بکەنەوە و زوو دەستیان بە داشکاندنەکان بگات بۆ ئەزموونی کۆتایی پاشەکەوتکردن.",
+      "fa": "Deals نخستین اپلیکیشنی است که به ارائه تخفیف‌های اختصاصی در سراسر اقلیم کردستان برای همه چیز اختصاص دارد؛ از رستوران و تناسب اندام، بنزین، برندهای زیبایی و خرده‌فروشی گرفته تا سفر، سرگرمی، خدمات املاک و موارد دیگر. با Deals، کاربران این اپلیکیشن می‌توانند در خرید از برندهای محبوب صرفه‌جویی زیادی کنند و امتیازهای وفاداری کسب کنند تا در آینده برای صرفه‌جویی بیشتر از آن‌ها استفاده کنند. اپلیکیشن Deals را دانلود کنید تا از پیشنهادهای ویژه بهره‌مند شوید و از سوی بیش از ۱۳۰ ارائه‌دهنده کالا و خدمات پاداش بگیرید و در عین حال از کسب‌وکارهای محلی حمایت کنید.\nبا Deals Plus صرفه‌جویی‌ها حتی شیرین‌تر می‌شود؛ در این سرویس، مشترکان می‌توانند پیشنهادهای VIP را فعال کنند و به تخفیف‌ها دسترسی زودهنگام داشته باشند تا بهترین تجربه صرفه‌جویی را داشته باشند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/aVIcDkFVErtRX0L63_TdA.png",
+    "website_url": "https://deals.krd/",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G04",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 8,
+    "created_at": "2026-04-19T08:43:20.196Z",
+    "updated_at": "2026-05-07T11:14:45.614Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "b46c21d3-2faf-47e5-967f-fa48fb36d7a0",
+    "name": {
+      "ar": "بايتكو",
+      "en": "Baytko",
+      "ku": "بەیتکۆ",
+      "fa": "Baytko"
+    },
+    "description": {
+      "ar": "نتطلع إلى إنشاء منصة تُمكّن الجميع من التواصل بسهولة مع خبراء موثوقين. ومن خلال تعزيز هذه الروابط، نُمكّن الأفراد من الحصول على المساعدة التي يحتاجونها بسرعة وفعالية، مما يُحوّل المهام اليومية إلى تجربة ممتعة.",
+      "en": "We envision a platform where everyone can easily connect with trusted experts. By fostering these connections, we empower individuals to find the help they need quickly and effectively, transforming everyday tasks into.",
+      "ku": "ئێمە پێشبینی پلاتفۆرمێک دەکەین کە هەموو کەسێک بە ئاسانی بتوانێت پەیوەندی لەگەڵ پسپۆڕانی متمانەپێکراودا بکات. بە پەروەردەکردنی ئەم پەیوەندیانە، ئێمە تاکەکان بەهێز دەکەین بۆ دۆزینەوەی ئەو یارمەتییەی کە پێویستیانە بە خێرایی و کاریگەرانە.",
+      "fa": "چشم‌انداز ما پلتفرمی است که در آن همه بتوانند به‌آسانی با متخصصان مورد اعتماد ارتباط برقرار کنند. با تقویت این ارتباطات، افراد را توانمند می‌سازیم تا کمک مورد نیاز خود را سریع و مؤثر پیدا کنند و بدین ترتیب کارهای روزمره را متحول می‌کنیم."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/jLh2ORkDHaWDqkbqJ-jAe.png",
+    "website_url": "https://www.baytko.com/",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "B05",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 7,
+    "created_at": "2026-04-19T08:41:25.710Z",
+    "updated_at": "2026-05-06T09:14:56.524Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "a5e360b4-f0d7-4236-a048-9882e578c272",
+    "name": {
+      "ar": "Nass E-Payment",
+      "en": "Nass E-Payment",
+      "ku": "Nass E-Payment",
+      "fa": "Nass E-Payment"
+    },
+    "description": {
+      "ar": "تقدم ناس حلول الدفع الرقمي والتكنولوجيا والبنية التحتية والأمن السيبراني والحوسبة السحابية والبرمجيات والحلول الذكية للشركات والمؤسسات.",
+      "en": "NASS provides digital payment, technology, infrastructure, cybersecurity, cloud, software, and smart solutions for businesses and organizations.",
+      "ku": "ناس چارەسەری پارەدانی دیجیتاڵ، تەکنەلۆژیا، ژێرخان، ئاسایشی سایبەری، هەور، نەرمەکاڵا و چارەسەری زیرەک بۆ کۆمپانیا و دامەزراوەکان پێشکەش دەکات.",
+      "fa": "NASS راهکارهای پرداخت دیجیتال، فناوری، زیرساخت، امنیت سایبری، رایانش ابری، نرم‌افزار و راهکارهای هوشمند را برای کسب‌وکارها و سازمان‌ها ارائه می‌کند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/82OxpFdZs9O_K6L2Wdqvz.png",
+    "website_url": "https://nass.iq/",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G03",
+    "years": [
+      2025,
+      2026
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": {
+      "ar": "الدفع",
+      "en": "Payment",
+      "ku": "پارەدان",
+      "fa": "پرداخت"
+    },
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 6,
+    "created_at": "2026-04-19T08:38:36.624Z",
+    "updated_at": "2026-09-19T17:56:25.893Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "34ab7b1b-fbea-4175-8857-72b50e79bfb2",
+    "name": {
+      "ar": "برکة",
+      "en": "Baraca",
+      "ku": "بەرەکە",
+      "fa": "Baraca"
+    },
+    "description": {
+      "ar": "شركة برکة لايف كابيتال العقارية ذ.م.م. هي شركة استشارات عقارية مرخصة من هيئة التنظيم العقاري (RERA) ومقرها دبي، وتُعنى بتقديم المشورة لعملائها حول بناء محافظ عقارية طويلة الأجل وعالية الأداء للمستثمرين الدوليين. لا نقتصر على تسهيل المعاملات فحسب، بل نبني علاقات متينة من خلال تقديم نهج استشاري شامل مدعوم بالبيانات، بدءًا من الاستحواذ وحتى التأجير وإعادة البيع.",
+      "en": "Baraca Life Capital Real Estate LLC is a RERA-licensed Dubai-based real estate advisory firm, dedicated to advising our clients on building long-term, high-performing real estate portfolios for international investors. We don’t just facilitate transactions—we build lasting relationships by offering a full data-backed consulting approach from acquisition to rental and resale.\n\nOur commitment is to deliver value at every stage of your journey. Through strategic planning, local expertise, and full regulatory compliance, we help you navigate Dubai’s fast-moving market with confidence—ensuring your portfolio not only performs, but endures.",
+      "ku": "کۆمپانیای بەرەکە لایف کاپیتال ڕیاڵ ئیستێت ئێڵ ئێڵ سی کۆمپانیایەکی ڕاوێژکاری خانووبەرەیە کە بنکەکەی لە دوبەی مۆڵەتی RERA ی هەیە، تایبەتە بە ڕاوێژکاری کڕیارەکانمان لە دروستکردنی پۆرتفۆلیۆی خانووبەرەی درێژخایەن و ئەدای بەرز بۆ وەبەرهێنەرانی نێودەوڵەتی. ئێمە تەنها مامەڵەکان ئاسانکاری ناکەین- ئێمە پەیوەندی بەردەوام دروست دەکەین بە پێشکەشکردنی ڕێبازێکی ڕاوێژکاری تەواو کە پشتگیری لە داتاکان دەکات لە بەدەستهێنانەوە تا کرێ و فرۆشتنەوە.",
+      "fa": "Baraca Life Capital Real Estate LLC یک شرکت مشاوره املاک مستقر در دبی و دارای مجوز RERA است که به مشاوره به مشتریان ما در زمینه ایجاد سبدهای املاک بلندمدت و پربازده برای سرمایه‌گذاران بین‌المللی اختصاص دارد. ما فقط معاملات را تسهیل نمی‌کنیم؛ بلکه با ارائه رویکرد مشاوره‌ای جامع و مبتنی بر داده، از خرید تا اجاره و فروش مجدد، روابطی ماندگار می‌سازیم.\n\nتعهد ما ارائه ارزش در هر مرحله از مسیر شماست. ما با برنامه‌ریزی راهبردی، تخصص محلی و رعایت کامل مقررات، به شما کمک می‌کنیم با اطمینان در بازار پرشتاب دبی مسیر خود را پیدا کنید؛ تا سبد دارایی شما نه‌تنها عملکرد خوبی داشته باشد، بلکه ماندگار هم باشد."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/o4kkaMP3lk7A43yOQjL-m.png",
+    "website_url": "https://www.baracacapital.com/",
+    "type": "sponsor",
+    "tier": "gold",
+    "booth_number": "G02",
+    "years": [
+      2025
+    ],
+    "country_id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 5,
+    "created_at": "2026-04-19T08:36:42.827Z",
+    "updated_at": "2026-05-07T11:11:27.843Z",
+    "country": {
+      "id": "2595c48a-5675-4fdc-9a83-e9fe053ad44e",
+      "name": {
+        "ar": "الإمارات العربية المتحدة",
+        "en": "United Arab Emirates",
+        "ku": "ئیمارات",
+        "fa": "امارات متحده عربی"
+      },
+      "code": "AE"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "bed77371-23f4-4375-91aa-0cf7b78521bc",
+    "name": {
+      "ar": "هونر",
+      "en": "Honor",
+      "ku": "هونر",
+      "fa": "Honor"
+    },
+    "description": {
+      "ar": "هونر هي شركة عالمية رائدة في مجال توفير الأجهزة الذكية. نحن ملتزمون بأن نصبح علامة تجارية عالمية رائدة في مجال التكنولوجيا وتمكين حياة ذكية في جميع السيناريوهات وجميع القنوات، لجميع الناس. مع التركيز الاستراتيجي على الابتكار والجودة والخدمة، تلتزم HONOR بتطوير التكنولوجيا التي تمكن الناس في جميع أنحاء العالم من تجاوز حدودهم من خلال قدرات البحث والتطوير والتكنولوجيا المتقدمة، فضلاً عن خلق عالم ذكي جديد للجميع من خلال مجموعة منتجاتها المبتكرة.",
+      "en": "HONOR is a leading global provider of smart devices. We are committed to becoming a global iconic tech brand and enabling a smart life across all scenarios and all channels, for all people. With a strategic focus on innovation, quality and service, HONOR is dedicated to developing technology that empowers people around the globe to go beyond through its R&D capabilities and forward-looking technology, as well as creating a new intelligent world for everyone with its portfolio of innovative products.",
+      "ku": "\nکۆمپانیای HONOR کۆمپانیایەکی پێشەنگی جیهانییە بۆ دابینکردنی ئامێرە زیرەکەکان. ئێمە پابەندین بە بوون بە براندێکی تەکنەلۆژیای ئایکۆنی جیهانی و چالاککردنی ژیانێکی زیرەک لە سەرانسەری هەموو سیناریۆکان و هەموو کەناڵەکاندا، بۆ هەموو خەڵک. بە گرنگیدانێکی ستراتیژی بە داهێنان، کوالیتی و خزمەتگوزاری، HONOR تایبەتە بە پەرەپێدانی تەکنەلۆژیا کە خەڵک لە سەرانسەری جیهان بەهێز دەکات بۆ ئەوەی لە ڕێگەی تواناکانی توێژینەوە و پەرەپێدان و تەکنەلۆژیای پێشبینیکراوەوە لەوە تێپەڕن، هەروەها دروستکردنی جیهانێکی زیرەکی نوێ بۆ هەمووان بە پۆرتفۆلیۆی... بەرهەمی داهێنەرانە.",
+      "fa": "HONOR یکی از ارائه‌دهندگان پیشرو جهانی دستگاه‌های هوشمند است. ما متعهدیم به برندی فناوری و نمادین در سطح جهان تبدیل شویم و زندگی هوشمند را در همه سناریوها و همه کانال‌ها، برای همه مردم ممکن کنیم. HONOR با تمرکز راهبردی بر نوآوری، کیفیت و خدمات، متعهد است با تکیه بر توانمندی‌های تحقیق و توسعه و فناوری آینده‌نگر خود، فناوری‌ای توسعه دهد که مردم سراسر جهان را برای فراتر رفتن توانمند می‌سازد و همچنین با مجموعه محصولات نوآورانه خود، دنیای هوشمند جدیدی برای همه بیافریند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/YiVx2gyR-q31JZluDslg0.png",
+    "website_url": "https://www.honor.com/global/",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": "P01",
+    "years": [
+      2025
+    ],
+    "country_id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+    "industry_id": null,
+    "sector": {
+      "ar": "تصنيع أجهزة الكمبيوتر والإلكترونيات",
+      "en": "Computers and Electronics Manufacturing",
+      "ku": "بەرهەمهێنانی کۆمپیوتەر و ئەلیکترۆنیات",
+      "fa": "تولید کامپیوتر و لوازم الکترونیکی"
+    },
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 4,
+    "created_at": "2026-04-16T10:00:31.843Z",
+    "updated_at": "2026-05-18T10:58:21.216Z",
+    "country": {
+      "id": "40c7240d-7ac2-4d82-8271-6f248331e303",
+      "name": {
+        "ar": "الصين",
+        "en": "China",
+        "ku": "چین",
+        "fa": "چین"
+      },
+      "code": "CN"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "022bfee5-800e-4b66-bd85-7e8d6dfa0068",
+    "name": {
+      "ar": "هاي تيك",
+      "en": "High Tech",
+      "ku": "های تێک،",
+      "fa": "High Tech"
+    },
+    "description": {
+      "ar": "في شركتنا المتخصصة بالتقنيات المتقدمة، نفخر بشراكتنا مع هيكفيجن، الشركة العالمية الرائدة في حلول الأمن والمراقبة. تشتهر منتجات هيكفيجن بتقنياتها المتطورة وموثوقيتها التي لا مثيل لها والتزامها بمعايير أمان عالية. وبصفتنا مركز خدمة معتمد لإرجاع الأجهزة (RMA) في العراق، نقدم قطع غيار وضمانات أصلية، مما يضمن معالجة أي استفسارات على الفور من قِبل فنيينا المهرة. اختيار هيكفيجن يعني اختيار الجودة والثقة، حيث توفر شراكتنا ضمانًا إضافيًا لتلبية احتياجاتكم الأمنية بتفانٍ واحترافية ودعم مستمر.",
+      "en": "At our High Tech Company, we are proud partners of Hikvision, a global leader in security and surveillance solutions. Hikvision's products are renowned for their state-of-the-art technology, unmatched reliability, and commitment to high-standard security. As an authorized RMA Service Center in Iraq, we offer genuine spare parts and warranties, ensuring any concerns are promptly addressed by our skilled technicians. Choosing Hikvision means opting for quality and trust, with our partnership providing additional assurance that your security needs are met with dedication, professionalism, and unwavering support.",
+      "ku": "لە کۆمپانیای های تێک، ئێمە هاوبەشی شانازیی هیکڤیزین، کە پێشەنگێکی جیهانییە لە چارەسەری ئاسایش و چاودێریدا. بەرهەمەکانی هایکڤیژن بەناوبانگن بە تەکنەلۆژیای پێشکەوتوو و متمانەپێکراوی بێهاوتای، و پابەندبوون بە ئاسایشی ستانداردی بەرز. وەک ناوەندێکی خزمەتگوزاری RMA ڕێگەپێدراو لە عێراق، پارچەی یەدەگی ڕاستەقینە و گەرەنتی پێشکەش دەکەین، دڵنیا دەبینەوە لە هەر نیگەرانییەک کە بەپەلە لەلایەن لێهاتووەکانمانەوە چارەسەر دەکرێت.\" تەکنیکاران هەڵبژاردنی هایکڤیژن واتە هەڵبژاردنی کوالیتی و متمانە، لەگەڵ هاوبەشیەکەمان کە دڵنیایی زیاتر دەدات کە پێداویستییە ئەمنییەکانتان بە خۆبەخشی، پیشەییبوون و پشتگیرییەکی بێوچان دابین دەکرێن.",
+      "fa": "ما در شرکت High Tech مفتخریم که شریک Hikvision، پیشتاز جهانی راهکارهای امنیتی و نظارتی، هستیم. محصولات Hikvision به‌خاطر فناوری روز و پیشرفته، قابلیت اطمینان بی‌همتا و تعهد به امنیت با استانداردهای بالا شهرت دارند. ما به‌عنوان مرکز خدمات RMA مجاز در عراق، قطعات یدکی اصلی و گارانتی ارائه می‌کنیم و اطمینان می‌دهیم که هرگونه مشکلی به‌سرعت توسط تکنسین‌های ماهر ما رسیدگی شود. انتخاب Hikvision یعنی انتخاب کیفیت و اعتماد، و همکاری ما این اطمینان بیشتر را فراهم می‌کند که نیازهای امنیتی شما با تعهد، حرفه‌ای‌گری و پشتیبانی بی‌وقفه برآورده می‌شود."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/lfJO9FgasLY11Ye2F_gNZ.png",
+    "website_url": "https://www.hightech.iq/",
+    "type": "sponsor",
+    "tier": "platinum",
+    "booth_number": "P02",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 3,
+    "created_at": "2026-04-16T09:46:06.827Z",
+    "updated_at": "2026-05-04T10:01:53.493Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "8c40d075-67e6-4904-8d01-b97e2208d0d9",
+    "name": {
+      "ar": "تيب توب",
+      "en": "TipTop",
+      "ku": "تیپ تۆپ",
+      "fa": "TipTop"
+    },
+    "description": {
+      "ar": "تيب توب شركة محلية رائدة في أربيل، متخصصة في توصيل الطعام عبر الإنترنت. توفر منصتنا للعملاء طريقة مريحة وآمنة لطلب الطعام ودفع ثمنه من مجموعة متنوعة من شركائنا من المطاعم عبر تطبيقات TryTipTop على الويب، وأندرويد، وiOS. نهدف إلى ربط المطاعم المميزة بالعملاء المحليين، من خلال توفير مجموعة واسعة من خيارات الطعام والعروض الترويجية والعروض الخاصة المتاحة للتوصيل أو الاستلام طوال اليوم.",
+      "en": "TipTop is a leading local company in Erbil, specializing in online food delivery. Our platform offers customers a convenient and secure way to order and pay for food from a variety of Restaurant Partners through our TryTipTop Web, Android, and iOS mobile applications. We aim to connect great restaurants with local customers, providing a wide range of food choices, promotions, and specials available for delivery or pick-up throughout the day.",
+      "ku": "تیپ تۆپ کۆمپانیایەکی پێشەنگی ناوخۆییە لە هەولێر، تایبەتمەندە بە گەیاندنی خۆراک بە شێوەی ئۆنلاین. پلاتفۆرمەکەمان ڕێگەیەکی گونجاو و پارێزراو پێشکەش بە کڕیاران دەکات بۆ داواکردن و پارەدان بە خواردن لە چەندین هاوبەشی چێشتخانەکانەوە لە ڕێگەی ئەپڵیکەیشنە مۆبایلەکانی ترایتیپ تۆپ وێب و ئەندرۆید و ئای ئۆ ئێسەوە. ئامانجمان بەستنەوەی چێشتخانە نایابەکانە لەگەڵ کڕیارە ناوخۆییەکان، دابینکردنی کۆمەڵێک هەڵبژاردەی خۆراک، پرۆمۆشن، و تایبەتمەندییە تایبەتەکان کە بەردەستە بۆ گەیاندن یان وەرگرتن لە سەرتاسەری ڕۆژ.",
+      "fa": "TipTop یک شرکت محلی پیشرو در اربیل است که در زمینه تحویل آنلاین غذا تخصص دارد. پلتفرم ما راهی آسان و امن برای سفارش و پرداخت غذا از رستوران‌های همکار متنوع در اختیار مشتریان قرار می‌دهد؛ از طریق نسخه وب TryTipTop و اپلیکیشن‌های موبایل Android و iOS ما. هدف ما پیوند دادن رستوران‌های عالی با مشتریان محلی و ارائه طیف گسترده‌ای از انتخاب‌های غذایی، پیشنهادهای تخفیفی و ویژه است که در تمام طول روز برای ارسال با پیک یا تحویل حضوری در دسترس‌اند."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/0bpk8K9Xu89Wxk2a1PlYR.png",
+    "website_url": "https://trytiptop.app/",
+    "type": "sponsor",
+    "tier": "diamond",
+    "booth_number": "D01",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 2,
+    "created_at": "2026-04-16T09:42:04.436Z",
+    "updated_at": "2026-05-07T11:10:37.303Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": []
+  },
+  {
+    "id": "d6eb8a89-f682-4468-9991-e76d07642f7c",
+    "name": {
+      "ar": "INGOT",
+      "en": "INGOT",
+      "ku": "INGOT",
+      "fa": "INGOT"
+    },
+    "description": {
+      "ar": "إنجوت شركة وساطة مالية رائدة تهدف إلى جعل الأسواق المالية في متناول المتداولين من جميع المستويات والخلفيات. الشركة مرخصة وخاضعة للتنظيم، وتحمل خمسة تراخيص مختلفة، مما يضمن حصول العملاء على تجربة تداول موثوقة واستثنائية.\nفيما يلي التراخيص الحالية:\nهيئة الأوراق المالية الأردنية (JSC)\nهيئة الأوراق المالية والاستثمارات الأسترالية (ASIC)\nهيئة أسواق المال (CMA) في كينيا\nهيئة الخدمات المالية في سيشل (FSA)\nهيئة الأوراق المالية والسلع في الإمارات العربية المتحدة (SCA)",
+      "en": "INGOT is a high-end brokerage firm that aims to make financial markets accessible to traders of all levels and backgrounds. The company is authorized, regulated, and holds five different licenses, which ensure that clients receive a reliable and exceptional trading experience.\nBelow are the existing licenses:\nJordan Securities Commission (JSC)\nAustralian Securities and Investments Commission (ASIC)\nCapital Markets Authority (CMA) in Kenya\nFinancial Services Authority of Seychelles (FSA)\nSecurities and Commodities Authority in UAE (SCA)",
+      "ku": "کۆمپانیای INGOT کۆمپانیایەکی دەڵاڵی ئاست بەرزە کە ئامانجی ئەوەیە بازاڕە داراییەکان بۆ بازرگانانی هەموو ئاست و پاشخانێک بتوانن دەستیان پێ بگات. کۆمپانیاکە ڕێگەپێدراوە و ڕێکخراوە و پێنج مۆڵەتی جیاوازی هەیە، کە دڵنیای دەدات لەوەی کە کڕیارەکان ئەزموونێکی بازرگانی جێی متمانە و ناوازە وەردەگرن.\nلە خوارەوە مۆڵەتەکانی ئێستا دەخەینەڕوو:\nکۆمیسیۆنی پارەپاسەوانەکانی ئوردن (JSC)\nکۆمیسیۆنی پارە و وەبەرهێنانی ئوسترالیا (ASIC)\nدەسەڵاتی بازاڕەکانی سەرمایە (CMA) لە کینیا\nدەسەڵاتی خزمەتگوزارییە داراییەکانی سیشێڵ (FSA)\nدەسەڵاتی پارە و کاڵا لە ئیمارات (SCA)",
+      "fa": "INGOT یک شرکت کارگزاری سطح بالا است که هدفش دسترس‌پذیر کردن بازارهای مالی برای معامله‌گران در همه سطوح و با هر پیشینه‌ای است. این شرکت دارای مجوز رسمی و تحت نظارت نهادهای ناظر است و پنج مجوز مختلف در اختیار دارد که تضمین می‌کنند مشتریان تجربه معاملاتی مطمئن و استثنایی داشته باشند.\nمجوزهای موجود به شرح زیر است:\nکمیسیون اوراق بهادار اردن (JSC)\nکمیسیون اوراق بهادار و سرمایه‌گذاری استرالیا (ASIC)\nسازمان بازارهای سرمایه (CMA) در کنیا\nسازمان خدمات مالی سیشل (FSA)\nسازمان اوراق بهادار و کالا در امارات متحده عربی (SCA)"
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/TEanNO_8agUr5Dlmr-Fuf.png",
+    "website_url": "https://www.ingot.io/SC/en-SC",
+    "type": "sponsor",
+    "tier": "diamond",
+    "booth_number": "D02",
+    "years": [
+      2025,
+      2026
+    ],
+    "country_id": "2bfc2187-5211-44a9-b1ea-f30c5626d185",
+    "industry_id": null,
+    "sector": {
+      "ar": "الخدمات المالية / التداول الإلكتروني",
+      "en": "Financial Services / Online Trading",
+      "ku": "خزمەتگوزاری دارایی / بازرگانی ئۆنلاین",
+      "fa": "خدمات مالی / معاملات آنلاین"
+    },
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 1,
+    "created_at": "2026-04-16T09:34:33.734Z",
+    "updated_at": "2026-09-19T17:56:22.512Z",
+    "country": {
+      "id": "2bfc2187-5211-44a9-b1ea-f30c5626d185",
+      "name": {
+        "ar": "الأردن",
+        "en": "Jordan",
+        "ku": "ئوردن",
+        "fa": "اردن"
+      },
+      "code": "JO"
+    },
+    "industry": null,
+    "featured_on": [
+      "homepage"
+    ]
+  },
+  {
+    "id": "9e52958c-1fc1-4662-8e1b-6f2be68e7c16",
+    "name": {
+      "ar": "IOM المنظمة الدولية للهجرة",
+      "en": "IOM",
+      "ku": "ڕێکخراوی نێودەوڵەتی کۆچبەران (IOM)",
+      "fa": "سازمان بین‌المللی مهاجرت (IOM)"
+    },
+    "description": {
+      "ar": "تتواجد المنظمة الدولية للهجرة في العراق منذ عام 2003. وتدعم المنظمة الفئات الضعيفة في مختلف أنحاء العراق، بما في ذلك النازحون والمهاجرون والمجتمعات المتضررة من الصراع. تعرف على المزيد حول المنظمة الدولية للهجرة في العراق.",
+      "en": "The International Organization for Migration (IOM) established its operations in Iraq in 2003. Across the country IOM provides a comprehensive response to the humanitarian needs of migrants, internally displaced persons, returnees and host communities through humanitarian direct assistance, recreational activities, and a variety of other efforts. Learn more about IOM in Iraq.",
+      "ku": "ڕێکخراوی نێودەوڵەتی کۆچبەران (IOM) لە ساڵی 2003 کارەکانی لە عێراق دامەزراند، لە سەرانسەری وڵاتدا ڕێکخراوی نێودەوڵەتی کۆچ وەڵامێکی هەمەلایەنە بۆ پێداویستییە مرۆییەکانی کۆچبەران، ئاوارەکانی ناوخۆ، گەڕاوەکان و کۆمەڵگە میواندارەکان لە ڕێگەی هاوکاری ڕاستەوخۆی مرۆیی و چالاکییەکانی کات بەسەربردن و چەندین هەوڵی دیکە دەداتەوە. زیاتر بزانە دەربارەی ڕێکخراوی نێودەوڵەتی کۆچ لە عێراق.",
+      "fa": "سازمان بین‌المللی مهاجرت (IOM) فعالیت‌های خود را در عراق در سال ۲۰۰۳ آغاز کرد. IOM در سراسر این کشور، از طریق کمک‌های مستقیم بشردوستانه، فعالیت‌های تفریحی و مجموعه‌ای از اقدامات دیگر، پاسخی جامع به نیازهای بشردوستانه مهاجران، آوارگان داخلی، بازگشتگان و جوامع میزبان ارائه می‌دهد. درباره IOM در عراق بیشتر بدانید."
+    },
+    "logo_url": "https://hitex.s3.us-east-1.amazonaws.com/uploads/rSRLTjdJ_f7ULa5sO7q-9.png",
+    "website_url": "http://iraq.iom.int/",
+    "type": "exhibitor",
+    "tier": null,
+    "booth_number": "L02-J",
+    "years": [
+      2025
+    ],
+    "country_id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+    "industry_id": null,
+    "sector": null,
+    "sort_order": 0,
+    "is_featured": false,
+    "is_active": true,
+    "mobile_id": 78,
+    "created_at": "2026-05-04T12:22:41.337Z",
+    "updated_at": "2026-05-04T12:22:41.337Z",
+    "country": {
+      "id": "b0b34510-6dca-44a5-93ef-71a83a30815b",
+      "name": {
+        "ar": "العراق",
+        "en": "Iraq",
+        "ku": "عێراق",
+        "fa": "عراق"
+      },
+      "code": "IQ"
+    },
+    "industry": null,
+    "featured_on": [
+      "startups"
+    ]
+  }
+]
