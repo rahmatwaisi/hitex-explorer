@@ -93,7 +93,7 @@ export function ContributionPage({ lang }: { lang: Lang }) {
       <p className="-mt-3 text-muted-foreground">
         Built from the profile template, so it shows every section a completed profile can have.
       </p>
-      {community?.example ? <Profile p={community.example} vocab={community.vocab} lang={lang} /> : <Loading what="example" />}
+      {community?.example ? <Profile p={community.example} vocab={community.vocab} lang={lang} embedded /> : <Loading what="example" />}
     </div>
   )
 }

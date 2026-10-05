@@ -134,8 +134,9 @@ function ExampleBanner() {
   )
 }
 
-/** All sections of a startup profile. */
-export function Profile({ p, vocab, lang }: { p: CommunityProfile; vocab: Vocab; lang: Lang }) {
+/** All sections of a startup profile; `embedded` (inside another page) uses h3 for the name instead of h1. */
+export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProfile; vocab: Vocab; lang: Lang; embedded?: boolean }) {
+  const NameTag = embedded ? "h3" : "h1"
   const L = (list: string, key: string | number | null | undefined) => vocabLabel(vocab, list, key, lang)
   const Ls = (list: string, keys: (string | number)[] | null | undefined) => vocabLabels(vocab, list, keys, lang)
   const t = (field: Parameters<typeof profileText>[1]) => profileText(p, field, lang)
@@ -157,7 +158,7 @@ export function Profile({ p, vocab, lang }: { p: CommunityProfile; vocab: Vocab;
           <Logo url={p.logo_url} name={name} />
           <div className="flex min-w-0 flex-1 flex-col gap-3">
             <div lang={lang} dir={dir} className="flex flex-col gap-1">
-              <h1 className="text-2xl font-semibold sm:text-3xl">{name}</h1>
+              <NameTag className="text-2xl font-semibold sm:text-3xl">{name}</NameTag>
               {t("tagline") && <p className="text-lg text-muted-foreground">{t("tagline")}</p>}
             </div>
             <Chips

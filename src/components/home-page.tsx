@@ -1,4 +1,4 @@
-import { CommunityLinks } from "@/components/community-links"
+import { CommunityLinks, LinkCard } from "@/components/community-links"
 import { HitexText } from "@/components/highlight"
 import { Logo } from "@/components/logo"
 import { datasetKeys, datasets } from "@/lib/datasets"
@@ -41,6 +41,24 @@ export function HomePage() {
       <section className="flex flex-col items-center gap-4">
         <h2 className="text-lg font-medium">Looking for work or hiring? Join the community on</h2>
         <CommunityLinks />
+      </section>
+
+      <section className="flex max-w-2xl flex-col items-center gap-4">
+        <h2 className="text-lg font-medium">
+          <HitexText>Do you own a startup that took part in HITEX?</HitexText>
+        </h2>
+        <p className="text-muted-foreground">
+          Your startup deserves more than a line in a list. Give it a page of its own: your story, your team and the
+          roles you're hiring for, in four languages, so the right people can find you and remember you.
+        </p>
+        <LinkCard
+          href="#/contribution"
+          name="Contribute to HITEX Explorer"
+          subtitle="Make your startup stand out"
+          color="#EB2637"
+          image={`${import.meta.env.BASE_URL}brand/apple-touch-icon.png`}
+          internal
+        />
       </section>
     </div>
   )
