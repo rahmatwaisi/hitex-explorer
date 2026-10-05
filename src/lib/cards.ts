@@ -1,4 +1,14 @@
 import {
+  activePositions,
+  positionTexts,
+  profileText,
+  vocabLabel,
+  vocabLabels,
+  type CommunityData,
+  type CommunityProfile,
+  type Vocab,
+} from "@/lib/community"
+import {
   pick,
   type Agenda,
   type Lang,
@@ -20,12 +30,13 @@ export interface CardModel {
   /** center the title and badges (speakers) */
   centered?: boolean
   title: string
-  /** makes the title a link (speakers: Google search for the person) */
-  titleHref?: string
+  /** makes the title a link: a Google search (speakers, new tab) or a page on this site */
+  titleLink?: { href: string; kind: "search" | "page" }
   badges: string[]
   fields: { label: string; value: string }[]
   description: string
-  links: { label: string; href: string; text?: string }[]
+  /** `internal` links stay on this site (same tab) */
+  links: { label: string; href: string; text?: string; internal?: boolean }[]
 }
 
 export const linkText = (link: CardModel["links"][number]) =>
@@ -80,6 +91,66 @@ export function startupCard(s: Startup, lang: Lang): CardModel {
   }
 }
 
+export const profileHref = (slug: string) => `#/startups/${slug}`
+
+/**
+ * Card for a HITEX startup that completed its profile through public/startups/*.yml.
+ * `years` are the HITEX years from the original record.
+ */
+export function communityCard(p: CommunityProfile, vocab: Vocab, lang: Lang, years: number[] = []): CardModel {
+  const open = activePositions(p)
+  const event = p.hitex?.at_event
+  const hiring = open.length
+    ? [`Hiring · ${open.length} ${open.length === 1 ? "role" : "roles"}`]
+    : p.hiring?.status === "always_open"
+      ? ["Open to applications"]
+      : []
+  const city = p.location.city === "other" ? (p.location.city_other ?? "") : vocabLabel(vocab, "cities", p.location.city, lang)
+  const industry = p.industry === "other" ? (p.industry_other ?? "") : vocabLabel(vocab, "industries", p.industry, lang)
+  const tagline = profileText(p, "tagline", lang)
+  const description = profileText(p, "description", lang)
+  return {
+    id: `community-${p.slug}`,
+    image: p.logo_url,
+    monogram: monogram(profileText(p, "name", lang), p.slug),
+    title: profileText(p, "name", lang),
+    titleLink: { href: profileHref(p.slug), kind: "page" },
+    badges: [
+      industry,
+      vocabLabel(vocab, "stages", p.stage, lang),
+      ...hiring,
+      ...(event?.attending ? [event.booth ? `At HITEX · booth ${event.booth}` : "At HITEX"] : []),
+      ...years.map(String),
+    ].filter(Boolean),
+    fields: fields([
+      ["Founded", p.founded.slice(0, 4)],
+      ["City", city],
+      ["Team", vocabLabel(vocab, "team_sizes", p.team_size, lang)],
+      ["Work", vocabLabel(vocab, "work_modes", p.work_mode, lang)],
+      ["Stack", vocabLabels(vocab, "technologies", p.tech_stack, lang).join(", ")],
+      ["Hiring", open.map((pos) => positionTexts(p, pos.id, lang).title ?? pos.id).join("\n")],
+    ]),
+    description: [tagline, description].filter(Boolean).join("\n\n"),
+    links: [
+      { label: "Profile", href: profileHref(p.slug), text: "Full profile", internal: true },
+      ...links([["Website", p.website]]),
+    ],
+  }
+}
+
+/**
+ * One collection: every HITEX startup in its usual order. Startups that completed their profile
+ * (public/startups/*.yml, linked by hitex.existing_profile) show the richer profile card instead.
+ */
+export function startupCards(data: { hitex: Startup[]; community: CommunityData }, lang: Lang): CardModel[] {
+  const { hitex, community } = data
+  const byHitexId = new Map(community.profiles.map((p) => [p.hitex?.existing_profile, p]))
+  return hitex.map((s) => {
+    const p = byHitexId.get(s.id)
+    return p ? { ...communityCard(p, community.vocab, lang, s.years ?? []), id: s.id } : startupCard(s, lang)
+  })
+}
+
 export function organizationCard(o: Organization, lang: Lang): CardModel {
   const country = o.country ? `${pick(o.country.name, lang)} (${o.country.code})` : null
   return {
@@ -132,7 +203,7 @@ export function speakerCard(s: Speaker, lang: Lang): CardModel {
     imageShape: "circle",
     centered: true,
     title,
-    titleHref: googleSearchUrl(s),
+    titleLink: { href: googleSearchUrl(s), kind: "search" },
     badges: [...(s.is_featured ? ["Featured"] : []), ...featuredOn(s.featured_on)],
     fields: fields([
       ["Role", pick(s.title, lang)],

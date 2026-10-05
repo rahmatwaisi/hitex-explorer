@@ -1,6 +1,7 @@
 import { BuildingIcon, CalendarIcon, HandshakeIcon, MicIcon, NewspaperIcon, RocketIcon, type LucideIcon } from "lucide-react"
 
-import { agendaCards, orderSpeakers, organizationCard, speakerCard, startupCard, type CardModel } from "@/lib/cards"
+import { agendaCards, orderSpeakers, organizationCard, speakerCard, startupCards, type CardModel } from "@/lib/cards"
+import { loadCommunity, type CommunityData } from "@/lib/community"
 import type { Agenda, Lang, Organization, Speaker, Startup } from "@/lib/data"
 
 /** JSON files live in public/data and are served as-is at /data/<file> */
@@ -12,6 +13,8 @@ interface Dataset {
   url: string
   icon: LucideIcon
   blurb: string
+  /** custom loader when a page combines several files; defaults to fetching `url` */
+  load?: () => Promise<unknown>
   /** turns the parsed JSON file into cards */
   toCards: (data: unknown, lang: Lang) => CardModel[]
 }
@@ -23,7 +26,9 @@ export const datasets = {
     url: dataUrl("startups_list.json"),
     icon: RocketIcon,
     blurb: "Startups from HITEX 2022–2026, with founders and descriptions.",
-    toCards: (data, lang) => (data as Startup[]).map((s) => startupCard(s, lang)),
+    // HITEX startups plus the profiles contributed through public/startups/*.yml
+    load: async () => ({ hitex: await fetchJson(dataUrl("startups_list.json")), community: await loadCommunity() }),
+    toCards: (data, lang) => startupCards(data as { hitex: Startup[]; community: CommunityData }, lang),
   },
   exhibitors: {
     title: "Exhibitors",
@@ -71,8 +76,13 @@ export type DatasetKey = keyof typeof datasets
 
 export const datasetKeys = Object.keys(datasets) as DatasetKey[]
 
-export async function loadDataset(key: DatasetKey): Promise<unknown> {
-  const res = await fetch(datasets[key].url)
-  if (!res.ok) throw new Error(`${datasets[key].file}: HTTP ${res.status}`)
+async function fetchJson(url: string): Promise<unknown> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`${url.split("/").pop()}: HTTP ${res.status}`)
   return res.json()
+}
+
+export function loadDataset(key: DatasetKey): Promise<unknown> {
+  const d: Dataset = datasets[key]
+  return d.load ? d.load() : fetchJson(d.url)
 }

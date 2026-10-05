@@ -1,5 +1,5 @@
 import { memo, useState, type CSSProperties } from "react"
-import { CircleQuestionMarkIcon, ExternalLinkIcon } from "lucide-react"
+import { ArrowRightIcon, CircleQuestionMarkIcon, ExternalLinkIcon } from "lucide-react"
 
 import { Highlight } from "@/components/highlight"
 import { Badge } from "@/components/ui/badge"
@@ -65,9 +65,13 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
 
       <CardHeader>
         <CardTitle lang={lang} dir={dir} className={cn("text-lg", card.centered && "text-center")}>
-          {card.titleHref ? (
+          {card.titleLink?.kind === "page" ? (
+            <a href={card.titleLink.href} className="underline-offset-4 hover:underline">
+              <Highlight text={card.title} matcher={matcher} linkHitex={false} />
+            </a>
+          ) : card.titleLink ? (
             <a
-              href={card.titleHref}
+              href={card.titleLink.href}
               target="_blank"
               rel="noreferrer"
               title="Search Google for this person"
@@ -117,12 +121,18 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
               <a
                 key={l.href}
                 href={l.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 break-all text-sky-600 hover:underline dark:text-sky-400"
+                {...(l.internal ? {} : { target: "_blank", rel: "noreferrer" })}
+                className={cn(
+                  "inline-flex items-center gap-1.5 break-all hover:underline",
+                  l.internal ? "font-medium text-foreground" : "text-sky-600 dark:text-sky-400"
+                )}
                 title={l.label}
               >
-                <ExternalLinkIcon className="size-3.5 shrink-0" />
+                {l.internal ? (
+                  <ArrowRightIcon className="size-3.5 shrink-0" />
+                ) : (
+                  <ExternalLinkIcon className="size-3.5 shrink-0" />
+                )}
                 <Highlight text={linkText(l)} matcher={matcher} linkHitex={false} />
               </a>
             ))}

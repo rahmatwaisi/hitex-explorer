@@ -1,0 +1,1083 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hitex2026.netlify.app/schema/startup-profile.schema.json",
+  "title": "HITEX Explorer startup profile",
+  "description": "Structure of public/startups/*.yml. Values from fixed lists are checked against schema/vocab.yml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "slug",
+    "maintainers",
+    "hitex",
+    "website",
+    "logo_url",
+    "founded",
+    "location",
+    "industry",
+    "stage",
+    "team_size",
+    "work_mode",
+    "founders",
+    "i18n",
+    "consent"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(_[a-z0-9]+)*$",
+      "maxLength": 60
+    },
+    "maintainers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$"
+      }
+    },
+    "website": {
+      "$ref": "#/$defs/url"
+    },
+    "logo_url": {
+      "$ref": "#/$defs/url"
+    },
+    "founded": {
+      "type": "string",
+      "pattern": "^(19|20)\\d{2}(-(0[1-9]|1[0-2]))?$"
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "city",
+        "country"
+      ],
+      "properties": {
+        "city": {
+          "$ref": "#/$defs/key"
+        },
+        "city_other": {
+          "$ref": "#/$defs/shortText"
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "other_offices": {
+          "$ref": "#/$defs/keyList"
+        },
+        "office_maps_url": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "wheelchair_accessible": {
+          "$ref": "#/$defs/optBool"
+        }
+      }
+    },
+    "industry": {
+      "$ref": "#/$defs/key"
+    },
+    "industry_other": {
+      "$ref": "#/$defs/shortText"
+    },
+    "business_model": {
+      "$ref": "#/$defs/optKey"
+    },
+    "stage": {
+      "$ref": "#/$defs/key"
+    },
+    "team_size": {
+      "type": "string"
+    },
+    "engineering_team_size": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "work_mode": {
+      "$ref": "#/$defs/key"
+    },
+    "work_week": {
+      "$ref": "#/$defs/optKey"
+    },
+    "tech_stack": {
+      "$ref": "#/$defs/keyList"
+    },
+    "tools": {
+      "$ref": "#/$defs/keyList"
+    },
+    "products": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/key"
+          },
+          "url": {
+            "$ref": "#/$defs/optUrl"
+          },
+          "platforms": {
+            "$ref": "#/$defs/keyList"
+          }
+        }
+      }
+    },
+    "traction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metric",
+          "value",
+          "as_of"
+        ],
+        "properties": {
+          "metric": {
+            "$ref": "#/$defs/key"
+          },
+          "value": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "as_of": {
+            "type": "string",
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+          }
+        }
+      }
+    },
+    "recognition": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/shortText"
+          },
+          "year": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1990,
+            "maximum": 2100
+          },
+          "url": {
+            "$ref": "#/$defs/optUrl"
+          }
+        }
+      }
+    },
+    "hitex": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "years": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer",
+            "minimum": 2015,
+            "maximum": 2100
+          }
+        },
+        "existing_profile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "id of your startup in public/data/startups_list.json; only startups listed by HITEX can have a profile"
+        },
+        "at_event": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "attending": {
+              "$ref": "#/$defs/optBool"
+            },
+            "booth": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 20
+            },
+            "days": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/$defs/date"
+              }
+            },
+            "interviewing_at_booth": {
+              "$ref": "#/$defs/optBool"
+            },
+            "walk_in_cvs": {
+              "$ref": "#/$defs/optBool"
+            },
+            "book_meeting_url": {
+              "$ref": "#/$defs/optUrl"
+            }
+          }
+        }
+      },
+      "required": [
+        "existing_profile"
+      ]
+    },
+    "links": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "linkedin": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "instagram": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "x": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "facebook": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "youtube": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "github": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "engineering_blog": {
+          "$ref": "#/$defs/optUrl"
+        }
+      }
+    },
+    "media": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "demo_video": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "pitch_deck": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "press_kit": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "photos": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/url"
+          }
+        }
+      }
+    },
+    "clients": {
+      "$ref": "#/$defs/namedLinks"
+    },
+    "partners": {
+      "$ref": "#/$defs/namedLinks"
+    },
+    "impact": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sdgs": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 17
+          }
+        }
+      }
+    },
+    "founders": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/person"
+      }
+    },
+    "core_team": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/person"
+      }
+    },
+    "seeking": {
+      "$ref": "#/$defs/keyList"
+    },
+    "co_founder_role": {
+      "$ref": "#/$defs/optKey"
+    },
+    "hiring": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "updated"
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/key"
+        },
+        "updated": {
+          "$ref": "#/$defs/date"
+        },
+        "careers_page": {
+          "$ref": "#/$defs/optUrl"
+        },
+        "contacts": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "role"
+            ],
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/name"
+              },
+              "role": {
+                "$ref": "#/$defs/key"
+              },
+              "linkedin": {
+                "$ref": "#/$defs/optUrl"
+              },
+              "email": {
+                "anyOf": [
+                  {
+                    "const": ""
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "email"
+                  }
+                ]
+              },
+              "preferred_contact": {
+                "$ref": "#/$defs/optKey"
+              }
+            }
+          }
+        },
+        "process": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "steps": {
+              "$ref": "#/$defs/keyList"
+            },
+            "typical_duration_days": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 365
+            },
+            "reply_within_days": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 90
+            },
+            "paid_take_home": {
+              "$ref": "#/$defs/optBool"
+            },
+            "remote_interviews": {
+              "$ref": "#/$defs/optBool"
+            }
+          }
+        },
+        "open_to": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "languages": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "work": {
+                  "$ref": "#/$defs/keyList"
+                },
+                "required": {
+                  "$ref": "#/$defs/keyList"
+                },
+                "welcome": {
+                  "$ref": "#/$defs/keyList"
+                },
+                "english_level": {
+                  "$ref": "#/$defs/optKey"
+                },
+                "interview": {
+                  "$ref": "#/$defs/keyList"
+                }
+              }
+            },
+            "fresh_graduates": {
+              "$ref": "#/$defs/optBool"
+            },
+            "internships": {
+              "$ref": "#/$defs/optBool"
+            },
+            "international_candidates": {
+              "$ref": "#/$defs/optBool"
+            },
+            "visa_support": {
+              "$ref": "#/$defs/optBool"
+            },
+            "relocation_support": {
+              "$ref": "#/$defs/optBool"
+            }
+          }
+        },
+        "contract": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "written_contract": {
+              "$ref": "#/$defs/optBool"
+            },
+            "social_security": {
+              "$ref": "#/$defs/optBool"
+            },
+            "probation_months": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 12
+            },
+            "hours_per_week": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 80
+            },
+            "overtime": {
+              "$ref": "#/$defs/optKey"
+            },
+            "payment_method": {
+              "$ref": "#/$defs/optKey"
+            }
+          }
+        },
+        "growth": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mentorship": {
+              "$ref": "#/$defs/optBool"
+            },
+            "training_budget_usd_per_year": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "conference_support": {
+              "$ref": "#/$defs/optBool"
+            },
+            "promotion_review": {
+              "$ref": "#/$defs/optKey"
+            }
+          }
+        },
+        "internship": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "paid": {
+              "$ref": "#/$defs/optBool"
+            },
+            "duration_months": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 24
+            },
+            "certificate": {
+              "$ref": "#/$defs/optBool"
+            },
+            "path_to_full_time": {
+              "$ref": "#/$defs/optBool"
+            }
+          }
+        },
+        "benefits": {
+          "$ref": "#/$defs/keyList"
+        },
+        "positions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "employment",
+              "seniority"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/key"
+              },
+              "employment": {
+                "$ref": "#/$defs/key"
+              },
+              "seniority": {
+                "$ref": "#/$defs/key"
+              },
+              "experience_years": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 40
+              },
+              "education": {
+                "$ref": "#/$defs/optKey"
+              },
+              "work_mode": {
+                "$ref": "#/$defs/optKey"
+              },
+              "count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 100
+              },
+              "start": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^(asap|\\d{4}-(0[1-9]|1[0-2]))?$"
+              },
+              "deadline": {
+                "anyOf": [
+                  {
+                    "const": ""
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/date"
+                  }
+                ]
+              },
+              "apply_url": {
+                "$ref": "#/$defs/optUrl"
+              },
+              "skills": {
+                "$ref": "#/$defs/keyList"
+              },
+              "soft_skills": {
+                "$ref": "#/$defs/keyList"
+              },
+              "languages": {
+                "$ref": "#/$defs/keyList"
+              },
+              "salary": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "$ref": "#/$defs/key"
+                  },
+                  "currency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "period": {
+                    "$ref": "#/$defs/optKey"
+                  },
+                  "min": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "max": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "funding": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "raising": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stage": {
+          "$ref": "#/$defs/optKey"
+        }
+      }
+    },
+    "i18n": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en"
+      ],
+      "properties": {
+        "en": {
+          "$ref": "#/$defs/textsRequired"
+        },
+        "ar": {
+          "$ref": "#/$defs/texts"
+        },
+        "ku": {
+          "$ref": "#/$defs/texts"
+        },
+        "fa": {
+          "$ref": "#/$defs/texts"
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorized",
+        "people_agreed",
+        "rights_to_logo",
+        "license"
+      ],
+      "properties": {
+        "authorized": {
+          "const": true
+        },
+        "people_agreed": {
+          "const": true
+        },
+        "rights_to_logo": {
+          "const": true
+        },
+        "license": {
+          "const": "CC-BY-4.0"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 500
+    },
+    "optUrl": {
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/url"
+        }
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$"
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_.+#-]*$",
+      "maxLength": 40
+    },
+    "optKey": {
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/key"
+        }
+      ]
+    },
+    "keyList": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/key"
+      }
+    },
+    "optBool": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "shortText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 120
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 700
+    },
+    "listItem": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "role": {
+          "$ref": "#/$defs/key"
+        },
+        "role_other": {
+          "$ref": "#/$defs/shortText"
+        },
+        "linkedin": {
+          "$ref": "#/$defs/optUrl"
+        }
+      }
+    },
+    "namedLinks": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "public_permission"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/name"
+          },
+          "url": {
+            "$ref": "#/$defs/optUrl"
+          },
+          "public_permission": {
+            "const": true
+          }
+        }
+      }
+    },
+    "positionTexts": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 80
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "responsibilities": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/listItem"
+          }
+        },
+        "requirements": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/listItem"
+          }
+        },
+        "nice_to_have": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/listItem"
+          }
+        }
+      }
+    },
+    "texts": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 80
+        },
+        "tagline": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 90
+        },
+        "description": {
+          "$ref": "#/$defs/text"
+        },
+        "area_of_work": {
+          "$ref": "#/$defs/shortText"
+        },
+        "aim": {
+          "$ref": "#/$defs/text"
+        },
+        "culture": {
+          "$ref": "#/$defs/text"
+        },
+        "why_join": {
+          "$ref": "#/$defs/text"
+        },
+        "looking_for": {
+          "$ref": "#/$defs/text"
+        },
+        "seeking_note": {
+          "$ref": "#/$defs/text"
+        },
+        "impact": {
+          "$ref": "#/$defs/text"
+        },
+        "products": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          }
+        },
+        "positions": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/positionTexts"
+          }
+        }
+      }
+    },
+    "textsRequired": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/texts"
+        },
+        {
+          "type": "object",
+          "required": [
+            "name",
+            "tagline",
+            "description"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tagline": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "type": "string",
+              "minLength": 20
+            }
+          }
+        }
+      ]
+    }
+  }
+}

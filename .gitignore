@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# generated from public/startups/*.yml by scripts/build-community.ts
+public/data/community.json

@@ -1,0 +1,318 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# HITEX Explorer · startup / company profile · schema_version 1
+# Copy this file to public/startups/ and fill it in. Full guide: CONTRIBUTING.md
+#
+# File name : public/startups/YYYYMMDD_HHMMSS_<snake_case_name>.yml
+#             e.g. public/startups/20261005_171047_lyia_ai_company.yml
+#             (UTC time of your first submission; never rename it later)
+# Who       : only startups listed by HITEX (public/data/startups_list.json), one profile each.
+# Rules     : one startup = one file; a pull request adds or edits exactly one file.
+# Languages : `en` is required. `ar`, `ku`, `fa` are optional; empty fields fall back to English.
+# Lists     : values written as `key` must come from the lists in the comments.
+#             Missing an option? Use `other` + the *_other field; we may add it later.
+# Quoting   : keep text in "double quotes" so YAML never guesses types (e.g. no, on, 1e3).
+# Required  : fields marked [required]. Everything else is optional — delete what you don't use.
+# ─────────────────────────────────────────────────────────────────────────────
+
+schema_version: 1                      # [required]
+slug: "example_startup"                # [required] equals the name part of the file name: [a-z0-9_]
+maintainers: ["your-github-username"]  # [required] GitHub accounts allowed to edit this file later
+
+# Only startups that took part in HITEX can have a profile: this file completes your existing record.
+# Find your startup on https://hitex2026.netlify.app/#/contribution to copy its id and a file name.
+hitex:                                 # [required]
+  existing_profile: "paste-your-startup-id-here"   # [required] your startup's id in public/data/startups_list.json
+  years: [2025, 2026]                  # years you took part in HITEX
+  at_event:                            # this year's HITEX
+    attending: true
+    booth: "F12"                       # booth number, or empty
+    days: ["2026-10-07", "2026-10-08"] # YYYY-MM-DD, days you're there
+    interviewing_at_booth: true        # you interview candidates on the spot
+    walk_in_cvs: true                  # people can bring a CV to the booth
+    book_meeting_url: ""               # Calendly or similar, to book a slot in advance
+
+# ═════════════════════════════ 1. COMPANY ═══════════════════════════════════
+website: "https://example.com"         # [required]
+logo_url: "https://example.com/logo.png"  # [required] https · png, svg or webp · square · max 500 KB
+founded: "2024-03"                     # [required] YYYY or YYYY-MM
+location:
+  city: "erbil"                        # [required] erbil | sulaymaniyah | duhok | halabja | kirkuk | baghdad | basra | mosul | other
+  city_other: ""
+  country: "IQ"                        # [required] ISO 3166-1 alpha-2, e.g. IQ, TR, AE
+  other_offices: ["baghdad"]           # same city keys
+  office_maps_url: "https://maps.app.goo.gl/..."   # Google Maps link to the main office
+  wheelchair_accessible: true          # step-free access to the office
+
+industry: "fintech"                    # [required]
+# fintech | e_commerce | marketplace | edtech | healthtech | logistics | mobility | travel_tourism
+# telecom | ai_ml | cybersecurity | software_services | saas | media_content | gaming | real_estate
+# agritech | energy_cleantech | govtech | hr_tech | food_delivery | other
+industry_other: ""                     # only when industry is "other"
+business_model: "b2b"                  # b2b | b2c | b2b2c | b2g | marketplace | nonprofit
+stage: "mvp"                           # [required] idea | prototype | mvp | early_revenue | growth | profitable
+team_size: "2-10"                      # [required] 1 | 2-10 | 11-50 | 51-200 | 200+
+engineering_team_size: "2-10"          # 0 | 1 | 2-10 | 11-50 | 50+
+work_mode: "hybrid"                    # [required] onsite | hybrid | remote
+work_week: "sun_thu"                   # sun_thu | mon_fri | sat_wed | flexible
+
+tech_stack:                            # technologies you use today (lowercase keys)
+  - "react"                            # react | vue | angular | nextjs | flutter | react_native | swift | kotlin
+  - "laravel"                          # php | laravel | nodejs | python | django | fastapi | go | java | spring | dotnet
+  - "postgresql"                       # mysql | postgresql | mongodb | redis | firebase
+  - "docker"                           # docker | kubernetes | aws | gcp | azure | rest | graphql | microservices
+
+tools: ["github", "jira", "slack", "figma"]   # what the team works with day to day
+# github | gitlab | bitbucket | jira | linear | trello | notion | slack | teams | discord
+# google_workspace | microsoft_365 | figma | postman | sentry | other
+
+products:                              # what you ship; descriptions go in i18n below
+  - id: "merchant_app"                 # snake_case, unique inside this file
+    url: "https://example.com/app"
+    platforms: ["web", "android", "ios"]   # web | android | ios | desktop | api | hardware
+
+traction:                              # self-reported numbers; always give the date
+  - metric: "monthly_active_users"     # users | monthly_active_users | customers | downloads | transactions | revenue_band
+    value: "5000"
+    as_of: "2026-09"
+
+recognition:                           # awards, programs, press
+  - name: "HITEX Startup Competition – finalist"
+    year: 2025
+    url: ""
+links:
+  linkedin: "https://www.linkedin.com/company/example"
+  instagram: ""
+  x: ""
+  facebook: ""
+  youtube: ""
+  github: "https://github.com/example"   # public code says a lot to developers
+  engineering_blog: ""
+
+media:                                 # URLs only; nothing is uploaded here
+  demo_video: "https://youtu.be/..."
+  pitch_deck: ""                       # public PDF link
+  press_kit: ""
+  photos: ["https://example.com/office-1.jpg"]   # office or team photos, max 6
+
+clients:                               # list only clients who agreed to be named publicly
+  - name: "Example Bank"
+    url: "https://examplebank.iq"
+    public_permission: true
+partners:                              # same rule as clients
+  - name: "Example University"
+    url: "https://example.edu"
+    public_permission: true
+
+impact:
+  sdgs: [4, 8]                         # UN Sustainable Development Goals 1–17 you work on; text in i18n
+
+# ═════════════════════════════ 2. PEOPLE ════════════════════════════════════
+# Only list people who agreed to appear here (see consent at the end).
+founders:                              # [required] at least one
+  - name: "Jane Doe"                   # as written on LinkedIn
+    role: "ceo"                        # ceo | cto | coo | cfo | cpo | founder | other
+    linkedin: "https://www.linkedin.com/in/janedoe"
+  - name: "John Roe"
+    role: "cto"
+    linkedin: "https://www.linkedin.com/in/johnroe"
+
+core_team:                             # key people besides the founders
+  - name: "Sara Example"
+    role: "head_of_engineering"
+    # head_of_engineering | engineering_manager | tech_lead | product_manager | design_lead
+    # data_lead | marketing_lead | sales_lead | operations_lead | other
+    role_other: ""
+    linkedin: "https://www.linkedin.com/in/saraexample"
+
+seeking: ["investors", "mentors", "customers"]   # besides hires, what you're looking for
+# investors | co_founder | mentors | partners | customers | volunteers | advisors
+co_founder_role: ""                    # if seeking co_founder: technical | business | design | marketing | other
+
+# ═════════════════════════════ 3. HIRING ════════════════════════════════════
+hiring:
+  status: "open"                       # [required] open | always_open | not_hiring
+  updated: "2026-10-05"                # [required] YYYY-MM-DD · positions hide 90 days after this date
+  careers_page: "https://example.com/careers"   # where all your openings live
+
+  contacts:                            # who candidates should talk to
+    - name: "Lana Example"
+      role: "hr_manager"               # hr_manager | recruiter | talent_acquisition | founder | hiring_manager
+      linkedin: "https://www.linkedin.com/in/lanaexample"
+      email: ""                        # optional · shown publicly
+      preferred_contact: "linkedin"    # linkedin | email | careers_page | whatsapp
+
+  process:                             # helps candidates prepare
+    steps: ["cv_review", "intro_call", "technical_task", "interview", "offer"]
+    # cv_review | intro_call | technical_task | live_coding | interview | culture_fit | trial_day | offer
+    typical_duration_days: 14          # from application to offer
+    reply_within_days: 7               # you answer every applicant within this many days
+    paid_take_home: false              # take-home tasks are paid
+    remote_interviews: true            # interviews can happen by video call
+
+  open_to:                             # who can apply
+    languages:                         # language keys: en | ku | ar | fa | tr | other
+      work: ["en", "ku"]               # used day to day at the company (meetings, docs, chat)
+      required: ["en"]                 # every candidate must be able to work in these
+      welcome: ["ar", "fa", "tr"]      # a plus, or fine for communicating with the team
+      english_level: "b2"              # minimum English: none | a2 | b1 | b2 | c1 | c2 (CEFR)
+      interview: ["en", "ku"]          # languages you can interview in
+    fresh_graduates: true
+    internships: true
+    international_candidates: false    # people without Iraqi residency / work permit
+    visa_support: false
+    relocation_support: false
+
+  contract:
+    written_contract: true             # every hire signs a written contract
+    social_security: true              # staff are registered for social security
+    probation_months: 3
+    hours_per_week: 40
+    overtime: "time_off"               # paid | time_off | rare | not_applicable
+    payment_method: "bank_transfer"    # bank_transfer | cash | mixed | other
+
+  growth:
+    mentorship: true                   # new people get a mentor
+    training_budget_usd_per_year: 500  # per person, 0 if none
+    conference_support: true           # you pay for events like HITEX
+    promotion_review: "twice_a_year"   # quarterly | twice_a_year | yearly | none
+
+  internship:                          # only if open_to.internships is true
+    paid: true
+    duration_months: 3
+    certificate: true
+    path_to_full_time: true            # good interns can be hired
+
+  benefits: ["flexible_hours", "training_budget", "health_insurance", "equipment"]
+  # health_insurance | flexible_hours | remote_days | training_budget | equipment | transport
+  # meals | paid_leave | annual_bonus | stock_options | visa_support | relocation | childcare | other
+
+  positions:
+    - id: "backend_developer"          # snake_case, unique inside this file; text goes in i18n below
+      employment: "full_time"          # full_time | part_time | contract | internship | freelance
+      seniority: "mid"                 # intern | junior | mid | senior | lead
+      experience_years: 2              # minimum
+      education: "bachelor"            # none | diploma | bachelor | master | phd | not_required
+      work_mode: "hybrid"              # onsite | hybrid | remote
+      count: 1                         # how many people you hire for it
+      start: "asap"                    # asap | YYYY-MM
+      deadline: "2026-11-15"           # YYYY-MM-DD or empty
+      apply_url: "https://example.com/careers/backend"   # or leave empty to use careers_page
+      skills: ["php", "laravel", "rest", "mysql", "docker"]
+      soft_skills: ["communication", "teamwork", "ownership"]
+      # communication | teamwork | problem_solving | ownership | adaptability | time_management
+      # leadership | creativity | attention_to_detail | customer_focus
+      languages: ["en", "ku"]          # spoken languages needed: en | ku | ar | fa | tr
+      salary:
+        type: "range"                  # range | fixed | negotiable | undisclosed | unpaid
+        currency: "USD"                # USD | IQD
+        period: "month"                # month | year | hour | project
+        min: 800                       # range: min + max · fixed: min only · others: leave empty
+        max: 1200
+
+# ═════════════════════════════ 4. FUNDING ═══════════════════════════════════
+funding:
+  raising: "no"                        # yes | no | undisclosed
+  amount: "undisclosed"                # undisclosed | under_50k | 50k_250k | 250k_1m | over_1m   (USD)
+  stage: "bootstrapped"                # bootstrapped | grant | pre_seed | seed | series_a_plus | undisclosed
+
+# ═════════════════════════════ 5. TEXT PER LANGUAGE ═════════════════════════
+i18n:
+  en:                                  # [required]
+    name: "Example Startup"            # [required]
+    tagline: "One line about what you do"   # [required]
+    description: |                     # [required]
+      Two to four sentences: the problem, your product, who uses it.
+    area_of_work: "Payments for small shops in Kurdistan"
+    aim: "Where you want to be in three years"
+    culture: "How the team works: values, rituals, what a normal week looks like"
+    why_join: "Three honest reasons someone should join you"
+    looking_for: "What kind of people you want on the team"
+    seeking_note: "What kind of investors, partners or mentors you want, and why"
+    impact: "The social or economic impact you aim for"
+    products:
+      merchant_app: "Point-of-sale app for small shops"
+    positions:
+      backend_developer:
+        title: "Backend Developer"
+        summary: "One or two lines about the role"
+        responsibilities:
+          - "Build and maintain our payment APIs"
+          - "Review code and help junior developers"
+        requirements:
+          - "2+ years with PHP and Laravel"
+          - "Comfortable with REST and SQL"
+        nice_to_have:
+          - "Docker in production"
+
+  ar:                                  # optional · Arabic
+    name: "اسم الشركة"
+    tagline: "سطر واحد عمّا تفعلونه"
+    description: |
+      من جملتين إلى أربع جمل: المشكلة، المنتج، ومن يستخدمه.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    seeking_note: ""
+    impact: ""
+    products:
+      merchant_app: ""
+    positions:
+      backend_developer:
+        title: "مطوّر واجهات خلفية"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+  ku:                                  # optional · Kurdish (Sorani, Arabic script)
+    name: "ناوی کۆمپانیا"
+    tagline: "یەک دێڕ دەربارەی ئەوەی دەیکەن"
+    description: |
+      دوو بۆ چوار ڕستە: کێشەکە، بەرهەمەکەتان و کێ بەکاری دەهێنێت.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    seeking_note: ""
+    impact: ""
+    products:
+      merchant_app: ""
+    positions:
+      backend_developer:
+        title: "گەشەپێدەری باکئێند"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+  fa:                                  # optional · Persian
+    name: "نام شرکت"
+    tagline: "یک خط درباره‌ی کاری که انجام می‌دهید"
+    description: |
+      دو تا چهار جمله: مسئله، محصول و کاربرانش.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    seeking_note: ""
+    impact: ""
+    products:
+      merchant_app: ""
+    positions:
+      backend_developer:
+        title: "توسعه‌دهنده‌ی بک‌اند"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+# ═════════════════════════════ 6. CONSENT ═══════════════════════════════════
+consent:                               # [required] all must be true
+  authorized: true                     # I represent this company and may publish this profile
+  people_agreed: true                  # everyone listed under founders, core_team and contacts agreed
+  rights_to_logo: true                 # we own or may use the logo at logo_url
+  license: "CC-BY-4.0"                 # profile text is shared openly under this license

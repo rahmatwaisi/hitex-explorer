@@ -50,6 +50,9 @@ export function Footer() {
             <a href="#/about" className={quietLink}>
               About
             </a>
+            <a href="#/contribution" className={quietLink}>
+              Contribution
+            </a>
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={quietLink}>
               <WhatsAppIcon className="size-3.5 text-[#25D366]" />
               WhatsApp

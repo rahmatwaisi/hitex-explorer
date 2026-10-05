@@ -1,0 +1,356 @@
+# Fixed values used in startup profiles, with their labels per language.
+# Profiles store only the key (e.g. `fintech`); the site shows the label in the selected language
+# and falls back to English. To add an option, add a key here with at least an `en` label.
+# Lists marked `_open: true` also accept keys that are not listed yet (shown as written).
+
+cities:
+  erbil: { en: Erbil, ar: أربيل, ku: هەولێر, fa: اربیل }
+  sulaymaniyah: { en: Sulaymaniyah, ar: السليمانية, ku: سلێمانی, fa: سلیمانیه }
+  duhok: { en: Duhok, ar: دهوك, ku: دهۆک, fa: دهوک }
+  halabja: { en: Halabja, ar: حلبجة, ku: هەڵەبجە, fa: حلبچه }
+  kirkuk: { en: Kirkuk, ar: كركوك, ku: کەرکووک, fa: کرکوک }
+  baghdad: { en: Baghdad, ar: بغداد, ku: بەغدا, fa: بغداد }
+  basra: { en: Basra, ar: البصرة, ku: بەسرە, fa: بصره }
+  mosul: { en: Mosul, ar: الموصل, ku: مووسڵ, fa: موصل }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+industries:
+  fintech: { en: Fintech, ar: التكنولوجيا المالية, ku: تەکنەلۆژیای دارایی, fa: فین‌تک }
+  e_commerce: { en: E-commerce, ar: التجارة الإلكترونية, ku: بازرگانی ئەلیکترۆنی, fa: تجارت الکترونیک }
+  marketplace: { en: Marketplace, ar: سوق إلكتروني, ku: بازاڕی ئۆنلاین, fa: بازارگاه آنلاین }
+  edtech: { en: EdTech, ar: تكنولوجيا التعليم, ku: تەکنەلۆژیای پەروەردە, fa: فناوری آموزشی }
+  healthtech: { en: HealthTech, ar: التكنولوجيا الصحية, ku: تەکنەلۆژیای تەندروستی, fa: فناوری سلامت }
+  logistics: { en: Logistics, ar: الخدمات اللوجستية, ku: لۆجیستیک, fa: لجستیک }
+  mobility: { en: Mobility, ar: التنقل, ku: گواستنەوە, fa: حمل‌ونقل هوشمند }
+  travel_tourism: { en: Travel & tourism, ar: السفر والسياحة, ku: گەشت و گوزار, fa: سفر و گردشگری }
+  telecom: { en: Telecom, ar: الاتصالات, ku: پەیوەندییەکان, fa: مخابرات }
+  ai_ml: { en: AI & machine learning, ar: الذكاء الاصطناعي, ku: زیرەکی دەستکرد, fa: هوش مصنوعی }
+  cybersecurity: { en: Cybersecurity, ar: الأمن السيبراني, ku: ئاسایشی سایبەری, fa: امنیت سایبری }
+  software_services: { en: Software services, ar: خدمات البرمجيات, ku: خزمەتگوزاریی سۆفتوێر, fa: خدمات نرم‌افزاری }
+  saas: { en: SaaS, ar: البرمجيات كخدمة, ku: SaaS, fa: نرم‌افزار به‌عنوان سرویس }
+  media_content: { en: Media & content, ar: الإعلام والمحتوى, ku: میدیا و ناوەڕۆک, fa: رسانه و محتوا }
+  gaming: { en: Gaming, ar: الألعاب, ku: یاری, fa: بازی }
+  real_estate: { en: Real estate, ar: العقارات, ku: خانووبەرە, fa: املاک }
+  agritech: { en: AgriTech, ar: التكنولوجيا الزراعية, ku: تەکنەلۆژیای کشتوکاڵ, fa: فناوری کشاورزی }
+  energy_cleantech: { en: Energy & cleantech, ar: الطاقة والتقنيات النظيفة, ku: وزە و تەکنەلۆژیای پاک, fa: انرژی و فناوری پاک }
+  govtech: { en: GovTech, ar: التكنولوجيا الحكومية, ku: تەکنەلۆژیای حکومی, fa: فناوری دولتی }
+  hr_tech: { en: HR tech, ar: تكنولوجيا الموارد البشرية, ku: تەکنەلۆژیای سەرچاوە مرۆییەکان, fa: فناوری منابع انسانی }
+  food_delivery: { en: Food & delivery, ar: الطعام والتوصيل, ku: خواردن و گەیاندن, fa: غذا و پیک }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+business_models:
+  b2b: { en: B2B, ar: B2B, ku: B2B, fa: B2B }
+  b2c: { en: B2C, ar: B2C, ku: B2C, fa: B2C }
+  b2b2c: { en: B2B2C, ar: B2B2C, ku: B2B2C, fa: B2B2C }
+  b2g: { en: B2G, ar: B2G, ku: B2G, fa: B2G }
+  marketplace: { en: Marketplace, ar: سوق إلكتروني, ku: بازاڕی ئۆنلاین, fa: بازارگاه }
+  nonprofit: { en: Nonprofit, ar: غير ربحي, ku: ناقازانج, fa: غیرانتفاعی }
+
+stages:
+  idea: { en: Idea, ar: فكرة, ku: بیرۆکە, fa: ایده }
+  prototype: { en: Prototype, ar: نموذج أولي, ku: نموونەی سەرەتایی, fa: نمونه‌ی اولیه }
+  mvp: { en: MVP, ar: منتج أولي (MVP), ku: MVP, fa: MVP }
+  early_revenue: { en: Early revenue, ar: إيرادات أولى, ku: داهاتی سەرەتایی, fa: درآمد اولیه }
+  growth: { en: Growth, ar: نمو, ku: گەشەکردن, fa: رشد }
+  profitable: { en: Profitable, ar: مربح, ku: قازانجبەخش, fa: سودآور }
+
+team_sizes:
+  "1": { en: "1" }
+  "2-10": { en: "2–10" }
+  "11-50": { en: "11–50" }
+  "51-200": { en: "51–200" }
+  "200+": { en: "200+" }
+
+engineering_team_sizes:
+  "0": { en: "0" }
+  "1": { en: "1" }
+  "2-10": { en: "2–10" }
+  "11-50": { en: "11–50" }
+  "50+": { en: "50+" }
+
+work_modes:
+  onsite: { en: On-site, ar: حضوري, ku: لە شوێنی کار, fa: حضوری }
+  hybrid: { en: Hybrid, ar: هجين, ku: تێکەڵ, fa: ترکیبی }
+  remote: { en: Remote, ar: عن بعد, ku: لە دوورەوە, fa: دورکاری }
+
+work_weeks:
+  sun_thu: { en: Sunday–Thursday, ar: الأحد–الخميس, ku: یەکشەممە–پێنجشەممە, fa: یکشنبه تا پنجشنبه }
+  mon_fri: { en: Monday–Friday, ar: الاثنين–الجمعة, ku: دووشەممە–هەینی, fa: دوشنبه تا جمعه }
+  sat_wed: { en: Saturday–Wednesday, ar: السبت–الأربعاء, ku: شەممە–چوارشەممە, fa: شنبه تا چهارشنبه }
+  flexible: { en: Flexible, ar: مرن, ku: نەرم, fa: منعطف }
+
+platforms:
+  web: { en: Web }
+  android: { en: Android }
+  ios: { en: iOS }
+  desktop: { en: Desktop }
+  api: { en: API }
+  hardware: { en: Hardware }
+
+traction_metrics:
+  users: { en: Users, ar: المستخدمون, ku: بەکارهێنەران, fa: کاربران }
+  monthly_active_users: { en: Monthly active users, ar: المستخدمون النشطون شهريًا, ku: بەکارهێنەری چالاکی مانگانە, fa: کاربران فعال ماهانه }
+  customers: { en: Customers, ar: العملاء, ku: کڕیاران, fa: مشتریان }
+  downloads: { en: Downloads, ar: التنزيلات, ku: داگرتنەکان, fa: دانلودها }
+  transactions: { en: Transactions, ar: المعاملات, ku: مامەڵەکان, fa: تراکنش‌ها }
+  revenue_band: { en: Revenue band, ar: نطاق الإيرادات, ku: ئاستی داهات, fa: بازه‌ی درآمد }
+
+founder_roles:
+  ceo: { en: CEO, ar: الرئيس التنفيذي, ku: بەڕێوەبەری جێبەجێکار, fa: مدیرعامل }
+  cto: { en: CTO, ar: المدير التقني, ku: بەڕێوەبەری تەکنیکی, fa: مدیر ارشد فناوری }
+  coo: { en: COO, ar: مدير العمليات, ku: بەڕێوەبەری کارپێکردن, fa: مدیر عملیات }
+  cfo: { en: CFO, ar: المدير المالي, ku: بەڕێوەبەری دارایی, fa: مدیر مالی }
+  cpo: { en: CPO, ar: مدير المنتج, ku: بەڕێوەبەری بەرهەم, fa: مدیر محصول }
+  founder: { en: Co-founder, ar: شريك مؤسس, ku: دامەزرێنەری هاوبەش, fa: هم‌بنیان‌گذار }
+  other: { en: Founder, ar: مؤسس, ku: دامەزرێنەر, fa: بنیان‌گذار }
+
+team_roles:
+  head_of_engineering: { en: Head of engineering, ar: رئيس الهندسة, ku: سەرۆکی ئەندازیاری, fa: مدیر فنی }
+  engineering_manager: { en: Engineering manager, ar: مدير الهندسة, ku: بەڕێوەبەری ئەندازیاری, fa: مدیر مهندسی }
+  tech_lead: { en: Tech lead, ar: قائد تقني, ku: سەرپەرشتیاری تەکنیکی, fa: سرپرست فنی }
+  product_manager: { en: Product manager, ar: مدير المنتج, ku: بەڕێوەبەری بەرهەم, fa: مدیر محصول }
+  design_lead: { en: Design lead, ar: قائد التصميم, ku: سەرپەرشتیاری دیزاین, fa: سرپرست طراحی }
+  data_lead: { en: Data lead, ar: قائد البيانات, ku: سەرپەرشتیاری داتا, fa: سرپرست داده }
+  marketing_lead: { en: Marketing lead, ar: قائد التسويق, ku: سەرپەرشتیاری بازاڕکردن, fa: سرپرست بازاریابی }
+  sales_lead: { en: Sales lead, ar: قائد المبيعات, ku: سەرپەرشتیاری فرۆشتن, fa: سرپرست فروش }
+  operations_lead: { en: Operations lead, ar: قائد العمليات, ku: سەرپەرشتیاری کارپێکردن, fa: سرپرست عملیات }
+  other: { en: Team member, ar: عضو الفريق, ku: ئەندامی تیم, fa: عضو تیم }
+
+contact_roles:
+  hr_manager: { en: HR manager, ar: مدير الموارد البشرية, ku: بەڕێوەبەری سەرچاوە مرۆییەکان, fa: مدیر منابع انسانی }
+  recruiter: { en: Recruiter, ar: مسؤول التوظيف, ku: بەرپرسی دامەزراندن, fa: کارشناس جذب }
+  talent_acquisition: { en: Talent acquisition, ar: استقطاب المواهب, ku: ڕاکێشانی بەهرەکان, fa: جذب استعداد }
+  founder: { en: Founder, ar: مؤسس, ku: دامەزرێنەر, fa: بنیان‌گذار }
+  hiring_manager: { en: Hiring manager, ar: مدير التوظيف, ku: بەڕێوەبەری دامەزراندن, fa: مدیر استخدام }
+
+preferred_contact:
+  linkedin: { en: LinkedIn }
+  email: { en: Email, ar: البريد الإلكتروني, ku: ئیمەیڵ, fa: ایمیل }
+  careers_page: { en: Careers page, ar: صفحة الوظائف, ku: پەڕەی کار, fa: صفحه‌ی فرصت‌های شغلی }
+  whatsapp: { en: WhatsApp, ar: واتساب, ku: واتسئاپ, fa: واتس‌اپ }
+
+seeking:
+  investors: { en: Investors, ar: مستثمرون, ku: وەبەرهێنەران, fa: سرمایه‌گذار }
+  co_founder: { en: Co-founder, ar: شريك مؤسس, ku: دامەزرێنەری هاوبەش, fa: هم‌بنیان‌گذار }
+  mentors: { en: Mentors, ar: مرشدون, ku: ڕاوێژکاران, fa: منتور }
+  partners: { en: Partners, ar: شركاء, ku: هاوبەشان, fa: شریک تجاری }
+  customers: { en: Customers, ar: عملاء, ku: کڕیاران, fa: مشتری }
+  volunteers: { en: Volunteers, ar: متطوعون, ku: خۆبەخشان, fa: داوطلب }
+  advisors: { en: Advisors, ar: مستشارون, ku: ڕاوێژکاران, fa: مشاور }
+
+co_founder_roles:
+  technical: { en: Technical, ar: تقني, ku: تەکنیکی, fa: فنی }
+  business: { en: Business, ar: تجاري, ku: بازرگانی, fa: کسب‌وکار }
+  design: { en: Design, ar: تصميم, ku: دیزاین, fa: طراحی }
+  marketing: { en: Marketing, ar: تسويق, ku: بازاڕکردن, fa: بازاریابی }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+hiring_status:
+  open: { en: Hiring, ar: يوظّف الآن, ku: دامەزراندن دەکات, fa: در حال استخدام }
+  always_open: { en: Always open to applications, ar: يستقبل الطلبات دائمًا, ku: هەمیشە داواکاری وەردەگرێت, fa: همیشه پذیرای درخواست }
+  not_hiring: { en: Not hiring, ar: لا يوظّف حاليًا, ku: ئێستا دامەزراندن ناکات, fa: فعلاً استخدام نمی‌کند }
+
+process_steps:
+  cv_review: { en: CV review, ar: مراجعة السيرة الذاتية, ku: پێداچوونەوەی CV, fa: بررسی رزومه }
+  intro_call: { en: Intro call, ar: مكالمة تعريفية, ku: پەیوەندیی ناساندن, fa: تماس آشنایی }
+  technical_task: { en: Technical task, ar: مهمة تقنية, ku: ئەرکی تەکنیکی, fa: تسک فنی }
+  live_coding: { en: Live coding, ar: برمجة مباشرة, ku: کۆدنووسینی ڕاستەوخۆ, fa: کدنویسی زنده }
+  interview: { en: Interview, ar: مقابلة, ku: چاوپێکەوتن, fa: مصاحبه }
+  culture_fit: { en: Culture fit, ar: ملاءمة الثقافة, ku: گونجان لەگەڵ کولتووری کار, fa: تناسب فرهنگی }
+  trial_day: { en: Trial day, ar: يوم تجريبي, ku: ڕۆژی تاقیکردنەوە, fa: روز آزمایشی }
+  offer: { en: Offer, ar: عرض عمل, ku: پێشنیاری کار, fa: پیشنهاد کار }
+
+languages:
+  en: { en: English, ar: الإنجليزية, ku: ئینگلیزی, fa: انگلیسی }
+  ku: { en: Kurdish, ar: الكردية, ku: کوردی, fa: کردی }
+  ar: { en: Arabic, ar: العربية, ku: عەرەبی, fa: عربی }
+  fa: { en: Persian, ar: الفارسية, ku: فارسی, fa: فارسی }
+  tr: { en: Turkish, ar: التركية, ku: تورکی, fa: ترکی }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+english_levels:
+  none: { en: Not required, ar: غير مطلوبة, ku: پێویست نییە, fa: لازم نیست }
+  a2: { en: A2 }
+  b1: { en: B1 }
+  b2: { en: B2 }
+  c1: { en: C1 }
+  c2: { en: C2 }
+
+overtime:
+  paid: { en: Paid, ar: مدفوع, ku: پارەدار, fa: با پرداخت }
+  time_off: { en: Time off in return, ar: إجازة تعويضية, ku: پشووی جێگرەوە, fa: مرخصی جبرانی }
+  rare: { en: Rare, ar: نادر, ku: کەم, fa: به‌ندرت }
+  not_applicable: { en: Not applicable, ar: لا ينطبق, ku: نایگرێتەوە, fa: موضوعیت ندارد }
+
+payment_methods:
+  bank_transfer: { en: Bank transfer, ar: تحويل بنكي, ku: گواستنەوەی بانکی, fa: انتقال بانکی }
+  cash: { en: Cash, ar: نقدًا, ku: نەختینە, fa: نقدی }
+  mixed: { en: Mixed, ar: مختلط, ku: تێکەڵ, fa: ترکیبی }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+promotion_review:
+  quarterly: { en: Every quarter, ar: كل ربع سنة, ku: هەر سێ مانگ جارێک, fa: هر سه ماه }
+  twice_a_year: { en: Twice a year, ar: مرتين في السنة, ku: ساڵی دوو جار, fa: سالی دو بار }
+  yearly: { en: Once a year, ar: مرة في السنة, ku: ساڵی جارێک, fa: سالی یک بار }
+  none: { en: No fixed cycle, ar: بلا دورة ثابتة, ku: بێ خولێکی دیاریکراو, fa: بدون دوره‌ی ثابت }
+
+benefits:
+  health_insurance: { en: Health insurance, ar: تأمين صحي, ku: بیمەی تەندروستی, fa: بیمه‌ی درمانی }
+  flexible_hours: { en: Flexible hours, ar: ساعات مرنة, ku: کاتژمێری نەرم, fa: ساعات کاری منعطف }
+  remote_days: { en: Remote days, ar: أيام عمل عن بعد, ku: ڕۆژانی کاری لە دوورەوە, fa: روزهای دورکاری }
+  training_budget: { en: Training budget, ar: ميزانية تدريب, ku: بودجەی ڕاهێنان, fa: بودجه‌ی آموزش }
+  equipment: { en: Work equipment, ar: معدات العمل, ku: کەرەستەی کار, fa: تجهیزات کاری }
+  transport: { en: Transport, ar: مواصلات, ku: گواستنەوە, fa: سرویس رفت‌وآمد }
+  meals: { en: Meals, ar: وجبات, ku: ژەمی خواردن, fa: وعده‌ی غذایی }
+  paid_leave: { en: Paid leave, ar: إجازة مدفوعة, ku: پشووی بە مووچە, fa: مرخصی با حقوق }
+  annual_bonus: { en: Annual bonus, ar: مكافأة سنوية, ku: پاداشتی ساڵانە, fa: پاداش سالانه }
+  stock_options: { en: Stock options, ar: خيارات أسهم, ku: پشکی کۆمپانیا, fa: سهام }
+  visa_support: { en: Visa support, ar: دعم التأشيرة, ku: یارمەتیی ڤیزا, fa: پشتیبانی ویزا }
+  relocation: { en: Relocation support, ar: دعم الانتقال, ku: یارمەتیی گواستنەوە, fa: پشتیبانی جابه‌جایی }
+  childcare: { en: Childcare, ar: رعاية الأطفال, ku: چاودێریی منداڵ, fa: مهدکودک }
+  other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
+
+employment:
+  full_time: { en: Full-time, ar: دوام كامل, ku: کاتی تەواو, fa: تمام‌وقت }
+  part_time: { en: Part-time, ar: دوام جزئي, ku: کاتی بەشەکی, fa: پاره‌وقت }
+  contract: { en: Contract, ar: عقد مؤقت, ku: گرێبەست, fa: قراردادی }
+  internship: { en: Internship, ar: تدريب, ku: ڕاهێنانی کار, fa: کارآموزی }
+  freelance: { en: Freelance, ar: عمل حر, ku: سەربەست, fa: فریلنس }
+
+seniority:
+  intern: { en: Intern, ar: متدرب, ku: ڕاهێنراو, fa: کارآموز }
+  junior: { en: Junior, ar: مبتدئ, ku: سەرەتایی, fa: جونیور }
+  mid: { en: Mid-level, ar: متوسط, ku: مامناوەند, fa: میدلول }
+  senior: { en: Senior, ar: خبير, ku: باڵا, fa: سینیور }
+  lead: { en: Lead, ar: قائد فريق, ku: سەرپەرشتیار, fa: لید }
+
+education:
+  none: { en: None, ar: لا يشترط, ku: پێویست نییە, fa: بدون مدرک }
+  diploma: { en: Diploma, ar: دبلوم, ku: دیپلۆم, fa: دیپلم }
+  bachelor: { en: Bachelor's, ar: بكالوريوس, ku: بەکالۆریۆس, fa: کارشناسی }
+  master: { en: Master's, ar: ماجستير, ku: ماستەر, fa: کارشناسی ارشد }
+  phd: { en: PhD, ar: دكتوراه, ku: دکتۆرا, fa: دکتری }
+  not_required: { en: Not required, ar: غير مطلوب, ku: پێویست نییە, fa: لازم نیست }
+
+soft_skills:
+  communication: { en: Communication, ar: التواصل, ku: پەیوەندیکردن, fa: ارتباط مؤثر }
+  teamwork: { en: Teamwork, ar: العمل الجماعي, ku: کاری بەکۆمەڵ, fa: کار تیمی }
+  problem_solving: { en: Problem solving, ar: حل المشكلات, ku: چارەسەرکردنی کێشە, fa: حل مسئله }
+  ownership: { en: Ownership, ar: تحمّل المسؤولية, ku: بەرپرسیارێتی, fa: مسئولیت‌پذیری }
+  adaptability: { en: Adaptability, ar: المرونة, ku: خۆگونجاندن, fa: انعطاف‌پذیری }
+  time_management: { en: Time management, ar: إدارة الوقت, ku: بەڕێوەبردنی کات, fa: مدیریت زمان }
+  leadership: { en: Leadership, ar: القيادة, ku: سەرکردایەتی, fa: رهبری }
+  creativity: { en: Creativity, ar: الإبداع, ku: داهێنان, fa: خلاقیت }
+  attention_to_detail: { en: Attention to detail, ar: الدقة, ku: وردبینی, fa: دقت به جزئیات }
+  customer_focus: { en: Customer focus, ar: التركيز على العميل, ku: گرنگیدان بە کڕیار, fa: مشتری‌مداری }
+
+salary_types:
+  range: { en: Range, ar: نطاق, ku: مەودا, fa: بازه }
+  fixed: { en: Fixed, ar: ثابت, ku: جێگیر, fa: ثابت }
+  negotiable: { en: Negotiable, ar: قابل للتفاوض, ku: لە ڕێگەی گفتوگۆوە, fa: توافقی }
+  undisclosed: { en: Not disclosed, ar: غير معلن, ku: ئاشکرا نەکراوە, fa: اعلام نشده }
+  unpaid: { en: Unpaid, ar: غير مدفوع, ku: بێ مووچە, fa: بدون حقوق }
+
+currencies:
+  USD: { en: USD }
+  IQD: { en: IQD }
+
+salary_periods:
+  month: { en: month, ar: شهر, ku: مانگ, fa: ماه }
+  year: { en: year, ar: سنة, ku: ساڵ, fa: سال }
+  hour: { en: hour, ar: ساعة, ku: کاتژمێر, fa: ساعت }
+  project: { en: project, ar: مشروع, ku: پرۆژە, fa: پروژه }
+
+funding_raising:
+  "yes": { en: Raising now, ar: يجمع تمويلًا الآن, ku: ئێستا وەبەرهێنان کۆدەکاتەوە, fa: در حال جذب سرمایه }
+  "no": { en: Not raising, ar: لا يجمع تمويلًا, ku: وەبەرهێنان کۆناکاتەوە, fa: فعلاً جذب سرمایه ندارد }
+  undisclosed: { en: Not disclosed, ar: غير معلن, ku: ئاشکرا نەکراوە, fa: اعلام نشده }
+
+funding_amounts:
+  undisclosed: { en: Not disclosed, ar: غير معلن, ku: ئاشکرا نەکراوە, fa: اعلام نشده }
+  under_50k: { en: Under $50k }
+  50k_250k: { en: $50k–250k }
+  250k_1m: { en: $250k–1M }
+  over_1m: { en: Over $1M }
+
+funding_stages:
+  bootstrapped: { en: Bootstrapped, ar: تمويل ذاتي, ku: خۆ-پارەدار, fa: خودتأمین }
+  grant: { en: Grant, ar: منحة, ku: بەخشین, fa: کمک‌بلاعوض }
+  pre_seed: { en: Pre-seed, ar: ما قبل البذرة, ku: پێش-تۆو, fa: پیش‌بذری }
+  seed: { en: Seed, ar: البذرة, ku: تۆو, fa: بذری }
+  series_a_plus: { en: Series A+, ar: الجولة A وما بعدها, ku: خولی A و دواتر, fa: سری A به بعد }
+  undisclosed: { en: Not disclosed, ar: غير معلن, ku: ئاشکرا نەکراوە, fa: اعلام نشده }
+
+tools:
+  _open: true
+  github: { en: GitHub }
+  gitlab: { en: GitLab }
+  bitbucket: { en: Bitbucket }
+  jira: { en: Jira }
+  linear: { en: Linear }
+  trello: { en: Trello }
+  notion: { en: Notion }
+  slack: { en: Slack }
+  teams: { en: Microsoft Teams }
+  discord: { en: Discord }
+  google_workspace: { en: Google Workspace }
+  microsoft_365: { en: Microsoft 365 }
+  figma: { en: Figma }
+  postman: { en: Postman }
+  sentry: { en: Sentry }
+  other: { en: Other }
+
+technologies:
+  _open: true
+  react: { en: React }
+  vue: { en: Vue }
+  angular: { en: Angular }
+  nextjs: { en: Next.js }
+  flutter: { en: Flutter }
+  react_native: { en: React Native }
+  swift: { en: Swift }
+  kotlin: { en: Kotlin }
+  javascript: { en: JavaScript }
+  typescript: { en: TypeScript }
+  php: { en: PHP }
+  laravel: { en: Laravel }
+  nodejs: { en: Node.js }
+  python: { en: Python }
+  django: { en: Django }
+  fastapi: { en: FastAPI }
+  go: { en: Go }
+  java: { en: Java }
+  spring: { en: Spring }
+  dotnet: { en: .NET }
+  mysql: { en: MySQL }
+  postgresql: { en: PostgreSQL }
+  mongodb: { en: MongoDB }
+  redis: { en: Redis }
+  firebase: { en: Firebase }
+  docker: { en: Docker }
+  kubernetes: { en: Kubernetes }
+  aws: { en: AWS }
+  gcp: { en: Google Cloud }
+  azure: { en: Azure }
+  rest: { en: REST }
+  graphql: { en: GraphQL }
+  microservices: { en: Microservices }
+
+sdgs:
+  "1": { en: No poverty, ar: القضاء على الفقر, ku: نەهێشتنی هەژاری, fa: پایان فقر }
+  "2": { en: Zero hunger, ar: القضاء التام على الجوع, ku: نەهێشتنی برسێتی, fa: پایان گرسنگی }
+  "3": { en: Good health and well-being, ar: الصحة الجيدة والرفاه, ku: تەندروستی باش و خۆشگوزەرانی, fa: سلامت و رفاه }
+  "4": { en: Quality education, ar: التعليم الجيد, ku: پەروەردەی باش, fa: آموزش باکیفیت }
+  "5": { en: Gender equality, ar: المساواة بين الجنسين, ku: یەکسانیی ڕەگەزی, fa: برابری جنسیتی }
+  "6": { en: Clean water and sanitation, ar: المياه النظيفة والنظافة الصحية, ku: ئاوی پاک و پاکوخاوێنی, fa: آب پاک و بهداشت }
+  "7": { en: Affordable and clean energy, ar: طاقة نظيفة وبأسعار معقولة, ku: وزەی پاک و هەرزان, fa: انرژی پاک و مقرون‌به‌صرفه }
+  "8": { en: Decent work and economic growth, ar: العمل اللائق ونمو الاقتصاد, ku: کاری شیاو و گەشەی ئابووری, fa: کار شایسته و رشد اقتصادی }
+  "9": { en: "Industry, innovation and infrastructure", ar: الصناعة والابتكار والهياكل الأساسية, ku: پیشەسازی، داهێنان و ژێرخان, fa: صنعت، نوآوری و زیرساخت }
+  "10": { en: Reduced inequalities, ar: الحد من أوجه عدم المساواة, ku: کەمکردنەوەی نایەکسانی, fa: کاهش نابرابری }
+  "11": { en: Sustainable cities and communities, ar: مدن ومجتمعات محلية مستدامة, ku: شار و کۆمەڵگەی بەردەوام, fa: شهرها و جوامع پایدار }
+  "12": { en: Responsible consumption and production, ar: الاستهلاك والإنتاج المسؤولان, ku: بەکارهێنان و بەرهەمهێنانی بەرپرسیارانە, fa: مصرف و تولید مسئولانه }
+  "13": { en: Climate action, ar: العمل المناخي, ku: کارکردن بۆ ئاووهەوا, fa: اقدام اقلیمی }
+  "14": { en: Life below water, ar: الحياة تحت الماء, ku: ژیانی ژێر ئاو, fa: حیات زیر آب }
+  "15": { en: Life on land, ar: الحياة في البر, ku: ژیان لەسەر وشکانی, fa: حیات روی خشکی }
+  "16": { en: "Peace, justice and strong institutions", ar: السلام والعدل والمؤسسات القوية, ku: ئاشتی، دادپەروەری و دامەزراوەی بەهێز, fa: صلح، عدالت و نهادهای قوی }
+  "17": { en: Partnerships for the goals, ar: عقد الشراكات لتحقيق الأهداف, ku: هاوبەشی بۆ ئامانجەکان, fa: مشارکت برای اهداف }

@@ -6,3 +6,5 @@ export const BUY_ME_A_COFFEE_URL = "https://buymeacoffee.com/rahmatwaisi"
 export const GITHUB_URL = "https://github.com/rahmatwaisi/hitex-explorer"
 export const TELEGRAM_URL = "https://t.me/hitexexplorer"
 export const WHATSAPP_URL = "https://chat.whatsapp.com/FCRSivJGG7f3Vr2zISd2qG"
+export const CONTRIBUTING_URL = `${GITHUB_URL}/blob/main/CONTRIBUTING.md`
+export const TEMPLATE_URL = `${GITHUB_URL}/blob/main/templates/startup-profile.yml`

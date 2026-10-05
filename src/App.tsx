@@ -2,10 +2,12 @@ import { useCallback, useEffect, useState } from "react"
 import { MoonIcon, SunIcon } from "lucide-react"
 
 import { AboutPage } from "@/components/about-page"
+import { ContributionPage } from "@/components/contribution-page"
 import { DatasetPage } from "@/components/dataset-page"
 import { Footer } from "@/components/footer"
 import { HomePage } from "@/components/home-page"
 import { Logo } from "@/components/logo"
+import { ProfilePage } from "@/components/profile-page"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { useTheme } from "@/hooks/use-theme"
@@ -13,13 +15,19 @@ import { LANGS, type Lang } from "@/lib/data"
 import { datasetKeys, datasets, type DatasetKey } from "@/lib/datasets"
 import { nextColor, type Keyword } from "@/lib/keywords"
 
-type Route = DatasetKey | "about" | null
+/** `profile:<slug>` is a startup page at #/startups/<slug> */
+type Route = DatasetKey | "about" | "contribution" | `profile:${string}` | null
 
 function routeFromHash(): Route {
   const key = window.location.hash.replace(/^#\/?/, "")
-  if (key === "about") return "about"
+  if (key === "about" || key === "contribution") return key
+  const profile = /^startups\/([a-z0-9_]+)$/.exec(key)
+  if (profile) return `profile:${profile[1]}`
   return key in datasets ? (key as DatasetKey) : null
 }
+
+const isProfile = (route: Route): route is `profile:${string}` => !!route?.startsWith("profile:")
+const navKey = (route: Route) => (isProfile(route) ? "startups" : route)
 
 function useRoute() {
   const [route, setRoute] = useState(routeFromHash)
@@ -59,10 +67,13 @@ export default function App() {
           </a>
           <nav className="order-last -mx-1 flex h-11 w-full min-w-0 items-center gap-1 overflow-x-auto px-1 [scrollbar-width:none] lg:order-none lg:h-auto lg:w-auto">
             {datasetKeys.map((key) => (
-              <Button key={key} variant={route === key ? "secondary" : "ghost"} size="sm" asChild>
+              <Button key={key} variant={navKey(route) === key ? "secondary" : "ghost"} size="sm" asChild>
                 <a href={`#/${key}`}>{datasets[key].title}</a>
               </Button>
             ))}
+            <Button variant={route === "contribution" ? "secondary" : "ghost"} size="sm" asChild>
+              <a href="#/contribution">Contribution</a>
+            </Button>
             <Button variant={route === "about" ? "secondary" : "ghost"} size="sm" asChild>
               <a href="#/about">About</a>
             </Button>
@@ -99,6 +110,10 @@ export default function App() {
       <main className="flex-1">
         {route === "about" ? (
           <AboutPage />
+        ) : route === "contribution" ? (
+          <ContributionPage lang={lang} />
+        ) : isProfile(route) ? (
+          <ProfilePage key={route} slug={route.slice("profile:".length)} lang={lang} />
         ) : route ? (
           <DatasetPage
             key={route}
