@@ -1,7 +1,15 @@
 import { HitexText } from "@/components/highlight"
 import { Logo } from "@/components/logo"
 import { Card, CardContent } from "@/components/ui/card"
-import { AUTHOR_LINKEDIN_URL, AUTHOR_NAME, BUY_ME_A_COFFEE_URL, GITHUB_URL, HITEX_URL } from "@/lib/links"
+import {
+  AUTHOR_LINKEDIN_URL,
+  AUTHOR_NAME,
+  BUY_ME_A_COFFEE_URL,
+  GITHUB_URL,
+  HITEX_URL,
+  TELEGRAM_URL,
+  WHATSAPP_URL,
+} from "@/lib/links"
 
 const external = "underline underline-offset-3 hover:text-foreground"
 
@@ -43,6 +51,20 @@ export function AboutPage() {
               <HitexText>
                 This is an independent side project. It is not affiliated with, endorsed by or run by HITEX.
               </HitexText>
+            </p>
+          </section>
+          <section className="flex flex-col gap-2">
+            <h2 className="text-lg font-semibold text-foreground">Join the community</h2>
+            <p>
+              Looking for work, hiring, or have an idea for this project? Join the community on{" "}
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={external}>
+                WhatsApp
+              </a>{" "}
+              or{" "}
+              <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" className={external}>
+                Telegram
+              </a>{" "}
+              to share opportunities and feedback.
             </p>
           </section>
           <section className="flex flex-col gap-2">

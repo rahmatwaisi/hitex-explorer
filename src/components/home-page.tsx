@@ -1,6 +1,10 @@
+import { TelegramIcon, WhatsAppIcon } from "@/components/brand-icons"
 import { HitexText } from "@/components/highlight"
 import { Logo } from "@/components/logo"
 import { datasetKeys, datasets } from "@/lib/datasets"
+import { TELEGRAM_URL, WHATSAPP_URL } from "@/lib/links"
+
+const communityLink = "font-medium whitespace-nowrap text-foreground underline-offset-3 hover:underline"
 
 export function HomePage() {
   return (
@@ -37,6 +41,19 @@ export function HomePage() {
           )
         })}
       </div>
+      <p className="text-muted-foreground">
+        Looking for work or hiring? Join the community on{" "}
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={communityLink}>
+          <WhatsAppIcon className="me-1 inline size-4 align-[-3px] text-[#25D366]" />
+          WhatsApp
+        </a>{" "}
+        or{" "}
+        <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" className={communityLink}>
+          <TelegramIcon className="me-1 inline size-4 align-[-3px] text-[#26A5E4]" />
+          Telegram
+        </a>
+        .
+      </p>
     </div>
   )
 }
