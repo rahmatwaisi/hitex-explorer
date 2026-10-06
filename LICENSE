@@ -1,21 +1,48 @@
-MIT License
+HITEX Explorer
+Copyright (c) 2026 Rahmat Waisi. All rights reserved.
 
-Copyright (c) 2026 Rahmat Waisi
+This repository is public so that its source code can be read and so that startups can submit
+their profiles. Being able to read the code does not give you the right to use it.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. Source code
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+   This covers everything in this repository except the material listed in sections 2 and 3.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+   Without prior written permission from Rahmat Waisi, you may not copy, modify, merge,
+   publish, distribute, sublicense, sell, host or deploy this software or any substantial part
+   of it, or use it to build a similar product or service.
+
+   You may:
+   - read the source code;
+   - fork this repository on GitHub to propose changes back to it through a pull request, as
+     GitHub's Terms of Service allow;
+   - run it on your own computer only to prepare or check such a pull request.
+
+2. Startup profiles (public/startups/*.yml)
+
+   Each profile is submitted by the startup it describes and is shared under the Creative
+   Commons Attribution 4.0 International License (CC BY 4.0), as its `consent` section states.
+   By submitting a profile or any other contribution, you allow it to be published on
+   HITEX Explorer and included in this repository under these terms.
+
+3. Third-party material
+
+   - public/data/: collected from the public HITEX website; it belongs to HITEX and the
+     organizations listed. This project is not affiliated with HITEX.
+   - src/components/ui/: based on shadcn/ui, MIT License, Copyright (c) 2023 shadcn.
+   - scripts/og/fonts/: Google Sans Flex, SIL Open Font License 1.1 (see OFL.txt in that folder).
+   - Packages installed by pnpm keep their own licenses.
+
+4. Earlier versions
+
+   Versions of this repository up to and including commit 524c500 (6 October 2026) were
+   published under the MIT License, and copies of those versions keep that license.
+   Everything added or changed after that commit is covered by this license only.
+
+To ask for permission, contact Rahmat Waisi: https://www.linkedin.com/in/rahmatwaisi/
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

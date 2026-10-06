@@ -82,6 +82,7 @@ pnpm check:profiles
 
 - Profile text you submit is shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/),
   so others can reuse it with credit. You confirm you may publish your logo and text.
-- The code of this project is under the [MIT License](LICENSE).
+- The code of this project is not open source: it is public to read, and all rights are reserved
+  (see [LICENSE](LICENSE)). Submitting a profile doesn't change that; you keep the rights to your own text.
 - Data in `public/data/` was collected from the public HITEX website and belongs to HITEX and the
   listed organizations. This project is not affiliated with HITEX.
