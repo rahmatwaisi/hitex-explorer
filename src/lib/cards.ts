@@ -48,6 +48,8 @@ export interface CardModel {
    * Cards matching only here get a dashed outline and show where the keyword was found.
    */
   hidden?: HiddenText[]
+  /** heading and link of the "found in" box for hidden matches; default "Found in another language" */
+  foundIn?: { label: string; href?: string; linkText?: string }
 }
 
 export interface HiddenText {
@@ -57,8 +59,8 @@ export interface HiddenText {
   lang?: Lang
 }
 
-const ALL_LANGS: Lang[] = ["en", "ar", "ku", "fa"]
-const LANG_NAMES: Record<Lang, string> = { en: "English", ar: "Arabic", ku: "Kurdish", fa: "Persian" }
+export const ALL_LANGS: Lang[] = ["en", "ar", "ku", "fa"]
+export const LANG_NAMES: Record<Lang, string> = { en: "English", ar: "Arabic", ku: "Kurdish", fa: "Persian" }
 
 /** The texts of a record in the languages not shown, so any language finds it. */
 function otherLanguages(entries: [string, Localized | undefined][], lang: Lang): HiddenText[] {
@@ -72,7 +74,7 @@ function otherLanguages(entries: [string, Localized | undefined][], lang: Lang):
 }
 
 /** Adds hidden texts to a card, leaving out repeats and anything the card already shows. */
-function withHidden(card: CardModel, hidden: HiddenText[]): CardModel {
+export function withHidden(card: CardModel, hidden: HiddenText[]): CardModel {
   const shown = searchableTexts(card)
   const seen = new Set<string>()
   const kept = hidden.filter((h) => {
@@ -91,7 +93,7 @@ function links(entries: [string, string | null][]): CardModel["links"] {
   return entries.flatMap(([label, href]) => (href ? [{ label, href }] : []))
 }
 
-function fields(entries: [string, string | number | null | undefined][]): CardModel["fields"] {
+export function fields(entries: [string, string | number | null | undefined][]): CardModel["fields"] {
   return entries.flatMap(([label, value]) =>
     value === null || value === undefined || value === "" ? [] : [{ label, value: String(value) }]
   )
@@ -101,7 +103,7 @@ function fields(entries: [string, string | number | null | undefined][]): CardMo
 const MONOGRAM_HUES = [25, 55, 95, 145, 185, 215, 260, 290, 320, 350]
 
 /** First letter or digit of the name, with a hue picked stably from the record id. */
-function monogram(name: string, id: string): CardModel["monogram"] {
+export function monogram(name: string, id: string): CardModel["monogram"] {
   const letter = name.match(/[\p{L}\p{N}]/u)?.[0]?.toLocaleUpperCase() ?? "?"
   let hash = 0
   for (const ch of id) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0
@@ -173,6 +175,7 @@ export function communityCard(p: CommunityProfile, vocab: Vocab, lang: Lang, yea
     title: profileText(p, "name", lang),
     titleLink: { href: profileHref(p.slug), kind: "page" },
     profile: { href: profileHref(p.slug) },
+    foundIn: { label: "Found in the full profile", href: profileHref(p.slug), linkText: "See them in the profile" },
     badges: [
       industry,
       vocabLabel(vocab, "stages", p.stage, lang),

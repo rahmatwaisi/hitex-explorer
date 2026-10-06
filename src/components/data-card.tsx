@@ -212,7 +212,7 @@ function FoundIn({ card, lang, matcher, deep }: { card: CardModel; lang: Lang; m
     >
       <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
         <ScanSearchIcon className="size-3.5" />
-        {card.profile ? "Found in the full profile" : "Found in another language"}
+        {card.foundIn?.label ?? "Found in another language"}
       </p>
       <ul className="flex flex-col gap-1.5">
         {found.slice(0, SHOW_FOUND).map((f, i) => (
@@ -224,12 +224,12 @@ function FoundIn({ card, lang, matcher, deep }: { card: CardModel; lang: Lang; m
           </li>
         ))}
       </ul>
-      {(more > 0 || card.profile) && (
+      {(more > 0 || card.foundIn?.href) && (
         <p className="flex flex-wrap items-center justify-between gap-2 text-xs">
           <span className="text-muted-foreground">{more > 0 ? `+${more} more` : ""}</span>
-          {card.profile && (
-            <a href={card.profile.href} className="inline-flex items-center gap-1 font-medium hover:underline">
-              See them in the profile <ArrowRightIcon className="size-3.5" />
+          {card.foundIn?.href && (
+            <a href={card.foundIn.href} className="inline-flex items-center gap-1 font-medium hover:underline">
+              {card.foundIn.linkText ?? "See more"} <ArrowRightIcon className="size-3.5" />
             </a>
           )}
         </p>

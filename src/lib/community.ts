@@ -180,7 +180,7 @@ export async function loadCommunity(): Promise<CommunityData> {
 }
 
 /** keeps numbers left-to-right inside Arabic, Kurdish or Persian text ("$800–1,200" not "1,200–$800") */
-const ltr = (text: string) => `\u2066${text}\u2069`
+export const ltr = (text: string) => `\u2066${text}\u2069`
 
 /**
  * Label of a fixed value in the chosen language, falling back to English, then the key itself.

@@ -1,3 +1,5 @@
+import { BriefcaseIcon } from "lucide-react"
+
 import { CommunityLinks, LinkCard } from "@/components/community-links"
 import { HitexText } from "@/components/highlight"
 import { Logo } from "@/components/logo"
@@ -38,6 +40,20 @@ export function HomePage() {
           )
         })}
       </div>
+      <section className="flex flex-col items-center gap-4">
+        <h2 className="text-lg font-medium">
+          <HitexText>Looking for work? See the open positions at HITEX startups</HitexText>
+        </h2>
+        <LinkCard
+          href="#/jobs"
+          name="Jobs"
+          subtitle="Salaries in USD and IQD, and how to apply"
+          color="#EB2637"
+          icon={BriefcaseIcon}
+          internal
+        />
+      </section>
+
       <section className="flex flex-col items-center gap-4">
         <h2 className="text-lg font-medium">Looking for work or hiring? Join the community on</h2>
         <CommunityLinks />

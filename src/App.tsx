@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from "react"
+import { Fragment, lazy, Suspense, useCallback, useEffect, useState } from "react"
 import { MoonIcon, SunIcon } from "lucide-react"
 
 import { AboutPage } from "@/components/about-page"
@@ -6,6 +6,7 @@ import { ContributionPage } from "@/components/contribution-page"
 import { DatasetPage } from "@/components/dataset-page"
 import { Footer } from "@/components/footer"
 import { HomePage } from "@/components/home-page"
+import { JobsPage } from "@/components/jobs-page"
 import { KeywordHighlights } from "@/components/keyword-highlights"
 import { Logo } from "@/components/logo"
 import { Loading, ProfilePage } from "@/components/profile-page"
@@ -23,11 +24,11 @@ const ProfileFormPage = lazy(() => import("@/components/profile-form"))
  * `profile:<slug>` is a startup page at #/startups/<slug>; `form` is the profile form at
  * #/contribution/form (?startup=<HITEX id> to start with one), `form:<slug>` edits a profile.
  */
-type Route = DatasetKey | "about" | "contribution" | "form" | `profile:${string}` | `form:${string}` | null
+type Route = DatasetKey | "jobs" | "about" | "contribution" | "form" | `profile:${string}` | `form:${string}` | null
 
 function routeFromHash(hash: string): Route {
   const key = hash.replace(/^#\/?/, "").split("?")[0]
-  if (key === "about" || key === "contribution") return key
+  if (key === "about" || key === "contribution" || key === "jobs") return key
   if (key === "contribution/form") return "form"
   const edit = /^contribution\/form\/([a-z0-9_]+)$/.exec(key)
   if (edit) return `form:${edit[1]}`
@@ -78,9 +79,17 @@ export default function App() {
           </a>
           <nav className="order-last -mx-1 flex h-11 w-full min-w-0 items-center gap-1 overflow-x-auto px-1 [scrollbar-width:none] lg:order-none lg:h-auto lg:w-auto">
             {datasetKeys.map((key) => (
-              <Button key={key} variant={navKey(route) === key ? "secondary" : "ghost"} size="sm" asChild>
-                <a href={`#/${key}`}>{datasets[key].title}</a>
-              </Button>
+              <Fragment key={key}>
+                <Button variant={navKey(route) === key ? "secondary" : "ghost"} size="sm" asChild>
+                  <a href={`#/${key}`}>{datasets[key].title}</a>
+                </Button>
+                {/* open positions from the startup profiles */}
+                {key === "startups" && (
+                  <Button variant={route === "jobs" ? "secondary" : "ghost"} size="sm" asChild>
+                    <a href="#/jobs">Jobs</a>
+                  </Button>
+                )}
+              </Fragment>
             ))}
             <Button variant={navKey(route) === "contribution" ? "secondary" : "ghost"} size="sm" asChild>
               <a href="#/contribution">Contribution</a>
@@ -121,6 +130,14 @@ export default function App() {
       <main className="flex-1">
         {route === "about" ? (
           <AboutPage />
+        ) : route === "jobs" ? (
+          <JobsPage
+            lang={lang}
+            keywords={keywords}
+            onAddKeyword={addKeyword}
+            onRemoveKeyword={removeKeyword}
+            onClearKeywords={clearKeywords}
+          />
         ) : route === "contribution" ? (
           <ContributionPage lang={lang} />
         ) : isForm(route) ? (

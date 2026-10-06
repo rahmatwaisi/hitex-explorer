@@ -379,6 +379,9 @@ export function Profile({
                 {open.map((pos) => (
                   <PositionCard key={pos.id} p={p} pos={pos} vocab={vocab} lang={lang} />
                 ))}
+                <a href="#/jobs" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+                  <BriefcaseIcon className="size-4" /> All jobs at HITEX startups
+                </a>
               </div>
             )}
           </Section>
