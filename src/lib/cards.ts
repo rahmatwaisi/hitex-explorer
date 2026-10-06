@@ -150,7 +150,7 @@ export function startupCard(s: Startup, lang: Lang): CardModel {
   )
 }
 
-export const profileHref = (slug: string) => `/startups/${slug}`
+export const profileHref = (slug: string) => `/startups/${slug}/`
 
 /**
  * Card for a HITEX startup that completed its profile through public/startups/*.yml.

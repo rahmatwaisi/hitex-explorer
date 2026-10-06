@@ -63,21 +63,21 @@ export default function App() {
             {datasetKeys.map((key) => (
               <Fragment key={key}>
                 <Button variant={navKey(route) === key ? "secondary" : "ghost"} size="sm" asChild>
-                  <a href={`/${key}`}>{datasets[key].title}</a>
+                  <a href={`/${key}/`}>{datasets[key].title}</a>
                 </Button>
                 {/* open positions from the startup profiles */}
                 {key === "startups" && (
                   <Button variant={route === "jobs" ? "secondary" : "ghost"} size="sm" asChild>
-                    <a href="/jobs">Jobs</a>
+                    <a href="/jobs/">Jobs</a>
                   </Button>
                 )}
               </Fragment>
             ))}
             <Button variant={navKey(route) === "contribution" ? "secondary" : "ghost"} size="sm" asChild>
-              <a href="/contribution">Contribution</a>
+              <a href="/contribution/">Contribution</a>
             </Button>
             <Button variant={route === "about" ? "secondary" : "ghost"} size="sm" asChild>
-              <a href="/about">About</a>
+              <a href="/about/">About</a>
             </Button>
           </nav>
           <ToggleGroup

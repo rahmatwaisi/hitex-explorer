@@ -47,10 +47,10 @@ export function Footer() {
             <HitexText>Unofficial project, not affiliated with HITEX. Data collected from the public HITEX website.</HitexText>
           </p>
           <nav aria-label="Project links" className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <a href="/about" className={quietLink}>
+            <a href="/about/" className={quietLink}>
               About
             </a>
-            <a href="/contribution" className={quietLink}>
+            <a href="/contribution/" className={quietLink}>
               Contribution
             </a>
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className={quietLink}>

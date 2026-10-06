@@ -49,3 +49,6 @@ export const SECTIONS: Record<SectionKey, { title: string; description: string }
 }
 
 export const SECTION_KEYS = Object.keys(SECTIONS) as SectionKey[]
+
+/** A section's address. Netlify serves each page from a folder, at the address ending with / */
+export const sectionPath = (key: SectionKey) => `/${key}/`

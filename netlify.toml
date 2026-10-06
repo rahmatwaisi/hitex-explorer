@@ -5,9 +5,9 @@
 [build.environment]
   NODE_VERSION = "24"
 
-# Clean addresses (/jobs, /startups/<slug>…): any address that isn't a file gets the app, which shows
-# that page. Files are served as they are (pages written at build time, data, YAML, robots.txt…), and
-# dist/_redirects (scripts/build-share-pages.ts) maps /jobs and /startups/<slug> to their own pages.
+# Clean addresses: pages written at build time (scripts/build-share-pages.ts) live in folders and are
+# served at /jobs/, /startups/<slug>/… (Netlify redirects /jobs to /jobs/). Any other address that
+# isn't a file, like /contribution/form, gets the app, which shows that page.
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -164,7 +164,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
                 </div>
               </div>
               <Button asChild className="shrink-0">
-                <a href="/contribution">Add your openings</a>
+                <a href="/contribution/">Add your openings</a>
               </Button>
             </CardContent>
           </Card>

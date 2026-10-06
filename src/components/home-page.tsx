@@ -29,7 +29,7 @@ export function HomePage() {
               className="relative flex flex-col items-start gap-3 rounded-xl border border-border bg-background p-6 text-start transition-colors focus-within:ring-3 focus-within:ring-ring/50 hover:bg-muted dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
             >
               <Icon className="size-7 text-primary" />
-              <a href={`/${key}`} className="text-xl font-semibold outline-none after:absolute after:inset-0 after:rounded-xl">
+              <a href={`/${key}/`} className="text-xl font-semibold outline-none after:absolute after:inset-0 after:rounded-xl">
                 {title}
               </a>
               <span className="text-sm text-muted-foreground [&_a]:relative [&_a]:z-10">
@@ -45,7 +45,7 @@ export function HomePage() {
           <HitexText>Looking for work? See the open positions at HITEX startups</HitexText>
         </h2>
         <LinkCard
-          href="/jobs"
+          href="/jobs/"
           name="Jobs"
           subtitle="Salaries in USD and IQD, and how to apply"
           color="#EB2637"
@@ -68,7 +68,7 @@ export function HomePage() {
           roles you're hiring for, in four languages, so the right people can find you and remember you.
         </p>
         <LinkCard
-          href="/contribution"
+          href="/contribution/"
           name="Contribute to HITEX Explorer"
           subtitle="Make your startup stand out"
           color="#EB2637"

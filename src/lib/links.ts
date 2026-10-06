@@ -15,8 +15,9 @@ export const TEMPLATE_URL = `${GITHUB_URL}/blob/main/templates/startup-profile.y
 export const PROJECT_MAINTAINER = "rahmatwaisi"
 /**
  * A startup's page on this site (with its own link preview, see scripts/build-share-pages.ts); also its
- * website when it has none of its own. The older #/startups/<slug> addresses still open it.
+ * website when it has none of its own. Ends with / like every page Netlify serves from a folder; the
+ * forms without it and the older #/startups/<slug> still open it.
  */
-export const profileUrl = (slug: string) => `${SITE_URL}/startups/${slug}`
+export const profileUrl = (slug: string) => `${SITE_URL}/startups/${slug}/`
 export const legacyProfileUrl = (slug: string) => `${SITE_URL}/#/startups/${slug}`
 export const isOnThisSite = (url: string | null | undefined) => !!url && url.startsWith(SITE_URL)

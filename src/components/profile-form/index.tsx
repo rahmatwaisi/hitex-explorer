@@ -280,7 +280,7 @@ function NewProfile({ startId, community, startups, lang }: { startId?: string; 
 function Header({ name, mode }: { name?: string; mode?: "new" | "edit" }) {
   return (
     <div className="flex flex-col gap-2">
-      <a href="/contribution" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+      <a href="/contribution/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
         <ArrowLeftIcon className="size-4" /> Contribution
       </a>
       <h1 className="text-3xl font-semibold">

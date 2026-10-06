@@ -26,14 +26,24 @@ export function routeFromPath(pathname: string): Route {
 
 const isAppPath = (pathname: string) => pathname === BASE || routeFromPath(pathname) !== null
 
+/** A route's one address: sections and profiles end with / (Netlify serves them from folders), the form doesn't. */
+function pathOf(route: Route): string {
+  if (route === null) return BASE
+  if (route === "form") return `${BASE}contribution/form`
+  if (route.startsWith("form:")) return `${BASE}contribution/form/${route.slice("form:".length)}`
+  if (route.startsWith("profile:")) return `${BASE}startups/${route.slice("profile:".length)}/`
+  return `${BASE}${route}/`
+}
+
 /**
- * One address per page: an old /#/jobs or /#/contribution?startup=… becomes /jobs, /contribution?startup=…,
- * and /agenda/ becomes /agenda.
+ * One address per page: an old /#/jobs or /#/contribution?startup=… becomes /jobs/, /contribution/?startup=…,
+ * and /jobs becomes /jobs/ (the address search engines know).
  */
 export function upgradeHashAddress() {
-  const { hash, pathname, search } = window.location
-  if (hash.startsWith("#/")) history.replaceState(history.state, "", `${BASE}${hash.slice(2)}`)
-  else if (pathname.length > BASE.length && pathname.endsWith("/")) history.replaceState(history.state, "", pathname.replace(/\/+$/, "") + search + hash)
+  if (window.location.hash.startsWith("#/")) history.replaceState(history.state, "", `${BASE}${window.location.hash.slice(2)}`)
+  const { pathname, search, hash } = window.location
+  const route = routeFromPath(pathname)
+  if (route !== null && pathname !== pathOf(route)) history.replaceState(history.state, "", pathOf(route) + search + hash)
 }
 
 const CHANGE = "app:navigate"

@@ -101,7 +101,7 @@ export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 px-4 py-12 sm:px-6">
         <p className="text-lg">No startup profile called “{slug}”.</p>
         <Button variant="outline" asChild>
-          <a href="/startups">
+          <a href="/startups/">
             <ArrowLeftIcon data-icon="inline-start" /> All startups
           </a>
         </Button>
@@ -110,7 +110,7 @@ export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
   }
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
-      <a href="/startups" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+      <a href="/startups/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
         <ArrowLeftIcon className="size-4" /> All startups
       </a>
       {profile.example && <ExampleBanner />}
@@ -133,7 +133,7 @@ function ExampleBanner() {
           </div>
         </div>
         <Button asChild className="shrink-0">
-          <a href="/contribution">Contribution</a>
+          <a href="/contribution/">Contribution</a>
         </Button>
       </CardContent>
     </Card>
@@ -384,7 +384,7 @@ export function Profile({
                 {open.map((pos) => (
                   <PositionCard key={pos.id} p={p} pos={pos} vocab={vocab} lang={lang} />
                 ))}
-                <a href="/jobs" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+                <a href="/jobs/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
                   <BriefcaseIcon className="size-4" /> All jobs at HITEX startups
                 </a>
               </div>

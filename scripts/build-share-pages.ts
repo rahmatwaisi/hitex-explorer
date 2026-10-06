@@ -1,14 +1,15 @@
-// Runs after `vite build`. For every section of the app (/startups, /jobs, /exhibitors…) it writes
+// Runs after `vite build`. For every section of the app (/startups/, /jobs/, /exhibitors/…) it writes
 //   dist/<section>/index.html        the app's page with the section's own title, description, canonical
 //                                    address, structured data and a plain-text list of its content
 // For every startup profile it writes
 //   dist/startups/<slug>/index.html  the app's page with the startup's own title, description, preview,
 //                                    structured data and a plain-text summary
 //   dist/og/<slug>.png               the 1200×630 preview image
-// so a shared https://hitex2026.netlify.app/startups/<slug> link shows the startup on LinkedIn, WhatsApp,
+// so a shared https://hitex2026.netlify.app/startups/<slug>/ link shows the startup on LinkedIn, WhatsApp,
 // Telegram and the like, and search engines and AI tools can read it (their crawlers often don't run
-// JavaScript). People who open it get the app, which shows the profile. It also writes
-//   dist/_redirects    so Netlify serves those pages without a trailing slash
+// JavaScript). People who open it get the app, which shows the profile. Pages live in folders, so their
+// addresses end with / (Netlify redirects /jobs to /jobs/); canonical links, the sitemap and the app
+// use that form. It also writes
 //   dist/sitemap.xml   the home page, the sections and every profile page, for search engines
 //   dist/llms.txt      a short guide to the site for AI tools
 // and lists the profiles in the home page's plain-text summary. Uses only files in the repo: no network.
@@ -18,7 +19,7 @@ import path from "node:path"
 import { Resvg } from "@resvg/resvg-js"
 
 import { SITE_URL, isOnThisSite, profileUrl } from "../src/lib/links.ts"
-import { SECTIONS, SECTION_KEYS, type SectionKey } from "../src/lib/pages.ts"
+import { SECTIONS, SECTION_KEYS, sectionPath, type SectionKey } from "../src/lib/pages.ts"
 import { ROOT, type Profile, type Vocab } from "./lib/profiles.ts"
 
 const DIST = path.join(ROOT, "dist")
@@ -101,7 +102,7 @@ function profileSummary(p: Profile, description: string) {
         ${website(p) ? `<p><a href="${escape(website(p))}">${escape(website(p))}</a></p>` : ""}
         <p class="text-sm text-muted-foreground">
           A HITEX 2026 startup on <a href="/">HITEX Explorer</a>, the independent explorer for HITEX 2026.
-          <a href="/startups">All startups</a> · <a href="/jobs">Jobs</a>
+          <a href="/startups/">All startups</a> · <a href="/jobs/">Jobs</a>
         </p>
       </main>
       `
@@ -227,10 +228,10 @@ function sectionList(key: SectionKey): string {
 
 function sectionPage(key: SectionKey) {
   const { title, description } = SECTIONS[key]
-  const url = `${SITE_URL}/${key}`
+  const url = `${SITE_URL}${sectionPath(key)}`
   const heading = title.replace(/ \| HITEX Explorer$/, "")
   const nav = SECTION_KEYS.filter((k) => k !== key)
-    .map((k) => `<a href="/${k}">${escape(SECTIONS[k].title.replace(/ \| HITEX Explorer$/, ""))}</a>`)
+    .map((k) => `<a href="${sectionPath(k)}">${escape(SECTIONS[k].title.replace(/ \| HITEX Explorer$/, ""))}</a>`)
     .join(" · ")
   return pageHtml({
     title,
@@ -381,10 +382,7 @@ function previewPng(p: Profile) {
 // ── write ───────────────────────────────────────────────────────────────────
 
 fs.mkdirSync(path.join(DIST, "og"), { recursive: true })
-// Netlify: serve each page at /startups/<slug> as well as /startups/<slug>/, whatever its trailing-slash setting
-const redirects = ["# written by scripts/build-share-pages.ts"]
 for (const p of community.profiles) {
-  redirects.push(`/startups/${p.slug}  /startups/${p.slug}/index.html  200`)
   const en = p.i18n.en
   const title = `${en.name} · HITEX Explorer`
   const description = shorten([en.tagline, en.description].filter(Boolean).join(" — ").replace(/\s+/g, " "), 200)
@@ -394,11 +392,9 @@ for (const p of community.profiles) {
   fs.writeFileSync(path.join(DIST, "og", `${p.slug}.png`), previewPng(p))
 }
 for (const key of SECTION_KEYS) {
-  redirects.push(`/${key}  /${key}/index.html  200`)
   fs.mkdirSync(path.join(DIST, key), { recursive: true })
   fs.writeFileSync(path.join(DIST, key, "index.html"), sectionPage(key))
 }
-fs.writeFileSync(path.join(DIST, "_redirects"), redirects.join("\n") + "\n")
 
 // the home page's plain-text summary lists the profiles
 const profiles = community.profiles.map((p) => ({ name: p.i18n.en.name as string, tagline: (p.i18n.en.tagline as string) ?? "", url: profileUrl(p.slug) }))
@@ -415,7 +411,7 @@ if (profiles.length) {
 const today = new Date().toISOString().slice(0, 10)
 const urls = [
   { loc: `${SITE_URL}/`, changefreq: "daily", priority: "1.0" },
-  ...SECTION_KEYS.map((k) => ({ loc: `${SITE_URL}/${k}`, changefreq: k === "about" ? "monthly" : "daily", priority: k === "about" ? "0.3" : "0.9" })),
+  ...SECTION_KEYS.map((k) => ({ loc: `${SITE_URL}${sectionPath(k)}`, changefreq: k === "about" ? "monthly" : "daily", priority: k === "about" ? "0.3" : "0.9" })),
   ...profiles.map((p) => ({ loc: p.url, changefreq: "weekly", priority: "0.8" })),
 ]
 fs.writeFileSync(
@@ -457,7 +453,7 @@ Every section and every startup profile has its own page, listed below. Texts ex
 
 ## Sections
 
-${sections.map(([name, key, what]) => `- [${name}](${SITE_URL}/${key}): ${what}`).join("\n")}
+${sections.map(([name, key, what]) => `- [${name}](${SITE_URL}${sectionPath(key as SectionKey)}): ${what}`).join("\n")}
 
 ## Data (JSON, multilingual)
 
