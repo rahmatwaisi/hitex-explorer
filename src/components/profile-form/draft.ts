@@ -6,7 +6,7 @@
 import type { CommunityProfile } from "@/lib/community"
 import type { Lang, Startup } from "@/lib/data"
 import { fileStamp, snakeCase } from "@/lib/profile-names"
-import { profileUrl } from "@/lib/links"
+import { legacyProfileUrl, profileUrl } from "@/lib/links"
 import type { Profile } from "@/lib/profile-rules"
 
 export const LANG_ORDER: Lang[] = ["en", "ar", "ku", "fa"]
@@ -74,7 +74,7 @@ export function draftFromProfile(source: CommunityProfile, now = new Date()): Dr
   const { file, example: _example, ...rest } = structuredClone(source)
   const p = rest as Profile
   // a startup without a website links to its page here; the form shows that as an empty field
-  if (p.website === profileUrl(p.slug)) p.website = ""
+  if (p.website === profileUrl(p.slug) || p.website === legacyProfileUrl(p.slug)) p.website = ""
   const i18n = (p.i18n ?? {}) as Record<string, Profile | null>
   p.products = (p.products ?? []).map((x: Profile) => ({
     ...x,

@@ -59,7 +59,7 @@ import {
 } from "@/lib/community"
 import { textDir, type Lang } from "@/lib/data"
 import { CONTRIBUTING_URL, GITHUB_URL, TEMPLATE_URL, isOnThisSite } from "@/lib/links"
-import { cn } from "@/lib/utils"
+import { cn, setPageTitle } from "@/lib/utils"
 
 const HITEX_RED = "#EB2637"
 const day = (iso: string) =>
@@ -89,8 +89,12 @@ export function Loading({ what }: { what: string }) {
 /** Startup page built from one public/startups/*.yml file (#/startups/<slug>). */
 export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
   const data = useCommunity()
+  const profile = data?.example?.slug === slug ? data.example : data?.profiles.find((p) => p.slug === slug)
+  const title = profile ? profileText(profile, "name", lang) : ""
+  useEffect(() => {
+    if (title) setPageTitle(`${title} · HITEX Explorer`)
+  }, [title])
   if (!data) return <Loading what="profile" />
-  const profile = data.example?.slug === slug ? data.example : data.profiles.find((p) => p.slug === slug)
   if (!profile) {
     return (
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 px-4 py-12 sm:px-6">

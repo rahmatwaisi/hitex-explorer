@@ -13,6 +13,7 @@ import { Loading, ProfilePage } from "@/components/profile-page"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { useTheme } from "@/hooks/use-theme"
+import { setPageTitle } from "@/lib/utils"
 import { LANGS, type Lang } from "@/lib/data"
 import { datasetKeys, datasets, type DatasetKey } from "@/lib/datasets"
 import { nextColor, type Keyword } from "@/lib/keywords"
@@ -21,8 +22,9 @@ import { nextColor, type Keyword } from "@/lib/keywords"
 const ProfileFormPage = lazy(() => import("@/components/profile-form"))
 
 /**
- * `profile:<slug>` is a startup page at #/startups/<slug>; `form` is the profile form at
- * #/contribution/form (?startup=<HITEX id> to start with one), `form:<slug>` edits a profile.
+ * `profile:<slug>` is a startup page at #/startups/<slug>, or at its shareable address /startups/<slug>;
+ * `form` is the profile form at #/contribution/form (?startup=<HITEX id> to start with one),
+ * `form:<slug>` edits a profile.
  */
 type Route = DatasetKey | "jobs" | "about" | "contribution" | "form" | `profile:${string}` | `form:${string}` | null
 
@@ -41,17 +43,47 @@ const isProfile = (route: Route): route is `profile:${string}` => !!route?.start
 const isForm = (route: Route): route is "form" | `form:${string}` => route === "form" || !!route?.startsWith("form:")
 const navKey = (route: Route) => (isProfile(route) ? "startups" : isForm(route) ? "contribution" : route)
 
+const BASE = import.meta.env.BASE_URL
+/** a profile's shareable address; scripts/build-share-pages.ts writes a page with its link preview there */
+const PROFILE_PATH = new RegExp(`^${BASE}startups/([a-z0-9_]+)/?$`)
+
+/** The app routes by hash; without one, /startups/<slug> opens that profile. */
+function routeFromLocation(pathname: string, hash: string): Route {
+  if (hash) return routeFromHash(hash)
+  const profile = PROFILE_PATH.exec(pathname)
+  return profile ? `profile:${profile[1]}` : null
+}
+
+/** What the address bar should say: a profile's shareable address, otherwise the site plus the hash. */
+const addressOf = (route: Route, hash: string) => (isProfile(route) ? `${BASE}startups/${route.slice("profile:".length)}` : `${BASE}${hash}`)
+
 function useRoute() {
-  const [hash, setHash] = useState(() => window.location.hash)
+  const [where, setWhere] = useState(() => window.location.pathname + window.location.hash)
   useEffect(() => {
     const onChange = () => {
-      setHash(window.location.hash)
+      setWhere(window.location.pathname + window.location.hash)
       window.scrollTo(0, 0)
     }
     window.addEventListener("hashchange", onChange)
-    return () => window.removeEventListener("hashchange", onChange)
+    window.addEventListener("popstate", onChange)
+    return () => {
+      window.removeEventListener("hashchange", onChange)
+      window.removeEventListener("popstate", onChange)
+    }
   }, [])
-  return { route: routeFromHash(hash), query: new URLSearchParams(hash.split("?")[1] ?? "") }
+  const at = where.indexOf("#")
+  const hash = at < 0 ? "" : where.slice(at)
+  const route = routeFromLocation(at < 0 ? where : where.slice(0, at), hash)
+
+  // keep the address shareable: /startups/<slug> on a profile (also when opened as #/startups/<slug>),
+  // and back to /#/… when leaving it
+  useEffect(() => {
+    const address = addressOf(route, window.location.hash)
+    if (address !== window.location.pathname + window.location.hash) history.replaceState(history.state, "", address)
+    if (!isProfile(route)) setPageTitle("HITEX Explorer")
+  }, [route, where])
+
+  return { route, query: new URLSearchParams(hash.split("?")[1] ?? "") }
 }
 
 let nextKeywordId = 1

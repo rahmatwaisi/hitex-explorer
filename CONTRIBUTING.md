@@ -45,7 +45,7 @@ The rest of this guide is for writing the file by hand.
      Technologies and tools may be new keys; they are shown as written.
    - Put your GitHub username in `maintainers`. Only the people listed there can edit the file later.
    - No website yet? Use your page here as `website`:
-     `https://hitex2026.netlify.app/#/startups/your_startup_name`.
+     `https://hitex2026.netlify.app/startups/your_startup_name`.
    - Keep text in `"double quotes"`.
 
 ## 2. Open a pull request

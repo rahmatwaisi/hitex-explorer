@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from "react"
-import { DownloadIcon, Loader2Icon, ScanQrCodeIcon } from "lucide-react"
+import { CheckIcon, DownloadIcon, LinkIcon, Loader2Icon, ScanQrCodeIcon, Share2Icon } from "lucide-react"
 import { encode } from "uqr"
 
-import { HitexText } from "@/components/highlight"
+import { LinkedInIcon, TelegramIcon, WhatsAppIcon } from "@/components/brand-icons"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Lang } from "@/lib/data"
@@ -68,14 +68,13 @@ export function ProfileQr({ slug, name, lang }: { slug: string; name: string; la
           <p className="text-xl font-semibold text-balance sm:text-2xl">
             Scan to see <bdi lang={lang}>{name || "this startup"}</bdi> at a glance
           </p>
-          <p className="max-w-prose text-muted-foreground">
-            <HitexText>Point your phone camera at the code to open this page — handy at the HITEX booth.</HitexText>
-          </p>
+          <p className="max-w-prose text-muted-foreground">Point your phone camera at the code to open this page.</p>
           <p dir="ltr" className="font-mono text-xs break-all text-muted-foreground">
             {url.replace("https://", "")}
           </p>
+          <ShareLinks url={url} name={name} />
           <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-            <Button size="sm" onClick={() => download("svg")} disabled={!!busy} title="SVG: sharp at any print size">
+            <Button size="sm" variant="outline" onClick={() => download("svg")} disabled={!!busy} title="SVG: sharp at any print size">
               {busy === "svg" ? <Loader2Icon data-icon="inline-start" className="animate-spin" /> : <DownloadIcon data-icon="inline-start" />}
               Download QR
             </Button>
@@ -88,6 +87,48 @@ export function ProfileQr({ slug, name, lang }: { slug: string; name: string; la
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+/** Copy the profile's address, the phone's share sheet, and WhatsApp / Telegram / LinkedIn. */
+function ShareLinks({ url, name }: { url: string; name: string }) {
+  const [copied, setCopied] = useState(false)
+  const text = name ? `${name} on HITEX Explorer` : "On HITEX Explorer"
+  const copy = () =>
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 1500)
+      })
+      .catch(() => {})
+  const canShare = typeof navigator !== "undefined" && "share" in navigator
+  const u = encodeURIComponent(url)
+  const t = encodeURIComponent(text)
+  const sites: [string, string, typeof WhatsAppIcon, string][] = [
+    ["WhatsApp", `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`, WhatsAppIcon, "text-[#25D366]"],
+    ["Telegram", `https://t.me/share/url?url=${u}&text=${t}`, TelegramIcon, "text-[#26A5E4]"],
+    ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, LinkedInIcon, "text-[#0A66C2] dark:text-[#4c9be8]"],
+  ]
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+      <Button size="sm" onClick={copy}>
+        {copied ? <CheckIcon data-icon="inline-start" /> : <LinkIcon data-icon="inline-start" />}
+        {copied ? "Copied" : "Copy link"}
+      </Button>
+      {canShare && (
+        <Button size="sm" variant="outline" onClick={() => navigator.share({ title: text, url }).catch(() => {})}>
+          <Share2Icon data-icon="inline-start" /> Share
+        </Button>
+      )}
+      {sites.map(([label, href, Icon, color]) => (
+        <Button key={label} size="icon-sm" variant="outline" asChild>
+          <a href={href} target="_blank" rel="noreferrer" aria-label={`Share on ${label}`} title={`Share on ${label}`}>
+            <Icon className={`size-4 ${color}`} />
+          </a>
+        </Button>
+      ))}
+    </div>
   )
 }
 
