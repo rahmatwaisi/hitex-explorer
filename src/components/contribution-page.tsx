@@ -53,7 +53,7 @@ export function ContributionPage({ lang }: { lang: Lang }) {
         <StepCard n={2} title="Fill in the form" text="A few steps, with what HITEX publishes already filled in. Or write the file by hand from the template.">
           <div className="flex flex-wrap gap-2">
             <Button size="sm" asChild>
-              <a href="#/contribution/form">
+              <a href="/contribution/form">
                 <ClipboardListIcon data-icon="inline-start" /> Open the form
               </a>
             </Button>
@@ -142,7 +142,7 @@ function Finder({ startups, profiles, lang }: { startups: Startup[]; profiles: M
                 <p>This startup already has a profile. Its maintainers can update it.</p>
                 <div className="flex flex-wrap gap-2">
                   <Button asChild>
-                    <a href={`#/contribution/form/${existing}`}>
+                    <a href={`/contribution/form/${existing}`}>
                       <PencilIcon data-icon="inline-start" /> Edit it
                     </a>
                   </Button>
@@ -154,7 +154,7 @@ function Finder({ startups, profiles, lang }: { startups: Startup[]; profiles: M
             ) : (
               <>
                 <Button asChild className="w-fit">
-                  <a href={`#/contribution/form?startup=${selected.id}`}>
+                  <a href={`/contribution/form?startup=${selected.id}`}>
                     <ClipboardListIcon data-icon="inline-start" /> Start the form
                   </a>
                 </Button>

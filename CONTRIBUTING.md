@@ -9,7 +9,7 @@ and what they're looking for. You add or update it with a pull request that cont
 
 ## The easy way: the form
 
-Open the [profile form](https://hitex2026.netlify.app/#/contribution/form), pick your startup and answer the
+Open the [profile form](https://hitex2026.netlify.app/contribution/form), pick your startup and answer the
 steps. What HITEX publishes about your startup (name and description in four languages, founders) is
 filled in for you, and your answers are saved in your browser as you go. The form checks everything with the
 same rules as the bot below, then:
@@ -25,7 +25,7 @@ The rest of this guide is for writing the file by hand.
 
 ## 1. Create your file
 
-1. Find your startup on the [Contribution page](https://hitex2026.netlify.app/#/contribution). It gives you
+1. Find your startup on the [Contribution page](https://hitex2026.netlify.app/contribution). It gives you
    your startup's id, a file name and the first lines of your file.
 2. Copy [`templates/startup-profile.yml`](templates/startup-profile.yml) and put your id in
    `hitex.existing_profile`.

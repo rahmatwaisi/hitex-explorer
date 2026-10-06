@@ -87,7 +87,7 @@ export function Loading({ what }: { what: string }) {
   )
 }
 
-/** Startup page built from one public/startups/*.yml file (#/startups/<slug>). */
+/** Startup page built from one public/startups/*.yml file (/startups/<slug>). */
 export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
   const data = useCommunity()
   const profile = data?.example?.slug === slug ? data.example : data?.profiles.find((p) => p.slug === slug)
@@ -101,7 +101,7 @@ export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 px-4 py-12 sm:px-6">
         <p className="text-lg">No startup profile called “{slug}”.</p>
         <Button variant="outline" asChild>
-          <a href="#/startups">
+          <a href="/startups">
             <ArrowLeftIcon data-icon="inline-start" /> All startups
           </a>
         </Button>
@@ -110,7 +110,7 @@ export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
   }
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
-      <a href="#/startups" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+      <a href="/startups" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
         <ArrowLeftIcon className="size-4" /> All startups
       </a>
       {profile.example && <ExampleBanner />}
@@ -133,7 +133,7 @@ function ExampleBanner() {
           </div>
         </div>
         <Button asChild className="shrink-0">
-          <a href="#/contribution">Contribution</a>
+          <a href="/contribution">Contribution</a>
         </Button>
       </CardContent>
     </Card>
@@ -384,7 +384,7 @@ export function Profile({
                 {open.map((pos) => (
                   <PositionCard key={pos.id} p={p} pos={pos} vocab={vocab} lang={lang} />
                 ))}
-                <a href="#/jobs" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+                <a href="/jobs" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
                   <BriefcaseIcon className="size-4" /> All jobs at HITEX startups
                 </a>
               </div>
@@ -579,7 +579,7 @@ export function Profile({
       {/* footer */}
       {preview ? null : p.example ? (
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href="#/contribution/form">
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href="/contribution/form">
             <PencilIcon className="size-3.5" /> Profile form
           </a>
           <a className="inline-flex items-center gap-1 hover:text-foreground" href={CONTRIBUTING_URL} target="_blank" rel="noreferrer">
@@ -592,7 +592,7 @@ export function Profile({
       ) : (
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
           {h?.updated && <span>Hiring info updated {h.updated}</span>}
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`#/contribution/form/${p.slug}`}>
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`/contribution/form/${p.slug}`}>
             <PencilIcon className="size-3.5" /> Edit this profile
           </a>
           <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${GITHUB_URL}/edit/main/public/startups/${p.file}`} target="_blank" rel="noreferrer">

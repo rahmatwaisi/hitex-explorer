@@ -1,16 +1,24 @@
-// Runs after `vite build`. For every startup profile it writes
-//   dist/startups/<slug>/index.html  the app's page with the startup's own title, description and preview
+// Runs after `vite build`. For every section of the app (/startups, /jobs, /exhibitors…) it writes
+//   dist/<section>/index.html        the app's page with the section's own title, description, canonical
+//                                    address, structured data and a plain-text list of its content
+// For every startup profile it writes
+//   dist/startups/<slug>/index.html  the app's page with the startup's own title, description, preview,
+//                                    structured data and a plain-text summary
 //   dist/og/<slug>.png               the 1200×630 preview image
 // so a shared https://hitex2026.netlify.app/startups/<slug> link shows the startup on LinkedIn, WhatsApp,
-// Telegram and the like (their crawlers don't run JavaScript). People who open it get the app, which
-// shows the profile. Also writes dist/_redirects so Netlify serves those pages without a trailing slash.
-// Uses only files in the repo: no network.
+// Telegram and the like, and search engines and AI tools can read it (their crawlers often don't run
+// JavaScript). People who open it get the app, which shows the profile. It also writes
+//   dist/_redirects    so Netlify serves those pages without a trailing slash
+//   dist/sitemap.xml   the home page, the sections and every profile page, for search engines
+//   dist/llms.txt      a short guide to the site for AI tools
+// and lists the profiles in the home page's plain-text summary. Uses only files in the repo: no network.
 import fs from "node:fs"
 import path from "node:path"
 
 import { Resvg } from "@resvg/resvg-js"
 
-import { SITE_URL, profileUrl } from "../src/lib/links.ts"
+import { SITE_URL, isOnThisSite, profileUrl } from "../src/lib/links.ts"
+import { SECTIONS, SECTION_KEYS, type SectionKey } from "../src/lib/pages.ts"
 import { ROOT, type Profile, type Vocab } from "./lib/profiles.ts"
 
 const DIST = path.join(ROOT, "dist")
@@ -38,17 +46,223 @@ function replace(html: string, re: RegExp, value: string) {
   return html.replace(re, (_, before: string, after: string) => `${before}${escape(value)}${after}`)
 }
 
-function page(p: Profile, title: string, description: string) {
-  const url = profileUrl(p.slug)
-  const image = `${SITE_URL}/og/${p.slug}.png`
+/** Replaces everything between two markers (kept) in the page; fails the build if they're missing. */
+function between(html: string, start: string, end: string, content: string) {
+  const a = html.indexOf(start)
+  const b = html.indexOf(end, a)
+  if (a < 0 || b < 0) throw new Error(`build-share-pages: ${start} … ${end} not found in dist/index.html`)
+  return html.slice(0, a + start.length) + content + html.slice(b)
+}
+
+/** JSON inside <script>: `<` escaped so text can't close the tag */
+const jsonScript = (data: unknown) =>
+  `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`
+
+const city = (p: Profile) => (p.location?.city === "other" ? (p.location.city_other ?? "") : label("cities", p.location?.city))
+const industry = (p: Profile) => (p.industry === "other" ? (p.industry_other ?? "") : label("industries", p.industry))
+const website = (p: Profile) => (isOnThisSite(p.website) ? "" : (p.website as string | undefined) ?? "")
+
+/** schema.org: a profile page about the startup, part of HITEX Explorer */
+function profileData(p: Profile, url: string, description: string) {
+  const en = p.i18n.en
+  const sameAs = [website(p), ...Object.values(p.links ?? {})].filter((u): u is string => typeof u === "string" && !!u)
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url,
+    name: `${en.name} · HITEX Explorer`,
+    description,
+    inLanguage: ["en", "ar", "ku", "fa"].filter((l) => p.i18n[l]),
+    isPartOf: { "@type": "WebSite", name: "HITEX Explorer", url: `${SITE_URL}/` },
+    mainEntity: {
+      "@type": "Organization",
+      name: en.name,
+      description: en.description ?? en.tagline,
+      ...(website(p) ? { url: website(p) } : {}),
+      logo: p.logo_url,
+      foundingDate: p.founded,
+      address: { "@type": "PostalAddress", addressLocality: city(p), addressCountry: p.location?.country },
+      founder: (p.founders ?? []).map((f: Profile) => ({ "@type": "Person", name: f.name })),
+      ...(sameAs.length ? { sameAs } : {}),
+    },
+  }
+}
+
+/** The startup's summary in plain HTML, in place of the home page's (for crawlers without JavaScript). */
+function profileSummary(p: Profile, description: string) {
+  const en = p.i18n.en
+  const facts = [industry(p), label("stages", p.stage), city(p), p.founded ? `founded ${String(p.founded).slice(0, 4)}` : ""].filter(Boolean)
+  return `
+      <main class="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-16 sm:px-6">
+        <h1 class="text-3xl font-semibold">${escape(en.name)}</h1>
+        ${en.tagline ? `<p class="text-lg text-muted-foreground">${escape(en.tagline)}</p>` : ""}
+        <p>${escape(en.description ?? description)}</p>
+        <p class="text-sm text-muted-foreground">${escape(facts.join(" · "))}</p>
+        ${website(p) ? `<p><a href="${escape(website(p))}">${escape(website(p))}</a></p>` : ""}
+        <p class="text-sm text-muted-foreground">
+          A HITEX 2026 startup on <a href="/">HITEX Explorer</a>, the independent explorer for HITEX 2026.
+          <a href="/startups">All startups</a> · <a href="/jobs">Jobs</a>
+        </p>
+      </main>
+      `
+}
+
+/** The app's page with its own title, description, address, preview image, structured data and summary. */
+function pageHtml(o: { title: string; description: string; url: string; image: string; data: unknown; summary: string; what: string }) {
+  const { title, description, url, image } = o
   let html = template
   html = replace(html, /(<title>)[^<]*(<\/title>)/, title)
+  html = replace(html, /(<meta name="title" content=")[^"]*(")/, title)
   html = replace(html, /(<meta name="description" content=")[^"]*(")/, description)
+  html = replace(html, /(<link rel="canonical" href=")[^"]*(")/, url)
   html = replace(html, /(<meta property="og:title" content=")[^"]*(")/, title)
   html = replace(html, /(<meta property="og:description" content=")[^"]*(")/, description)
   html = replace(html, /(<meta property="og:url" content=")[^"]*(")/, url)
   html = replace(html, /(<meta property="og:image" content=")[^"]*(")/, image)
-  return html.replace("</head>", `  <link rel="canonical" href="${escape(url)}" />\n  </head>`)
+  html = replace(html, /(<meta name="twitter:url" content=")[^"]*(")/, url)
+  html = replace(html, /(<meta name="twitter:title" content=")[^"]*(")/, title)
+  html = replace(html, /(<meta name="twitter:description" content=")[^"]*(")/, description)
+  html = replace(html, /(<meta name="twitter:image" content=")[^"]*(")/, image)
+  const ld = /<script type="application\/ld\+json">[\s\S]*?<\/script>/
+  if (!ld.test(html)) throw new Error("build-share-pages: structured data not found in dist/index.html")
+  html = html.replace(ld, () => jsonScript(o.data))
+  return between(html, "<!-- fallback:start", "<!-- fallback:end -->", ` (${o.what}) -->${o.summary}`)
+}
+
+function page(p: Profile, title: string, description: string) {
+  const url = profileUrl(p.slug)
+  return pageHtml({
+    title,
+    description,
+    url,
+    image: `${SITE_URL}/og/${p.slug}.png`,
+    data: profileData(p, url, description),
+    summary: profileSummary(p, description),
+    what: "this startup's summary",
+  })
+}
+
+// ── section pages ───────────────────────────────────────────────────────────
+
+type Localized = Partial<Record<string, string>> | null | undefined
+const en = (v: Localized) => (v?.en?.trim() || Object.values(v ?? {}).find((x) => x?.trim())?.trim() || "")
+const readData = <T,>(file: string) => JSON.parse(fs.readFileSync(path.join(DIST, "data", file), "utf8")) as T
+const li = (parts: (string | undefined | null | false)[], href?: string) => {
+  const [first, ...rest] = parts.filter(Boolean) as string[]
+  const head = href ? `<a href="${escape(href)}">${escape(first)}</a>` : escape(first)
+  return `<li>${head}${rest.length ? ` · ${rest.map(escape).join(" · ")}` : ""}</li>`
+}
+const ul = (items: string[], empty: string) => (items.length ? `<ul>${items.join("")}</ul>` : `<p>${escape(empty)}</p>`)
+
+/** Positions shown on profiles: hiring info under 90 days old, not "not hiring", deadline not passed (src/lib/community.ts). */
+function openPositions(p: Profile) {
+  const h = p.hiring
+  if (!h || h.status === "not_hiring" || !h.updated) return []
+  if (Date.now() - Date.parse(`${h.updated}T00:00:00Z`) > 90 * 24 * 3600 * 1000) return []
+  const today = new Date().toISOString().slice(0, 10)
+  return ((h.positions ?? []) as Profile[]).filter((pos) => !pos.deadline || pos.deadline >= today)
+}
+
+function salary(s: Profile | undefined) {
+  if (!s || (s.type !== "range" && s.type !== "fixed") || typeof s.min !== "number") return label("salary_types", s?.type)
+  const n = (x: number) => (s.currency === "USD" ? `$${x.toLocaleString("en-US")}` : `${x.toLocaleString("en-US")} ${s.currency}`)
+  const amount = s.type === "range" && typeof s.max === "number" ? `${n(s.min)}–${n(s.max)}` : n(s.min)
+  return s.period ? `${amount} / ${label("salary_periods", s.period)}` : amount
+}
+
+/** The plain-text content of each section, from the same data files the app shows. */
+function sectionList(key: SectionKey): string {
+  const profileOf = new Map(community.profiles.map((p) => [p.hitex?.existing_profile, p]))
+  switch (key) {
+    case "startups":
+      return ul(
+        readData<{ id: string; name: Localized; category: Localized; years: number[] | null }[]>("startups_list.json").map((s) => {
+          const p = profileOf.get(s.id)
+          return li([en(s.name), en(s.category) && `founded by ${en(s.category)}`, (s.years ?? []).join(", ")], p ? profileUrl(p.slug) : undefined)
+        }),
+        "No startups yet."
+      )
+    case "jobs":
+      return ul(
+        community.profiles.flatMap((p) =>
+          openPositions(p).map((pos) =>
+            li([p.i18n.en.positions?.[pos.id]?.title ?? pos.id, p.i18n.en.name, label("employment", pos.employment), salary(pos.salary)], profileUrl(p.slug))
+          )
+        ),
+        "No open positions yet. Startups that took part in HITEX list their openings in their profile."
+      )
+    case "exhibitors":
+    case "sponsors":
+    case "media":
+      return ul(
+        readData<{ name: Localized; booth_number: string | null; tier: string | null; country: { name: Localized } | null; sector: Localized; website_url: string | null }[]>(
+          `${key}.json`
+        ).map((o) => li([en(o.name), o.booth_number && `booth ${o.booth_number}`, o.tier, en(o.country?.name), en(o.sector)], o.website_url ?? undefined)),
+        "None listed yet."
+      )
+    case "speakers":
+      return ul(
+        readData<{ name: Localized; title: Localized; company: Localized }[]>("speakers.json").map((sp) => li([en(sp.name), en(sp.title), en(sp.company)])),
+        "No speakers listed yet."
+      )
+    case "agenda": {
+      const a = readData<{ agendas: { day_number: number; date: string; title: Localized; sessions: { title: Localized; start_time: string; end_time: string; speakers: { name: Localized }[] }[] }[] }>("agenda.json")
+      return a.agendas
+        .map(
+          (d) =>
+            `<h2 class="text-xl font-semibold">${escape(`Day ${d.day_number} · ${en(d.title)} · ${d.date}`)}</h2>` +
+            ul(
+              d.sessions.map((s) => li([`${s.start_time.slice(0, 5)}–${s.end_time.slice(0, 5)} ${en(s.title)}`, s.speakers.map((x) => en(x.name)).join(", ")])),
+              "Opening ceremony."
+            )
+        )
+        .join("")
+    }
+    case "contribution":
+      return `<p>Find your startup in HITEX's list, answer a few questions in the <a href="/contribution/form">profile form</a> (what HITEX publishes is filled in for you), then submit it on GitHub or send it without GitHub. It's free for every startup HITEX lists.</p>`
+    case "about":
+      return `<p>HITEX Explorer is an independent project by Rahmat Waisi, built on HITEX's public data. It is not affiliated with HITEX (<a href="https://hitex.tech/en">hitex.tech</a>).</p>`
+  }
+}
+
+function sectionPage(key: SectionKey) {
+  const { title, description } = SECTIONS[key]
+  const url = `${SITE_URL}/${key}`
+  const heading = title.replace(/ \| HITEX Explorer$/, "")
+  const nav = SECTION_KEYS.filter((k) => k !== key)
+    .map((k) => `<a href="/${k}">${escape(SECTIONS[k].title.replace(/ \| HITEX Explorer$/, ""))}</a>`)
+    .join(" · ")
+  return pageHtml({
+    title,
+    description,
+    url,
+    image: `${SITE_URL}/brand/og-image.png`,
+    what: "this section's content",
+    data: {
+      "@context": "https://schema.org",
+      "@type": key === "about" || key === "contribution" ? "WebPage" : "CollectionPage",
+      name: title,
+      url,
+      description,
+      inLanguage: ["en", "ar", "ku", "fa"],
+      isPartOf: { "@type": "WebSite", name: "HITEX Explorer", url: `${SITE_URL}/` },
+      about: {
+        "@type": "Event",
+        name: "HITEX 2026 Technology Exhibition",
+        startDate: "2026-10-06",
+        endDate: "2026-10-09",
+        location: { "@type": "Place", name: "Erbil International Fairground" },
+      },
+    },
+    summary: `
+      <main class="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-16 sm:px-6">
+        <h1 class="text-3xl font-semibold">${escape(heading)}</h1>
+        <p class="text-muted-foreground">${escape(description)}</p>
+        ${sectionList(key)}
+        <p class="text-sm text-muted-foreground"><a href="/">HITEX Explorer</a> · ${nav}</p>
+      </main>
+      `,
+  })
 }
 
 // ── preview image ───────────────────────────────────────────────────────────
@@ -179,5 +393,79 @@ for (const p of community.profiles) {
   fs.writeFileSync(path.join(dir, "index.html"), page(p, title, description))
   fs.writeFileSync(path.join(DIST, "og", `${p.slug}.png`), previewPng(p))
 }
+for (const key of SECTION_KEYS) {
+  redirects.push(`/${key}  /${key}/index.html  200`)
+  fs.mkdirSync(path.join(DIST, key), { recursive: true })
+  fs.writeFileSync(path.join(DIST, key, "index.html"), sectionPage(key))
+}
 fs.writeFileSync(path.join(DIST, "_redirects"), redirects.join("\n") + "\n")
-console.log(`✓ ${community.profiles.length} share page(s) with preview images in dist/startups/ and dist/og/.`)
+
+// the home page's plain-text summary lists the profiles
+const profiles = community.profiles.map((p) => ({ name: p.i18n.en.name as string, tagline: (p.i18n.en.tagline as string) ?? "", url: profileUrl(p.slug) }))
+if (profiles.length) {
+  const list = profiles.map((p) => `<li><a href="${escape(p.url)}">${escape(p.name)}</a>${p.tagline ? ` · ${escape(p.tagline)}` : ""}</li>`).join("")
+  if (!template.includes("<!-- startup-profiles -->")) throw new Error("build-share-pages: <!-- startup-profiles --> not found in dist/index.html")
+  fs.writeFileSync(
+    path.join(DIST, "index.html"),
+    template.replace("<!-- startup-profiles -->", `<section><h2 class="text-xl font-semibold">Startup profiles</h2><ul>${list}</ul></section>`)
+  )
+}
+
+// sitemap: the home page, the sections and the profile pages
+const today = new Date().toISOString().slice(0, 10)
+const urls = [
+  { loc: `${SITE_URL}/`, changefreq: "daily", priority: "1.0" },
+  ...SECTION_KEYS.map((k) => ({ loc: `${SITE_URL}/${k}`, changefreq: k === "about" ? "monthly" : "daily", priority: k === "about" ? "0.3" : "0.9" })),
+  ...profiles.map((p) => ({ loc: p.url, changefreq: "weekly", priority: "0.8" })),
+]
+fs.writeFileSync(
+  path.join(DIST, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((u) => `  <url>\n    <loc>${escape(u.loc)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`).join("\n")}
+</urlset>
+`
+)
+
+// llms.txt (https://llmstxt.org): what the site is, where things are, and the open data files
+const sections: [string, string, string][] = [
+  ["Startups", "startups", "every startup HITEX lists (2022–2026), with founders and descriptions; those with a full profile link to it"],
+  ["Jobs", "jobs", "open positions at HITEX startups, with salaries in USD and IQD"],
+  ["Exhibitors", "exhibitors", "exhibitors with tier, booth number, country, sector and website"],
+  ["Sponsors", "sponsors", "sponsors and partners"],
+  ["Media", "media", "media outlets covering HITEX"],
+  ["Speakers", "speakers", "conference speakers with roles and bios"],
+  ["Agenda", "agenda", "HITEX 2026 sessions by day, with speakers"],
+  ["Contribution", "contribution", "how a HITEX startup completes its profile"],
+]
+const files: [string, string][] = [
+  ["startups_list.json", "HITEX startups"],
+  ["community.json", "completed startup profiles (team, products, hiring, funding)"],
+  ["exhibitors.json", "exhibitors"],
+  ["sponsors.json", "sponsors"],
+  ["media.json", "media"],
+  ["speakers.json", "speakers"],
+  ["agenda.json", "agenda"],
+]
+fs.writeFileSync(
+  path.join(DIST, "llms.txt"),
+  `# HITEX Explorer
+
+> The ultimate third-party explorer for HITEX 2026, the technology exhibition held 6–9 October 2026 at Erbil International Fairground, Kurdistan Region of Iraq. Search startups, exhibitors and their booths, sponsors, media, speakers, the agenda and jobs, in English, Arabic, Kurdish and Persian. An independent project by Rahmat Waisi, built on HITEX's public data; not affiliated with HITEX (https://hitex.tech/en).
+
+Every section and every startup profile has its own page, listed below. Texts exist in English (en), Arabic (ar), Kurdish Sorani (ku) and Persian (fa).
+
+## Sections
+
+${sections.map(([name, key, what]) => `- [${name}](${SITE_URL}/${key}): ${what}`).join("\n")}
+
+## Data (JSON, multilingual)
+
+${files.map(([file, what]) => `- [${file}](${SITE_URL}/data/${file}): ${what}`).join("\n")}
+
+## Startup profiles
+
+${profiles.length ? profiles.map((p) => `- [${p.name}](${p.url})${p.tagline ? `: ${p.tagline}` : ""}`).join("\n") : "None yet."}
+`
+)
+console.log(`✓ ${SECTION_KEYS.length} section pages, ${community.profiles.length} profile page(s) with preview images; sitemap.xml and llms.txt written.`)

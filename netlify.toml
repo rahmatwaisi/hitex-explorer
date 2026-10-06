@@ -5,11 +5,11 @@
 [build.environment]
   NODE_VERSION = "24"
 
-# Profiles have their own page at /startups/<slug> (written at build time with the link preview);
-# any other /startups/ address still gets the app, which shows "not found" or the profile.
-# Existing files (those pages, the YAML files) are served as they are.
+# Clean addresses (/jobs, /startups/<slug>…): any address that isn't a file gets the app, which shows
+# that page. Files are served as they are (pages written at build time, data, YAML, robots.txt…), and
+# dist/_redirects (scripts/build-share-pages.ts) maps /jobs and /startups/<slug> to their own pages.
 [[redirects]]
-  from = "/startups/*"
+  from = "/*"
   to = "/index.html"
   status = 200
 

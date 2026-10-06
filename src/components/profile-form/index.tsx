@@ -1,4 +1,4 @@
-// Profile form (#/contribution/form, #/contribution/form/<slug> to edit). Builds the same YAML file a
+// Profile form (/contribution/form, /contribution/form/<slug> to edit). Builds the same YAML file a
 // contributor would write by hand, checks it with the rules the pull-request bot uses, and helps send it.
 // Loaded lazily: it brings Ajv, the schema and the YAML writer.
 import { useDeferredValue, useEffect, useMemo, useState, type ReactNode } from "react"
@@ -31,6 +31,7 @@ import { loadDataset } from "@/lib/datasets"
 import { CONTRIBUTING_URL, PROJECT_MAINTAINER, SITE_URL } from "@/lib/links"
 import { validateProfileText, type Profile } from "@/lib/profile-rules"
 import { profileToYaml, schemaValidator } from "@/lib/profile-schema"
+import { navigate } from "@/lib/router"
 import { cn } from "@/lib/utils"
 
 interface Step {
@@ -88,7 +89,7 @@ function check(draft: Draft, community: CommunityData, hitexIds: Set<string>): C
   const name = (profile.i18n?.en?.name as string | undefined) ?? ""
   const yaml = profileToYaml(
     profile,
-    ` HITEX Explorer startup profile${name ? `: ${name}` : ""}\n Made with the form at ${SITE_URL}/#/contribution/form`
+    ` HITEX Explorer startup profile${name ? `: ${name}` : ""}\n Made with the form at ${SITE_URL}/contribution/form`
   )
   const fileName = fileNameOf(draft)
   const res = validateProfileText(yaml, { fileName, vocab: community.vocab, validateSchema: schemaValidator(), hitexIds })
@@ -241,7 +242,7 @@ function NewProfile({ startId, community, startups, lang }: { startId?: string; 
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Button asChild>
-                    <a href={`#/contribution/form/${profiles.get(taken.id)}`}>
+                    <a href={`/contribution/form/${profiles.get(taken.id)}`}>
                       <PencilIcon data-icon="inline-start" /> Edit it
                     </a>
                   </Button>
@@ -270,7 +271,7 @@ function NewProfile({ startId, community, startups, lang }: { startId?: string; 
         setDraft(null)
         setTaken(null)
         // don't start the same startup again from ?startup=
-        if (startId) window.location.hash = "#/contribution/form"
+        if (startId) navigate("/contribution/form", { replace: true })
       }}
     />
   )
@@ -279,7 +280,7 @@ function NewProfile({ startId, community, startups, lang }: { startId?: string; 
 function Header({ name, mode }: { name?: string; mode?: "new" | "edit" }) {
   return (
     <div className="flex flex-col gap-2">
-      <a href="#/contribution" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+      <a href="/contribution" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
         <ArrowLeftIcon className="size-4" /> Contribution
       </a>
       <h1 className="text-3xl font-semibold">
@@ -512,7 +513,7 @@ function StartupStep({ draft, startup, lang, onRestart }: { draft: Draft; startu
           required
           readOnly={draft.mode === "edit"}
           maxLength={60}
-          hint={`${SITE_URL.replace("https://", "")}/#/startups/${slug} · lowercase letters, digits and _`}
+          hint={`${SITE_URL.replace("https://", "")}/startups/${slug} · lowercase letters, digits and _`}
         />
         <p className="text-sm text-muted-foreground">
           File: <span className="font-mono break-all">public/startups/{fileNameOf(draft)}</span>

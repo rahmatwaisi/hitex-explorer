@@ -1,4 +1,4 @@
-// Open positions from the startup profiles, one card each, for the jobs page (#/jobs).
+// Open positions from the startup profiles, one card each, for the jobs page (/jobs).
 import { ALL_LANGS, LANG_NAMES, fields, monogram, profileHref, withHidden, type CardModel, type HiddenText } from "@/lib/cards"
 import {
   activePositions,

@@ -16,7 +16,7 @@ import { JOB_FILTERS, JOB_SORTS, jobCard, openJobs, paysAtLeast } from "@/lib/jo
 import { CURRENCIES, IQD_PER_USD, type Currency } from "@/lib/salary"
 import { cn } from "@/lib/utils"
 
-/** Every open position from the startup profiles (#/jobs), with filters on top of the keyword search. */
+/** Every open position from the startup profiles (/jobs), with filters on top of the keyword search. */
 export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang: Lang }) {
   const community = useCommunity()
   const [filters, setFilters] = useState<Set<string>>(() => new Set())
@@ -164,7 +164,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
                 </div>
               </div>
               <Button asChild className="shrink-0">
-                <a href="#/contribution">Add your openings</a>
+                <a href="/contribution">Add your openings</a>
               </Button>
             </CardContent>
           </Card>

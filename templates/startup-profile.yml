@@ -19,7 +19,7 @@ slug: "example_startup"                # [required] equals the name part of the 
 maintainers: ["your-github-username"]  # [required] GitHub accounts allowed to edit this file later
 
 # Only startups that took part in HITEX can have a profile: this file completes your existing record.
-# Find your startup on https://hitex2026.netlify.app/#/contribution to copy its id and a file name.
+# Find your startup on https://hitex2026.netlify.app/contribution to copy its id and a file name.
 hitex:                                 # [required]
   existing_profile: "paste-your-startup-id-here"   # [required] your startup's id in public/data/startups_list.json
   years: [2025, 2026]                  # years you took part in HITEX
