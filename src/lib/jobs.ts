@@ -19,17 +19,11 @@ import { convertedSalary, monthlyMax, type Currency } from "@/lib/salary"
 export interface Job {
   profile: CommunityProfile
   position: Position
-  /** from the example profile, shown while there are no real openings */
-  example?: boolean
 }
 
 /** Positions shown on profiles: hiring info under 90 days old and the deadline not passed. */
 export const openJobs = (data: CommunityData): Job[] =>
   data.profiles.flatMap((profile) => activePositions(profile).map((position) => ({ profile, position })))
-
-/** The example profile's positions, whatever their dates. */
-export const exampleJobs = (data: CommunityData): Job[] =>
-  data.example ? (data.example.hiring?.positions ?? []).map((position) => ({ profile: data.example!, position, example: true })) : []
 
 const workMode = (j: Job) => j.position.work_mode || j.profile.work_mode
 const interviewsAtHitex = (j: Job) => !!(j.profile.hitex?.at_event?.attending && j.profile.hitex.at_event.interviewing_at_booth)
@@ -77,7 +71,6 @@ export function jobCard(job: Job, vocab: Vocab, lang: Lang): CardModel {
     title: tx.title ?? pos.id,
     titleLink: { href, kind: "page" },
     badges: [
-      ...(job.example ? ["Example"] : []),
       L("employment", pos.employment),
       L("seniority", pos.seniority),
       L("work_modes", workMode(job)),

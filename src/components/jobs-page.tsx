@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input"
 import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import type { Lang } from "@/lib/data"
-import { JOB_FILTERS, JOB_SORTS, exampleJobs, jobCard, openJobs, paysAtLeast } from "@/lib/jobs"
+import { JOB_FILTERS, JOB_SORTS, jobCard, openJobs, paysAtLeast } from "@/lib/jobs"
 import { CURRENCIES, IQD_PER_USD, type Currency } from "@/lib/salary"
 import { cn } from "@/lib/utils"
 
@@ -25,15 +25,14 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
   const [sort, setSort] = useState(JOB_SORTS[0].key)
 
   const all = useMemo(() => (community ? openJobs(community) : []), [community])
-  // until a startup lists an opening, the example profile's positions show how a job looks
-  const showExample = !!community && all.length === 0
+  const empty = !!community && all.length === 0
   const jobs = useMemo(() => {
     const min = Number(minSalary)
-    const list = (showExample ? exampleJobs(community!) : all).filter(
+    const list = all.filter(
       (j) => JOB_FILTERS.every((f) => !filters.has(f.key) || f.test(j)) && (!min || paysAtLeast(j, min, currency))
     )
     return [...list].sort(JOB_SORTS.find((s) => s.key === sort)!.compare)
-  }, [all, showExample, community, filters, minSalary, currency, sort])
+  }, [all, filters, minSalary, currency, sort])
 
   const cards = useMemo(() => (community ? jobs.map((j) => jobCard(j, community.vocab, lang)) : []), [jobs, community, lang])
   const { matcher, matches, counts, keyframes, matching, deepOnly } = useCardMatches(cards, keywords)
@@ -61,10 +60,10 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
           <h1 className="text-xl font-semibold">
             Jobs{" "}
             <span className="text-base font-normal text-muted-foreground">
-              {showExample
+              {empty
                 ? "· no openings yet"
                 : `${all.length} open ${all.length === 1 ? "position" : "positions"} at ${companies} ${companies === 1 ? "startup" : "startups"}`}
-              {filtered && !showExample ? ` · ${jobs.length} after filters` : ""}
+              {filtered ? ` · ${jobs.length} after filters` : ""}
               {keywords.length > 0 ? ` · ${matching} matching` : ""}
             </span>
             <DeepCount count={deepOnly} where="the job details" />
@@ -81,74 +80,76 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
 
       <div className="mx-auto flex w-full max-w-[1800px] flex-col gap-5 px-4 py-6 sm:px-6">
         {/* not in the sticky bar: on phones it would cover half the screen */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5">
-          <div
-            className="-mx-4 flex gap-1.5 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0"
-            role="group"
-            aria-label="Filters"
-          >
-            {JOB_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                type="button"
-                aria-pressed={filters.has(f.key)}
-                onClick={() => toggle(f.key)}
-                className={cn(
-                  "shrink-0 rounded-full border px-3 py-1 text-sm transition-colors",
-                  filters.has(f.key) ? "border-primary bg-primary text-primary-foreground" : "hover:bg-muted"
-                )}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          <label className="flex items-center gap-2 text-sm">
-            <span className="text-muted-foreground">At least</span>
-            <Input
-              type="number"
-              inputMode="numeric"
-              min={0}
-              step={currency === "USD" ? 100 : 100000}
-              value={minSalary}
-              onChange={(e) => setMinSalary(e.target.value)}
-              placeholder={currency === "USD" ? "800" : "1000000"}
-              className="h-8 w-28"
-              aria-label="Minimum monthly salary"
-            />
-            <ToggleGroup
-              type="single"
-              variant="outline"
-              size="sm"
-              spacing={0}
-              value={currency}
-              onValueChange={(v) => v && setCurrency(v as Currency)}
-              aria-label="Currency"
+        {!empty && (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5">
+            <div
+              className="-mx-4 flex gap-1.5 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0"
+              role="group"
+              aria-label="Filters"
             >
-              {CURRENCIES.map((c) => (
-                <ToggleGroupItem key={c} value={c} className="px-2.5">
-                  {c}
-                </ToggleGroupItem>
+              {JOB_FILTERS.map((f) => (
+                <button
+                  key={f.key}
+                  type="button"
+                  aria-pressed={filters.has(f.key)}
+                  onClick={() => toggle(f.key)}
+                  className={cn(
+                    "shrink-0 rounded-full border px-3 py-1 text-sm transition-colors",
+                    filters.has(f.key) ? "border-primary bg-primary text-primary-foreground" : "hover:bg-muted"
+                  )}
+                >
+                  {f.label}
+                </button>
               ))}
-            </ToggleGroup>
-            <span className="text-muted-foreground">a month</span>
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <span className="text-muted-foreground">Sort</span>
-            <NativeSelect size="sm" value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort jobs">
-              {JOB_SORTS.map((s) => (
-                <NativeSelectOption key={s.key} value={s.key}>
-                  {s.label}
-                </NativeSelectOption>
-              ))}
-            </NativeSelect>
-          </label>
-          {filtered && (
-            <Button variant="ghost" size="sm" onClick={clearFilters}>
-              <XIcon data-icon="inline-start" /> Clear filters
-            </Button>
-          )}
-        </div>
-        {showExample && (
+            </div>
+            <label className="flex items-center gap-2 text-sm">
+              <span className="text-muted-foreground">At least</span>
+              <Input
+                type="number"
+                inputMode="numeric"
+                min={0}
+                step={currency === "USD" ? 100 : 100000}
+                value={minSalary}
+                onChange={(e) => setMinSalary(e.target.value)}
+                placeholder={currency === "USD" ? "800" : "1000000"}
+                className="h-8 w-28"
+                aria-label="Minimum monthly salary"
+              />
+              <ToggleGroup
+                type="single"
+                variant="outline"
+                size="sm"
+                spacing={0}
+                value={currency}
+                onValueChange={(v) => v && setCurrency(v as Currency)}
+                aria-label="Currency"
+              >
+                {CURRENCIES.map((c) => (
+                  <ToggleGroupItem key={c} value={c} className="px-2.5">
+                    {c}
+                  </ToggleGroupItem>
+                ))}
+              </ToggleGroup>
+              <span className="text-muted-foreground">a month</span>
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              <span className="text-muted-foreground">Sort</span>
+              <NativeSelect size="sm" value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort jobs">
+                {JOB_SORTS.map((s) => (
+                  <NativeSelectOption key={s.key} value={s.key}>
+                    {s.label}
+                  </NativeSelectOption>
+                ))}
+              </NativeSelect>
+            </label>
+            {filtered && (
+              <Button variant="ghost" size="sm" onClick={clearFilters}>
+                <XIcon data-icon="inline-start" /> Clear filters
+              </Button>
+            )}
+          </div>
+        )}
+        {empty && (
           <Card className="ring-2 ring-sky-500/60">
             <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-2">
@@ -157,8 +158,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
                   <p className="font-semibold">No open positions yet</p>
                   <p className="text-sm text-muted-foreground">
                     <HitexText>
-                      Startups that took part in HITEX list their openings in their profile, and they appear here. Below is
-                      an example of how a job looks.
+                      Startups that took part in HITEX list their openings in their profile, and they appear here.
                     </HitexText>
                   </p>
                 </div>
@@ -181,12 +181,14 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
           <CardGrid cards={cards} matches={matches} matcher={matcher} keyframes={keyframes} lang={lang} />
         )}
 
-        <p className="flex items-start gap-2 text-xs text-muted-foreground">
-          <InfoIcon className="mt-px size-3.5 shrink-0" />
-          Salaries are shown as each startup gives them, then about the same amount in the other currency (≈), at the
-          Central Bank of Iraq rate of {IQD_PER_USD.toLocaleString("en-US")} IQD per USD. “At least” compares monthly pay:
-          yearly pay is divided by 12 and hourly pay counts the company's working hours.
-        </p>
+        {!empty && (
+          <p className="flex items-start gap-2 text-xs text-muted-foreground">
+            <InfoIcon className="mt-px size-3.5 shrink-0" />
+            Salaries are shown as each startup gives them, then about the same amount in the other currency (≈), at the
+            Central Bank of Iraq rate of {IQD_PER_USD.toLocaleString("en-US")} IQD per USD. “At least” compares monthly pay:
+            yearly pay is divided by 12 and hourly pay counts the company's working hours.
+          </p>
+        )}
       </div>
     </div>
   )
