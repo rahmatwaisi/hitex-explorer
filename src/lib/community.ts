@@ -179,12 +179,19 @@ export async function loadCommunity(): Promise<CommunityData> {
   }
 }
 
-/** Label of a fixed value in the chosen language, falling back to English, then the key itself. */
+/** keeps numbers left-to-right inside Arabic, Kurdish or Persian text ("$800–1,200" not "1,200–$800") */
+const ltr = (text: string) => `\u2066${text}\u2069`
+
+/**
+ * Label of a fixed value in the chosen language, falling back to English, then the key itself.
+ * Labels that start with a number or $ ("2–10", "200+", "$50k–250k") are kept left-to-right, so
+ * Arabic, Kurdish and Persian pages don't show "10–2" or "+200".
+ */
 export function vocabLabel(vocab: Vocab, list: string, key: string | number | null | undefined, lang: Lang): string {
   if (key === null || key === undefined || key === "") return ""
   const entry = vocab[list]?.[String(key)]
-  if (!entry || typeof entry !== "object") return String(key)
-  return entry[lang] || entry.en || String(key)
+  const label = !entry || typeof entry !== "object" ? String(key) : entry[lang] || entry.en || String(key)
+  return /^[\d$]/.test(label) ? ltr(label) : label
 }
 
 export const vocabLabels = (vocab: Vocab, list: string, keys: (string | number)[] | null | undefined, lang: Lang) =>
@@ -236,6 +243,7 @@ export function activePositions(p: CommunityProfile, now = new Date()): Position
 const money = (n: number, currency: string) =>
   currency === "USD" ? `$${n.toLocaleString("en-US")}` : `${n.toLocaleString("en-US")} ${currency}`
 
+
 /** "$800–1,200 / month", "1,000,000 IQD / month", or the label for negotiable / undisclosed / unpaid. */
 export function formatSalary(s: Salary | null | undefined, vocab: Vocab, lang: Lang): string {
   if (!s) return ""
@@ -245,10 +253,10 @@ export function formatSalary(s: Salary | null | undefined, vocab: Vocab, lang: L
       s.currency === "USD"
         ? `$${s.min.toLocaleString("en-US")}–${s.max.toLocaleString("en-US")}`
         : `${s.min.toLocaleString("en-US")}–${s.max.toLocaleString("en-US")} ${s.currency}`
-    return period ? `${range} / ${period}` : range
+    return period ? `${ltr(range)} / ${period}` : ltr(range)
   }
   if (s.type === "fixed" && typeof s.min === "number" && s.currency) {
-    const amount = money(s.min, s.currency)
+    const amount = ltr(money(s.min, s.currency))
     return period ? `${amount} / ${period}` : amount
   }
   return vocabLabel(vocab, "salary_types", s.type, lang)

@@ -1,27 +1,17 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react"
-import { CheckIcon, CopyIcon, FileCodeIcon, GitPullRequestIcon, InfoIcon, SearchIcon } from "lucide-react"
+import { useEffect, useState, type ReactNode } from "react"
+import { CheckIcon, ClipboardListIcon, CopyIcon, FileCodeIcon, GitPullRequestIcon, InfoIcon, PencilIcon } from "lucide-react"
 
 import { HitexText } from "@/components/highlight"
 import { Loading, Profile, useCommunity } from "@/components/profile-page"
+import { StartupSearch } from "@/components/startup-search"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { profileHref } from "@/lib/cards"
 import { pick, textDir, type Lang, type Startup } from "@/lib/data"
 import { loadDataset } from "@/lib/datasets"
 import { CONTRIBUTING_URL, TEMPLATE_URL } from "@/lib/links"
-
-/** snake_case from the English name, for the file name and slug. */
-const snake = (name: string) =>
-  name
-    .normalize("NFKD")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "") || "startup"
-
-/** yyyymmdd_hhmmss in UTC. */
-const stamp = (d = new Date()) => d.toISOString().replace(/[-:]/g, "").replace("T", "_").slice(0, 15)
+import { fileStamp, snakeCase } from "@/lib/profile-names"
 
 export function ContributionPage({ lang }: { lang: Lang }) {
   const community = useCommunity()
@@ -59,15 +49,22 @@ export function ContributionPage({ lang }: { lang: Lang }) {
       </Card>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <StepCard n={1} title="Find your startup" text="Search below to get your startup's id and a ready file name." />
-        <StepCard n={2} title="Fill in the template" text="Copy the profile template, paste your id and fill in what applies.">
-          <Button size="sm" variant="outline" asChild>
-            <a href={TEMPLATE_URL} target="_blank" rel="noreferrer">
-              <FileCodeIcon data-icon="inline-start" /> Template
-            </a>
-          </Button>
+        <StepCard n={1} title="Find your startup" text="Search below. Only startups listed by HITEX can have a profile." />
+        <StepCard n={2} title="Fill in the form" text="A few steps, with what HITEX publishes already filled in. Or write the file by hand from the template.">
+          <div className="flex flex-wrap gap-2">
+            <Button size="sm" asChild>
+              <a href="#/contribution/form">
+                <ClipboardListIcon data-icon="inline-start" /> Open the form
+              </a>
+            </Button>
+            <Button size="sm" variant="outline" asChild>
+              <a href={TEMPLATE_URL} target="_blank" rel="noreferrer">
+                <FileCodeIcon data-icon="inline-start" /> Template
+              </a>
+            </Button>
+          </div>
         </StepCard>
-        <StepCard n={3} title="Open a pull request" text="Add exactly one file to public/startups/. A bot checks it and comments within a minute.">
+        <StepCard n={3} title="Send it" text="Submit on GitHub, where a bot checks your file within a minute, or send it to us without GitHub.">
           <Button size="sm" variant="outline" asChild>
             <a href={CONTRIBUTING_URL} target="_blank" rel="noreferrer">
               <GitPullRequestIcon data-icon="inline-start" /> Guide
@@ -114,70 +111,21 @@ function StepCard({ n, title, text, children }: { n: number; title: string; text
 }
 
 function Finder({ startups, profiles, lang }: { startups: Startup[]; profiles: Map<string, string>; lang: Lang }) {
-  const [query, setQuery] = useState("")
   const [selected, setSelected] = useState<Startup | null>(null)
-  const matches = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q) return []
-    return startups
-      .filter((s) =>
-        [s.name?.en, s.name?.ar, s.name?.ku, s.name?.fa, s.category?.en].some((v) => v?.toLowerCase().includes(q))
-      )
-      .slice(0, 8)
-  }, [query, startups])
 
   const name = selected ? pick(selected.name, "en") : ""
-  const slug = snake(name)
-  const file = `${stamp()}_${slug}.yml`
+  const slug = snakeCase(name) || "startup"
+  const file = `${fileStamp()}_${slug}.yml`
   const snippet = selected ? `slug: "${slug}"\nhitex:\n  existing_profile: "${selected.id}"` : ""
   const existing = selected ? profiles.get(selected.id) : undefined
 
   return (
-    <Card>
+    <Card id="find">
       <CardHeader>
         <CardTitle className="text-xl">Find your startup</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <div className="relative">
-          <SearchIcon className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value)
-              setSelected(null)
-            }}
-            placeholder="Startup or founder name, in any language…"
-            className="h-10 ps-9 text-base"
-            aria-label="Search HITEX startups"
-          />
-        </div>
-
-        {!selected && query.trim() && (
-          <ul className="flex flex-col divide-y rounded-lg border">
-            {matches.length === 0 && (
-              <li className="p-3 text-sm text-muted-foreground">
-                <HitexText>No startup with that name in HITEX's list. Only listed startups can have a profile.</HitexText>
-              </li>
-            )}
-            {matches.map((s) => (
-              <li key={s.id}>
-                <button
-                  type="button"
-                  onClick={() => setSelected(s)}
-                  className="flex w-full items-center justify-between gap-3 p-3 text-start hover:bg-muted"
-                >
-                  <span lang={lang} dir={textDir(lang)} className="font-medium">
-                    {pick(s.name, lang)}
-                  </span>
-                  <span className="flex shrink-0 items-center gap-2 text-sm text-muted-foreground">
-                    {profiles.has(s.id) && <Badge variant="secondary">Has a profile</Badge>}
-                    {(s.years ?? []).join(", ")}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+        <StartupSearch startups={startups} profiles={profiles} lang={lang} onPick={setSelected} onType={() => setSelected(null)} showResults={!selected} />
 
         {selected && (
           <div className="flex flex-col gap-4 rounded-lg border p-4">
@@ -190,18 +138,36 @@ function Finder({ startups, profiles, lang }: { startups: Startup[]; profiles: M
               </Button>
             </div>
             {existing ? (
-              <p>
-                This startup already has a profile.{" "}
-                <a href={profileHref(existing)} className="font-medium underline underline-offset-3">
-                  Open it
-                </a>{" "}
-                and use “Edit this profile” at the bottom to update it.
-              </p>
+              <>
+                <p>This startup already has a profile. Its maintainers can update it.</p>
+                <div className="flex flex-wrap gap-2">
+                  <Button asChild>
+                    <a href={`#/contribution/form/${existing}`}>
+                      <PencilIcon data-icon="inline-start" /> Edit it
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <a href={profileHref(existing)}>Open the profile</a>
+                  </Button>
+                </div>
+              </>
             ) : (
               <>
-                <CopyRow label="Startup id" value={selected.id} />
-                <CopyRow label="File name" value={`public/startups/${file}`} hint="uses the current UTC time" />
-                <CopyRow label="Start of your file" value={snippet} multiline />
+                <Button asChild className="w-fit">
+                  <a href={`#/contribution/form?startup=${selected.id}`}>
+                    <ClipboardListIcon data-icon="inline-start" /> Start the form
+                  </a>
+                </Button>
+                <details className="flex flex-col gap-4">
+                  <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
+                    Writing the file by hand instead?
+                  </summary>
+                  <div className="mt-3 flex flex-col gap-4">
+                    <CopyRow label="Startup id" value={selected.id} />
+                    <CopyRow label="File name" value={`public/startups/${file}`} hint="uses the current UTC time" />
+                    <CopyRow label="Start of your file" value={snippet} multiline />
+                  </div>
+                </details>
               </>
             )}
           </div>

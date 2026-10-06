@@ -7,6 +7,6 @@ pnpm install
 pnpm dev
 ```
 
-Add your startup: see [CONTRIBUTING.md](CONTRIBUTING.md).
+Took part in HITEX? Complete your startup's profile with the [form](https://hitex2026.netlify.app/#/contribution/form), or see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 License: [MIT](LICENSE).

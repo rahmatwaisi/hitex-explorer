@@ -32,7 +32,7 @@ hitex:                                 # [required]
     book_meeting_url: ""               # Calendly or similar, to book a slot in advance
 
 # ═════════════════════════════ 1. COMPANY ═══════════════════════════════════
-website: "https://example.com"         # [required]
+website: "https://example.com"         # [required] no website? use https://hitex2026.netlify.app/#/startups/<slug>
 logo_url: "https://example.com/logo.png"  # [required] https · png, svg or webp · square · max 500 KB
 founded: "2024-03"                     # [required] YYYY or YYYY-MM
 location:

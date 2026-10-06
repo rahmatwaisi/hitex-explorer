@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { lazy, Suspense, useCallback, useEffect, useState } from "react"
 import { MoonIcon, SunIcon } from "lucide-react"
 
 import { AboutPage } from "@/components/about-page"
@@ -6,8 +6,9 @@ import { ContributionPage } from "@/components/contribution-page"
 import { DatasetPage } from "@/components/dataset-page"
 import { Footer } from "@/components/footer"
 import { HomePage } from "@/components/home-page"
+import { KeywordHighlights } from "@/components/keyword-highlights"
 import { Logo } from "@/components/logo"
-import { ProfilePage } from "@/components/profile-page"
+import { Loading, ProfilePage } from "@/components/profile-page"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { useTheme } from "@/hooks/use-theme"
@@ -15,37 +16,47 @@ import { LANGS, type Lang } from "@/lib/data"
 import { datasetKeys, datasets, type DatasetKey } from "@/lib/datasets"
 import { nextColor, type Keyword } from "@/lib/keywords"
 
-/** `profile:<slug>` is a startup page at #/startups/<slug> */
-type Route = DatasetKey | "about" | "contribution" | `profile:${string}` | null
+// the profile form brings Ajv, the schema and the YAML writer, so it loads only when opened
+const ProfileFormPage = lazy(() => import("@/components/profile-form"))
 
-function routeFromHash(): Route {
-  const key = window.location.hash.replace(/^#\/?/, "")
+/**
+ * `profile:<slug>` is a startup page at #/startups/<slug>; `form` is the profile form at
+ * #/contribution/form (?startup=<HITEX id> to start with one), `form:<slug>` edits a profile.
+ */
+type Route = DatasetKey | "about" | "contribution" | "form" | `profile:${string}` | `form:${string}` | null
+
+function routeFromHash(hash: string): Route {
+  const key = hash.replace(/^#\/?/, "").split("?")[0]
   if (key === "about" || key === "contribution") return key
+  if (key === "contribution/form") return "form"
+  const edit = /^contribution\/form\/([a-z0-9_]+)$/.exec(key)
+  if (edit) return `form:${edit[1]}`
   const profile = /^startups\/([a-z0-9_]+)$/.exec(key)
   if (profile) return `profile:${profile[1]}`
   return key in datasets ? (key as DatasetKey) : null
 }
 
 const isProfile = (route: Route): route is `profile:${string}` => !!route?.startsWith("profile:")
-const navKey = (route: Route) => (isProfile(route) ? "startups" : route)
+const isForm = (route: Route): route is "form" | `form:${string}` => route === "form" || !!route?.startsWith("form:")
+const navKey = (route: Route) => (isProfile(route) ? "startups" : isForm(route) ? "contribution" : route)
 
 function useRoute() {
-  const [route, setRoute] = useState(routeFromHash)
+  const [hash, setHash] = useState(() => window.location.hash)
   useEffect(() => {
     const onChange = () => {
-      setRoute(routeFromHash())
+      setHash(window.location.hash)
       window.scrollTo(0, 0)
     }
     window.addEventListener("hashchange", onChange)
     return () => window.removeEventListener("hashchange", onChange)
   }, [])
-  return route
+  return { route: routeFromHash(hash), query: new URLSearchParams(hash.split("?")[1] ?? "") }
 }
 
 let nextKeywordId = 1
 
 export default function App() {
-  const route = useRoute()
+  const { route, query } = useRoute()
   const [lang, setLang] = useState<Lang>("en")
   const { theme, setTheme } = useTheme()
   const [keywords, setKeywords] = useState<Keyword[]>([])
@@ -71,7 +82,7 @@ export default function App() {
                 <a href={`#/${key}`}>{datasets[key].title}</a>
               </Button>
             ))}
-            <Button variant={route === "contribution" ? "secondary" : "ghost"} size="sm" asChild>
+            <Button variant={navKey(route) === "contribution" ? "secondary" : "ghost"} size="sm" asChild>
               <a href="#/contribution">Contribution</a>
             </Button>
             <Button variant={route === "about" ? "secondary" : "ghost"} size="sm" asChild>
@@ -112,8 +123,20 @@ export default function App() {
           <AboutPage />
         ) : route === "contribution" ? (
           <ContributionPage lang={lang} />
+        ) : isForm(route) ? (
+          <Suspense fallback={<Loading what="the form" />}>
+            <ProfileFormPage
+              key={`${route}?${query.get("startup") ?? ""}`}
+              slug={route === "form" ? undefined : route.slice("form:".length)}
+              startId={query.get("startup") ?? undefined}
+              lang={lang}
+            />
+          </Suspense>
         ) : isProfile(route) ? (
-          <ProfilePage key={route} slug={route.slice("profile:".length)} lang={lang} />
+          // the search keywords stay on and are highlighted in the profile
+          <KeywordHighlights keywords={keywords} onClear={clearKeywords}>
+            <ProfilePage key={route} slug={route.slice("profile:".length)} lang={lang} />
+          </KeywordHighlights>
         ) : route ? (
           <DatasetPage
             key={route}

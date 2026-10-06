@@ -1,13 +1,13 @@
-import { memo, useState, type CSSProperties } from "react"
-import { ArrowRightIcon, CircleQuestionMarkIcon, ExternalLinkIcon } from "lucide-react"
+import { memo, useMemo, useState, type CSSProperties } from "react"
+import { ArrowRightIcon, BadgeCheckIcon, CircleQuestionMarkIcon, ExternalLinkIcon, ScanSearchIcon } from "lucide-react"
 
 import { Highlight } from "@/components/highlight"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { linkText, type CardModel } from "@/lib/cards"
+import { linkText, type CardModel, type HiddenText } from "@/lib/cards"
 import { cn } from "@/lib/utils"
 import { textDir, type Lang } from "@/lib/data"
-import type { Matcher } from "@/lib/keywords"
+import { keywordOf, type Keyword, type Matcher } from "@/lib/keywords"
 
 interface DataCardProps {
   card: CardModel
@@ -16,9 +16,13 @@ interface DataCardProps {
   matcher: Matcher | null
   /** CSS animation for the neon border, or undefined when nothing matches */
   glow?: string
+  /** the keywords match only the card's hidden text: dashed outline instead of the glow */
+  deepOnly?: boolean
+  /** keywords found only in the hidden text; the card shows where */
+  deep?: Keyword[]
 }
 
-export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: DataCardProps) {
+export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deepOnly = false, deep = [] }: DataCardProps) {
   const [imageFailed, setImageFailed] = useState(false)
   const dir = textDir(lang)
   const style: CSSProperties | undefined = glow ? { animation: glow } : undefined
@@ -26,7 +30,12 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
   const showImage = card.image && !imageFailed
 
   return (
-    <Card className="h-full transition-shadow duration-500" style={style} data-match={glow ? "" : undefined}>
+    <Card
+      className={cn("relative h-full transition-shadow duration-500", card.profile && "ring-[#EB2637]/45 dark:ring-[#EB2637]/55")}
+      style={style}
+      data-match={glow ? "" : undefined}
+      data-deep-match={deepOnly ? "" : undefined}
+    >
       {showImage && !circle && (
         <img
           src={card.image!}
@@ -63,6 +72,9 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
         </div>
       )}
 
+      {/* after the image: the card styles its first child image */}
+      {card.profile && <ProfileButton href={card.profile.href} name={card.title} />}
+
       <CardHeader>
         <CardTitle lang={lang} dir={dir} className={cn("text-lg", card.centered && "text-center")}>
           {card.titleLink?.kind === "page" ? (
@@ -84,8 +96,13 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
             <Highlight text={card.title} matcher={matcher} />
           )}
         </CardTitle>
-        {card.badges.length > 0 && (
+        {(card.badges.length > 0 || card.profile) && (
           <div dir={dir} className={cn("flex flex-wrap gap-1.5 pt-1", card.centered && "justify-center")}>
+            {card.profile && (
+              <Badge className="border-transparent bg-[#EB2637] text-white">
+                <BadgeCheckIcon data-icon="inline-start" /> Full profile
+              </Badge>
+            )}
             {card.badges.map((b) => (
               <Badge key={b} lang={lang} dir="auto" variant="secondary">
                 <Highlight text={b} matcher={matcher} />
@@ -115,6 +132,8 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
           </p>
         )}
 
+        <FoundIn card={card} lang={lang} matcher={matcher} deep={deep} />
+
         {card.links.length > 0 && (
           <div className="mt-auto flex flex-col gap-1 pt-1">
             {card.links.map((l) => (
@@ -142,3 +161,79 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow }: Da
     </Card>
   )
 })
+
+/** HITEX icon on a white disc in the card's corner; opens the startup's own page. */
+function ProfileButton({ href, name }: { href: string; name: string }) {
+  return (
+    <a
+      href={href}
+      aria-label={`Open the full profile of ${name}`}
+      title="Full profile"
+      className="absolute end-3 top-3 z-[1] flex size-11 items-center justify-center rounded-full bg-white shadow-[0_0_0_2px_#EB2637,0_6px_18px_-4px_rgb(235_38_55/0.6)] transition-transform hover:scale-110 focus-visible:ring-3 focus-visible:ring-[#EB2637]/50 focus-visible:outline-none"
+    >
+      <img src={`${import.meta.env.BASE_URL}brand/apple-touch-icon.png`} alt="" className="size-7 object-contain" />
+    </a>
+  )
+}
+
+const SHOW_FOUND = 3
+
+/** "…text around the match…" on one line */
+function excerpt(text: string, start: number, end: number, radius = 45) {
+  const flat = text.replace(/\s+/g, " ")
+  const from = Math.max(0, start - radius)
+  const to = Math.min(flat.length, end + radius)
+  return `${from > 0 ? "…" : ""}${flat.slice(from, to).trim()}${to < flat.length ? "…" : ""}`
+}
+
+/** Where keywords found only in the card's hidden text are: a full profile, or another language. */
+function FoundIn({ card, lang, matcher, deep }: { card: CardModel; lang: Lang; matcher: Matcher | null; deep: Keyword[] }) {
+  const found = useMemo(() => {
+    if (!matcher || deep.length === 0) return []
+    const ids = new Set(deep.map((k) => k.id))
+    const out: (HiddenText & { snippet: string; color: string })[] = []
+    for (const h of card.hidden ?? []) {
+      for (const m of h.text.replace(/\s+/g, " ").matchAll(matcher.regex)) {
+        const k = keywordOf(m, matcher)
+        if (!ids.has(k.id)) continue
+        out.push({ ...h, snippet: excerpt(h.text, m.index, m.index + m[0].length), color: k.color })
+        break
+      }
+    }
+    return out
+  }, [card.hidden, matcher, deep])
+
+  if (found.length === 0) return null
+  const more = found.length - SHOW_FOUND
+  return (
+    <div
+      className="flex flex-col gap-2 rounded-lg border border-dashed bg-muted/40 p-3"
+      style={{ borderColor: found[0].color }}
+    >
+      <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+        <ScanSearchIcon className="size-3.5" />
+        {card.profile ? "Found in the full profile" : "Found in another language"}
+      </p>
+      <ul className="flex flex-col gap-1.5">
+        {found.slice(0, SHOW_FOUND).map((f, i) => (
+          <li key={i} className="flex min-w-0 flex-col">
+            <span className="text-xs text-muted-foreground">{f.section}</span>
+            <span lang={f.lang ?? lang} dir="auto" className="line-clamp-2">
+              <Highlight text={f.snippet} matcher={matcher} linkHitex={false} />
+            </span>
+          </li>
+        ))}
+      </ul>
+      {(more > 0 || card.profile) && (
+        <p className="flex flex-wrap items-center justify-between gap-2 text-xs">
+          <span className="text-muted-foreground">{more > 0 ? `+${more} more` : ""}</span>
+          {card.profile && (
+            <a href={card.profile.href} className="inline-flex items-center gap-1 font-medium hover:underline">
+              See them in the profile <ArrowRightIcon className="size-3.5" />
+            </a>
+          )}
+        </p>
+      )}
+    </div>
+  )
+}

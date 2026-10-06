@@ -35,8 +35,9 @@ import {
   XIcon,
 } from "lucide-react"
 
-import { LinkedInIcon } from "@/components/brand-icons"
+import { GitHubIcon, LinkedInIcon } from "@/components/brand-icons"
 import { HitexText } from "@/components/highlight"
+import { ProfileQr } from "@/components/profile-qr"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -57,7 +58,7 @@ import {
   type Vocab,
 } from "@/lib/community"
 import { textDir, type Lang } from "@/lib/data"
-import { CONTRIBUTING_URL, GITHUB_URL, TEMPLATE_URL } from "@/lib/links"
+import { CONTRIBUTING_URL, GITHUB_URL, TEMPLATE_URL, isOnThisSite } from "@/lib/links"
 import { cn } from "@/lib/utils"
 
 const HITEX_RED = "#EB2637"
@@ -134,8 +135,23 @@ function ExampleBanner() {
   )
 }
 
-/** All sections of a startup profile; `embedded` (inside another page) uses h3 for the name instead of h1. */
-export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProfile; vocab: Vocab; lang: Lang; embedded?: boolean }) {
+/**
+ * All sections of a startup profile; `embedded` (inside another page) uses h3 for the name instead of h1,
+ * `preview` (the profile form) leaves out the links to the published file.
+ */
+export function Profile({
+  p,
+  vocab,
+  lang,
+  embedded = false,
+  preview = false,
+}: {
+  p: CommunityProfile
+  vocab: Vocab
+  lang: Lang
+  embedded?: boolean
+  preview?: boolean
+}) {
   const NameTag = embedded ? "h3" : "h1"
   const L = (list: string, key: string | number | null | undefined) => vocabLabel(vocab, list, key, lang)
   const Ls = (list: string, keys: (string | number)[] | null | undefined) => vocabLabels(vocab, list, keys, lang)
@@ -178,11 +194,14 @@ export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProf
               {p.work_week && <span lang={lang}>{L("work_weeks", p.work_week)}</span>}
             </p>
             <div className="flex flex-wrap gap-2">
-              <Button size="sm" asChild>
-                <a href={p.website} target="_blank" rel="noreferrer">
-                  <ExternalLinkIcon data-icon="inline-start" /> Website
-                </a>
-              </Button>
+              {/* a startup without its own website lists this page instead */}
+              {!isOnThisSite(p.website) && (
+                <Button size="sm" asChild>
+                  <a href={p.website} target="_blank" rel="noreferrer">
+                    <ExternalLinkIcon data-icon="inline-start" /> Website
+                  </a>
+                </Button>
+              )}
               {p.location.office_maps_url && (
                 <Button size="sm" variant="outline" asChild>
                   <a href={p.location.office_maps_url} target="_blank" rel="noreferrer">
@@ -202,6 +221,8 @@ export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProf
           </div>
         </CardContent>
       </Card>
+
+      <ProfileQr slug={p.slug} name={name} lang={lang} />
 
       {/* at HITEX */}
       {event?.attending && (
@@ -548,8 +569,11 @@ export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProf
       )}
 
       {/* footer */}
-      {p.example ? (
+      {preview ? null : p.example ? (
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href="#/contribution/form">
+            <PencilIcon className="size-3.5" /> Profile form
+          </a>
           <a className="inline-flex items-center gap-1 hover:text-foreground" href={CONTRIBUTING_URL} target="_blank" rel="noreferrer">
             <InfoIcon className="size-3.5" /> Contribution guide
           </a>
@@ -560,8 +584,11 @@ export function Profile({ p, vocab, lang, embedded = false }: { p: CommunityProf
       ) : (
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
           {h?.updated && <span>Hiring info updated {h.updated}</span>}
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${GITHUB_URL}/edit/main/public/startups/${p.file}`} target="_blank" rel="noreferrer">
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`#/contribution/form/${p.slug}`}>
             <PencilIcon className="size-3.5" /> Edit this profile
+          </a>
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${GITHUB_URL}/edit/main/public/startups/${p.file}`} target="_blank" rel="noreferrer">
+            <GitHubIcon className="size-3.5" /> Edit on GitHub
           </a>
           <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${import.meta.env.BASE_URL}startups/${p.file}`} target="_blank" rel="noreferrer">
             <FileCodeIcon className="size-3.5" /> View source YAML
@@ -629,7 +656,8 @@ function Tile({ icon: Icon, label, value, hint, lang }: { icon: Icon; label: str
         <p className="text-xs text-muted-foreground">{label}</p>
         <p lang={lang} dir={lang ? textDir(lang) : undefined} className="font-medium">
           {value}
-          {hint && <span className="ms-1.5 text-xs font-normal text-muted-foreground">{hint}</span>}
+          {/* own line: inline, an English hint runs into a number in right-to-left text ("40000as of") */}
+          {hint && <span className="block text-xs font-normal text-muted-foreground">{hint}</span>}
         </p>
       </div>
     </div>
@@ -777,7 +805,8 @@ function Photo({ src }: { src: string }) {
 
 function Logo({ url, name }: { url: string; name: string }) {
   const [failed, setFailed] = useState(false)
-  if (failed) {
+  // no logo yet (profile form preview) or it can't be loaded: first letter instead
+  if (failed || !url) {
     return (
       <div className="flex size-20 shrink-0 items-center justify-center rounded-2xl bg-muted text-3xl font-semibold">
         {name.match(/[\p{L}\p{N}]/u)?.[0]?.toLocaleUpperCase() ?? "?"}

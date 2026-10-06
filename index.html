@@ -33,6 +33,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Netlify Forms detects this form at deploy time; "Send without GitHub" in the profile form posts to it
+         (src/components/profile-form/review.tsx). Submissions show under Forms in the Netlify dashboard. -->
+    <form name="startup-profile" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="contact" />
+      <textarea name="note"></textarea>
+      <input name="mode" />
+      <input name="hitex_id" />
+      <input name="slug" />
+      <input name="file" />
+      <textarea name="yaml"></textarea>
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

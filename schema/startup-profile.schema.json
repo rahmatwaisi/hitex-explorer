@@ -41,6 +41,69 @@
         "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$"
       }
     },
+    "hitex": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "existing_profile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "description": "id of your startup in public/data/startups_list.json; only startups listed by HITEX can have a profile"
+        },
+        "years": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer",
+            "minimum": 2015,
+            "maximum": 2100
+          }
+        },
+        "at_event": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "attending": {
+              "$ref": "#/$defs/optBool"
+            },
+            "booth": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 20
+            },
+            "days": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/$defs/date"
+              }
+            },
+            "interviewing_at_booth": {
+              "$ref": "#/$defs/optBool"
+            },
+            "walk_in_cvs": {
+              "$ref": "#/$defs/optBool"
+            },
+            "book_meeting_url": {
+              "$ref": "#/$defs/optUrl"
+            }
+          }
+        }
+      },
+      "required": [
+        "existing_profile"
+      ]
+    },
     "website": {
       "$ref": "#/$defs/url"
     },
@@ -198,69 +261,6 @@
           }
         }
       }
-    },
-    "hitex": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "years": {
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": "integer",
-            "minimum": 2015,
-            "maximum": 2100
-          }
-        },
-        "existing_profile": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 64,
-          "description": "id of your startup in public/data/startups_list.json; only startups listed by HITEX can have a profile"
-        },
-        "at_event": {
-          "type": [
-            "object",
-            "null"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "attending": {
-              "$ref": "#/$defs/optBool"
-            },
-            "booth": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "maxLength": 20
-            },
-            "days": {
-              "type": [
-                "array",
-                "null"
-              ],
-              "items": {
-                "$ref": "#/$defs/date"
-              }
-            },
-            "interviewing_at_booth": {
-              "$ref": "#/$defs/optBool"
-            },
-            "walk_in_cvs": {
-              "$ref": "#/$defs/optBool"
-            },
-            "book_meeting_url": {
-              "$ref": "#/$defs/optUrl"
-            }
-          }
-        }
-      },
-      "required": [
-        "existing_profile"
-      ]
     },
     "links": {
       "type": [

@@ -32,11 +32,42 @@ export interface Matcher {
 
 const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 
-/** Case-insensitive substring matcher; longer keywords win where they overlap. */
+/**
+ * Letters written differently across Arabic, Kurdish and Persian (and on different keyboards),
+ * digits in three scripts, and dash styles: any of a group matches any other.
+ */
+const VARIANTS = [
+  "يیىێ", // yeh: Arabic, Persian, alef maksura, Kurdish ê
+  "كکڪ", // kaf: Arabic, Persian / Kurdish
+  "هةۀھە", // heh, teh marbuta, heh with yeh, heh doachashmee, Kurdish ae
+  "اأإآٱ", // alef and its hamza / madda forms
+  "وؤۆ", // waw, waw with hamza, Kurdish o
+  "-‐‑–—", // hyphen and dashes ("2-10" finds "2–10")
+  ...Array.from({ length: 10 }, (_, d) => `${d}${String.fromCharCode(0x660 + d)}${String.fromCharCode(0x6f0 + d)}`),
+]
+const VARIANT_OF = new Map<string, string>()
+for (const group of VARIANTS) for (const ch of group) VARIANT_OF.set(ch, `[${group.replace(/[\]\\^-]/g, "\\$&")}]`)
+
+/** Marks that don't change a word: harakat, superscript alef, tatweel, zero-width (non-)joiners, direction isolates. */
+const IGNORABLE = "\\u064B-\\u065F\\u0670\\u0640\\u200C\\u200D\\u2066-\\u2069"
+const IGNORABLE_RE = new RegExp(`[${IGNORABLE}]`, "gu")
+const SKIP = `[${IGNORABLE}]*`
+
+/** Regex source matching the keyword in any of its spellings, case-insensitively. */
+function pattern(text: string): string {
+  const chars = [...text.normalize("NFC").toLowerCase().replace(IGNORABLE_RE, "").trim()]
+  return chars
+    .map((ch) => (/\s/.test(ch) ? "[\\s\\u200C]*" : (VARIANT_OF.get(ch) ?? escapeRegExp(ch))))
+    .join(SKIP)
+}
+
+/** Matches keywords as substrings, tolerant of spelling variants; longer keywords win where they overlap. */
 export function buildMatcher(keywords: Keyword[]): Matcher | null {
   if (keywords.length === 0) return null
-  const groups = [...keywords].sort((a, b) => b.text.length - a.text.length)
-  const regex = new RegExp(groups.map((k) => `(${escapeRegExp(k.text)})`).join("|"), "giu")
+  // a keyword made only of marks (e.g. a lone tatweel) would match everywhere
+  const groups = [...keywords].filter((k) => pattern(k.text)).sort((a, b) => b.text.length - a.text.length)
+  if (groups.length === 0) return null
+  const regex = new RegExp(groups.map((k) => `(${pattern(k.text)})`).join("|"), "giu")
   return { regex, groups }
 }
 
@@ -79,3 +110,16 @@ export function glowKeyframes(keywords: Keyword[]): string {
 }
 
 export const GLOW_SECONDS_PER_COLOR = 2.4
+
+/** Animation name for a card whose keywords are found only in its hidden text (full profile, other languages). */
+export function deepGlowName(keywords: Keyword[]): string {
+  return `neon-deep-${keywords.map((k) => k.id).join("-")}`
+}
+
+/** Dashed outline cycling through the keyword colors (see [data-deep-match] in index.css). */
+export function deepGlowKeyframes(keywords: Keyword[]): string {
+  const n = keywords.length
+  const stops = keywords.map((k, i) => `${((i / n) * 100).toFixed(2)}% { outline-color: ${k.color} }`)
+  stops.push(`100% { outline-color: ${keywords[0].color} }`)
+  return `@keyframes ${deepGlowName(keywords)} { ${stops.join(" ")} }`
+}

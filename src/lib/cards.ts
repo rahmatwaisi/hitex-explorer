@@ -1,21 +1,25 @@
 import {
   activePositions,
+  formatSalary,
   positionTexts,
   profileText,
   vocabLabel,
   vocabLabels,
   type CommunityData,
   type CommunityProfile,
+  type ProfileTexts,
   type Vocab,
 } from "@/lib/community"
 import {
   pick,
   type Agenda,
   type Lang,
+  type Localized,
   type Organization,
   type Speaker,
   type Startup,
 } from "@/lib/data"
+import { isOnThisSite } from "@/lib/links"
 
 /** Everything a card shows; all strings here are searchable and highlighted. */
 export interface CardModel {
@@ -32,11 +36,52 @@ export interface CardModel {
   title: string
   /** makes the title a link: a Google search (speakers, new tab) or a page on this site */
   titleLink?: { href: string; kind: "search" | "page" }
+  /** the startup completed its profile (public/startups/*.yml): badge and button to its page */
+  profile?: { href: string }
   badges: string[]
   fields: { label: string; value: string }[]
   description: string
   /** `internal` links stay on this site (same tab) */
   links: { label: string; href: string; text?: string; internal?: boolean }[]
+  /**
+   * Searchable but not shown: the rest of a full profile, and the record in the other languages.
+   * Cards matching only here get a dashed outline and show where the keyword was found.
+   */
+  hidden?: HiddenText[]
+}
+
+export interface HiddenText {
+  /** where the text comes from: "Position · Backend Developer", "Description · Kurdish" */
+  section: string
+  text: string
+  lang?: Lang
+}
+
+const ALL_LANGS: Lang[] = ["en", "ar", "ku", "fa"]
+const LANG_NAMES: Record<Lang, string> = { en: "English", ar: "Arabic", ku: "Kurdish", fa: "Persian" }
+
+/** The texts of a record in the languages not shown, so any language finds it. */
+function otherLanguages(entries: [string, Localized | undefined][], lang: Lang): HiddenText[] {
+  return entries.flatMap(([section, value]) =>
+    ALL_LANGS.filter((l) => l !== lang && value?.[l]?.trim()).map((l) => ({
+      section: `${section} · ${LANG_NAMES[l]}`,
+      text: value![l]!.trim(),
+      lang: l,
+    }))
+  )
+}
+
+/** Adds hidden texts to a card, leaving out repeats and anything the card already shows. */
+function withHidden(card: CardModel, hidden: HiddenText[]): CardModel {
+  const shown = searchableTexts(card)
+  const seen = new Set<string>()
+  const kept = hidden.filter((h) => {
+    const key = h.text.toLowerCase()
+    if (seen.has(key) || shown.some((v) => v.toLowerCase().includes(key))) return false
+    seen.add(key)
+    return true
+  })
+  return { ...card, hidden: kept }
 }
 
 export const linkText = (link: CardModel["links"][number]) =>
@@ -67,7 +112,7 @@ const featuredOn = (pages: string[] | undefined) => (pages ?? []).map((p) => `On
 
 export function startupCard(s: Startup, lang: Lang): CardModel {
   const title = pick(s.name, lang)
-  return {
+  const card: CardModel = {
     id: s.id,
     // every startup photo on the site is the same placeholder picture, so show a monogram instead
     image: null,
@@ -89,6 +134,18 @@ export function startupCard(s: Startup, lang: Lang): CardModel {
       ["LinkedIn", s.linkedin_url],
     ]),
   }
+  return withHidden(
+    card,
+    otherLanguages(
+      [
+        ["Name", s.name],
+        ["Description", s.description],
+        ["Founder", s.category],
+        ["City", s.city],
+      ],
+      lang
+    )
+  )
 }
 
 export const profileHref = (slug: string) => `#/startups/${slug}`
@@ -109,12 +166,13 @@ export function communityCard(p: CommunityProfile, vocab: Vocab, lang: Lang, yea
   const industry = p.industry === "other" ? (p.industry_other ?? "") : vocabLabel(vocab, "industries", p.industry, lang)
   const tagline = profileText(p, "tagline", lang)
   const description = profileText(p, "description", lang)
-  return {
+  const card: CardModel = {
     id: `community-${p.slug}`,
     image: p.logo_url,
     monogram: monogram(profileText(p, "name", lang), p.slug),
     title: profileText(p, "name", lang),
     titleLink: { href: profileHref(p.slug), kind: "page" },
+    profile: { href: profileHref(p.slug) },
     badges: [
       industry,
       vocabLabel(vocab, "stages", p.stage, lang),
@@ -133,9 +191,108 @@ export function communityCard(p: CommunityProfile, vocab: Vocab, lang: Lang, yea
     description: [tagline, description].filter(Boolean).join("\n\n"),
     links: [
       { label: "Profile", href: profileHref(p.slug), text: "Full profile", internal: true },
-      ...links([["Website", p.website]]),
+      ...links([["Website", isOnThisSite(p.website) ? null : p.website]]),
     ],
   }
+  return withHidden(card, profileHidden(p, vocab, lang))
+}
+
+const PROFILE_TEXTS: [keyof Omit<ProfileTexts, "products" | "positions">, string][] = [
+  ["name", "Name"],
+  ["tagline", "Tagline"],
+  ["description", "Description"],
+  ["area_of_work", "Area of work"],
+  ["aim", "Aim"],
+  ["impact", "Impact"],
+  ["seeking_note", "Looking for"],
+  ["looking_for", "Who they want on the team"],
+  ["culture", "Culture"],
+  ["why_join", "Why join"],
+]
+
+/** Everything in a full profile, in all four languages, for the search. */
+function profileHidden(p: CommunityProfile, vocab: Vocab, lang: Lang): HiddenText[] {
+  const out: HiddenText[] = []
+  const add = (section: string, text: string | number | null | undefined, l?: Lang) => {
+    const t = `${text ?? ""}`.trim()
+    if (t) out.push({ section, text: t, lang: l })
+  }
+  /** a section name, marked with the language when it isn't the one shown */
+  const sec = (name: string, l: Lang) => (l === lang ? name : `${name} · ${LANG_NAMES[l]}`)
+  /** labels of fixed values in every language ("fintech" -> Fintech, فین‌تک…) */
+  const fixed = (section: string, list: string, keys: string | number | (string | number)[] | null | undefined) => {
+    for (const key of Array.isArray(keys) ? keys : [keys]) {
+      if (key === null || key === undefined || key === "") continue
+      for (const l of ALL_LANGS) add(section, vocabLabel(vocab, list, key, l), l)
+    }
+  }
+  const h = p.hiring
+
+  for (const l of ALL_LANGS) for (const [field, name] of PROFILE_TEXTS) add(sec(name, l), p.i18n[l]?.[field], l)
+
+  fixed("Industry", "industries", p.industry)
+  add("Industry", p.industry_other)
+  fixed("Stage", "stages", p.stage)
+  fixed("Business model", "business_models", p.business_model)
+  fixed("City", "cities", p.location.city)
+  add("City", p.location.city_other)
+  fixed("Other offices", "cities", p.location.other_offices)
+  fixed("Work mode", "work_modes", p.work_mode)
+  fixed("Work week", "work_weeks", p.work_week)
+  fixed("Team", "team_sizes", p.team_size)
+  fixed("Engineering team", "engineering_team_sizes", p.engineering_team_size)
+  fixed("Tech stack", "technologies", p.tech_stack)
+  fixed("Tools", "tools", p.tools)
+  fixed("Funding", "funding_raising", p.funding?.raising)
+  fixed("Funding", "funding_amounts", p.funding?.amount)
+  fixed("Funding", "funding_stages", p.funding?.stage)
+  fixed("Impact", "sdgs", p.impact?.sdgs)
+  add("At HITEX", p.hitex?.at_event?.booth ? `booth ${p.hitex.at_event.booth}` : "")
+
+  for (const prod of p.products ?? []) {
+    for (const l of ALL_LANGS) add(sec("Product", l), p.i18n[l]?.products?.[prod.id], l)
+    fixed("Product", "platforms", prod.platforms)
+  }
+  for (const x of p.traction ?? []) add("Traction", `${vocabLabel(vocab, "traction_metrics", x.metric, lang)}: ${x.value}`)
+  for (const x of p.recognition ?? []) add("Recognition", x.name)
+  for (const x of p.clients ?? []) add("Clients", x.name)
+  for (const x of p.partners ?? []) add("Partners", x.name)
+
+  for (const f of p.founders) add("Team", `${f.name} · ${vocabLabel(vocab, "founder_roles", f.role, lang)}`)
+  for (const m of p.core_team ?? []) add("Team", `${m.name} · ${m.role_other || vocabLabel(vocab, "team_roles", m.role, lang)}`)
+  fixed("Looking for", "seeking", p.seeking)
+  fixed("Looking for", "co_founder_roles", p.co_founder_role)
+
+  if (h) {
+    fixed("Hiring", "hiring_status", h.status)
+    for (const c of h.contacts ?? []) add("Hiring contact", `${c.name} · ${vocabLabel(vocab, "contact_roles", c.role, lang)}`)
+    fixed("Hiring process", "process_steps", h.process?.steps)
+    const langs = h.open_to?.languages
+    fixed("Languages", "languages", [...(langs?.work ?? []), ...(langs?.required ?? []), ...(langs?.welcome ?? []), ...(langs?.interview ?? [])])
+    fixed("English", "english_levels", langs?.english_level)
+    fixed("Contract", "overtime", h.contract?.overtime)
+    fixed("Contract", "payment_methods", h.contract?.payment_method)
+    fixed("Growth", "promotion_review", h.growth?.promotion_review)
+    fixed("Benefits", "benefits", h.benefits)
+    for (const pos of activePositions(p)) {
+      const section = `Position · ${positionTexts(p, pos.id, lang).title ?? pos.id}`
+      for (const l of ALL_LANGS) {
+        const t = p.i18n[l]?.positions?.[pos.id]
+        add(sec(section, l), t?.title, l)
+        add(sec(section, l), t?.summary, l)
+        for (const item of [...(t?.responsibilities ?? []), ...(t?.requirements ?? []), ...(t?.nice_to_have ?? [])]) add(sec(section, l), item, l)
+      }
+      fixed(section, "employment", pos.employment)
+      fixed(section, "seniority", pos.seniority)
+      fixed(section, "education", pos.education)
+      fixed(section, "work_modes", pos.work_mode)
+      fixed(section, "technologies", pos.skills)
+      fixed(section, "soft_skills", pos.soft_skills)
+      fixed(section, "languages", pos.languages)
+      add(section, formatSalary(pos.salary, vocab, lang))
+    }
+  }
+  return out
 }
 
 /**
@@ -153,7 +310,7 @@ export function startupCards(data: { hitex: Startup[]; community: CommunityData 
 
 export function organizationCard(o: Organization, lang: Lang): CardModel {
   const country = o.country ? `${pick(o.country.name, lang)} (${o.country.code})` : null
-  return {
+  const card: CardModel = {
     id: o.id,
     image: o.logo_url,
     title: pick(o.name, lang),
@@ -172,6 +329,19 @@ export function organizationCard(o: Organization, lang: Lang): CardModel {
     description: pick(o.description, lang),
     links: links([["Website", o.website_url]]),
   }
+  return withHidden(
+    card,
+    otherLanguages(
+      [
+        ["Name", o.name],
+        ["Description", o.description],
+        ["Sector", o.sector],
+        ["Industry", o.industry?.name],
+        ["Country", o.country?.name],
+      ],
+      lang
+    )
+  )
 }
 
 /** By the display_order stored in speakers.json; records without one go last, in file order. */
@@ -196,7 +366,7 @@ function googleSearchUrl(s: Speaker): string {
 
 export function speakerCard(s: Speaker, lang: Lang): CardModel {
   const title = pick(s.name, lang)
-  return {
+  const card: CardModel = {
     id: s.id,
     image: s.photo_url,
     monogram: monogram(stripHonorific(title), s.id),
@@ -218,6 +388,19 @@ export function speakerCard(s: Speaker, lang: Lang): CardModel {
       ["LinkedIn", s.linkedin_url],
     ]),
   }
+  return withHidden(
+    card,
+    otherLanguages(
+      [
+        ["Name", s.name],
+        ["Role", s.title],
+        ["Company", s.company],
+        ["Country", s.country],
+        ["Bio", s.bio],
+      ],
+      lang
+    )
+  )
 }
 
 const hhmm = (t: string) => t.slice(0, 5)
@@ -255,7 +438,7 @@ export function agendaCards(a: Agenda, lang: Lang): CardModel[] {
           const name = pick(sp.name, lang) + (sp.SessionSpeaker.is_moderator ? " (moderator)" : "")
           return role ? `${name} — ${role}` : name
         })
-      cards.push({
+      const card: CardModel = {
         id: s.id,
         group,
         image: null,
@@ -267,7 +450,20 @@ export function agendaCards(a: Agenda, lang: Lang): CardModel[] {
         ]),
         description: pick(s.description, lang),
         links: [],
-      })
+      }
+      const people = s.speakers.flatMap((sp): [string, Localized][] => [
+        ["Speaker", sp.name],
+        ["Speaker role", sp.title],
+      ])
+      cards.push(
+        withHidden(
+          card,
+          otherLanguages(
+            [["Title", s.title], ["Description", s.description], ["Topic", s.topic_tag], ["Location", s.location], ...people],
+            lang
+          )
+        )
+      )
     }
   }
   a.documents.forEach((doc, i) => {
@@ -286,6 +482,8 @@ export function agendaCards(a: Agenda, lang: Lang): CardModel[] {
   })
   return cards
 }
+
+export const hiddenTexts = (card: CardModel) => (card.hidden ?? []).map((h) => h.text)
 
 /** The texts a keyword can match on a card (same strings the card renders). */
 export function searchableTexts(card: CardModel): string[] {

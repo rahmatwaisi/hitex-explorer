@@ -145,6 +145,12 @@
   box-shadow: 0 0 10px color-mix(in srgb, var(--neon) 45%, transparent);
 }
 
+/* cards whose keywords are only in the hidden text (full profile, other languages); the animation cycles the color */
+[data-deep-match] {
+  outline: 2px dashed;
+  outline-offset: 3px;
+}
+
 /* matching cards keep a steady glow instead of pulsing */
 @media (prefers-reduced-motion: reduce) {
   [data-match] {

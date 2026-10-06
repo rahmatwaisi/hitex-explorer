@@ -5,11 +5,13 @@ import { DataCard } from "@/components/data-card"
 import { Highlight } from "@/components/highlight"
 import { KeywordBar } from "@/components/keyword-bar"
 import { Button } from "@/components/ui/button"
-import { searchableTexts, type CardModel } from "@/lib/cards"
+import { hiddenTexts, searchableTexts, type CardModel } from "@/lib/cards"
 import type { Lang } from "@/lib/data"
 import { datasets, loadDataset, type DatasetKey } from "@/lib/datasets"
 import {
   buildMatcher,
+  deepGlowKeyframes,
+  deepGlowName,
   glowKeyframes,
   glowName,
   GLOW_SECONDS_PER_COLOR,
@@ -48,29 +50,38 @@ export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPag
 
   const matcher = useMemo(() => buildMatcher(keywords), [keywords])
 
-  // keywords each card matches, in keyword-list order (drives glow color order)
+  // keywords each card matches, in keyword-list order (drives glow color order): `shown` in the
+  // card's text, `deep` only in its hidden text (the rest of a full profile, other languages)
   const cardMatches = useMemo(
     () =>
       cards.map((c) => {
-        const ids = matchedIds(searchableTexts(c), matcher)
-        return keywords.filter((k) => ids.has(k.id))
+        const shownIds = matchedIds(searchableTexts(c), matcher)
+        const deepIds = matchedIds(hiddenTexts(c), matcher)
+        return {
+          shown: keywords.filter((k) => shownIds.has(k.id)),
+          deep: keywords.filter((k) => deepIds.has(k.id) && !shownIds.has(k.id)),
+        }
       }),
     [cards, matcher, keywords]
   )
 
   const counts = useMemo(() => {
     const m = new Map<number, number>()
-    for (const ks of cardMatches) for (const k of ks) m.set(k.id, (m.get(k.id) ?? 0) + 1)
+    for (const { shown, deep } of cardMatches) for (const k of [...shown, ...deep]) m.set(k.id, (m.get(k.id) ?? 0) + 1)
     return m
   }, [cardMatches])
 
   const keyframes = useMemo(() => {
     const seen = new Map<string, string>()
-    for (const ks of cardMatches) if (ks.length) seen.set(glowName(ks), glowKeyframes(ks))
+    for (const { shown, deep } of cardMatches) {
+      if (shown.length) seen.set(glowName(shown), glowKeyframes(shown))
+      else if (deep.length) seen.set(deepGlowName(deep), deepGlowKeyframes(deep))
+    }
     return [...seen.values()].join("\n")
   }, [cardMatches])
 
-  const matchingCards = cardMatches.filter((ks) => ks.length > 0).length
+  const matchingCards = cardMatches.filter((m) => m.shown.length + m.deep.length > 0).length
+  const deepOnlyCards = cardMatches.filter((m) => m.shown.length === 0 && m.deep.length > 0).length
   const meta = datasets[dataset]
 
   return (
@@ -86,6 +97,12 @@ export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPag
                 {data ? `${cards.length} cards` : ""}
                 {data && keywords.length > 0 ? ` · ${matchingCards} matching` : ""}
               </span>
+              {!!data && deepOnlyCards > 0 && (
+                <span className="ms-2 inline-flex items-center gap-1.5 text-sm font-normal text-muted-foreground">
+                  <span aria-hidden className="inline-block w-5 border-t-2 border-dashed border-current" />
+                  {deepOnlyCards} found in a full profile or another language
+                </span>
+              )}
             </h1>
             <Button variant="outline" size="sm" asChild>
               <a href={meta.url} target="_blank" rel="noreferrer">
@@ -113,10 +130,12 @@ export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPag
         )}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {cards.map((card, i) => {
-            const ks = cardMatches[i]
-            const glow = ks.length
-              ? `${glowName(ks)} ${(ks.length * GLOW_SECONDS_PER_COLOR).toFixed(1)}s ease-in-out infinite`
-              : undefined
+            const { shown, deep } = cardMatches[i]
+            const glow = shown.length
+              ? `${glowName(shown)} ${(shown.length * GLOW_SECONDS_PER_COLOR).toFixed(1)}s ease-in-out infinite`
+              : deep.length
+                ? `${deepGlowName(deep)} ${(deep.length * GLOW_SECONDS_PER_COLOR).toFixed(1)}s linear infinite`
+                : undefined
             const newGroup = card.group && card.group !== cards[i - 1]?.group
             return (
               <Fragment key={card.id}>
@@ -133,7 +152,7 @@ export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPag
                     ))}
                   </h2>
                 )}
-                <DataCard card={card} lang={lang} matcher={matcher} glow={glow} />
+                <DataCard card={card} lang={lang} matcher={matcher} glow={glow} deepOnly={!shown.length && deep.length > 0} deep={deep} />
               </Fragment>
             )
           })}

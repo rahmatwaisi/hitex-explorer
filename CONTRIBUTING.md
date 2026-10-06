@@ -7,6 +7,22 @@ and what they're looking for. You add or update it with a pull request that cont
 > ([`public/data/startups_list.json`](public/data/startups_list.json)) can have a profile, and only one each.
 > New startups that are not in that list are not accepted.
 
+## The easy way: the form
+
+Open the [profile form](https://hitex2026.netlify.app/#/contribution/form), pick your startup and answer the
+steps. What HITEX publishes about your startup (name and description in four languages, founders) is
+filled in for you, and your answers are saved in your browser as you go. The form checks everything with the
+same rules as the bot below, then:
+
+- **Submit on GitHub** opens GitHub with your file ready (or copied, for long files), so you only need to
+  propose the change and open the pull request; or
+- **Send without GitHub** sends your file to the project maintainer, who opens the pull request for you.
+  Later changes to your profile then go through the maintainer too.
+
+To update a published profile, use **Edit this profile** at the bottom of its page.
+
+The rest of this guide is for writing the file by hand.
+
 ## 1. Create your file
 
 1. Find your startup on the [Contribution page](https://hitex2026.netlify.app/#/contribution). It gives you
@@ -28,6 +44,8 @@ and what they're looking for. You add or update it with a pull request that cont
      Missing an option? Use `other` and the matching `*_other` field, and we'll consider adding it.
      Technologies and tools may be new keys; they are shown as written.
    - Put your GitHub username in `maintainers`. Only the people listed there can edit the file later.
+   - No website yet? Use your page here as `website`:
+     `https://hitex2026.netlify.app/#/startups/your_startup_name`.
    - Keep text in `"double quotes"`.
 
 ## 2. Open a pull request
