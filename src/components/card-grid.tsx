@@ -12,6 +12,7 @@ import {
   glowName,
   GLOW_SECONDS_PER_COLOR,
   matchedIds,
+  wave,
   type Keyword,
   type Matcher,
 } from "@/lib/keywords"
@@ -51,6 +52,12 @@ export function useCardMatches(cards: CardModel[], keywords: Keyword[]) {
     for (const { shown, deep } of matches) {
       if (shown.length) seen.set(glowName(shown), glowKeyframes(shown))
       else if (deep.length) seen.set(deepGlowName(deep), deepGlowKeyframes(deep))
+      // the bulbs' wave, timed for how many keywords the card matches
+      const bulbs = shown.length + deep.length
+      if (bulbs) {
+        const w = wave(bulbs)
+        seen.set(w.name, w.keyframes)
+      }
     }
     return [...seen.values()].join("\n")
   }, [matches])
@@ -117,7 +124,15 @@ export function CardGrid({
                   ))}
                 </h2>
               )}
-              <DataCard card={card} lang={lang} matcher={matcher} glow={glow} deepOnly={!shown.length && deep.length > 0} deep={deep} />
+              <DataCard
+                card={card}
+                lang={lang}
+                matcher={matcher}
+                glow={glow}
+                deepOnly={!shown.length && deep.length > 0}
+                deep={deep}
+                bulbs={shown.length || deep.length ? [...shown, ...deep] : undefined}
+              />
             </Fragment>
           )
         })}

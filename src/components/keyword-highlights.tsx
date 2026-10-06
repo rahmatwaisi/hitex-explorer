@@ -3,6 +3,7 @@ import { ArrowDownIcon, XIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { highlightVars } from "@/lib/highlight-colors"
 import { buildMatcher, keywordOf, type Keyword } from "@/lib/keywords"
 
 const supported = typeof CSS !== "undefined" && "highlights" in CSS
@@ -85,15 +86,21 @@ export function KeywordHighlights({ keywords, onClear, children }: { keywords: K
       {matcher && (
         <>
           <style>
-            {keywords.map((k) => `::highlight(kw-${k.id}) { background-color: ${k.color}; color: #111; }`).join("\n")}
-            {"::highlight(kw-current) { text-decoration: underline 3px solid #EB2637; text-underline-offset: 4px; }"}
+            {keywords
+              .map(
+                (k) =>
+                  `::highlight(kw-${k.id}) { background-color: var(--rx-${k.color}-4); color: var(--rx-${k.color}-12); text-decoration: underline 2px var(--rx-${k.color}-9); }\n` +
+                  `.dark ::highlight(kw-${k.id}) { background-color: var(--rx-${k.color}-5); }`
+              )
+              .join("\n")}
+            {"::highlight(kw-current) { text-decoration: underline 3px solid currentColor; text-underline-offset: 4px; }"}
           </style>
           <div className="sticky top-(--header-h) z-10 border-b bg-background/85 backdrop-blur supports-backdrop-filter:bg-background/70">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-4 py-2.5 text-sm sm:px-6">
               <span className="text-muted-foreground">Highlighting</span>
               {keywords.map((k) => (
-                <Badge key={k.id} variant="outline" className="neon-chip gap-1.5" style={{ "--neon": k.color } as CSSProperties}>
-                  <span className="size-2 rounded-full" style={{ background: k.color }} />
+                <Badge key={k.id} variant="outline" className="kw-chip gap-1.5" style={highlightVars(k.color) as CSSProperties}>
+                  <span className="kw-dot size-2 rounded-full" />
                   {k.text}
                 </Badge>
               ))}

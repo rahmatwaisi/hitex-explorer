@@ -7,7 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { linkText, type CardModel, type HiddenText } from "@/lib/cards"
 import { cn } from "@/lib/utils"
 import { textDir, type Lang } from "@/lib/data"
-import { keywordOf, type Keyword, type Matcher } from "@/lib/keywords"
+import { highlightVars } from "@/lib/highlight-colors"
+import { keywordOf, wave, type Keyword, type Matcher } from "@/lib/keywords"
 
 interface DataCardProps {
   card: CardModel
@@ -20,9 +21,11 @@ interface DataCardProps {
   deepOnly?: boolean
   /** keywords found only in the hidden text; the card shows where */
   deep?: Keyword[]
+  /** every keyword the card matches: a bulb each, lighting up in a wave */
+  bulbs?: Keyword[]
 }
 
-export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deepOnly = false, deep = [] }: DataCardProps) {
+export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deepOnly = false, deep = [], bulbs }: DataCardProps) {
   const [imageFailed, setImageFailed] = useState(false)
   const dir = textDir(lang)
   const style: CSSProperties | undefined = glow ? { animation: glow } : undefined
@@ -74,6 +77,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
 
       {/* after the image: the card styles its first child image */}
       {card.profile && <ProfileButton href={card.profile.href} name={card.title} />}
+      {bulbs && <Bulbs keywords={bulbs} />}
 
       <CardHeader>
         <CardTitle lang={lang} dir={dir} className={cn("text-lg", card.centered && "text-center")}>
@@ -208,7 +212,7 @@ function FoundIn({ card, lang, matcher, deep }: { card: CardModel; lang: Lang; m
   return (
     <div
       className="flex flex-col gap-2 rounded-lg border border-dashed bg-muted/40 p-3"
-      style={{ borderColor: found[0].color }}
+      style={{ borderColor: `var(--rx-${found[0].color}-8)` }}
     >
       <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
         <ScanSearchIcon className="size-3.5" />
@@ -234,6 +238,26 @@ function FoundIn({ card, lang, matcher, deep }: { card: CardModel; lang: Lang; m
           )}
         </p>
       )}
+    </div>
+  )
+}
+
+/** A small bulb per matching keyword in its colour, lighting up one after another like a stadium wave. */
+function Bulbs({ keywords }: { keywords: Keyword[] }) {
+  const w = wave(keywords.length)
+  return (
+    <div
+      aria-label={`Matches ${keywords.map((k) => k.text).join(", ")}`}
+      className="absolute start-3 top-3 z-[1] flex max-w-[calc(100%-5rem)] flex-wrap gap-1.5 rounded-full bg-background/85 px-2 py-1.5 shadow-sm ring-1 ring-foreground/10 backdrop-blur-sm"
+    >
+      {keywords.map((k, i) => (
+        <span
+          key={k.id}
+          title={k.text}
+          className="kw-bulb"
+          style={{ ...highlightVars(k.color), animation: `${w.name} ${w.seconds.toFixed(2)}s ease-in-out ${w.delay(i).toFixed(2)}s infinite` } as CSSProperties}
+        />
+      ))}
     </div>
   )
 }

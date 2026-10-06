@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "./highlight-colors.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,20 +131,55 @@
     @apply font-sans;
     }
 }
-/* keyword highlight inside card text; --neon is set per keyword */
-.neon-mark {
-  background: var(--neon);
-  color: oklch(0.145 0 0);
+/*
+ * Keyword highlight inside text, and the keyword's chip. --hl-<step> are set per keyword to its Radix
+ * Colors scale (highlightVars in src/lib/highlight-colors.ts): light theme a soft tint with an underline,
+ * dark theme a deep tint with light text, the underline and a faint glow.
+ */
+.kw-mark {
+  background: var(--hl-4);
+  color: var(--hl-12);
   border-radius: 3px;
-  box-shadow: 0 0 2px var(--neon), 0 0 12px var(--neon);
+  box-shadow: inset 0 -2px 0 var(--hl-9);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
 
-.neon-chip {
-  border-color: var(--neon);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--neon) 45%, transparent);
+.dark .kw-mark {
+  background: var(--hl-5);
+  box-shadow: inset 0 -2px 0 var(--hl-9), 0 0 10px color-mix(in srgb, var(--hl-9) 35%, transparent);
 }
+
+.kw-chip {
+  border-color: var(--hl-7);
+  background: var(--hl-3);
+  color: var(--hl-12);
+}
+
+.dark .kw-chip {
+  border-color: var(--hl-8);
+}
+
+.kw-dot {
+  background: var(--hl-9);
+}
+
+/* a matching card's bulb (one per keyword); its wave animation is set inline (wave() in src/lib/keywords.ts) */
+.kw-bulb {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: var(--hl-5);
+  box-shadow: inset 0 0 0 1px var(--hl-7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kw-bulb {
+    animation: none !important;
+    background-color: var(--hl-9);
+  }
+}
+
 
 /* cards whose keywords are only in the hidden text (full profile, other languages); the animation cycles the color */
 [data-deep-match] {

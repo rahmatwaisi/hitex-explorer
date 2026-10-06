@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react"
 
+import { highlightVars } from "@/lib/highlight-colors"
 import { keywordOf, type Matcher } from "@/lib/keywords"
 import { HITEX_URL } from "@/lib/links"
 
@@ -43,7 +44,7 @@ export function Highlight({ text, matcher, linkHitex = true }: HighlightProps) {
       const e = Math.min(m.end, end)
       if (s > pos) parts.push(text.slice(pos, s))
       parts.push(
-        <mark key={s} className="neon-mark" style={{ "--neon": m.keyword.color } as CSSProperties}>
+        <mark key={s} className="kw-mark" style={highlightVars(m.keyword.color) as CSSProperties}>
           {text.slice(s, e)}
         </mark>
       )

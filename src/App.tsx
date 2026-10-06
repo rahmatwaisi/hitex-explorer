@@ -18,6 +18,7 @@ import { useRoute, type Route } from "@/lib/router"
 import { setPageTitle } from "@/lib/utils"
 import { LANGS, type Lang } from "@/lib/data"
 import { datasetKeys, datasets } from "@/lib/datasets"
+import { MAX_KEYWORDS } from "@/lib/highlight-colors"
 import { nextColor, type Keyword } from "@/lib/keywords"
 
 // the profile form brings Ajv, the schema and the YAML writer, so it loads only when opened
@@ -45,7 +46,7 @@ export default function App() {
   const [keywords, setKeywords] = useState<Keyword[]>([])
 
   const addKeyword = (text: string) => {
-    if (keywords.some((k) => k.text.toLowerCase() === text.toLowerCase())) return
+    if (keywords.length >= MAX_KEYWORDS || keywords.some((k) => k.text.toLowerCase() === text.toLowerCase())) return
     setKeywords([...keywords, { id: nextKeywordId++, text, color: nextColor(keywords) }])
   }
   const removeKeyword = useCallback((id: number) => setKeywords((ks) => ks.filter((k) => k.id !== id)), [])

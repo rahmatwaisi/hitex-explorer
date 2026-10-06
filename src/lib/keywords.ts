@@ -1,27 +1,16 @@
+import { HIGHLIGHT_COLORS, type HighlightColor } from "@/lib/highlight-colors"
+
 export interface Keyword {
   id: number
   text: string
-  color: string
+  /** a Radix Colors scale (src/lib/highlight-colors.ts) */
+  color: HighlightColor
 }
 
-export const NEON_COLORS = [
-  "#39ff14", // green
-  "#ff2bd6", // magenta
-  "#00e5ff", // cyan
-  "#ffea00", // yellow
-  "#ff6d00", // orange
-  "#b026ff", // purple
-  "#ff1744", // red
-  "#00ffa3", // mint
-  "#2979ff", // blue
-  "#c6ff00", // lime
-]
-
-/** Least-used palette color, so a new keyword never repeats a live color while others are free. */
-export function nextColor(keywords: Keyword[]): string {
-  const used = new Map(NEON_COLORS.map((c) => [c, 0]))
-  for (const k of keywords) used.set(k.color, (used.get(k.color) ?? 0) + 1)
-  return NEON_COLORS.reduce((best, c) => (used.get(c)! < used.get(best)! ? c : best))
+/** The first colour no keyword uses yet, in the palette's order (there are as many colours as keywords allowed). */
+export function nextColor(keywords: Keyword[]): HighlightColor {
+  const used = new Set(keywords.map((k) => k.color))
+  return HIGHLIGHT_COLORS.find((c) => !used.has(c)) ?? HIGHLIGHT_COLORS[keywords.length % HIGHLIGHT_COLORS.length]
 }
 
 export interface Matcher {
@@ -91,35 +80,68 @@ export function glowName(keywords: Keyword[]): string {
   return `neon-glow-${keywords.map((k) => k.id).join("-")}`
 }
 
-const strong = (c: string) => `box-shadow: 0 0 0 1.5px ${c}, 0 0 14px ${c}cc, 0 0 36px ${c}66`
-const soft = (c: string) => `box-shadow: 0 0 0 1px ${c}aa, 0 0 6px ${c}66, 0 0 14px ${c}22`
+// each colour's card ring for the current theme (src/highlight-colors.css)
+const strong = (c: HighlightColor) => `box-shadow: var(--rx-${c}-ring)`
+const soft = (c: HighlightColor) => `box-shadow: var(--rx-${c}-ring-soft)`
+
+/** "33.33" for keyframe offsets */
+const pct = (x: number) => (x * 100).toFixed(2)
 
 /**
- * Keyframes that pulse each color in turn: strong at i/n, soft at the midpoint,
- * so a single keyword breathes and several keywords cycle through their colors.
+ * Keyframes that pulse each keyword's colour in turn: soft, strong in the middle, soft again, then a
+ * jump to the next keyword's colour. Never fading from one colour into another, so the card never
+ * shows a mix (blue into amber passes through grey-green) that matches none of its keywords.
  */
 export function glowKeyframes(keywords: Keyword[]): string {
   const n = keywords.length
   const stops: string[] = []
   keywords.forEach((k, i) => {
-    stops.push(`${((i / n) * 100).toFixed(2)}% { ${strong(k.color)} }`)
-    stops.push(`${(((i + 0.5) / n) * 100).toFixed(2)}% { ${soft(k.color)} }`)
+    stops.push(`${pct(i / n)}% { ${soft(k.color)} }`)
+    stops.push(`${pct((i + 0.5) / n)}% { ${strong(k.color)} }`)
+    stops.push(`${(((i + 1) / n) * 100 - 0.01).toFixed(2)}% { ${soft(k.color)} }`)
   })
-  stops.push(`100% { ${strong(keywords[0].color)} }`)
+  stops.push(`100% { ${soft(keywords[0].color)} }`)
   return `@keyframes ${glowName(keywords)} { ${stops.join(" ")} }`
 }
 
 export const GLOW_SECONDS_PER_COLOR = 2.4
+
+// the card's bulbs, one per matching keyword, light up like a stadium wave: each bulb a moment after
+// the one before, fading while the next one rises, then a short pause before the next wave
+const WAVE_STEP = 0.16
+const WAVE_RISE = 0.25
+const WAVE_FALL = 0.5
+const WAVE_PAUSE = 0.9
+
+/** A wave over `n` bulbs: its keyframes (timed for n), how long it takes, and each bulb's delay. */
+export function wave(n: number) {
+  const seconds = (n - 1) * WAVE_STEP + WAVE_RISE + WAVE_FALL + WAVE_PAUSE
+  const at = (s: number) => ((s / seconds) * 100).toFixed(2)
+  const name = `kw-wave-${n}`
+  return {
+    name,
+    seconds,
+    delay: (i: number) => i * WAVE_STEP,
+    keyframes:
+      `@keyframes ${name} { 0% { background-color: var(--hl-5); box-shadow: inset 0 0 0 1px var(--hl-7) } ` +
+      `${at(WAVE_RISE)}% { background-color: var(--hl-9); box-shadow: inset 0 0 0 1px var(--hl-9), 0 0 8px 1px var(--hl-9); transform: scale(1.15) } ` +
+      `${at(WAVE_RISE + WAVE_FALL)}%, 100% { background-color: var(--hl-5); box-shadow: inset 0 0 0 1px var(--hl-7); transform: scale(1) } }`,
+  }
+}
 
 /** Animation name for a card whose keywords are found only in its hidden text (full profile, other languages). */
 export function deepGlowName(keywords: Keyword[]): string {
   return `neon-deep-${keywords.map((k) => k.id).join("-")}`
 }
 
-/** Dashed outline cycling through the keyword colors (see [data-deep-match] in index.css). */
+/** Dashed outline showing the keyword colours in turn (see [data-deep-match] in index.css). */
 export function deepGlowKeyframes(keywords: Keyword[]): string {
   const n = keywords.length
-  const stops = keywords.map((k, i) => `${((i / n) * 100).toFixed(2)}% { outline-color: ${k.color} }`)
-  stops.push(`100% { outline-color: ${keywords[0].color} }`)
+  // each colour holds for its share of the cycle, then the next one takes over (no blended colours)
+  const stops = keywords.flatMap((k, i) => [
+    `${pct(i / n)}% { outline-color: var(--rx-${k.color}-9) }`,
+    `${(((i + 1) / n) * 100 - 0.01).toFixed(2)}% { outline-color: var(--rx-${k.color}-9) }`,
+  ])
+  stops.push(`100% { outline-color: var(--rx-${keywords[0].color}-9) }`)
   return `@keyframes ${deepGlowName(keywords)} { ${stops.join(" ")} }`
 }
