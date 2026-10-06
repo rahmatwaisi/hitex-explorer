@@ -6,7 +6,7 @@ import { KeywordBar } from "@/components/keyword-bar"
 import { Button } from "@/components/ui/button"
 import type { CardModel } from "@/lib/cards"
 import type { Lang } from "@/lib/data"
-import { datasets, loadDataset, type DatasetKey } from "@/lib/datasets"
+import { datasets, loadDataset, peekDataset, type DatasetKey } from "@/lib/datasets"
 import type { Keyword } from "@/lib/keywords"
 
 export interface KeywordProps {
@@ -23,7 +23,7 @@ interface DatasetPageProps extends KeywordProps {
 
 /** Render with `key={dataset}` so switching datasets starts from fresh state. */
 export function DatasetPage({ dataset, lang, keywords, ...handlers }: DatasetPageProps) {
-  const [data, setData] = useState<unknown>(null)
+  const [data, setData] = useState<unknown>(() => peekDataset(dataset) ?? null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {

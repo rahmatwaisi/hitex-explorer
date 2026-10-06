@@ -3,9 +3,7 @@ import { BuildingIcon, CalendarIcon, HandshakeIcon, MicIcon, NewspaperIcon, Rock
 import { agendaCards, orderSpeakers, organizationCard, speakerCard, startupCards, type CardModel } from "@/lib/cards"
 import { loadCommunity, type CommunityData } from "@/lib/community"
 import type { Agenda, Lang, Organization, Speaker, Startup } from "@/lib/data"
-
-/** JSON files live in public/data and are served as-is at /data/<file> */
-const dataUrl = (file: string) => `${import.meta.env.BASE_URL}data/${file}`
+import { dataUrl, fetchData, once, peek } from "@/lib/data-files"
 
 interface Dataset {
   title: string
@@ -27,7 +25,10 @@ export const datasets = {
     icon: RocketIcon,
     blurb: "Startups from HITEX 2022–2026, with founders and descriptions.",
     // HITEX startups plus the profiles contributed through public/startups/*.yml
-    load: async () => ({ hitex: await fetchJson(dataUrl("startups_list.json")), community: await loadCommunity() }),
+    load: async () => {
+      const [hitex, community] = await Promise.all([fetchData("startups_list.json"), loadCommunity()])
+      return { hitex, community }
+    },
     toCards: (data, lang) => startupCards(data as { hitex: Startup[]; community: CommunityData }, lang),
   },
   exhibitors: {
@@ -76,13 +77,11 @@ export type DatasetKey = keyof typeof datasets
 
 export const datasetKeys = Object.keys(datasets) as DatasetKey[]
 
-async function fetchJson(url: string): Promise<unknown> {
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`${url.split("/").pop()}: HTTP ${res.status}`)
-  return res.json()
-}
-
+/** A dataset's data, loaded once per visit (see data-files.ts). */
 export function loadDataset(key: DatasetKey): Promise<unknown> {
   const d: Dataset = datasets[key]
-  return d.load ? d.load() : fetchJson(d.url)
+  return once(`dataset:${key}`, () => (d.load ? d.load() : fetchData(d.file)))
 }
+
+/** The dataset's data if it is already loaded, so its page can render at once. */
+export const peekDataset = (key: DatasetKey) => peek<unknown>(`dataset:${key}`)

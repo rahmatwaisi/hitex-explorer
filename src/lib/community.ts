@@ -1,4 +1,5 @@
 import type { Lang } from "@/lib/data"
+import { fetchData, peekData } from "@/lib/data-files"
 
 /** Startup profiles contributed through public/startups/*.yml, compiled to data/community.json. */
 
@@ -171,13 +172,14 @@ const EMPTY: CommunityData = { vocab: {}, profiles: [] }
 /** community.json is generated at build time; a missing file just means no profiles yet. */
 export async function loadCommunity(): Promise<CommunityData> {
   try {
-    const res = await fetch(`${import.meta.env.BASE_URL}data/community.json`)
-    if (!res.ok) return EMPTY
-    return (await res.json()) as CommunityData
+    return (await fetchData("community.json")) as CommunityData
   } catch {
     return EMPTY
   }
 }
+
+/** community.json if it is already loaded (once per visit, see data-files.ts). */
+export const peekCommunity = () => peekData<CommunityData>("community.json")
 
 /** keeps numbers left-to-right inside Arabic, Kurdish or Persian text ("$800–1,200" not "1,200–$800") */
 export const ltr = (text: string) => `\u2066${text}\u2069`

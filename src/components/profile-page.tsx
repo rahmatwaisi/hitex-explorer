@@ -46,6 +46,7 @@ import {
   formatSalary,
   hiringIsCurrent,
   loadCommunity,
+  peekCommunity,
   positionTexts,
   productText,
   profileText,
@@ -67,7 +68,7 @@ const day = (iso: string) =>
 
 /** Loads data/community.json once per page. */
 export function useCommunity() {
-  const [data, setData] = useState<CommunityData | null>(null)
+  const [data, setData] = useState<CommunityData | null>(() => peekCommunity() ?? null)
   useEffect(() => {
     let cancelled = false
     loadCommunity().then((d) => !cancelled && setData(d))

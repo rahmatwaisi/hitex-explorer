@@ -12,3 +12,11 @@
   from = "/startups/*"
   to = "/index.html"
   status = 200
+
+# Data files: the versioned copies (/data/v/<version>/, one folder per deploy) never change, so
+# browsers may keep them for a year. The plain /data/*.json addresses keep Netlify's default
+# (checked on every load).
+[[headers]]
+  for = "/data/v/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
