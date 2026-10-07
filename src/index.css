@@ -7,7 +7,8 @@
 
 @theme inline {
     --font-heading: var(--font-sans);
-    --font-sans: 'Google Sans Flex', 'Vazirmatn', sans-serif;
+    --font-sans: 'JetBrains Mono', 'Vazirmatn', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -72,7 +73,7 @@
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
+    --radius: 0;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -195,17 +196,17 @@
 }
 
 /*
- * Card text follows the selected data language. Google Sans Flex has no Arabic-script glyphs,
+ * Card text follows the selected data language. JetBrains Mono has no Arabic-script glyphs,
  * so listing it first keeps Latin text (brands, years) in the English font while
  * Arabic-script text falls through to the script font.
  */
 :lang(ar),
 :lang(ku) {
-  font-family: 'Google Sans Flex', 'Noto Naskh Arabic', serif;
+  font-family: 'JetBrains Mono', 'Noto Naskh Arabic', serif;
 }
 
 :lang(fa) {
-  font-family: 'Google Sans Flex', 'Vazirmatn', sans-serif;
+  font-family: 'JetBrains Mono', 'Vazirmatn', sans-serif;
 }
 
 /* startup letter tile; --hue is set per startup */
