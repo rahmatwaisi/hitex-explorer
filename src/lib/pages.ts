@@ -5,7 +5,18 @@ export const SITE_URL = "https://hitex2026.netlify.app"
 /** the site's title in search results and the browser tab */
 export const SITE_TITLE = "HITEX Explorer 2026 | The Ultra Tool for HITEX Exhibition"
 
-export type SectionKey = "startups" | "jobs" | "exhibitors" | "sponsors" | "media" | "speakers" | "agenda" | "contribution" | "about"
+export type SectionKey =
+  | "startups"
+  | "jobs"
+  | "exhibitors"
+  | "sponsors"
+  | "media"
+  | "speakers"
+  | "agenda"
+  | "contribution"
+  | "contribution/startup"
+  | "contribution/sponsor"
+  | "about"
 
 export const SECTIONS: Record<SectionKey, { title: string; description: string }> = {
   startups: {
@@ -14,8 +25,9 @@ export const SECTIONS: Record<SectionKey, { title: string; description: string }
       "Every startup HITEX lists, 2022–2026, with founders and descriptions in English, Arabic, Kurdish and Persian. Startups with a full profile show their team, products and open jobs.",
   },
   jobs: {
-    title: "Jobs at HITEX Startups | HITEX Explorer",
-    description: "Open positions at HITEX startups, with salaries in USD and IQD, the experience and skills they need, and how to apply.",
+    title: "Jobs at HITEX Startups and Sponsors | HITEX Explorer",
+    description:
+      "Open positions at HITEX startups and sponsors, with salaries in USD and IQD, the experience and skills they need, and how to apply.",
   },
   exhibitors: {
     title: "HITEX 2026 Exhibitors and Booths | HITEX Explorer",
@@ -38,9 +50,19 @@ export const SECTIONS: Record<SectionKey, { title: string; description: string }
     description: "The HITEX 2026 agenda, 6–9 October 2026 at Erbil International Fairground: the sessions of each day, with their speakers.",
   },
   contribution: {
+    title: "Contribute to HITEX Explorer | Startups and Sponsors",
+    description:
+      "Took part in HITEX as a startup or a sponsor? Give your organization a full page on HITEX Explorer: your story, team, offers and open jobs, in four languages.",
+  },
+  "contribution/startup": {
     title: "Add Your Startup's Profile | HITEX Explorer",
     description:
       "Took part in HITEX? Complete your startup's profile on HITEX Explorer for free: your story, team, products and open jobs, in four languages.",
+  },
+  "contribution/sponsor": {
+    title: "Add Your Sponsor Profile | HITEX Explorer",
+    description:
+      "Sponsored HITEX? Show startups and talent what you offer: partnership programs, pilots, your booth, leadership and open jobs, in four languages.",
   },
   about: {
     title: "About | HITEX Explorer",

@@ -3,17 +3,19 @@
 // A draft is shaped like the profile file, except that products and positions carry their texts
 // inline (`_texts` per language) and a stable `_uid`, so ids can follow the English names and
 // translations stay attached while people add, remove and rename items.
-import type { CommunityProfile } from "@/lib/community"
-import type { Lang, Startup } from "@/lib/data"
+import type { AnyProfile } from "@/lib/community"
+import type { Lang, Organization, Startup } from "@/lib/data"
 import { fileStamp, snakeCase } from "@/lib/profile-names"
-import { legacyProfileUrl, profileUrl } from "@/lib/links"
-import type { Profile } from "@/lib/profile-rules"
+import { legacyProfileUrl, profileUrl, sponsorUrl } from "@/lib/links"
+import type { Profile, ProfileKind } from "@/lib/profile-rules"
 
 export const LANG_ORDER: Lang[] = ["en", "ar", "ku", "fa"]
 export const LANG_NAMES: Record<Lang, string> = { en: "English", ar: "Arabic", ku: "Kurdish", fa: "Persian" }
 
 export interface Draft {
   version: 1
+  /** a startup or a sponsor profile; drafts saved before sponsor profiles are startups */
+  kind?: ProfileKind
   mode: "new" | "edit"
   /** when the draft was started (ISO, UTC); a new profile's file name starts with it */
   created: string
@@ -24,7 +26,10 @@ export interface Draft {
 
 export const uid = () => Math.random().toString(36).slice(2, 10)
 
-export const fileNameOf = (d: Draft) => d.file ?? `${fileStamp(new Date(d.created))}_${d.profile.slug || "startup"}.yml`
+export const fileNameOf = (d: Draft) => d.file ?? `${fileStamp(new Date(d.created))}_${d.profile.slug || (d.kind ?? "startup")}.yml`
+
+/** A profile's page on this site, also its website when it has none of its own. */
+const pageUrl = (kind: ProfileKind | undefined, slug: string) => (kind === "sponsor" ? sponsorUrl(slug) : profileUrl(slug))
 
 /** "Jane Doe – John Roe", "A, B & C" -> names */
 export const splitNames = (text: string | null | undefined) =>
@@ -69,12 +74,45 @@ export function draftFromHitex(s: Startup, now = new Date()): Draft {
   }
 }
 
+/** A new sponsor draft filled in from HITEX's record: names and descriptions, website, logo, booth and years. */
+export function draftFromSponsor(o: Organization, now = new Date()): Draft {
+  const i18n: Profile = {}
+  for (const l of LANG_ORDER) {
+    const texts = { name: o.name?.[l]?.trim() ?? "", description: o.description?.[l]?.trim() ?? "" }
+    if (texts.name || texts.description) i18n[l] = texts
+  }
+  return {
+    version: 1,
+    kind: "sponsor",
+    mode: "new",
+    created: now.toISOString(),
+    profile: {
+      schema_version: 1,
+      slug: snakeCase(o.name?.en ?? "").slice(0, 60).replace(/_+$/, ""),
+      maintainers: [],
+      hitex: {
+        existing_profile: o.id,
+        years: o.years ?? [],
+        // this year's booth (HITEX 2026)
+        ...(o.booth_number && o.years?.includes(2026) ? { at_event: { attending: true, booth: o.booth_number } } : {}),
+      },
+      website: https(o.website_url),
+      // unlike startups' photos, sponsors' logos on HITEX are their real logos
+      logo_url: https(o.logo_url),
+      location: { country: o.country?.code ?? "IQ" },
+      i18n,
+      consent: {},
+    },
+  }
+}
+
 /** A draft for editing a published profile. */
-export function draftFromProfile(source: CommunityProfile, now = new Date()): Draft {
-  const { file, example: _example, ...rest } = structuredClone(source)
+export function draftFromProfile(source: AnyProfile, now = new Date()): Draft {
+  // kind and tier are added by the build, not written in the file
+  const { file, example: _example, kind, tier: _tier, ...rest } = structuredClone(source) as AnyProfile & { tier?: string }
   const p = rest as Profile
-  // a startup without a website links to its page here; the form shows that as an empty field
-  const ours = [profileUrl(p.slug), legacyProfileUrl(p.slug)].map((u) => u.replace(/\/$/, ""))
+  // a profile without a website links to its page here; the form shows that as an empty field
+  const ours = [pageUrl(kind, p.slug), legacyProfileUrl(p.slug)].map((u) => u.replace(/\/$/, ""))
   if (typeof p.website === "string" && ours.includes(p.website.replace(/\/$/, ""))) p.website = ""
   const i18n = (p.i18n ?? {}) as Record<string, Profile | null>
   p.products = (p.products ?? []).map((x: Profile) => ({
@@ -97,7 +135,7 @@ export function draftFromProfile(source: CommunityProfile, now = new Date()): Dr
   }
   // the consent is given again for every change
   p.consent = {}
-  return { version: 1, mode: "edit", created: now.toISOString(), file, profile: p }
+  return { version: 1, kind: kind ?? "startup", mode: "edit", created: now.toISOString(), file, profile: p }
 }
 
 /** Removes empty text, lists and groups; trims text. Objects inside lists stay, so indexes match the form. */
@@ -130,7 +168,7 @@ function uniqueId(wanted: string, fallback: string, taken: Set<string>) {
 function tidy(p: Profile) {
   if (p.industry !== "other") delete p.industry_other
   if (p.location && p.location.city !== "other") delete p.location.city_other
-  for (const m of p.core_team ?? []) if (m && m.role !== "other") delete m.role_other
+  for (const m of [...(p.core_team ?? []), ...(p.leadership ?? [])]) if (m && m.role !== "other") delete m.role_other
   if (!(p.seeking ?? []).includes("co_founder")) delete p.co_founder_role
   if (p.hiring) {
     if (p.hiring.open_to?.internships !== true) delete p.hiring.internship
@@ -182,7 +220,7 @@ export function draftToProfile(d: Draft, opts: { today: string; fallbackMaintain
   }
   p.i18n = i18n
   tidy(p)
-  if (!`${p.website ?? ""}`.trim() && p.slug) p.website = profileUrl(p.slug)
+  if (!`${p.website ?? ""}`.trim() && p.slug) p.website = pageUrl(d.kind, p.slug)
 
   if (!(p.maintainers ?? []).some((m: string) => m?.trim()) && opts.fallbackMaintainer) p.maintainers = [opts.fallbackMaintainer]
   p.schema_version = 1

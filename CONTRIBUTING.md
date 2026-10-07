@@ -1,11 +1,20 @@
-# Complete your startup's profile on HITEX Explorer
+# Complete your profile on HITEX Explorer
 
-Startups listed by HITEX can complete their profile on HITEX Explorer: team, open positions, how to apply
-and what they're looking for. You add or update it with a pull request that contains **exactly one file**.
+Startups and sponsors listed by HITEX can complete their profile on HITEX Explorer. You add or update it with
+a pull request that contains **exactly one file**.
+
+- **Startups**: team, products, open positions, how to apply and what they're looking for.
+  Files go in `public/startups/`, from [`templates/startup-profile.yml`](templates/startup-profile.yml).
+- **Sponsors**: what they offer startups, the partners they want, their leadership, booth activities and
+  open positions. Files go in `public/sponsors/`, from [`templates/sponsor-profile.yml`](templates/sponsor-profile.yml).
+  See [Sponsors](#sponsors) below.
+
+This guide uses startups as the example; sponsors follow the same steps with their own folder, template and form.
 
 > **Strict rule:** only startups already in HITEX's list
 > ([`public/data/startups_list.json`](public/data/startups_list.json)) can have a profile, and only one each.
-> New startups that are not in that list are not accepted.
+> New startups that are not in that list are not accepted. The same holds for sponsors and
+> [`public/data/sponsors.json`](public/data/sponsors.json).
 
 ## The easy way: the form
 
@@ -53,9 +62,9 @@ The rest of this guide is for writing the file by hand.
 1. Fork this repository, add your file to `public/startups/`, and open a pull request.
    You can do it all on github.com: **Add file → Create new file** in your fork.
 2. A bot checks the file within a minute and comments with ✅ / ❌ for each rule:
-   - exactly one file, directly in `public/startups/`, no renames;
+   - exactly one file, directly in `public/startups/` or `public/sponsors/`, no renames;
    - the file name format and that the name isn't taken;
-   - `hitex.existing_profile` is a startup listed by HITEX that has no other profile;
+   - `hitex.existing_profile` is a startup (or sponsor) listed by HITEX that has no other profile;
    - valid YAML that follows the template, with values from the lists;
    - you (the pull request author) are in `maintainers` (for edits: in the current `maintainers`).
 3. Fix any ❌ and push again; the comment updates. A maintainer then reviews and merges.
@@ -67,11 +76,29 @@ pnpm install
 pnpm check:profiles
 ```
 
+## Sponsors
+
+Sponsors listed by HITEX use the [sponsor profile form](https://hitex2026.netlify.app/contribution/sponsor/form)
+or write `public/sponsors/yyyymmdd_hhmmss_your_company.yml` from
+[`templates/sponsor-profile.yml`](templates/sponsor-profile.yml). The
+[sponsor Contribution page](https://hitex2026.netlify.app/contribution/sponsor) gives you your id, a file name
+and the first lines of your file. Everything above applies, with these differences:
+
+- `hitex.existing_profile` is your id in [`public/data/sponsors.json`](public/data/sponsors.json).
+- Your tier and HITEX years come from HITEX's list; you don't write them in the file.
+- Instead of founders, stage and funding, a sponsor profile has `company_size`, `leadership` (optional) and
+  `for_startups`: what you offer startups (`offers`), the partners you want (`seeking`), a program link
+  (`apply_url`) and who startups should talk to (`contact`). Their texts go in `i18n` as `offer_note` and
+  `partnership_note`.
+- Open positions use the same `hiring` section as startups and appear on the Jobs page.
+
+Your page is `https://hitex2026.netlify.app/sponsors/your_company/`.
+
 ## Rules
 
-- **Only startups listed by HITEX, one profile each.** To change a profile, edit its existing file.
-- **Only submit a startup you represent**, and only list people who agreed to appear
-  (founders, team members and hiring contacts). The `consent` section confirms this.
+- **Only startups and sponsors listed by HITEX, one profile each.** To change a profile, edit its existing file.
+- **Only submit a startup or sponsor you represent**, and only list people who agreed to appear
+  (founders, team members, leadership, partnership and hiring contacts). The `consent` section confirms this.
 - **Keep hiring information current.** Positions are hidden automatically 90 days after
   `hiring.updated`; update the date when you review your openings.
 - **No spam, no fake or paid "job offers".** Profiles that break this are removed.

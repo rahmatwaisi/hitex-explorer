@@ -1,10 +1,11 @@
-// The form's steps after "Startup": what a profile says, grouped like the profile page.
+// The form's steps after the first ("Startup" / "Sponsor"): what a profile says, grouped like the profile
+// page. Startups and sponsors share most steps; `kind` switches the fields that differ.
 import { useState, type ReactNode } from "react"
 import { InfoIcon } from "lucide-react"
 
 import { Chips, Confirm, Grid, Group, NumberInput, Repeater, Select, TextArea, TextInput, TextList, YesNo, useForm } from "@/components/profile-form/fields"
 import { uid } from "@/components/profile-form/draft"
-import type { Profile } from "@/lib/profile-rules"
+import type { Profile, ProfileKind } from "@/lib/profile-rules"
 
 const en = (field: string) => `i18n.en.${field}`
 
@@ -17,8 +18,9 @@ function Note({ children }: { children: ReactNode }) {
   )
 }
 
-export function CompanyStep() {
+export function CompanyStep({ kind }: { kind: ProfileKind }) {
   const { get } = useForm()
+  const sponsor = kind === "sponsor"
   return (
     <>
       <Group title="About" hint="In English. You can add Arabic, Kurdish and Persian in the Translations step.">
@@ -26,9 +28,26 @@ export function CompanyStep() {
           <TextInput path={en("name")} label="Name" required maxLength={80} />
           <TextInput path={en("tagline")} label="Tagline" required maxLength={90} placeholder="One line about what you do" />
         </Grid>
-        <TextArea path={en("description")} label="Description" required maxLength={700} rows={5} hint="Two to four sentences: the problem, your product, who uses it." />
-        <TextInput path={en("area_of_work")} label="Area of work" maxLength={120} placeholder="Payments for small shops in Kurdistan" />
-        <TextArea path={en("aim")} label="Aim" maxLength={700} placeholder="Where you want to be in three years" />
+        <TextArea
+          path={en("description")}
+          label="Description"
+          required
+          maxLength={700}
+          rows={5}
+          hint={sponsor ? "Two to four sentences: who you are, what you do in Iraq and the Kurdistan Region, and who uses it." : "Two to four sentences: the problem, your product, who uses it."}
+        />
+        <TextInput
+          path={en("area_of_work")}
+          label="Area of work"
+          maxLength={120}
+          placeholder={sponsor ? "Mobile, fiber and business connectivity across Iraq" : "Payments for small shops in Kurdistan"}
+        />
+        <TextArea
+          path={en("aim")}
+          label={sponsor ? "Mission" : "Aim"}
+          maxLength={700}
+          placeholder={sponsor ? "Your mission, or where you want to be in three years" : "Where you want to be in three years"}
+        />
       </Group>
 
       <Group title="Basics">
@@ -36,24 +55,29 @@ export function CompanyStep() {
           <TextInput
             path="website"
             label="Website"
+            required={sponsor}
             type="url"
             placeholder="https://example.com"
-            hint="No website yet? Leave it empty: we link to your page here."
+            hint={sponsor ? undefined : "No website yet? Leave it empty: we link to your page here."}
           />
           <LogoInput />
-          <TextInput path="founded" label="Founded" required placeholder="2024 or 2024-03" hint="Year, or year and month." />
-          <Select path="stage" label="Stage" required list="stages" />
+          <TextInput path="founded" label="Founded" required={!sponsor} placeholder={sponsor ? "2008" : "2024 or 2024-03"} hint="Year, or year and month." />
+          {!sponsor && <Select path="stage" label="Stage" required list="stages" />}
           <Select path="industry" label="Industry" required list="industries" />
           {get("industry") === "other" && <TextInput path="industry_other" label="Which industry?" required maxLength={120} />}
           <Select path="business_model" label="Business model" list="business_models" />
-          <Select path="team_size" label="Team size" required list="team_sizes" />
+          {sponsor ? (
+            <Select path="company_size" label="People in the company" required list="company_sizes" />
+          ) : (
+            <Select path="team_size" label="Team size" required list="team_sizes" />
+          )}
           <Select path="engineering_team_size" label="Engineering team size" list="engineering_team_sizes" />
-          <Select path="work_mode" label="Work mode" required list="work_modes" />
+          <Select path="work_mode" label="Work mode" required={!sponsor} list="work_modes" />
           <Select path="work_week" label="Work week" list="work_weeks" />
         </Grid>
       </Group>
 
-      <Group title="Location">
+      <Group title="Location" hint={sponsor ? "Your main office in Iraq, or your headquarters." : undefined}>
         <Grid>
           <Select path="location.city" label="City" required list="cities" />
           {get("location.city") === "other" && <TextInput path="location.city_other" label="Which city?" required maxLength={120} />}
@@ -83,13 +107,14 @@ function LogoInput() {
   )
 }
 
-export function ProductStep() {
+export function ProductStep({ kind }: { kind: ProfileKind }) {
+  const sponsor = kind === "sponsor"
   return (
     <>
       <Repeater<Profile>
         path="products"
-        label="Products"
-        hint="What you ship."
+        label={sponsor ? "Products and services" : "Products"}
+        hint={sponsor ? "What startups and customers can use." : "What you ship."}
         max={10}
         addLabel="Add a product"
         newItem={() => ({ _uid: uid(), _texts: {} })}
@@ -97,7 +122,13 @@ export function ProductStep() {
       >
         {(at) => (
           <>
-            <TextInput path={`${at}._texts.en`} label="Product, in one line" required maxLength={200} placeholder="Point-of-sale app for small shops" />
+            <TextInput
+              path={`${at}._texts.en`}
+              label="Product, in one line"
+              required
+              maxLength={200}
+              placeholder={sponsor ? "Fiber and 5G connectivity for companies" : "Point-of-sale app for small shops"}
+            />
             <TextInput path={`${at}.url`} label="Link" type="url" />
             <Chips path={`${at}.platforms`} label="Platforms" list="platforms" />
           </>
@@ -109,23 +140,25 @@ export function ProductStep() {
         <Chips path="tools" label="Tools the team uses" list="tools" open />
       </Group>
 
-      <Repeater<Profile>
-        path="traction"
-        label="Traction"
-        hint="Numbers you're happy to share publicly, with the month they're from."
-        max={6}
-        addLabel="Add a number"
-        newItem={() => ({})}
-        itemTitle={(_, i) => `Number ${i + 1}`}
-      >
-        {(at) => (
-          <Grid cols={3}>
-            <Select path={`${at}.metric`} label="What" required list="traction_metrics" />
-            <TextInput path={`${at}.value`} label="Value" required placeholder="5000" />
-            <TextInput path={`${at}.as_of`} label="As of" required type="month" />
-          </Grid>
-        )}
-      </Repeater>
+      {!sponsor && (
+        <Repeater<Profile>
+          path="traction"
+          label="Traction"
+          hint="Numbers you're happy to share publicly, with the month they're from."
+          max={6}
+          addLabel="Add a number"
+          newItem={() => ({})}
+          itemTitle={(_, i) => `Number ${i + 1}`}
+        >
+          {(at) => (
+            <Grid cols={3}>
+              <Select path={`${at}.metric`} label="What" required list="traction_metrics" />
+              <TextInput path={`${at}.value`} label="Value" required placeholder="5000" />
+              <TextInput path={`${at}.as_of`} label="As of" required type="month" />
+            </Grid>
+          )}
+        </Repeater>
+      )}
 
       <Repeater<Profile>
         path="recognition"
@@ -138,7 +171,7 @@ export function ProductStep() {
       >
         {(at) => (
           <Grid cols={3}>
-            <TextInput path={`${at}.name`} label="Name" required maxLength={120} placeholder="HITEX Startup Competition – finalist" />
+            <TextInput path={`${at}.name`} label="Name" required maxLength={120} placeholder={sponsor ? "Best Network in Kurdistan Region" : "HITEX Startup Competition – finalist"} />
             <NumberInput path={`${at}.year`} label="Year" min={1990} max={2100} />
             <TextInput path={`${at}.url`} label="Link" type="url" />
           </Grid>
@@ -147,8 +180,62 @@ export function ProductStep() {
 
       <Group title="Impact">
         <Chips path="impact.sdgs" label="UN Sustainable Development Goals you work on" list="sdgs" numeric />
-        <TextArea path={en("impact")} label="Impact" maxLength={700} placeholder="The social or economic impact you aim for" />
+        <TextArea
+          path={en("impact")}
+          label="Impact"
+          maxLength={700}
+          placeholder={sponsor ? "The social or economic impact you aim for (CSR, education, digital inclusion)" : "The social or economic impact you aim for"}
+        />
       </Group>
+    </>
+  )
+}
+
+/** Sponsors: what startups get from working with you, the partners you want, and who to talk to. */
+export function ForStartupsStep() {
+  return (
+    <>
+      <Note>This is what startups look for first on your page. Be concrete: what can a startup get, and how does it start?</Note>
+      <Group title="What you offer startups">
+        <Chips path="for_startups.offers" label="Offers" list="sponsor_offers" />
+        <TextArea path={en("offer_note")} label="Tell them more" maxLength={700} placeholder="What a startup gets from working with you, and how to start" />
+        <TextInput path="for_startups.apply_url" label="Startup or partner program" type="url" placeholder="https://example.com/startups" hint="Where startups apply, if you have a program." />
+      </Group>
+
+      <Group title="Partners you're looking for">
+        <Chips path="for_startups.seeking" label="Looking for" list="partnership_seeking" />
+        <TextArea path={en("partnership_note")} label="Tell them more" maxLength={700} placeholder="The partners you're looking for, and why" />
+      </Group>
+
+      <Group title="Who startups should talk to" hint="Only someone who agreed to appear on your page.">
+        <Grid cols={3}>
+          <TextInput path="for_startups.contact.name" label="Name" maxLength={80} />
+          <Select path="for_startups.contact.role" label="Role" list="partnership_contact_roles" />
+          <Select path="for_startups.contact.preferred_contact" label="Best way to reach them" list="preferred_contact" />
+          <TextInput path="for_startups.contact.linkedin" label="LinkedIn" type="url" />
+          <TextInput path="for_startups.contact.email" label="Email" type="email" hint="Shown publicly." />
+        </Grid>
+      </Group>
+    </>
+  )
+}
+
+/** Sponsors: the people who lead the company. */
+export function LeadershipStep() {
+  return (
+    <>
+      <Note>Only list people who agreed to appear on your page.</Note>
+      <Repeater<Profile>
+        path="leadership"
+        label="Leadership"
+        hint="Optional. The people visitors and startups might want to meet."
+        max={8}
+        addLabel="Add a person"
+        newItem={() => ({})}
+        itemTitle={(x, i) => x.name || `Person ${i + 1}`}
+      >
+        {(at) => <PersonFields at={at} roles="leadership_roles" />}
+      </Repeater>
     </>
   )
 }
@@ -199,7 +286,7 @@ function PersonFields({ at, roles }: { at: string; roles: string }) {
     <Grid cols={3}>
       <TextInput path={`${at}.name`} label="Name" required maxLength={80} hint="As written on LinkedIn." />
       <Select path={`${at}.role`} label="Role" required list={roles} />
-      {get(`${at}.role`) === "other" && roles === "team_roles" && <TextInput path={`${at}.role_other`} label="Which role?" required maxLength={120} />}
+      {get(`${at}.role`) === "other" && roles !== "founder_roles" && <TextInput path={`${at}.role_other`} label="Which role?" required maxLength={120} />}
       <TextInput path={`${at}.linkedin`} label="LinkedIn" type="url" placeholder="https://www.linkedin.com/in/…" />
     </Grid>
   )
@@ -392,7 +479,8 @@ const LINKS: [string, string][] = [
   ["engineering_blog", "Engineering blog"],
 ]
 
-export function MoreStep() {
+export function MoreStep({ kind }: { kind: ProfileKind }) {
+  const sponsor = kind === "sponsor"
   return (
     <>
       <Group title="Links">
@@ -405,11 +493,27 @@ export function MoreStep() {
 
       <Group title="Media" hint="Links only; nothing is uploaded here.">
         <Grid cols={3}>
-          <TextInput path="media.demo_video" label="Demo video" type="url" />
-          <TextInput path="media.pitch_deck" label="Pitch deck (public PDF)" type="url" />
+          {sponsor ? (
+            <>
+              <TextInput path="media.video" label="Company or product video" type="url" />
+              <TextInput path="media.brochure" label="Brochure (public PDF)" type="url" />
+            </>
+          ) : (
+            <>
+              <TextInput path="media.demo_video" label="Demo video" type="url" />
+              <TextInput path="media.pitch_deck" label="Pitch deck (public PDF)" type="url" />
+            </>
+          )}
           <TextInput path="media.press_kit" label="Press kit" type="url" />
         </Grid>
-        <TextList path="media.photos" label="Office or team photos" type="url" max={6} placeholder="https://…" addLabel="Add a photo" />
+        <TextList
+          path="media.photos"
+          label={sponsor ? "Booth, office or team photos" : "Office or team photos"}
+          type="url"
+          max={6}
+          placeholder="https://…"
+          addLabel="Add a photo"
+        />
       </Group>
 
       {(["clients", "partners"] as const).map((kind) => (
@@ -435,13 +539,15 @@ export function MoreStep() {
         </Repeater>
       ))}
 
-      <Group title="Funding">
-        <Grid cols={3}>
-          <Select path="funding.raising" label="Raising now?" list="funding_raising" />
-          <Select path="funding.amount" label="Amount (USD)" list="funding_amounts" />
-          <Select path="funding.stage" label="Funding stage" list="funding_stages" />
-        </Grid>
-      </Group>
+      {!sponsor && (
+        <Group title="Funding">
+          <Grid cols={3}>
+            <Select path="funding.raising" label="Raising now?" list="funding_raising" />
+            <Select path="funding.amount" label="Amount (USD)" list="funding_amounts" />
+            <Select path="funding.stage" label="Funding stage" list="funding_stages" />
+          </Grid>
+        </Group>
+      )}
     </>
   )
 }

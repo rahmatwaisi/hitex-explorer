@@ -5,22 +5,39 @@ import { LANG_NAMES } from "@/components/profile-form/draft"
 import { Group, TextArea, TextInput, TextList, useForm } from "@/components/profile-form/fields"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Lang } from "@/lib/data"
-import type { Profile } from "@/lib/profile-rules"
+import type { Profile, ProfileKind } from "@/lib/profile-rules"
 
 type Other = Exclude<Lang, "en">
 
-const COMPANY_TEXTS: [field: string, label: string, max: number, long: boolean][] = [
-  ["name", "Name", 80, false],
-  ["tagline", "Tagline", 90, false],
-  ["description", "Description", 700, true],
-  ["area_of_work", "Area of work", 120, false],
-  ["aim", "Aim", 700, true],
-  ["impact", "Impact", 700, true],
-  ["seeking_note", "What you're looking for", 700, true],
-  ["looking_for", "Who you want on the team", 700, true],
-  ["culture", "How the team works", 700, true],
-  ["why_join", "Why join you", 700, true],
-]
+type TextRow = [field: string, label: string, max: number, long: boolean]
+
+const COMPANY_TEXTS: Record<ProfileKind, TextRow[]> = {
+  startup: [
+    ["name", "Name", 80, false],
+    ["tagline", "Tagline", 90, false],
+    ["description", "Description", 700, true],
+    ["area_of_work", "Area of work", 120, false],
+    ["aim", "Aim", 700, true],
+    ["impact", "Impact", 700, true],
+    ["seeking_note", "What you're looking for", 700, true],
+    ["looking_for", "Who you want on the team", 700, true],
+    ["culture", "How the team works", 700, true],
+    ["why_join", "Why join you", 700, true],
+  ],
+  sponsor: [
+    ["name", "Name", 80, false],
+    ["tagline", "Tagline", 90, false],
+    ["description", "Description", 700, true],
+    ["area_of_work", "Area of work", 120, false],
+    ["aim", "Mission", 700, true],
+    ["impact", "Impact", 700, true],
+    ["offer_note", "What you offer startups", 700, true],
+    ["partnership_note", "Partners you're looking for", 700, true],
+    ["looking_for", "Who you want on your teams", 700, true],
+    ["culture", "How your teams work", 700, true],
+    ["why_join", "Why join you", 700, true],
+  ],
+}
 
 const POSITION_LISTS: [field: string, label: string][] = [
   ["responsibilities", "Responsibilities"],
@@ -28,7 +45,7 @@ const POSITION_LISTS: [field: string, label: string][] = [
   ["nice_to_have", "Nice to have"],
 ]
 
-export function TranslationsStep() {
+export function TranslationsStep({ kind }: { kind: ProfileKind }) {
   const [lang, setLang] = useState<Other>("ar")
   const { get } = useForm()
   const filled = (path: string) => {
@@ -37,7 +54,7 @@ export function TranslationsStep() {
   }
   const products = (get("products") as Profile[] | undefined) ?? []
   const positions = (get("hiring.positions") as Profile[] | undefined) ?? []
-  const company = COMPANY_TEXTS.filter(([f]) => filled(`i18n.en.${f}`) || filled(`i18n.${lang}.${f}`))
+  const company = COMPANY_TEXTS[kind].filter(([f]) => filled(`i18n.en.${f}`) || filled(`i18n.${lang}.${f}`))
 
   return (
     <>

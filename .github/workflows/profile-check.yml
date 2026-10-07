@@ -1,12 +1,12 @@
-name: Startup profile check
+name: Profile check
 
-# Runs on pull requests that touch public/startups/. Uses pull_request_target so it can comment on
+# Runs on pull requests that touch public/startups/ or public/sponsors/. Uses pull_request_target so it can comment on
 # pull requests from forks; for that reason it only checks out the trusted base branch and reads the
 # pull request's file with `git show` as data. No code from the pull request is ever executed.
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
-    paths: ["public/startups/**"]
+    paths: ["public/startups/**", "public/sponsors/**"]
 
 permissions:
   contents: read

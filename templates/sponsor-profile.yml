@@ -1,0 +1,318 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# HITEX Explorer · sponsor profile · schema_version 1
+# Copy this file to public/sponsors/ and fill it in. Full guide: CONTRIBUTING.md
+#
+# File name : public/sponsors/YYYYMMDD_HHMMSS_<snake_case_name>.yml
+#             e.g. public/sponsors/20261007_093000_example_telecom.yml
+#             (UTC time of your first submission; never rename it later)
+# Who       : only sponsors listed by HITEX (public/data/sponsors.json), one profile each.
+# Rules     : one sponsor = one file; a pull request adds or edits exactly one file.
+# Languages : `en` is required. `ar`, `ku`, `fa` are optional; empty fields fall back to English.
+# Lists     : values written as `key` must come from the lists in the comments.
+#             Missing an option? Use `other` + the *_other field; we may add it later.
+# Quoting   : keep text in "double quotes" so YAML never guesses types (e.g. no, on, 1e3).
+# Required  : fields marked [required]. Everything else is optional — delete what you don't use.
+# Tier      : your sponsorship tier and HITEX years come from HITEX's list; you don't write them here.
+# ─────────────────────────────────────────────────────────────────────────────
+
+schema_version: 1                      # [required]
+slug: "example_sponsor"                # [required] equals the name part of the file name: [a-z0-9_]
+maintainers: ["your-github-username"]  # [required] GitHub accounts allowed to edit this file later
+
+# Only sponsors listed by HITEX can have a profile: this file completes your existing record.
+# Find your organization on https://hitex2026.netlify.app/contribution/sponsor to copy its id and a file name.
+hitex:                                 # [required]
+  existing_profile: "paste-your-sponsor-id-here"   # [required] your id in public/data/sponsors.json
+  years: [2025, 2026]                  # years you sponsored HITEX
+  at_event:                            # this year's HITEX
+    attending: true
+    booth: "P01"                       # booth number, or empty
+    days: ["2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09"]   # YYYY-MM-DD, days you're there
+    activities: ["product_demos", "startup_meetings", "recruiting", "workshops"]
+    # product_demos | workshops | talks | startup_meetings | recruiting | product_launch | competitions | giveaways
+    interviewing_at_booth: true        # you interview candidates on the spot
+    walk_in_cvs: true                  # people can bring a CV to the booth
+    book_meeting_url: "https://calendly.com/example/hitex"   # to book a slot at the booth in advance
+
+# ═════════════════════════════ 1. COMPANY ═══════════════════════════════════
+website: "https://example.com"         # [required]
+logo_url: "https://example.com/logo.png"  # [required] https · png, svg or webp · square · max 500 KB
+founded: "2008"                        # YYYY or YYYY-MM
+location:                              # [required] your main office in Iraq, or your headquarters
+  city: "erbil"                        # [required] erbil | sulaymaniyah | duhok | halabja | kirkuk | baghdad | basra | mosul | other
+  city_other: ""
+  country: "IQ"                        # [required] ISO 3166-1 alpha-2, e.g. IQ, TR, AE
+  other_offices: ["baghdad", "sulaymaniyah", "basra"]   # same city keys
+  office_maps_url: "https://maps.app.goo.gl/..."
+  wheelchair_accessible: true
+
+industry: "telecom"                    # [required]
+# fintech | e_commerce | marketplace | edtech | healthtech | logistics | mobility | travel_tourism
+# telecom | ai_ml | cybersecurity | software_services | saas | media_content | gaming | real_estate
+# agritech | energy_cleantech | govtech | hr_tech | food_delivery | banking_insurance
+# it_infrastructure | hardware_electronics | consulting | ngo_development | other
+industry_other: ""                     # only when industry is "other"
+business_model: "b2b2c"                # b2b | b2c | b2b2c | b2g | marketplace | nonprofit
+company_size: "1001-5000"              # [required] 11-50 | 51-200 | 201-1000 | 1001-5000 | 5000+
+engineering_team_size: "50+"           # 0 | 1 | 2-10 | 11-50 | 50+
+work_mode: "hybrid"                    # onsite | hybrid | remote
+work_week: "sun_thu"                   # sun_thu | mon_fri | sat_wed | flexible
+
+tech_stack: ["kubernetes", "java", "react", "postgresql"]   # technologies your teams use (lowercase keys)
+tools: ["jira", "teams", "microsoft_365"]
+
+products:                              # products and services; descriptions go in i18n below
+  - id: "business_connectivity"        # snake_case, unique inside this file
+    url: "https://example.com/business"
+    platforms: ["api"]                 # web | android | ios | desktop | api | hardware
+  - id: "mobile_wallet"
+    url: "https://example.com/wallet"
+    platforms: ["android", "ios"]
+
+recognition:                           # awards, certifications, press
+  - name: "Best Network in Kurdistan Region"
+    year: 2025
+    url: ""
+links:
+  linkedin: "https://www.linkedin.com/company/example"
+  instagram: "https://www.instagram.com/example"
+  x: ""
+  facebook: ""
+  youtube: ""
+  github: ""
+  engineering_blog: ""
+
+media:                                 # URLs only; nothing is uploaded here
+  video: "https://youtu.be/..."        # a company or product video
+  brochure: ""                         # public PDF link
+  press_kit: ""
+  photos: ["https://example.com/booth-2025.jpg"]   # booth, office or team photos, max 6
+
+clients:                               # list only clients who agreed to be named publicly
+  - name: "Example Bank"
+    url: "https://examplebank.iq"
+    public_permission: true
+partners:                              # same rule as clients
+  - name: "Example University"
+    url: "https://example.edu"
+    public_permission: true
+
+impact:
+  sdgs: [4, 8, 9]                      # UN Sustainable Development Goals 1–17 you work on; text in i18n
+
+# ═════════════════════════════ 2. FOR STARTUPS ══════════════════════════════
+# What you offer startups and the community, and the partners you're looking for.
+for_startups:
+  offers: ["pilot_projects", "api_access", "mentorship", "co_marketing", "internships"]
+  # pilot_projects | procurement | api_access | cloud_credits | discounts | investment | acceleration
+  # mentorship | office_space | co_marketing | distribution | training | hackathons | internships
+  # scholarships | grants
+  seeking: ["startups_to_pilot", "technology_partners", "talent"]
+  # startups_to_pilot | technology_partners | resellers | integrators | suppliers | talent
+  # investment_targets | research_partners
+  apply_url: "https://example.com/startups"   # your startup or partner program, if you have one
+  contact:                             # who startups should talk to
+    name: "Dara Example"
+    role: "partnerships_manager"
+    # partnerships_manager | business_development | innovation_manager | marketing_manager
+    # csr_manager | hr_manager
+    linkedin: "https://www.linkedin.com/in/daraexample"
+    email: ""                          # optional · shown publicly
+    preferred_contact: "linkedin"      # linkedin | email | careers_page | whatsapp
+
+# ═════════════════════════════ 3. PEOPLE ════════════════════════════════════
+# Only list people who agreed to appear here (see consent at the end).
+leadership:
+  - name: "Jane Doe"                   # as written on LinkedIn
+    role: "ceo"
+    # ceo | country_manager | general_manager | cto | cio | cmo | cfo | coo
+    # head_of_partnerships | head_of_innovation | head_of_hr | other
+    role_other: ""                     # only when role is "other"
+    linkedin: "https://www.linkedin.com/in/janedoe"
+  - name: "Omar Example"
+    role: "head_of_innovation"
+    role_other: ""
+    linkedin: "https://www.linkedin.com/in/omarexample"
+
+# ═════════════════════════════ 4. HIRING ════════════════════════════════════
+hiring:
+  status: "open"                       # [required] open | always_open | not_hiring
+  updated: "2026-10-05"                # [required] YYYY-MM-DD · positions hide 90 days after this date
+  careers_page: "https://example.com/careers"
+
+  contacts:
+    - name: "Lana Example"
+      role: "talent_acquisition"       # hr_manager | recruiter | talent_acquisition | founder | hiring_manager
+      linkedin: "https://www.linkedin.com/in/lanaexample"
+      email: ""
+      preferred_contact: "careers_page"   # linkedin | email | careers_page | whatsapp
+
+  process:
+    steps: ["cv_review", "intro_call", "interview", "technical_task", "offer"]
+    # cv_review | intro_call | technical_task | live_coding | interview | culture_fit | trial_day | offer
+    typical_duration_days: 21
+    reply_within_days: 10
+    paid_take_home: false
+    remote_interviews: true
+
+  open_to:
+    languages:                         # language keys: en | ku | ar | fa | tr | other
+      work: ["en", "ku", "ar"]
+      required: ["en"]
+      welcome: ["ar", "ku"]
+      english_level: "b2"              # none | a2 | b1 | b2 | c1 | c2 (CEFR)
+      interview: ["en", "ku", "ar"]
+    fresh_graduates: true
+    internships: true
+    international_candidates: false
+    visa_support: false
+    relocation_support: false
+
+  contract:
+    written_contract: true
+    social_security: true
+    probation_months: 3
+    hours_per_week: 40
+    overtime: "paid"                   # paid | time_off | rare | not_applicable
+    payment_method: "bank_transfer"    # bank_transfer | cash | mixed | other
+
+  growth:
+    mentorship: true
+    training_budget_usd_per_year: 1000
+    conference_support: true
+    promotion_review: "yearly"         # quarterly | twice_a_year | yearly | none
+
+  internship:                          # only if open_to.internships is true
+    paid: true
+    duration_months: 3
+    certificate: true
+    path_to_full_time: true
+
+  benefits: ["health_insurance", "annual_bonus", "training_budget", "transport", "paid_leave"]
+  # health_insurance | flexible_hours | remote_days | training_budget | equipment | transport
+  # meals | paid_leave | annual_bonus | stock_options | visa_support | relocation | childcare | other
+
+  positions:
+    - id: "network_engineer"           # snake_case, unique inside this file; text goes in i18n below
+      employment: "full_time"          # full_time | part_time | contract | internship | freelance
+      seniority: "senior"              # intern | junior | mid | senior | lead
+      experience_years: 5
+      education: "bachelor"            # none | diploma | bachelor | master | phd | not_required
+      work_mode: "onsite"              # onsite | hybrid | remote
+      count: 2
+      start: "asap"                    # asap | YYYY-MM
+      deadline: "2026-11-30"           # YYYY-MM-DD or empty
+      apply_url: ""                    # empty: your careers page
+      skills: ["kubernetes", "aws"]
+      soft_skills: ["problem_solving", "ownership"]
+      languages: ["en", "ku"]
+      salary:
+        type: "negotiable"             # range | fixed | negotiable | undisclosed | unpaid
+        currency: ""
+        period: ""
+        min:
+        max:
+
+# ═════════════════════════════ 5. TEXT PER LANGUAGE ═════════════════════════
+i18n:
+  en:                                  # [required]
+    name: "Example Sponsor"            # [required]
+    tagline: "Connecting Kurdistan, one startup at a time"   # [required]
+    description: |                     # [required]
+      Two to four sentences: who you are, what you do in Iraq and the Kurdistan Region, and who uses it.
+    area_of_work: "Mobile, fiber and business connectivity across Iraq"
+    aim: "Your mission, or where you want to be in three years"
+    culture: "How your teams work: values, rituals, what a normal week looks like"
+    why_join: "Three honest reasons someone should join you"
+    looking_for: "What kind of people you want on your teams"
+    impact: "The social or economic impact you aim for (CSR, education, digital inclusion)"
+    offer_note: "What a startup gets from working with you, and how to start"
+    partnership_note: "The partners you're looking for, and why"
+    products:
+      business_connectivity: "Fiber and 5G connectivity for companies"
+      mobile_wallet: "A mobile wallet for everyday payments"
+    positions:
+      network_engineer:
+        title: "Senior Network Engineer"
+        summary: "Design and run the core network that millions of people rely on"
+        responsibilities:
+          - "Plan and roll out core network upgrades"
+          - "Mentor junior engineers"
+        requirements:
+          - "5+ years in telecom or large-scale networks"
+          - "Hands-on with Kubernetes and cloud networking"
+        nice_to_have:
+          - "CCNP or similar certification"
+
+  ar:                                  # optional · Arabic
+    name: "الراعي النموذجي"
+    tagline: "نربط كردستان، شركة ناشئة تلو الأخرى"
+    description: |
+      من جملتين إلى أربع جمل: من أنتم، وما تقدمونه في العراق وإقليم كردستان، ومن يستخدمه.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    impact: ""
+    offer_note: ""
+    partnership_note: ""
+    products: {}
+    positions:
+      network_engineer:
+        title: "مهندس شبكات أول"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+  ku:                                  # optional · Kurdish (Sorani, Arabic script)
+    name: "سپۆنسەری نموونە"
+    tagline: "کوردستان بە یەکەوە دەبەستینەوە، ستارتئەپ لە دوای ستارتئەپ"
+    description: |
+      دوو بۆ چوار ڕستە: ئێوە کێن، لە عێراق و هەرێمی کوردستان چی دەکەن و کێ بەکاری دەهێنێت.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    impact: ""
+    offer_note: ""
+    partnership_note: ""
+    products: {}
+    positions:
+      network_engineer:
+        title: "ئەندازیاری باڵای تۆڕ"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+  fa:                                  # optional · Persian
+    name: "اسپانسر نمونه"
+    tagline: "کردستان را به هم وصل می‌کنیم، استارتاپ به استارتاپ"
+    description: |
+      دو تا چهار جمله: شما که هستید، در عراق و اقلیم کردستان چه می‌کنید و چه کسانی از آن استفاده می‌کنند.
+    area_of_work: ""
+    aim: ""
+    culture: ""
+    why_join: ""
+    looking_for: ""
+    impact: ""
+    offer_note: ""
+    partnership_note: ""
+    products: {}
+    positions:
+      network_engineer:
+        title: "مهندس ارشد شبکه"
+        summary: ""
+        responsibilities: []
+        requirements: []
+        nice_to_have: []
+
+# ═════════════════════════════ 6. CONSENT ═══════════════════════════════════
+consent:                               # [required] all must be true
+  authorized: true                     # I represent this organization and may publish this profile
+  people_agreed: true                  # everyone listed under leadership and contacts agreed
+  rights_to_logo: true                 # we own or may use the logo at logo_url
+  license: "CC-BY-4.0"                 # profile text is shared openly under this license

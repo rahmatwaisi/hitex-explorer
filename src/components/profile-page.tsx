@@ -52,6 +52,8 @@ import {
   profileText,
   vocabLabel,
   vocabLabels,
+  type AnyProfile,
+  type BaseProfile,
   type CommunityData,
   type CommunityProfile,
   type Person,
@@ -59,7 +61,7 @@ import {
   type Vocab,
 } from "@/lib/community"
 import { textDir, type Lang } from "@/lib/data"
-import { CONTRIBUTING_URL, GITHUB_URL, TEMPLATE_URL, isOnThisSite } from "@/lib/links"
+import { CONTRIBUTING_URL, GITHUB_URL, SPONSOR_TEMPLATE_URL, TEMPLATE_URL, isOnThisSite } from "@/lib/links"
 import { cn, setPageTitle } from "@/lib/utils"
 
 const HITEX_RED = "#EB2637"
@@ -113,13 +115,13 @@ export function ProfilePage({ slug, lang }: { slug: string; lang: Lang }) {
       <a href="/startups/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
         <ArrowLeftIcon className="size-4" /> All startups
       </a>
-      {profile.example && <ExampleBanner />}
+      {profile.example && <ExampleBanner kind="startup" />}
       <Profile p={profile} vocab={data.vocab} lang={lang} />
     </div>
   )
 }
 
-function ExampleBanner() {
+export function ExampleBanner({ kind }: { kind: "startup" | "sponsor" }) {
   return (
     <Card className="ring-2 ring-sky-500/60">
       <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -128,12 +130,12 @@ function ExampleBanner() {
           <div className="flex flex-col gap-1">
             <p className="font-semibold">This is an example profile</p>
             <p className="text-sm text-muted-foreground">
-              Every section comes from the profile template. See the Contribution page to add your startup.
+              Every section comes from the profile template. See the Contribution page to add your {kind}.
             </p>
           </div>
         </div>
         <Button asChild className="shrink-0">
-          <a href="/contribution/">Contribution</a>
+          <a href={`/contribution/${kind}/`}>Contribute as {kind === "sponsor" ? "Sponsor" : "Startup"}</a>
         </Button>
       </CardContent>
     </Card>
@@ -163,13 +165,8 @@ export function Profile({
   const t = (field: Parameters<typeof profileText>[1]) => profileText(p, field, lang)
   const dir = textDir(lang)
   const name = t("name")
-  const open = activePositions(p)
-  const h = p.hiring
-  const event = p.hitex?.at_event
   const city = p.location.city === "other" ? (p.location.city_other ?? "") : L("cities", p.location.city)
   const industry = p.industry === "other" ? (p.industry_other ?? "") : L("industries", p.industry)
-  const socials = Object.entries(p.links ?? {}).filter(([, url]) => !!url) as [string, string][]
-  const langs = h?.open_to?.languages
 
   return (
     <div className="flex flex-col gap-6">
@@ -198,66 +195,14 @@ export function Profile({
               <span lang={lang}>{L("work_modes", p.work_mode)}</span>
               {p.work_week && <span lang={lang}>{L("work_weeks", p.work_week)}</span>}
             </p>
-            <div className="flex flex-wrap gap-2">
-              {/* a startup without its own website lists this page instead */}
-              {!isOnThisSite(p.website) && (
-                <Button size="sm" asChild>
-                  <a href={p.website} target="_blank" rel="noreferrer">
-                    <ExternalLinkIcon data-icon="inline-start" /> Website
-                  </a>
-                </Button>
-              )}
-              {p.location.office_maps_url && (
-                <Button size="sm" variant="outline" asChild>
-                  <a href={p.location.office_maps_url} target="_blank" rel="noreferrer">
-                    <MapPinIcon data-icon="inline-start" /> Office on map
-                  </a>
-                </Button>
-              )}
-              {socials.map(([key, url]) => (
-                <Button key={key} size="sm" variant="outline" asChild>
-                  <a href={url} target="_blank" rel="noreferrer">
-                    {key === "linkedin" ? <LinkedInIcon className="size-3.5" /> : null}
-                    {SOCIAL_LABELS[key] ?? key}
-                  </a>
-                </Button>
-              ))}
-            </div>
+            <HeaderLinks p={p} />
           </div>
         </CardContent>
       </Card>
 
       <ProfileQr slug={p.slug} name={name} lang={lang} />
 
-      {/* at HITEX */}
-      {event?.attending && (
-        <Card className="ring-2" style={{ "--tw-ring-color": `${HITEX_RED}99` } as CSSProperties}>
-          <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-col gap-2">
-              <p className="flex items-center gap-2 font-semibold">
-                <CalendarCheckIcon className="size-5 shrink-0" style={{ color: HITEX_RED }} />
-                <span>
-                  <HitexText>
-                    {`Meet them at HITEX${event.booth ? ` · booth ${event.booth}` : ""}${
-                      event.days?.length ? ` · ${event.days.map(day).join(", ")}` : ""
-                    }`}
-                  </HitexText>
-                </span>
-              </p>
-              <Chips
-                items={[event.interviewing_at_booth ? "Interviewing at the booth" : "", event.walk_in_cvs ? "Bring your CV" : ""]}
-              />
-            </div>
-            {event.book_meeting_url && (
-              <Button asChild>
-                <a href={event.book_meeting_url} target="_blank" rel="noreferrer">
-                  Book a meeting
-                </a>
-              </Button>
-            )}
-          </CardContent>
-        </Card>
-      )}
+      <EventCard p={p} vocab={vocab} lang={lang} />
 
       {/* about: story on the left, facts on the right (one column on small screens) */}
       <Section title="About">
@@ -358,203 +303,7 @@ export function Profile({
         </div>
       </Section>
 
-      {h && (
-        <>
-          {/* 1. open positions */}
-          <Section
-            title={open.length ? `Open positions (${open.length})` : "Open positions"}
-            aside={
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="hidden sm:inline">Updated {h.updated}</span>
-                <Badge variant={open.length ? "default" : "secondary"} lang={lang}>
-                  {L("hiring_status", h.status)}
-                </Badge>
-              </div>
-            }
-          >
-            {t("looking_for") && <Text lang={lang} text={t("looking_for")} />}
-            {!hiringIsCurrent(p) ? (
-              <p className="text-sm text-muted-foreground">
-                Hiring details were last updated on {h.updated}, more than 90 days ago, so positions are hidden.
-              </p>
-            ) : open.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No open positions listed right now.</p>
-            ) : (
-              <div className="flex flex-col gap-4">
-                {open.map((pos) => (
-                  <PositionCard key={pos.id} p={p} pos={pos} vocab={vocab} lang={lang} />
-                ))}
-                <a href="/jobs/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
-                  <BriefcaseIcon className="size-4" /> All jobs at HITEX startups
-                </a>
-              </div>
-            )}
-          </Section>
-
-          {/* 2. how to apply */}
-          {(h.contacts?.length || h.careers_page || h.process) && (
-            <Section title="How to apply">
-              {(!!h.contacts?.length || h.careers_page) && (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {(h.contacts ?? []).map((c) => (
-                    <div key={c.name} className="flex flex-col gap-2 rounded-xl border p-4">
-                      <div className="flex items-center gap-3">
-                        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted">
-                          <UserCheckIcon className="size-5" />
-                        </span>
-                        <div className="min-w-0">
-                          <p className="truncate font-medium">{c.name}</p>
-                          <p lang={lang} className="text-sm text-muted-foreground">
-                            {L("contact_roles", c.role)}
-                          </p>
-                        </div>
-                      </div>
-                      {c.preferred_contact && (
-                        <p className="text-xs text-muted-foreground">
-                          Prefers <span lang={lang}>{L("preferred_contact", c.preferred_contact)}</span>
-                        </p>
-                      )}
-                      <div className="flex flex-wrap gap-2">
-                        {c.linkedin && (
-                          <Button size="sm" variant={c.preferred_contact === "linkedin" ? "default" : "outline"} asChild>
-                            <a href={c.linkedin} target="_blank" rel="noreferrer">
-                              <LinkedInIcon className="size-3.5" /> LinkedIn
-                            </a>
-                          </Button>
-                        )}
-                        {c.email && (
-                          <Button size="sm" variant={c.preferred_contact === "email" ? "default" : "outline"} asChild>
-                            <a href={`mailto:${c.email}`}>
-                              <MailIcon data-icon="inline-start" /> Email
-                            </a>
-                          </Button>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                  {h.careers_page && (
-                    <a
-                      href={h.careers_page}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-3 rounded-xl border border-dashed p-4 transition-colors hover:bg-muted"
-                    >
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted">
-                        <BriefcaseIcon className="size-5" />
-                      </span>
-                      <span className="flex flex-col">
-                        <span className="font-medium">Careers page</span>
-                        <span className="text-sm text-muted-foreground">All openings and how to apply</span>
-                      </span>
-                      <ExternalLinkIcon className="ms-auto size-4 text-muted-foreground" />
-                    </a>
-                  )}
-                </div>
-              )}
-              {h.process && (
-                <Labeled label="Hiring process">
-                  <Steps lang={lang} steps={Ls("process_steps", h.process.steps)} />
-                  <TileGrid>
-                    <Tile icon={HourglassIcon} label="Usually takes" value={h.process.typical_duration_days ? `${h.process.typical_duration_days} days` : ""} />
-                    <Tile icon={MessageCircleIcon} label="Replies within" value={h.process.reply_within_days ? `${h.process.reply_within_days} days` : ""} />
-                    <BoolTile icon={LaptopIcon} label="Remote interviews" value={h.process.remote_interviews} />
-                    <BoolTile icon={HandCoinsIcon} label="Paid take-home task" value={h.process.paid_take_home} />
-                  </TileGrid>
-                </Labeled>
-              )}
-            </Section>
-          )}
-
-          {/* 3. who can apply */}
-          {h.open_to && (
-            <Section title="Who can apply">
-              {langs && (
-                <Labeled label="Languages">
-                  <TileGrid>
-                    <Tile icon={LanguagesIcon} label="Daily work in" value={Ls("languages", langs.work).join(", ")} lang={lang} />
-                    <Tile icon={BadgeCheckIcon} label="Required" value={Ls("languages", langs.required).join(", ")} lang={lang} />
-                    <Tile icon={GlobeIcon} label="Also welcome" value={Ls("languages", langs.welcome).join(", ")} lang={lang} />
-                    <Tile icon={MessageCircleIcon} label="Interviews in" value={Ls("languages", langs.interview).join(", ")} lang={lang} />
-                    <Tile icon={GraduationCapIcon} label="Minimum English" value={L("english_levels", langs.english_level)} lang={lang} />
-                  </TileGrid>
-                </Labeled>
-              )}
-              <Labeled label="Eligibility">
-                <TileGrid>
-                  <BoolTile icon={GraduationCapIcon} label="Fresh graduates" value={h.open_to.fresh_graduates} />
-                  <BoolTile icon={SproutIcon} label="Internships" value={h.open_to.internships} />
-                  <BoolTile icon={GlobeIcon} label="International candidates" value={h.open_to.international_candidates} />
-                  <BoolTile icon={FileSignatureIcon} label="Visa support" value={h.open_to.visa_support} />
-                  <BoolTile icon={PlaneIcon} label="Relocation support" value={h.open_to.relocation_support} />
-                </TileGrid>
-              </Labeled>
-            </Section>
-          )}
-
-          {/* 4. working here */}
-          {(h.contract || h.growth || h.internship || h.benefits?.length || t("culture") || t("why_join")) && (
-            <Section title="Working here">
-              {(t("culture") || t("why_join")) && (
-                <div className="grid gap-4 md:grid-cols-2">
-                  {t("culture") && <Labeled label="Culture"><Text lang={lang} text={t("culture")} /></Labeled>}
-                  {t("why_join") && <Labeled label="Why join"><Text lang={lang} text={t("why_join")} /></Labeled>}
-                </div>
-              )}
-              {h.contract && (
-                <Labeled label="Contract">
-                  <TileGrid>
-                    <BoolTile icon={FileSignatureIcon} label="Written contract" value={h.contract.written_contract} />
-                    <BoolTile icon={ShieldCheckIcon} label="Social security" value={h.contract.social_security} />
-                    <Tile icon={CalendarClockIcon} label="Probation" value={h.contract.probation_months ? `${h.contract.probation_months} months` : ""} />
-                    <Tile icon={ClockIcon} label="Hours per week" value={h.contract.hours_per_week ? String(h.contract.hours_per_week) : ""} />
-                    <Tile icon={TimerIcon} label="Overtime" value={L("overtime", h.contract.overtime)} lang={lang} />
-                    <Tile icon={WalletIcon} label="Paid by" value={L("payment_methods", h.contract.payment_method)} lang={lang} />
-                  </TileGrid>
-                </Labeled>
-              )}
-              {h.growth && (
-                <Labeled label="Growth">
-                  <TileGrid>
-                    <BoolTile icon={UsersIcon} label="Mentorship" value={h.growth.mentorship} />
-                    <Tile
-                      icon={GraduationCapIcon}
-                      label="Training budget"
-                      value={
-                        typeof h.growth.training_budget_usd_per_year === "number"
-                          ? `$${h.growth.training_budget_usd_per_year.toLocaleString("en-US")} / year`
-                          : ""
-                      }
-                    />
-                    <BoolTile icon={CalendarCheckIcon} label="Conference support" value={h.growth.conference_support} />
-                    <Tile icon={TrendingUpIcon} label="Promotion review" value={L("promotion_review", h.growth.promotion_review)} lang={lang} />
-                  </TileGrid>
-                </Labeled>
-              )}
-              {h.internship && h.open_to?.internships !== false && (
-                <Labeled label="Internship program">
-                  <TileGrid>
-                    <BoolTile icon={WalletIcon} label="Paid" value={h.internship.paid} />
-                    <Tile icon={CalendarClockIcon} label="Length" value={h.internship.duration_months ? `${h.internship.duration_months} months` : ""} />
-                    <BoolTile icon={BadgeCheckIcon} label="Certificate" value={h.internship.certificate} />
-                    <BoolTile icon={TrendingUpIcon} label="Path to full time" value={h.internship.path_to_full_time} />
-                  </TileGrid>
-                </Labeled>
-              )}
-              {!!h.benefits?.length && (
-                <Labeled label="Benefits">
-                  <div className="flex flex-wrap gap-2">
-                    {Ls("benefits", h.benefits).map((b) => (
-                      <span key={b} lang={lang} className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm">
-                        <GiftIcon className="size-3.5 text-muted-foreground" /> {b}
-                      </span>
-                    ))}
-                  </div>
-                </Labeled>
-              )}
-            </Section>
-          )}
-        </>
-      )}
+      <HiringSections p={p} vocab={vocab} lang={lang} />
 
       {/* looking for */}
       {(!!p.seeking?.length || p.funding) && (
@@ -576,41 +325,330 @@ export function Profile({
         </Section>
       )}
 
-      {/* footer */}
-      {preview ? null : p.example ? (
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href="/contribution/form">
-            <PencilIcon className="size-3.5" /> Profile form
-          </a>
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={CONTRIBUTING_URL} target="_blank" rel="noreferrer">
-            <InfoIcon className="size-3.5" /> Contribution guide
-          </a>
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={TEMPLATE_URL} target="_blank" rel="noreferrer">
-            <FileCodeIcon className="size-3.5" /> Profile template (YAML)
-          </a>
-        </div>
-      ) : (
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
-          {h?.updated && <span>Hiring info updated {h.updated}</span>}
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`/contribution/form/${p.slug}`}>
-            <PencilIcon className="size-3.5" /> Edit this profile
-          </a>
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${GITHUB_URL}/edit/main/public/startups/${p.file}`} target="_blank" rel="noreferrer">
-            <GitHubIcon className="size-3.5" /> Edit on GitHub
-          </a>
-          <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${import.meta.env.BASE_URL}startups/${p.file}`} target="_blank" rel="noreferrer">
-            <FileCodeIcon className="size-3.5" /> View source YAML
-          </a>
-          <a
-            className="inline-flex items-center gap-1 hover:text-foreground"
-            href={`${GITHUB_URL}/issues/new?title=${encodeURIComponent(`Problem with profile: ${p.slug}`)}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FlagIcon className="size-3.5" /> Report a problem
-          </a>
-        </div>
+      {!preview && <ProfileFooter p={p} />}
+    </div>
+  )
+}
+
+/** Open positions, how to apply, who can apply and working here: the hiring part of any profile. */
+export function HiringSections({ p, vocab, lang }: { p: BaseProfile; vocab: Vocab; lang: Lang }) {
+  const L = (list: string, key: string | number | null | undefined) => vocabLabel(vocab, list, key, lang)
+  const Ls = (list: string, keys: (string | number)[] | null | undefined) => vocabLabels(vocab, list, keys, lang)
+  const t = (field: Parameters<typeof profileText>[1]) => profileText(p, field, lang)
+  const h = p.hiring
+  if (!h) return null
+  const open = activePositions(p)
+  const langs = h.open_to?.languages
+  return (
+    <>
+      {/* 1. open positions */}
+      <Section
+        title={open.length ? `Open positions (${open.length})` : "Open positions"}
+        aside={
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="hidden sm:inline">Updated {h.updated}</span>
+            <Badge variant={open.length ? "default" : "secondary"} lang={lang}>
+              {L("hiring_status", h.status)}
+            </Badge>
+          </div>
+        }
+      >
+        {t("looking_for") && <Text lang={lang} text={t("looking_for")} />}
+        {!hiringIsCurrent(p) ? (
+          <p className="text-sm text-muted-foreground">
+            Hiring details were last updated on {h.updated}, more than 90 days ago, so positions are hidden.
+          </p>
+        ) : open.length === 0 ? (
+          <p className="text-sm text-muted-foreground">No open positions listed right now.</p>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {open.map((pos) => (
+              <PositionCard key={pos.id} p={p} pos={pos} vocab={vocab} lang={lang} />
+            ))}
+            <a href="/jobs/" className="inline-flex w-fit items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+              <BriefcaseIcon className="size-4" /> All jobs at HITEX startups and sponsors
+            </a>
+          </div>
+        )}
+      </Section>
+
+      {/* 2. how to apply */}
+      {(h.contacts?.length || h.careers_page || h.process) && (
+        <Section title="How to apply">
+          {(!!h.contacts?.length || h.careers_page) && (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {(h.contacts ?? []).map((c) => (
+                <div key={c.name} className="flex flex-col gap-2 rounded-xl border p-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted">
+                      <UserCheckIcon className="size-5" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate font-medium">{c.name}</p>
+                      <p lang={lang} className="text-sm text-muted-foreground">
+                        {L("contact_roles", c.role)}
+                      </p>
+                    </div>
+                  </div>
+                  {c.preferred_contact && (
+                    <p className="text-xs text-muted-foreground">
+                      Prefers <span lang={lang}>{L("preferred_contact", c.preferred_contact)}</span>
+                    </p>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {c.linkedin && (
+                      <Button size="sm" variant={c.preferred_contact === "linkedin" ? "default" : "outline"} asChild>
+                        <a href={c.linkedin} target="_blank" rel="noreferrer">
+                          <LinkedInIcon className="size-3.5" /> LinkedIn
+                        </a>
+                      </Button>
+                    )}
+                    {c.email && (
+                      <Button size="sm" variant={c.preferred_contact === "email" ? "default" : "outline"} asChild>
+                        <a href={`mailto:${c.email}`}>
+                          <MailIcon data-icon="inline-start" /> Email
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              ))}
+              {h.careers_page && (
+                <a
+                  href={h.careers_page}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 rounded-xl border border-dashed p-4 transition-colors hover:bg-muted"
+                >
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted">
+                    <BriefcaseIcon className="size-5" />
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="font-medium">Careers page</span>
+                    <span className="text-sm text-muted-foreground">All openings and how to apply</span>
+                  </span>
+                  <ExternalLinkIcon className="ms-auto size-4 text-muted-foreground" />
+                </a>
+              )}
+            </div>
+          )}
+          {h.process && (
+            <Labeled label="Hiring process">
+              <Steps lang={lang} steps={Ls("process_steps", h.process.steps)} />
+              <TileGrid>
+                <Tile icon={HourglassIcon} label="Usually takes" value={h.process.typical_duration_days ? `${h.process.typical_duration_days} days` : ""} />
+                <Tile icon={MessageCircleIcon} label="Replies within" value={h.process.reply_within_days ? `${h.process.reply_within_days} days` : ""} />
+                <BoolTile icon={LaptopIcon} label="Remote interviews" value={h.process.remote_interviews} />
+                <BoolTile icon={HandCoinsIcon} label="Paid take-home task" value={h.process.paid_take_home} />
+              </TileGrid>
+            </Labeled>
+          )}
+        </Section>
       )}
+
+      {/* 3. who can apply */}
+      {h.open_to && (
+        <Section title="Who can apply">
+          {langs && (
+            <Labeled label="Languages">
+              <TileGrid>
+                <Tile icon={LanguagesIcon} label="Daily work in" value={Ls("languages", langs.work).join(", ")} lang={lang} />
+                <Tile icon={BadgeCheckIcon} label="Required" value={Ls("languages", langs.required).join(", ")} lang={lang} />
+                <Tile icon={GlobeIcon} label="Also welcome" value={Ls("languages", langs.welcome).join(", ")} lang={lang} />
+                <Tile icon={MessageCircleIcon} label="Interviews in" value={Ls("languages", langs.interview).join(", ")} lang={lang} />
+                <Tile icon={GraduationCapIcon} label="Minimum English" value={L("english_levels", langs.english_level)} lang={lang} />
+              </TileGrid>
+            </Labeled>
+          )}
+          <Labeled label="Eligibility">
+            <TileGrid>
+              <BoolTile icon={GraduationCapIcon} label="Fresh graduates" value={h.open_to.fresh_graduates} />
+              <BoolTile icon={SproutIcon} label="Internships" value={h.open_to.internships} />
+              <BoolTile icon={GlobeIcon} label="International candidates" value={h.open_to.international_candidates} />
+              <BoolTile icon={FileSignatureIcon} label="Visa support" value={h.open_to.visa_support} />
+              <BoolTile icon={PlaneIcon} label="Relocation support" value={h.open_to.relocation_support} />
+            </TileGrid>
+          </Labeled>
+        </Section>
+      )}
+
+      {/* 4. working here */}
+      {(h.contract || h.growth || h.internship || h.benefits?.length || t("culture") || t("why_join")) && (
+        <Section title="Working here">
+          {(t("culture") || t("why_join")) && (
+            <div className="grid gap-4 md:grid-cols-2">
+              {t("culture") && <Labeled label="Culture"><Text lang={lang} text={t("culture")} /></Labeled>}
+              {t("why_join") && <Labeled label="Why join"><Text lang={lang} text={t("why_join")} /></Labeled>}
+            </div>
+          )}
+          {h.contract && (
+            <Labeled label="Contract">
+              <TileGrid>
+                <BoolTile icon={FileSignatureIcon} label="Written contract" value={h.contract.written_contract} />
+                <BoolTile icon={ShieldCheckIcon} label="Social security" value={h.contract.social_security} />
+                <Tile icon={CalendarClockIcon} label="Probation" value={h.contract.probation_months ? `${h.contract.probation_months} months` : ""} />
+                <Tile icon={ClockIcon} label="Hours per week" value={h.contract.hours_per_week ? String(h.contract.hours_per_week) : ""} />
+                <Tile icon={TimerIcon} label="Overtime" value={L("overtime", h.contract.overtime)} lang={lang} />
+                <Tile icon={WalletIcon} label="Paid by" value={L("payment_methods", h.contract.payment_method)} lang={lang} />
+              </TileGrid>
+            </Labeled>
+          )}
+          {h.growth && (
+            <Labeled label="Growth">
+              <TileGrid>
+                <BoolTile icon={UsersIcon} label="Mentorship" value={h.growth.mentorship} />
+                <Tile
+                  icon={GraduationCapIcon}
+                  label="Training budget"
+                  value={
+                    typeof h.growth.training_budget_usd_per_year === "number"
+                      ? `$${h.growth.training_budget_usd_per_year.toLocaleString("en-US")} / year`
+                      : ""
+                  }
+                />
+                <BoolTile icon={CalendarCheckIcon} label="Conference support" value={h.growth.conference_support} />
+                <Tile icon={TrendingUpIcon} label="Promotion review" value={L("promotion_review", h.growth.promotion_review)} lang={lang} />
+              </TileGrid>
+            </Labeled>
+          )}
+          {h.internship && h.open_to?.internships !== false && (
+            <Labeled label="Internship program">
+              <TileGrid>
+                <BoolTile icon={WalletIcon} label="Paid" value={h.internship.paid} />
+                <Tile icon={CalendarClockIcon} label="Length" value={h.internship.duration_months ? `${h.internship.duration_months} months` : ""} />
+                <BoolTile icon={BadgeCheckIcon} label="Certificate" value={h.internship.certificate} />
+                <BoolTile icon={TrendingUpIcon} label="Path to full time" value={h.internship.path_to_full_time} />
+              </TileGrid>
+            </Labeled>
+          )}
+          {!!h.benefits?.length && (
+            <Labeled label="Benefits">
+              <div className="flex flex-wrap gap-2">
+                {Ls("benefits", h.benefits).map((b) => (
+                  <span key={b} lang={lang} className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm">
+                    <GiftIcon className="size-3.5 text-muted-foreground" /> {b}
+                  </span>
+                ))}
+              </div>
+            </Labeled>
+          )}
+        </Section>
+      )}
+    </>
+  )
+}
+
+/** Website, office map and social links under a profile's name. */
+export function HeaderLinks({ p }: { p: BaseProfile }) {
+  const socials = Object.entries(p.links ?? {}).filter(([, url]) => !!url) as [string, string][]
+  return (
+    <div className="flex flex-wrap gap-2">
+      {/* a profile without its own website lists its page here instead */}
+      {!isOnThisSite(p.website) && (
+        <Button size="sm" asChild>
+          <a href={p.website} target="_blank" rel="noreferrer">
+            <ExternalLinkIcon data-icon="inline-start" /> Website
+          </a>
+        </Button>
+      )}
+      {p.location.office_maps_url && (
+        <Button size="sm" variant="outline" asChild>
+          <a href={p.location.office_maps_url} target="_blank" rel="noreferrer">
+            <MapPinIcon data-icon="inline-start" /> Office on map
+          </a>
+        </Button>
+      )}
+      {socials.map(([key, url]) => (
+        <Button key={key} size="sm" variant="outline" asChild>
+          <a href={url} target="_blank" rel="noreferrer">
+            {key === "linkedin" ? <LinkedInIcon className="size-3.5" /> : null}
+            {SOCIAL_LABELS[key] ?? key}
+          </a>
+        </Button>
+      ))}
+    </div>
+  )
+}
+
+/** "Meet them at HITEX": booth, days, what they do there and a link to book a meeting. */
+export function EventCard({ p, vocab, lang }: { p: BaseProfile; vocab: Vocab; lang: Lang }) {
+  const event = p.hitex?.at_event
+  if (!event?.attending) return null
+  return (
+    <Card className="ring-2" style={{ "--tw-ring-color": `${HITEX_RED}99` } as CSSProperties}>
+      <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2">
+          <p className="flex items-center gap-2 font-semibold">
+            <CalendarCheckIcon className="size-5 shrink-0" style={{ color: HITEX_RED }} />
+            <span>
+              <HitexText>
+                {`Meet them at HITEX${event.booth ? ` · booth ${event.booth}` : ""}${
+                  event.days?.length ? ` · ${event.days.map(day).join(", ")}` : ""
+                }`}
+              </HitexText>
+            </span>
+          </p>
+          <Chips
+            lang={lang}
+            items={[
+              ...vocabLabels(vocab, "event_activities", event.activities, lang),
+              event.interviewing_at_booth ? "Interviewing at the booth" : "",
+              event.walk_in_cvs ? "Bring your CV" : "",
+            ]}
+          />
+        </div>
+        {event.book_meeting_url && (
+          <Button asChild>
+            <a href={event.book_meeting_url} target="_blank" rel="noreferrer">
+              Book a meeting
+            </a>
+          </Button>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
+/** Links to edit a profile and to its file; for the examples, to the form, guide and template. */
+export function ProfileFooter({ p }: { p: AnyProfile }) {
+  const sponsor = p.kind === "sponsor"
+  const form = sponsor ? "/contribution/sponsor/form" : "/contribution/form"
+  const dir = sponsor ? "sponsors" : "startups"
+  if (p.example) {
+    return (
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
+        <a className="inline-flex items-center gap-1 hover:text-foreground" href={form}>
+          <PencilIcon className="size-3.5" /> Profile form
+        </a>
+        <a className="inline-flex items-center gap-1 hover:text-foreground" href={CONTRIBUTING_URL} target="_blank" rel="noreferrer">
+          <InfoIcon className="size-3.5" /> Contribution guide
+        </a>
+        <a className="inline-flex items-center gap-1 hover:text-foreground" href={sponsor ? SPONSOR_TEMPLATE_URL : TEMPLATE_URL} target="_blank" rel="noreferrer">
+          <FileCodeIcon className="size-3.5" /> Profile template (YAML)
+        </a>
+      </div>
+    )
+  }
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t pt-4 text-sm text-muted-foreground">
+      {p.hiring?.updated && <span>Hiring info updated {p.hiring.updated}</span>}
+      <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${form}/${p.slug}`}>
+        <PencilIcon className="size-3.5" /> Edit this profile
+      </a>
+      <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${GITHUB_URL}/edit/main/public/${dir}/${p.file}`} target="_blank" rel="noreferrer">
+        <GitHubIcon className="size-3.5" /> Edit on GitHub
+      </a>
+      <a className="inline-flex items-center gap-1 hover:text-foreground" href={`${import.meta.env.BASE_URL}${dir}/${p.file}`} target="_blank" rel="noreferrer">
+        <FileCodeIcon className="size-3.5" /> View source YAML
+      </a>
+      <a
+        className="inline-flex items-center gap-1 hover:text-foreground"
+        href={`${GITHUB_URL}/issues/new?title=${encodeURIComponent(`Problem with profile: ${p.slug}`)}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FlagIcon className="size-3.5" /> Report a problem
+      </a>
     </div>
   )
 }
@@ -627,7 +665,7 @@ const SOCIAL_LABELS: Record<string, string> = {
 
 type Icon = ComponentType<{ className?: string }>
 
-function Section({ title, aside, children }: { title: string; aside?: ReactNode; children: ReactNode }) {
+export function Section({ title, aside, children }: { title: string; aside?: ReactNode; children: ReactNode }) {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between gap-2">
@@ -639,7 +677,7 @@ function Section({ title, aside, children }: { title: string; aside?: ReactNode;
   )
 }
 
-function Labeled({ label, children }: { label: string; children: ReactNode }) {
+export function Labeled({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-2.5">
       <h3 className="text-sm font-medium text-muted-foreground">{label}</h3>
@@ -648,12 +686,12 @@ function Labeled({ label, children }: { label: string; children: ReactNode }) {
   )
 }
 
-function TileGrid({ children }: { children: ReactNode }) {
+export function TileGrid({ children }: { children: ReactNode }) {
   return <div className="grid grid-cols-1 gap-2.5 empty:hidden sm:grid-cols-2 lg:grid-cols-3">{children}</div>
 }
 
 /** A small labelled fact with an icon; renders nothing without a value. */
-function Tile({ icon: Icon, label, value, hint, lang }: { icon: Icon; label: string; value: string; hint?: string; lang?: Lang }) {
+export function Tile({ icon: Icon, label, value, hint, lang }: { icon: Icon; label: string; value: string; hint?: string; lang?: Lang }) {
   if (!value) return null
   return (
     <div className="flex items-center gap-3 rounded-lg border bg-muted/30 px-3 py-2.5">
@@ -673,7 +711,7 @@ function Tile({ icon: Icon, label, value, hint, lang }: { icon: Icon; label: str
 }
 
 /** Yes / no fact; renders nothing when unknown. */
-function BoolTile({ icon: Icon, label, value }: { icon: Icon; label: string; value: boolean | null | undefined }) {
+export function BoolTile({ icon: Icon, label, value }: { icon: Icon; label: string; value: boolean | null | undefined }) {
   if (value !== true && value !== false) return null
   return (
     <div className={cn("flex items-center gap-3 rounded-lg border px-3 py-2.5", value ? "bg-emerald-500/5" : "bg-muted/30")}>
@@ -710,7 +748,7 @@ function Steps({ steps, lang }: { steps: string[]; lang: Lang }) {
   )
 }
 
-function Text({ text, lang }: { text: string; lang: Lang }) {
+export function Text({ text, lang }: { text: string; lang: Lang }) {
   if (!text) return null
   return (
     <p lang={lang} dir={textDir(lang)} className="leading-relaxed whitespace-pre-line">
@@ -719,7 +757,7 @@ function Text({ text, lang }: { text: string; lang: Lang }) {
   )
 }
 
-function Chips({ items, lang }: { items: string[]; lang?: Lang }) {
+export function Chips({ items, lang }: { items: string[]; lang?: Lang }) {
   const list = items.filter(Boolean)
   if (!list.length) return null
   return (
@@ -733,7 +771,7 @@ function Chips({ items, lang }: { items: string[]; lang?: Lang }) {
   )
 }
 
-function Facts({ rows, lang }: { rows: [string, string][]; lang?: Lang }) {
+export function Facts({ rows, lang }: { rows: [string, string][]; lang?: Lang }) {
   const list = rows.filter(([, v]) => v)
   if (!list.length) return null
   return (
@@ -750,7 +788,7 @@ function Facts({ rows, lang }: { rows: [string, string][]; lang?: Lang }) {
   )
 }
 
-function ExtLink({ href, text }: { href: string; text?: string }) {
+export function ExtLink({ href, text }: { href: string; text?: string }) {
   return (
     <a href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 break-all text-sky-600 hover:underline dark:text-sky-400">
       <ExternalLinkIcon className="size-3.5 shrink-0" />
@@ -759,7 +797,7 @@ function ExtLink({ href, text }: { href: string; text?: string }) {
   )
 }
 
-function NamedLinks({ label, items }: { label: string; items?: { name: string; url?: string }[] }) {
+export function NamedLinks({ label, items }: { label: string; items?: { name: string; url?: string }[] }) {
   if (!items?.length) return null
   return (
     <Labeled label={label}>
@@ -770,15 +808,19 @@ function NamedLinks({ label, items }: { label: string; items?: { name: string; u
   )
 }
 
-const hasMedia = (m: CommunityProfile["media"]) => !!(m?.demo_video || m?.pitch_deck || m?.press_kit || m?.photos?.length)
+const MEDIA_LINKS: [keyof NonNullable<BaseProfile["media"]>, string][] = [
+  ["demo_video", "Demo video"],
+  ["video", "Video"],
+  ["pitch_deck", "Pitch deck"],
+  ["brochure", "Brochure"],
+  ["press_kit", "Press kit"],
+]
 
-function Media({ media }: { media: CommunityProfile["media"] }) {
+export const hasMedia = (m: BaseProfile["media"]) => !!(m && (MEDIA_LINKS.some(([key]) => m[key]) || m.photos?.length))
+
+export function Media({ media }: { media: BaseProfile["media"] }) {
   if (!media) return null
-  const links = [
-    ["Demo video", media.demo_video],
-    ["Pitch deck", media.pitch_deck],
-    ["Press kit", media.press_kit],
-  ].filter(([, url]) => !!url) as [string, string][]
+  const links = MEDIA_LINKS.map(([key, label]) => [label, media[key]]).filter(([, url]) => !!url) as [string, string][]
   if (!links.length && !media.photos?.length) return null
   return (
     <Labeled label="Media">
@@ -811,7 +853,7 @@ function Photo({ src }: { src: string }) {
   )
 }
 
-function Logo({ url, name }: { url: string; name: string }) {
+export function Logo({ url, name }: { url: string; name: string }) {
   const [failed, setFailed] = useState(false)
   // no logo yet (profile form preview) or it can't be loaded: first letter instead
   if (failed || !url) {
@@ -826,7 +868,7 @@ function Logo({ url, name }: { url: string; name: string }) {
   )
 }
 
-function PersonCard({ person, role, lang }: { person: Person; role: string; lang: Lang }) {
+export function PersonCard({ person, role, lang }: { person: Person; role: string; lang: Lang }) {
   return (
     <div className="flex items-center justify-between gap-3 rounded-lg border p-3">
       <div className="min-w-0">
@@ -850,7 +892,7 @@ function PersonCard({ person, role, lang }: { person: Person; role: string; lang
   )
 }
 
-function PositionCard({ p, pos, vocab, lang }: { p: CommunityProfile; pos: Position; vocab: Vocab; lang: Lang }) {
+function PositionCard({ p, pos, vocab, lang }: { p: BaseProfile; pos: Position; vocab: Vocab; lang: Lang }) {
   const L = (list: string, key: string | number | null | undefined) => vocabLabel(vocab, list, key, lang)
   const tx = positionTexts(p, pos.id, lang)
   const dir = textDir(lang)

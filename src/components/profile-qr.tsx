@@ -19,13 +19,26 @@ const FILE_SIZE = 1024
 const XLINK = "http://www.w3.org/1999/xlink"
 
 /**
- * A QR code of the startup's page on this site, for visitors to scan at its HITEX booth,
+ * A QR code of the startup's (or sponsor's) page on this site, for visitors to scan at its HITEX booth,
  * with SVG (print) and PNG downloads. Renders nothing while the profile has no slug.
  */
-export function ProfileQr({ slug, name, lang }: { slug: string; name: string; lang?: Lang }) {
+export function ProfileQr({
+  slug,
+  name,
+  lang,
+  url = profileUrl(slug),
+  noun = "startup",
+}: {
+  slug: string
+  name: string
+  lang?: Lang
+  /** the page the code opens; a startup's page by default */
+  url?: string
+  /** "this startup" while the name is empty */
+  noun?: string
+}) {
   const svgRef = useRef<SVGSVGElement>(null)
   const [busy, setBusy] = useState<"svg" | "png" | null>(null)
-  const url = profileUrl(slug)
   const qr = useMemo(() => (slug ? qrShapes(url) : null), [slug, url])
   if (!qr) return null
 
@@ -66,7 +79,7 @@ export function ProfileQr({ slug, name, lang }: { slug: string; name: string; la
             <ScanQrCodeIcon className="size-4" style={{ color: HITEX_RED }} /> Open on your phone
           </p>
           <p className="text-xl font-semibold text-balance sm:text-2xl">
-            Scan to see <bdi lang={lang}>{name || "this startup"}</bdi> at a glance
+            Scan to see <bdi lang={lang}>{name || `this ${noun}`}</bdi> at a glance
           </p>
           <p className="max-w-prose text-muted-foreground">Point your phone camera at the code to open this page.</p>
           <p dir="ltr" className="font-mono text-xs break-all text-muted-foreground">

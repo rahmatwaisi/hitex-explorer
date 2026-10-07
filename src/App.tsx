@@ -2,7 +2,7 @@ import { Fragment, lazy, Suspense, useCallback, useEffect, useState } from "reac
 import { MoonIcon, SunIcon } from "lucide-react"
 
 import { AboutPage } from "@/components/about-page"
-import { ContributionPage } from "@/components/contribution-page"
+import { ContributionHub, ContributionPage, SponsorContributionPage } from "@/components/contribution-page"
 import { DatasetPage } from "@/components/dataset-page"
 import { Footer } from "@/components/footer"
 import { HomePage } from "@/components/home-page"
@@ -10,6 +10,7 @@ import { JobsPage } from "@/components/jobs-page"
 import { KeywordHighlights } from "@/components/keyword-highlights"
 import { Logo } from "@/components/logo"
 import { Loading, ProfilePage } from "@/components/profile-page"
+import { SponsorProfilePage } from "@/components/sponsor-profile"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { useTheme } from "@/hooks/use-theme"
@@ -25,14 +26,32 @@ import { nextColor, type Keyword } from "@/lib/keywords"
 const ProfileFormPage = lazy(() => import("@/components/profile-form"))
 
 const isProfile = (route: Route): route is `profile:${string}` => !!route?.startsWith("profile:")
+const isSponsorProfile = (route: Route): route is `sponsor:${string}` => !!route?.startsWith("sponsor:")
 const isForm = (route: Route): route is "form" | `form:${string}` => route === "form" || !!route?.startsWith("form:")
-const navKey = (route: Route) => (isProfile(route) ? "startups" : isForm(route) ? "contribution" : route)
+const isSponsorForm = (route: Route): route is "sponsor-form" | `sponsor-form:${string}` =>
+  route === "sponsor-form" || !!route?.startsWith("sponsor-form:")
+const navKey = (route: Route) =>
+  isProfile(route)
+    ? "startups"
+    : isSponsorProfile(route)
+      ? "sponsors"
+      : isForm(route) || isSponsorForm(route) || route?.startsWith("contribution")
+        ? "contribution"
+        : route
 
-/** The browser tab's title; a profile page sets its own (the startup's name). */
+/** The browser tab's title; a profile page sets its own (the startup's or sponsor's name). */
 function usePageTitle(route: Route) {
   useEffect(() => {
-    if (isProfile(route)) return
-    setPageTitle(route && route in SECTIONS ? SECTIONS[route as SectionKey].title : isForm(route) ? "Startup Profile Form | HITEX Explorer" : SITE_TITLE)
+    if (isProfile(route) || isSponsorProfile(route)) return
+    setPageTitle(
+      route && route in SECTIONS
+        ? SECTIONS[route as SectionKey].title
+        : isForm(route)
+          ? "Startup Profile Form | HITEX Explorer"
+          : isSponsorForm(route)
+            ? "Sponsor Profile Form | HITEX Explorer"
+            : SITE_TITLE
+    )
   }, [route])
 }
 
@@ -122,13 +141,28 @@ export default function App() {
             onClearKeywords={clearKeywords}
           />
         ) : route === "contribution" ? (
+          <ContributionHub />
+        ) : route === "contribution/startup" ? (
           <ContributionPage lang={lang} />
+        ) : route === "contribution/sponsor" ? (
+          <SponsorContributionPage lang={lang} />
         ) : isForm(route) ? (
           <Suspense fallback={<Loading what="the form" />}>
             <ProfileFormPage
               key={`${route}?${query.get("startup") ?? ""}`}
+              kind="startup"
               slug={route === "form" ? undefined : route.slice("form:".length)}
               startId={query.get("startup") ?? undefined}
+              lang={lang}
+            />
+          </Suspense>
+        ) : isSponsorForm(route) ? (
+          <Suspense fallback={<Loading what="the form" />}>
+            <ProfileFormPage
+              key={`${route}?${query.get("sponsor") ?? ""}`}
+              kind="sponsor"
+              slug={route === "sponsor-form" ? undefined : route.slice("sponsor-form:".length)}
+              startId={query.get("sponsor") ?? undefined}
               lang={lang}
             />
           </Suspense>
@@ -136,6 +170,10 @@ export default function App() {
           // the search keywords stay on and are highlighted in the profile
           <KeywordHighlights keywords={keywords} onClear={clearKeywords}>
             <ProfilePage key={route} slug={route.slice("profile:".length)} lang={lang} />
+          </KeywordHighlights>
+        ) : isSponsorProfile(route) ? (
+          <KeywordHighlights keywords={keywords} onClear={clearKeywords}>
+            <SponsorProfilePage key={route} slug={route.slice("sponsor:".length)} lang={lang} />
           </KeywordHighlights>
         ) : route ? (
           <DatasetPage

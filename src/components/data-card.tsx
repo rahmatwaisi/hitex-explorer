@@ -34,7 +34,10 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
 
   return (
     <Card
-      className={cn("relative h-full transition-shadow duration-500", card.profile && "ring-[#EB2637]/45 dark:ring-[#EB2637]/55")}
+      className={cn(
+        "relative h-full transition-shadow duration-500",
+        card.profile && (card.profile.sponsor ? "ring-sponsor/55 dark:ring-sponsor/80" : "ring-[#EB2637]/45 dark:ring-[#EB2637]/55")
+      )}
       style={style}
       data-match={glow ? "" : undefined}
       data-deep-match={deepOnly ? "" : undefined}
@@ -76,7 +79,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
       )}
 
       {/* after the image: the card styles its first child image */}
-      {card.profile && <ProfileButton href={card.profile.href} name={card.title} />}
+      {card.profile && <ProfileButton href={card.profile.href} name={card.title} sponsor={card.profile.sponsor} />}
       {bulbs && <Bulbs keywords={bulbs} />}
 
       <CardHeader>
@@ -103,7 +106,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
         {(card.badges.length > 0 || card.profile) && (
           <div dir={dir} className={cn("flex flex-wrap gap-1.5 pt-1", card.centered && "justify-center")}>
             {card.profile && (
-              <Badge className="border-transparent bg-[#EB2637] text-white">
+              <Badge className={cn("border-transparent text-white", card.profile.sponsor ? "bg-sponsor" : "bg-[#EB2637]")}>
                 <BadgeCheckIcon data-icon="inline-start" /> Full profile
               </Badge>
             )}
@@ -166,14 +169,19 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
   )
 })
 
-/** HITEX icon on a white disc in the card's corner; opens the startup's own page. */
-function ProfileButton({ href, name }: { href: string; name: string }) {
+/** HITEX icon on a white disc in the card's corner; opens the startup's (red) or sponsor's (navy) own page. */
+function ProfileButton({ href, name, sponsor }: { href: string; name: string; sponsor?: boolean }) {
   return (
     <a
       href={href}
       aria-label={`Open the full profile of ${name}`}
       title="Full profile"
-      className="absolute end-3 top-3 z-[1] flex size-11 items-center justify-center rounded-full bg-white shadow-[0_0_0_2px_#EB2637,0_6px_18px_-4px_rgb(235_38_55/0.6)] transition-transform hover:scale-110 focus-visible:ring-3 focus-visible:ring-[#EB2637]/50 focus-visible:outline-none"
+      className={cn(
+        "absolute end-3 top-3 z-[1] flex size-11 items-center justify-center rounded-full bg-white transition-transform hover:scale-110 focus-visible:ring-3 focus-visible:outline-none",
+        sponsor
+          ? "shadow-[0_0_0_2px_var(--sponsor),0_6px_18px_-4px_color-mix(in_oklab,var(--sponsor)_60%,transparent)] focus-visible:ring-sponsor/50"
+          : "shadow-[0_0_0_2px_#EB2637,0_6px_18px_-4px_rgb(235_38_55/0.6)] focus-visible:ring-[#EB2637]/50"
+      )}
     >
       <img src={`${import.meta.env.BASE_URL}brand/apple-touch-icon.png`} alt="" className="size-7 object-contain" />
     </a>

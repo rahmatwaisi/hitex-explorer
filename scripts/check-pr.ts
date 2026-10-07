@@ -1,4 +1,4 @@
-// Checks a pull request that adds or edits a startup profile, and writes a Markdown report.
+// Checks a pull request that adds or edits a startup or sponsor profile, and writes a Markdown report.
 // Used by .github/workflows/profile-check.yml. It only reads the PR's file through git as data;
 // it never runs code from the pull request.
 //
@@ -10,17 +10,22 @@ import path from "node:path"
 import YAML from "yaml"
 
 import {
+  KINDS,
   MAX_FILE_BYTES,
   checkFileName,
   createSchemaValidator,
-  loadHitexStartupIds,
+  loadHitexIds,
   loadVocab,
   validateProfileText,
   type Profile,
+  type ProfileKind,
 } from "./lib/profiles.ts"
 
 export const MARKER = "<!-- hitex-profile-check -->"
-const DIR = "public/startups/"
+/** "public/startups/", "public/sponsors/" */
+const dirOf = (kind: ProfileKind) => `${KINDS[kind].dir}/`
+const kindOf = (file: string) =>
+  (Object.keys(KINDS) as ProfileKind[]).find((k) => file.startsWith(dirOf(k)) && !file.slice(dirOf(k).length).includes("/"))
 
 function arg(name: string, fallback = "") {
   const i = process.argv.indexOf(`--${name}`)
@@ -50,7 +55,7 @@ const warnings: string[] = []
 const passed: string[] = []
 let file = ""
 
-// 1. exactly one file, inside public/startups/, added or modified
+// 1. exactly one file, inside public/startups/ or public/sponsors/, added or modified
 const changes = git("diff", "--name-status", "-M", `${base}...${head}`)
   .trim()
   .split("\n")
@@ -65,15 +70,16 @@ if (changes.length !== 1) {
 } else {
   const { status, paths } = changes[0]
   file = paths.at(-1)!
-  if (!file.startsWith(DIR) || file.slice(DIR.length).includes("/")) {
-    errors.push(`The file must be directly inside \`${DIR}\` (found \`${file}\`).`)
+  const kind = kindOf(file)
+  if (!kind) {
+    errors.push(`The file must be directly inside \`${dirOf("startup")}\` or \`${dirOf("sponsor")}\` (found \`${file}\`).`)
   } else if (status === "R") {
     errors.push(`Renaming profile files is not allowed (\`${paths[0]}\` → \`${paths[1]}\`). Keep the original name.`)
   } else if (status !== "A" && status !== "M" && status !== "D") {
     errors.push(`Unsupported change type "${status}" for \`${file}\`.`)
   } else {
-    passed.push(`One file changed: \`${file}\` (${status === "A" ? "new profile" : status === "M" ? "update" : "removal"})`)
-    checkFile(status, file)
+    passed.push(`One file changed: \`${file}\` (${status === "A" ? `new ${kind} profile` : status === "M" ? "update" : "removal"})`)
+    checkFile(status, file, kind)
   }
 }
 
@@ -81,14 +87,15 @@ function owners(profile: Profile | undefined) {
   return ((profile?.maintainers as string[] | undefined) ?? []).map((m) => m.toLowerCase())
 }
 
-function checkFile(status: string, file: string) {
+function checkFile(status: string, file: string, kind: ProfileKind) {
   const name = path.basename(file)
+  const { noun, list } = KINDS[kind]
   const vocab = loadVocab()
-  const validateSchema = createSchemaValidator()
-  const hitexIds = loadHitexStartupIds()
+  const validateSchema = createSchemaValidator(kind)
+  const hitexIds = loadHitexIds(kind)
   const parseAt = (ref: string) => {
     const text = fileAt(ref, file)
-    return text === null ? undefined : validateProfileText(text, { fileName: name, vocab, validateSchema, hitexIds })
+    return text === null ? undefined : validateProfileText(text, { kind, fileName: name, vocab, validateSchema, hitexIds })
   }
   const isAdmin = admins.includes(author)
 
@@ -111,14 +118,14 @@ function checkFile(status: string, file: string) {
     errors.push(`The file is larger than ${MAX_FILE_BYTES / 1024} KB.`)
     return
   }
-  const res = validateProfileText(text, { fileName: name, vocab, validateSchema, hitexIds })
+  const res = validateProfileText(text, { kind, fileName: name, vocab, validateSchema, hitexIds })
   errors.push(...res.errors)
   warnings.push(...res.warnings)
   if (!res.errors.length) passed.push("Valid YAML, fields and values follow the template")
   const profile = res.profile
 
-  // the other profiles on the base branch: slug and HITEX startup must be unique
-  const otherFiles = git("ls-tree", "--name-only", base, DIR)
+  // the other profiles of this kind on the base branch: slug and HITEX record must be unique
+  const otherFiles = git("ls-tree", "--name-only", base, dirOf(kind))
     .split("\n")
     .filter((f) => f.endsWith(".yml") && f !== file)
   if (slug && status === "A") {
@@ -135,8 +142,8 @@ function checkFile(status: string, file: string) {
         return false
       }
     })
-    if (taken) errors.push(`This HITEX startup already has a profile (\`${taken}\`). Edit that file instead of adding a new one.`)
-    else passed.push("Linked to a startup listed by HITEX, and it has no other profile")
+    if (taken) errors.push(`This HITEX ${noun} already has a profile (\`${taken}\`). Edit that file instead of adding a new one.`)
+    else passed.push(`Linked to a ${noun} listed by HITEX (\`${list}\`), and it has no other profile`)
   }
 
   // 6. ownership
@@ -155,7 +162,7 @@ const unique = (list: string[]) => [...new Set(list)]
 const ok = errors.length === 0
 const lines = [
   MARKER,
-  ok ? "### ✅ Startup profile check passed" : "### ❌ Startup profile check found problems",
+  ok ? "### ✅ Profile check passed" : "### ❌ Profile check found problems",
   "",
   ...passed.map((p) => `- ✅ ${p}`),
   ...unique(errors).map((e) => `- ❌ ${e}`),

@@ -1,15 +1,17 @@
-// Open positions from the startup profiles, one card each, for the jobs page (/jobs).
-import { ALL_LANGS, LANG_NAMES, fields, monogram, profileHref, withHidden, type CardModel, type HiddenText } from "@/lib/cards"
+// Open positions from the startup and sponsor profiles, one card each, for the jobs page (/jobs).
+import { ALL_LANGS, LANG_NAMES, fields, monogram, withHidden, type CardModel, type HiddenText } from "@/lib/cards"
 import {
   activePositions,
   formatSalary,
+  isSponsor,
   ltr,
+  pageHref,
   positionTexts,
   profileText,
   vocabLabel,
   vocabLabels,
+  type AnyProfile,
   type CommunityData,
-  type CommunityProfile,
   type Position,
   type Vocab,
 } from "@/lib/community"
@@ -17,15 +19,15 @@ import type { Lang } from "@/lib/data"
 import { convertedSalary, monthlyMax, type Currency } from "@/lib/salary"
 
 export interface Job {
-  profile: CommunityProfile
+  profile: AnyProfile
   position: Position
 }
 
-/** Positions shown on profiles: hiring info under 90 days old and the deadline not passed. */
+/** Positions shown on profiles (startups, then sponsors): hiring info under 90 days old and the deadline not passed. */
 export const openJobs = (data: CommunityData): Job[] =>
-  data.profiles.flatMap((profile) => activePositions(profile).map((position) => ({ profile, position })))
+  [...data.profiles, ...data.sponsors].flatMap((profile) => activePositions(profile).map((position) => ({ profile, position })))
 
-const workMode = (j: Job) => j.position.work_mode || j.profile.work_mode
+const workMode = (j: Job) => j.position.work_mode || j.profile.work_mode || ""
 const interviewsAtHitex = (j: Job) => !!(j.profile.hitex?.at_event?.attending && j.profile.hitex.at_event.interviewing_at_booth)
 
 export const JOB_FILTERS: { key: string; label: string; test: (j: Job) => boolean }[] = [
@@ -38,6 +40,7 @@ export const JOB_FILTERS: { key: string; label: string; test: (j: Job) => boolea
   },
   { key: "salary", label: "Salary shown", test: (j) => j.position.salary?.type === "range" || j.position.salary?.type === "fixed" },
   { key: "hitex", label: "Interviews at HITEX", test: interviewsAtHitex },
+  { key: "sponsors", label: "At sponsors", test: (j) => isSponsor(j.profile) },
 ]
 
 /** Monthly pay in USD for sorting; jobs without a comparable amount sort last. */
@@ -62,7 +65,7 @@ export function jobCard(job: Job, vocab: Vocab, lang: Lang): CardModel {
   const city = p.location.city === "other" ? (p.location.city_other ?? "") : L("cities", p.location.city)
   const apply = pos.apply_url || p.hiring?.careers_page
   const exp = pos.experience_years
-  const href = profileHref(p.slug)
+  const href = pageHref(p)
 
   const card: CardModel = {
     id: `job-${p.slug}-${pos.id}`,
@@ -74,6 +77,7 @@ export function jobCard(job: Job, vocab: Vocab, lang: Lang): CardModel {
       L("employment", pos.employment),
       L("seniority", pos.seniority),
       L("work_modes", workMode(job)),
+      ...(isSponsor(p) ? ["HITEX sponsor"] : []),
       ...(pos.count && pos.count > 1 ? [`${pos.count} openings`] : []),
       ...(interviewsAtHitex(job) ? [event?.booth ? `Interviews at HITEX · booth ${event.booth}` : "Interviews at HITEX"] : []),
     ].filter(Boolean),

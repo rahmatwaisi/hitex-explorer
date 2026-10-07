@@ -1,6 +1,6 @@
 import { BuildingIcon, CalendarIcon, HandshakeIcon, MicIcon, NewspaperIcon, RocketIcon, type LucideIcon } from "lucide-react"
 
-import { agendaCards, orderSpeakers, organizationCard, speakerCard, startupCards, type CardModel } from "@/lib/cards"
+import { agendaCards, orderSpeakers, organizationCard, speakerCard, sponsorCards, startupCards, type CardModel } from "@/lib/cards"
 import { loadCommunity, type CommunityData } from "@/lib/community"
 import type { Agenda, Lang, Organization, Speaker, Startup } from "@/lib/data"
 import { dataUrl, fetchData, once, peek } from "@/lib/data-files"
@@ -45,7 +45,12 @@ export const datasets = {
     url: dataUrl("sponsors.json"),
     icon: HandshakeIcon,
     blurb: "Sponsors and partners with tier, booth and website.",
-    toCards: (data, lang) => (data as Organization[]).map((o) => organizationCard(o, lang)),
+    // HITEX sponsors plus the profiles contributed through public/sponsors/*.yml
+    load: async () => {
+      const [hitex, community] = await Promise.all([fetchData("sponsors.json"), loadCommunity()])
+      return { hitex, community }
+    },
+    toCards: (data, lang) => sponsorCards(data as { hitex: Organization[]; community: CommunityData }, lang),
   },
   media: {
     title: "Media",

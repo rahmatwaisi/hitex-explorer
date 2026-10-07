@@ -1,13 +1,23 @@
-// Rules for startup profile files (public/startups/*.yml). Shared by the build and the pull-request
-// check (scripts/, run directly with Node) and by the profile form in the browser, so it uses no
-// Node or DOM APIs. The caller compiles the JSON schema with Ajv and passes it in.
+// Rules for profile files: startups (public/startups/*.yml) and sponsors (public/sponsors/*.yml).
+// Shared by the build and the pull-request check (scripts/, run directly with Node) and by the profile
+// form in the browser, so it uses no Node or DOM APIs. The caller compiles the JSON schema with Ajv and
+// passes it in.
 import YAML from "yaml"
 
 export { fileStamp, snakeCase } from "./profile-names.ts"
 
 export const MAX_FILE_BYTES = 64 * 1024
-/** used by the example built from the template */
-export const RESERVED_SLUGS = new Set(["example_startup"])
+/** used by the examples built from the templates */
+export const RESERVED_SLUGS = new Set(["example_startup", "example_sponsor"])
+
+/** Startups and sponsors listed by HITEX can each complete a profile; they differ in a few sections. */
+export type ProfileKind = "startup" | "sponsor"
+
+/** Where a kind's files live, and the HITEX list its `hitex.existing_profile` must be in. */
+export const KINDS: Record<ProfileKind, { dir: string; list: string; noun: string }> = {
+  startup: { dir: "public/startups", list: "data/startups_list.json", noun: "startup" },
+  sponsor: { dir: "public/sponsors", list: "data/sponsors.json", noun: "sponsor" },
+}
 
 /** yyyymmdd_hhmmss_snake_case_name.yml */
 export const FILE_RE = /^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_([a-z0-9]+(?:_[a-z0-9]+)*)\.yml$/
@@ -36,12 +46,14 @@ export interface Result {
 }
 
 export interface RuleOptions {
+  /** default "startup" */
+  kind?: ProfileKind
   fileName?: string
   vocab: Vocab
   validateSchema: SchemaValidator
   hitexIds?: Set<string>
   now?: Date
-  /** validating templates/startup-profile.yml itself: its HITEX id is a placeholder */
+  /** validating a template (templates/*-profile.yml) itself: its HITEX id is a placeholder */
   template?: boolean
 }
 
@@ -198,6 +210,7 @@ export function schemaErrors(errors: SchemaError[]): string[] {
 function semanticChecks(p: Profile, opts: RuleOptions, errors: string[], warnings: string[]) {
   const { vocab } = opts
   const now = opts.now ?? new Date()
+  const kind = opts.kind ?? "startup"
 
   if (opts.fileName) {
     const { slug, error } = checkFileName(opts.fileName, now)
@@ -233,8 +246,12 @@ function semanticChecks(p: Profile, opts: RuleOptions, errors: string[], warning
   inList("industries", p.industry, "industry")
   needOther(p.industry, p.industry_other, "industry")
   inList("business_models", p.business_model, "business_model")
-  inList("stages", p.stage, "stage")
-  inList("team_sizes", p.team_size, "team_size")
+  if (kind === "startup") {
+    inList("stages", p.stage, "stage")
+    inList("team_sizes", p.team_size, "team_size")
+  } else {
+    inList("company_sizes", p.company_size, "company_size")
+  }
   inList("engineering_team_sizes", p.engineering_team_size, "engineering_team_size")
   inList("work_modes", p.work_mode, "work_mode")
   inList("work_weeks", p.work_week, "work_week")
@@ -249,28 +266,47 @@ function semanticChecks(p: Profile, opts: RuleOptions, errors: string[], warning
   ;(p.traction ?? []).forEach((x: Profile, i: number) => inList("traction_metrics", x.metric, `traction[${i}].metric`))
   allIn("sdgs", p.impact?.sdgs, "impact.sdgs")
 
-  // strict rule: only startups that HITEX lists can have a profile
+  // strict rule: only startups and sponsors that HITEX lists can have a profile
   const existing = p.hitex?.existing_profile
+  const { list, noun } = KINDS[kind]
   if (!opts.template && !empty(existing)) {
-    if (!opts.hitexIds?.size) errors.push("data/startups_list.json could not be read, so the startup can't be verified.")
+    if (!opts.hitexIds?.size) errors.push(`${list} could not be read, so the ${noun} can't be verified.`)
     else if (!opts.hitexIds.has(existing)) {
       errors.push(
-        `hitex.existing_profile: "${existing}" is not a startup listed by HITEX. Only startups in data/startups_list.json ` +
+        `hitex.existing_profile: "${existing}" is not a ${noun} listed by HITEX. Only ${noun}s in ${list} ` +
           "can have a profile; find your id on the Contribution page."
       )
     }
   }
+  allIn("event_activities", p.hitex?.at_event?.activities, "hitex.at_event.activities")
 
   // people
-  ;(p.founders ?? []).forEach((x: Profile, i: number) => inList("founder_roles", x.role, `founders[${i}].role`))
-  ;(p.core_team ?? []).forEach((x: Profile, i: number) => {
-    inList("team_roles", x.role, `core_team[${i}].role`)
-    needOther(x.role, x.role_other, `core_team[${i}].role`)
-  })
-  allIn("seeking", p.seeking, "seeking")
-  if (Array.isArray(p.seeking) && p.seeking.includes("co_founder")) {
-    if (empty(p.co_founder_role)) errors.push('co_founder_role: is required, because seeking includes "co_founder".')
-    else inList("co_founder_roles", p.co_founder_role, "co_founder_role")
+  if (kind === "startup") {
+    ;(p.founders ?? []).forEach((x: Profile, i: number) => inList("founder_roles", x.role, `founders[${i}].role`))
+    ;(p.core_team ?? []).forEach((x: Profile, i: number) => {
+      inList("team_roles", x.role, `core_team[${i}].role`)
+      needOther(x.role, x.role_other, `core_team[${i}].role`)
+    })
+    allIn("seeking", p.seeking, "seeking")
+    if (Array.isArray(p.seeking) && p.seeking.includes("co_founder")) {
+      if (empty(p.co_founder_role)) errors.push('co_founder_role: is required, because seeking includes "co_founder".')
+      else inList("co_founder_roles", p.co_founder_role, "co_founder_role")
+    }
+  } else {
+    ;(p.leadership ?? []).forEach((x: Profile, i: number) => {
+      inList("leadership_roles", x.role, `leadership[${i}].role`)
+      needOther(x.role, x.role_other, `leadership[${i}].role`)
+    })
+    // what the sponsor offers startups, and the partners it wants
+    const f = p.for_startups
+    if (f) {
+      allIn("sponsor_offers", f.offers, "for_startups.offers")
+      allIn("partnership_seeking", f.seeking, "for_startups.seeking")
+      if (f.contact) {
+        inList("partnership_contact_roles", f.contact.role, "for_startups.contact.role")
+        inList("preferred_contact", f.contact.preferred_contact, "for_startups.contact.preferred_contact")
+      }
+    }
   }
 
   // hiring

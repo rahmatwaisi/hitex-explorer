@@ -101,7 +101,8 @@
             <li><a href="/media/">Media</a></li>
             <li><a href="/speakers/">Speakers</a></li>
             <li><a href="/agenda/">Agenda</a></li>
-            <li><a href="/contribution/">Add your startup's profile</a></li>
+            <li><a href="/contribution/startup/">Add your startup's profile</a></li>
+            <li><a href="/contribution/sponsor/">Add your sponsor profile</a></li>
             <li><a href="/about/">About</a></li>
           </ul>
         </nav>
@@ -112,9 +113,20 @@
       </main>
       <!-- fallback:end -->
     </div>
-    <!-- Netlify Forms detects this form at deploy time; "Send without GitHub" in the profile form posts to it
+    <!-- Netlify Forms detects these forms at deploy time; "Send without GitHub" in the profile forms posts to them
          (src/components/profile-form/review.tsx). Submissions show under Forms in the Netlify dashboard. -->
     <form name="startup-profile" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="contact" />
+      <textarea name="note"></textarea>
+      <input name="mode" />
+      <input name="hitex_id" />
+      <input name="slug" />
+      <input name="file" />
+      <textarea name="yaml"></textarea>
+    </form>
+    <form name="sponsor-profile" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input name="bot-field" />
       <input name="name" />
       <input name="contact" />

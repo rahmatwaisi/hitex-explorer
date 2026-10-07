@@ -1,4 +1,4 @@
-# Fixed values used in startup profiles, with their labels per language.
+# Fixed values used in startup and sponsor profiles, with their labels per language.
 # Profiles store only the key (e.g. `fintech`); the site shows the label in the selected language
 # and falls back to English. To add an option, add a key here with at least an `en` label.
 # Lists marked `_open: true` also accept keys that are not listed yet (shown as written).
@@ -36,6 +36,11 @@ industries:
   govtech: { en: GovTech, ar: التكنولوجيا الحكومية, ku: تەکنەلۆژیای حکومی, fa: فناوری دولتی }
   hr_tech: { en: HR tech, ar: تكنولوجيا الموارد البشرية, ku: تەکنەلۆژیای سەرچاوە مرۆییەکان, fa: فناوری منابع انسانی }
   food_delivery: { en: Food & delivery, ar: الطعام والتوصيل, ku: خواردن و گەیاندن, fa: غذا و پیک }
+  banking_insurance: { en: Banking & insurance, ar: المصارف والتأمين, ku: بانک و بیمە, fa: بانکداری و بیمه }
+  it_infrastructure: { en: IT & infrastructure, ar: تقنية المعلومات والبنية التحتية, ku: تەکنەلۆژیای زانیاری و ژێرخان, fa: فناوری اطلاعات و زیرساخت }
+  hardware_electronics: { en: Hardware & electronics, ar: الأجهزة والإلكترونيات, ku: ئامێر و ئەلیکترۆنیات, fa: سخت‌افزار و الکترونیک }
+  consulting: { en: Consulting, ar: الاستشارات, ku: ڕاوێژکاری, fa: مشاوره }
+  ngo_development: { en: NGO & development, ar: المنظمات غير الحكومية والتنمية, ku: ڕێکخراوی ناحکومی و گەشەپێدان, fa: سازمان مردم‌نهاد و توسعه }
   other: { en: Other, ar: أخرى, ku: هی تر, fa: دیگر }
 
 business_models:
@@ -280,6 +285,75 @@ funding_stages:
   seed: { en: Seed, ar: البذرة, ku: تۆو, fa: بذری }
   series_a_plus: { en: Series A+, ar: الجولة A وما بعدها, ku: خولی A و دواتر, fa: سری A به بعد }
   undisclosed: { en: Not disclosed, ar: غير معلن, ku: ئاشکرا نەکراوە, fa: اعلام نشده }
+
+# ── sponsor profiles (public/sponsors/*.yml) ──────────────────────────────────
+
+company_sizes:
+  "11-50": { en: "11–50" }
+  "51-200": { en: "51–200" }
+  "201-1000": { en: "201–1,000" }
+  "1001-5000": { en: "1,001–5,000" }
+  "5000+": { en: "5,000+" }
+
+leadership_roles:
+  ceo: { en: CEO, ar: الرئيس التنفيذي, ku: بەڕێوەبەری جێبەجێکار, fa: مدیرعامل }
+  country_manager: { en: Country manager, ar: المدير القُطري, ku: بەڕێوەبەری وڵات, fa: مدیر کشوری }
+  general_manager: { en: General manager, ar: المدير العام, ku: بەڕێوەبەری گشتی, fa: مدیر کل }
+  cto: { en: CTO, ar: المدير التقني, ku: بەڕێوەبەری تەکنیکی, fa: مدیر ارشد فناوری }
+  cio: { en: CIO, ar: مدير تقنية المعلومات, ku: بەڕێوەبەری تەکنەلۆژیای زانیاری, fa: مدیر ارشد فناوری اطلاعات }
+  cmo: { en: CMO, ar: مدير التسويق, ku: بەڕێوەبەری بازاڕکردن, fa: مدیر ارشد بازاریابی }
+  cfo: { en: CFO, ar: المدير المالي, ku: بەڕێوەبەری دارایی, fa: مدیر مالی }
+  coo: { en: COO, ar: مدير العمليات, ku: بەڕێوەبەری کارپێکردن, fa: مدیر عملیات }
+  head_of_partnerships: { en: Head of partnerships, ar: رئيس الشراكات, ku: سەرۆکی هاوبەشییەکان, fa: مدیر همکاری‌های تجاری }
+  head_of_innovation: { en: Head of innovation, ar: رئيس الابتكار, ku: سەرۆکی داهێنان, fa: مدیر نوآوری }
+  head_of_hr: { en: Head of HR, ar: رئيس الموارد البشرية, ku: سەرۆکی سەرچاوە مرۆییەکان, fa: مدیر منابع انسانی }
+  other: { en: Executive, ar: مسؤول تنفيذي, ku: بەڕێوەبەری باڵا, fa: مدیر ارشد }
+
+event_activities:
+  product_demos: { en: Product demos, ar: عروض المنتجات, ku: نمایشی بەرهەم, fa: نمایش محصول }
+  workshops: { en: Workshops, ar: ورش عمل, ku: وۆرکشۆپ, fa: کارگاه }
+  talks: { en: Talks, ar: محاضرات, ku: وتار, fa: سخنرانی }
+  startup_meetings: { en: Meetings with startups, ar: لقاءات مع الشركات الناشئة, ku: کۆبوونەوە لەگەڵ ستارتئەپەکان, fa: دیدار با استارتاپ‌ها }
+  recruiting: { en: Recruiting, ar: توظيف, ku: دامەزراندن, fa: جذب نیرو }
+  product_launch: { en: Product launch, ar: إطلاق منتج, ku: ناساندنی بەرهەم, fa: رونمایی محصول }
+  competitions: { en: Competitions, ar: مسابقات, ku: پێشبڕکێ, fa: مسابقه }
+  giveaways: { en: Giveaways, ar: هدايا, ku: دیاری, fa: هدایا }
+
+sponsor_offers:
+  pilot_projects: { en: Pilot projects, ar: مشاريع تجريبية, ku: پرۆژەی تاقیکاری, fa: پروژه‌های آزمایشی }
+  procurement: { en: Buying from startups, ar: الشراء من الشركات الناشئة, ku: کڕین لە ستارتئەپەکان, fa: خرید از استارتاپ‌ها }
+  api_access: { en: API and platform access, ar: الوصول إلى الواجهات البرمجية والمنصة, ku: دەستگەیشتن بە API و پلاتفۆرم, fa: دسترسی به API و پلتفرم }
+  cloud_credits: { en: Cloud or service credits, ar: أرصدة سحابية أو خدمات, ku: کرێدیتی هەور یان خزمەتگوزاری, fa: اعتبار ابری یا خدمات }
+  discounts: { en: Startup discounts, ar: خصومات للشركات الناشئة, ku: داشکاندن بۆ ستارتئەپەکان, fa: تخفیف ویژه‌ی استارتاپ‌ها }
+  investment: { en: Investment, ar: استثمار, ku: وەبەرهێنان, fa: سرمایه‌گذاری }
+  acceleration: { en: Accelerator or incubator, ar: مسرّعة أو حاضنة أعمال, ku: خێراکەر یان ئینکوبەیتەر, fa: شتاب‌دهنده یا مرکز رشد }
+  mentorship: { en: Mentorship, ar: إرشاد, ku: ڕاوێژکاری, fa: منتورینگ }
+  office_space: { en: Office space, ar: مساحة مكتبية, ku: شوێنی ئۆفیس, fa: فضای کاری }
+  co_marketing: { en: Co-marketing, ar: تسويق مشترك, ku: بازاڕکردنی هاوبەش, fa: بازاریابی مشترک }
+  distribution: { en: Distribution to our customers, ar: التوزيع لعملائنا, ku: گەیاندن بە کڕیارانمان, fa: توزیع به مشتریان ما }
+  training: { en: Training, ar: تدريب, ku: ڕاهێنان, fa: آموزش }
+  hackathons: { en: Hackathons and challenges, ar: هاكاثونات ومسابقات, ku: هاکاسۆن و پێشبڕکێ, fa: هکاتون و چالش }
+  internships: { en: Internships, ar: تدريب عملي, ku: ڕاهێنانی کار, fa: کارآموزی }
+  scholarships: { en: Scholarships, ar: منح دراسية, ku: بورسی خوێندن, fa: بورسیه‌ی تحصیلی }
+  grants: { en: Grants, ar: منح, ku: بەخشین, fa: کمک‌بلاعوض }
+
+partnership_seeking:
+  startups_to_pilot: { en: Startups to pilot with, ar: شركات ناشئة لتجارب مشتركة, ku: ستارتئەپ بۆ پرۆژەی تاقیکاری, fa: استارتاپ برای پروژه‌ی آزمایشی }
+  technology_partners: { en: Technology partners, ar: شركاء تقنيون, ku: هاوبەشی تەکنەلۆژی, fa: شریک فناوری }
+  resellers: { en: Resellers, ar: موزعون, ku: فرۆشیار, fa: نمایندگان فروش }
+  integrators: { en: Integrators, ar: مُكاملو الأنظمة, ku: یەکخەرانی سیستەم, fa: یکپارچه‌سازان }
+  suppliers: { en: Suppliers, ar: موردون, ku: دابینکەران, fa: تأمین‌کنندگان }
+  talent: { en: Talent, ar: مواهب, ku: بەهرەمەندان, fa: استعداد }
+  investment_targets: { en: Startups to invest in, ar: شركات ناشئة للاستثمار, ku: ستارتئەپ بۆ وەبەرهێنان, fa: استارتاپ برای سرمایه‌گذاری }
+  research_partners: { en: Research partners, ar: شركاء بحث, ku: هاوبەشی توێژینەوە, fa: شریک پژوهشی }
+
+partnership_contact_roles:
+  partnerships_manager: { en: Partnerships manager, ar: مدير الشراكات, ku: بەڕێوەبەری هاوبەشییەکان, fa: مدیر همکاری‌ها }
+  business_development: { en: Business development, ar: تطوير الأعمال, ku: پەرەپێدانی بازرگانی, fa: توسعه‌ی کسب‌وکار }
+  innovation_manager: { en: Innovation manager, ar: مدير الابتكار, ku: بەڕێوەبەری داهێنان, fa: مدیر نوآوری }
+  marketing_manager: { en: Marketing manager, ar: مدير التسويق, ku: بەڕێوەبەری بازاڕکردن, fa: مدیر بازاریابی }
+  csr_manager: { en: CSR manager, ar: مدير المسؤولية الاجتماعية, ku: بەڕێوەبەری بەرپرسیارێتی کۆمەڵایەتی, fa: مدیر مسئولیت اجتماعی }
+  hr_manager: { en: HR manager, ar: مدير الموارد البشرية, ku: بەڕێوەبەری سەرچاوە مرۆییەکان, fa: مدیر منابع انسانی }
 
 tools:
   _open: true

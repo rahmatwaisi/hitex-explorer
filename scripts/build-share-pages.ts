@@ -5,6 +5,7 @@
 //   dist/startups/<slug>/index.html  the app's page with the startup's own title, description, preview,
 //                                    structured data and a plain-text summary
 //   dist/og/<slug>.png               the 1200×630 preview image
+// and the same for every sponsor profile, at dist/sponsors/<slug>/index.html and dist/og/sponsors/<slug>.png
 // so a shared https://hitex2026.netlify.app/startups/<slug>/ link shows the startup on LinkedIn, WhatsApp,
 // Telegram and the like, and search engines and AI tools can read it (their crawlers often don't run
 // JavaScript). People who open it get the app, which shows the profile. Pages live in folders, so their
@@ -18,7 +19,7 @@ import path from "node:path"
 
 import { Resvg } from "@resvg/resvg-js"
 
-import { SITE_URL, isOnThisSite, profileUrl } from "../src/lib/links.ts"
+import { SITE_URL, isOnThisSite, profileUrl, sponsorUrl } from "../src/lib/links.ts"
 import { SECTIONS, SECTION_KEYS, sectionPath, type SectionKey } from "../src/lib/pages.ts"
 import { ROOT, type Profile, type Vocab } from "./lib/profiles.ts"
 
@@ -30,7 +31,13 @@ const H = 630
 const community = JSON.parse(fs.readFileSync(path.join(DIST, "data/community.json"), "utf8")) as {
   vocab: Vocab
   profiles: Profile[]
+  sponsors?: Profile[]
 }
+const sponsors = community.sponsors ?? []
+const isSponsor = (p: Profile) => p.kind === "sponsor"
+/** a profile's page: /startups/<slug>/ or /sponsors/<slug>/ */
+const urlOf = (p: Profile) => (isSponsor(p) ? sponsorUrl(p.slug) : profileUrl(p.slug))
+const tierText = (tier: string | undefined) => (tier ? `${tier[0].toUpperCase()}${tier.slice(1)} sponsor` : "HITEX sponsor")
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8")
 const logo = `data:image/png;base64,${fs.readFileSync(path.join(ROOT, "public/brand/logo-dark.png")).toString("base64")}`
 
@@ -63,7 +70,7 @@ const city = (p: Profile) => (p.location?.city === "other" ? (p.location.city_ot
 const industry = (p: Profile) => (p.industry === "other" ? (p.industry_other ?? "") : label("industries", p.industry))
 const website = (p: Profile) => (isOnThisSite(p.website) ? "" : (p.website as string | undefined) ?? "")
 
-/** schema.org: a profile page about the startup, part of HITEX Explorer */
+/** schema.org: a profile page about the startup or sponsor, part of HITEX Explorer */
 function profileData(p: Profile, url: string, description: string) {
   const en = p.i18n.en
   const sameAs = [website(p), ...Object.values(p.links ?? {})].filter((u): u is string => typeof u === "string" && !!u)
@@ -81,28 +88,37 @@ function profileData(p: Profile, url: string, description: string) {
       description: en.description ?? en.tagline,
       ...(website(p) ? { url: website(p) } : {}),
       logo: p.logo_url,
-      foundingDate: p.founded,
+      ...(p.founded ? { foundingDate: p.founded } : {}),
       address: { "@type": "PostalAddress", addressLocality: city(p), addressCountry: p.location?.country },
-      founder: (p.founders ?? []).map((f: Profile) => ({ "@type": "Person", name: f.name })),
+      ...(p.founders?.length ? { founder: p.founders.map((f: Profile) => ({ "@type": "Person", name: f.name })) } : {}),
       ...(sameAs.length ? { sameAs } : {}),
     },
   }
 }
 
-/** The startup's summary in plain HTML, in place of the home page's (for crawlers without JavaScript). */
+/** The profile's summary in plain HTML, in place of the home page's (for crawlers without JavaScript). */
 function profileSummary(p: Profile, description: string) {
   const en = p.i18n.en
-  const facts = [industry(p), label("stages", p.stage), city(p), p.founded ? `founded ${String(p.founded).slice(0, 4)}` : ""].filter(Boolean)
+  const sponsor = isSponsor(p)
+  const facts = [
+    sponsor ? tierText(p.tier) : "",
+    industry(p),
+    sponsor ? "" : label("stages", p.stage),
+    city(p),
+    p.founded ? `founded ${String(p.founded).slice(0, 4)}` : "",
+  ].filter(Boolean)
+  const offers = sponsor ? ((p.for_startups?.offers ?? []) as string[]).map((o) => label("sponsor_offers", o)) : []
   return `
       <main class="mx-auto flex max-w-3xl flex-col gap-4 px-4 py-16 sm:px-6">
         <h1 class="text-3xl font-semibold">${escape(en.name)}</h1>
         ${en.tagline ? `<p class="text-lg text-muted-foreground">${escape(en.tagline)}</p>` : ""}
         <p>${escape(en.description ?? description)}</p>
         <p class="text-sm text-muted-foreground">${escape(facts.join(" · "))}</p>
+        ${offers.length ? `<p>For startups: ${escape(offers.join(", "))}</p>` : ""}
         ${website(p) ? `<p><a href="${escape(website(p))}">${escape(website(p))}</a></p>` : ""}
         <p class="text-sm text-muted-foreground">
-          A HITEX 2026 startup on <a href="/">HITEX Explorer</a>, the independent explorer for HITEX 2026.
-          <a href="/startups/">All startups</a> · <a href="/jobs/">Jobs</a>
+          A HITEX 2026 ${sponsor ? "sponsor" : "startup"} on <a href="/">HITEX Explorer</a>, the independent explorer for HITEX 2026.
+          ${sponsor ? `<a href="/sponsors/">All sponsors</a>` : `<a href="/startups/">All startups</a>`} · <a href="/jobs/">Jobs</a>
         </p>
       </main>
       `
@@ -130,16 +146,19 @@ function pageHtml(o: { title: string; description: string; url: string; image: s
   return between(html, "<!-- fallback:start", "<!-- fallback:end -->", ` (${o.what}) -->${o.summary}`)
 }
 
+/** og/<slug>.png for startups, og/sponsors/<slug>.png for sponsors */
+const ogPath = (p: Profile) => (isSponsor(p) ? `og/sponsors/${p.slug}.png` : `og/${p.slug}.png`)
+
 function page(p: Profile, title: string, description: string) {
-  const url = profileUrl(p.slug)
+  const url = urlOf(p)
   return pageHtml({
     title,
     description,
     url,
-    image: `${SITE_URL}/og/${p.slug}.png`,
+    image: `${SITE_URL}/${ogPath(p)}`,
     data: profileData(p, url, description),
     summary: profileSummary(p, description),
-    what: "this startup's summary",
+    what: `this ${isSponsor(p) ? "sponsor" : "startup"}'s summary`,
   })
 }
 
@@ -185,22 +204,27 @@ function sectionList(key: SectionKey): string {
       )
     case "jobs":
       return ul(
-        community.profiles.flatMap((p) =>
+        [...community.profiles, ...sponsors].flatMap((p) =>
           openPositions(p).map((pos) =>
-            li([p.i18n.en.positions?.[pos.id]?.title ?? pos.id, p.i18n.en.name, label("employment", pos.employment), salary(pos.salary)], profileUrl(p.slug))
+            li([p.i18n.en.positions?.[pos.id]?.title ?? pos.id, p.i18n.en.name, label("employment", pos.employment), salary(pos.salary)], urlOf(p))
           )
         ),
-        "No open positions yet. Startups that took part in HITEX list their openings in their profile."
+        "No open positions yet. Startups and sponsors that took part in HITEX list their openings in their profile."
       )
     case "exhibitors":
     case "sponsors":
-    case "media":
+    case "media": {
+      const sponsorOf = new Map(sponsors.map((p) => [p.hitex?.existing_profile, p]))
       return ul(
-        readData<{ name: Localized; booth_number: string | null; tier: string | null; country: { name: Localized } | null; sector: Localized; website_url: string | null }[]>(
+        readData<{ id: string; name: Localized; booth_number: string | null; tier: string | null; country: { name: Localized } | null; sector: Localized; website_url: string | null }[]>(
           `${key}.json`
-        ).map((o) => li([en(o.name), o.booth_number && `booth ${o.booth_number}`, o.tier, en(o.country?.name), en(o.sector)], o.website_url ?? undefined)),
+        ).map((o) => {
+          const p = key === "sponsors" ? sponsorOf.get(o.id) : undefined
+          return li([en(o.name), o.booth_number && `booth ${o.booth_number}`, o.tier, en(o.country?.name), en(o.sector)], p ? urlOf(p) : (o.website_url ?? undefined))
+        }),
         "None listed yet."
       )
+    }
     case "speakers":
       return ul(
         readData<{ name: Localized; title: Localized; company: Localized }[]>("speakers.json").map((sp) => li([en(sp.name), en(sp.title), en(sp.company)])),
@@ -220,7 +244,11 @@ function sectionList(key: SectionKey): string {
         .join("")
     }
     case "contribution":
+      return `<p>Startups and sponsors that took part in HITEX can give their organization a full page here. <a href="/contribution/startup/">Contribute as Startup</a> · <a href="/contribution/sponsor/">Contribute as Sponsor</a></p>`
+    case "contribution/startup":
       return `<p>Find your startup in HITEX's list, answer a few questions in the <a href="/contribution/form">profile form</a> (what HITEX publishes is filled in for you), then submit it on GitHub or send it without GitHub. It's free for every startup HITEX lists.</p>`
+    case "contribution/sponsor":
+      return `<p>Find your organization in HITEX's list of sponsors, answer a few questions in the <a href="/contribution/sponsor/form">sponsor profile form</a> (what HITEX publishes is filled in for you), then submit it on GitHub or send it without GitHub. Show startups what you offer, the partners you're looking for, your leadership and the roles you're hiring for.</p>`
     case "about":
       return `<p>HITEX Explorer is an independent project by Rahmat Waisi, built on HITEX's public data. It is not affiliated with HITEX (<a href="https://hitex.tech/en">hitex.tech</a>).</p>`
   }
@@ -241,7 +269,7 @@ function sectionPage(key: SectionKey) {
     what: "this section's content",
     data: {
       "@context": "https://schema.org",
-      "@type": key === "about" || key === "contribution" ? "WebPage" : "CollectionPage",
+      "@type": key === "about" || key.startsWith("contribution") ? "WebPage" : "CollectionPage",
       name: title,
       url,
       description,
@@ -298,6 +326,7 @@ function hue(id: string) {
 const textWidth = (text: string, size: number) => text.length * size * 0.56
 
 function previewSvg(p: Profile) {
+  const sponsor = isSponsor(p)
   const name = p.i18n.en.name as string
   const tagline = (p.i18n.en.tagline as string | undefined) ?? ""
   const letter = name.match(/[\p{L}\p{N}]/u)?.[0]?.toLocaleUpperCase() ?? "?"
@@ -310,7 +339,11 @@ function previewSvg(p: Profile) {
   const industry = p.industry === "other" ? (p.industry_other ?? "") : label("industries", p.industry)
   const updated = p.hiring?.updated ? Date.parse(`${p.hiring.updated}T00:00:00Z`) : 0
   const hiring = p.hiring && p.hiring.status !== "not_hiring" && Date.now() - updated <= 90 * 24 * 3600 * 1000
-  const chips = [...(hiring ? [{ text: "Hiring now", red: true }] : []), ...[industry, label("stages", p.stage), city].filter(Boolean).map((text) => ({ text, red: false }))]
+  const chips = [
+    ...(sponsor ? [{ text: tierText(p.tier), fill: "#2b3f86" }] : []),
+    ...(hiring ? [{ text: "Hiring now", fill: "#EB2637" }] : []),
+    ...[industry, sponsor ? "" : label("stages", p.stage), city].filter(Boolean).map((text) => ({ text, fill: "#26262b" })),
+  ]
 
   const textX = 330
   let y = 230
@@ -333,11 +366,11 @@ function previewSvg(p: Profile) {
   let chipX = textX
   const chipY = Math.max(y + 18, 420)
   const chipsSvg = chips
-    .map(({ text, red }) => {
+    .map(({ text, fill }) => {
       const w = textWidth(text, 26) + 40
       if (chipX + w > W - 60) return ""
       const out =
-        `<rect x="${chipX}" y="${chipY}" width="${w}" height="50" rx="25" fill="${red ? "#EB2637" : "#26262b"}" />` +
+        `<rect x="${chipX}" y="${chipY}" width="${w}" height="50" rx="25" fill="${fill}" />` +
         `<text x="${chipX + w / 2}" y="${chipY + 34}" font-size="26" font-weight="700" text-anchor="middle" fill="#fff">${escape(text)}</text>`
       chipX += w + 14
       return out
@@ -362,7 +395,7 @@ function previewSvg(p: Profile) {
   ${nameSvg}
   ${taglineSvg}
   ${chipsSvg}
-  <text x="80" y="560" font-size="28" fill="#8e8e93">${escape(profileUrl(p.slug).replace("https://", ""))}</text>
+  <text x="80" y="560" font-size="28" fill="#8e8e93">${escape(urlOf(p).replace("https://", ""))}</text>
   <rect y="${H - 10}" width="${W}" height="10" fill="url(#neon)" />
 </svg>`
 }
@@ -381,15 +414,15 @@ function previewPng(p: Profile) {
 
 // ── write ───────────────────────────────────────────────────────────────────
 
-fs.mkdirSync(path.join(DIST, "og"), { recursive: true })
-for (const p of community.profiles) {
+fs.mkdirSync(path.join(DIST, "og", "sponsors"), { recursive: true })
+for (const p of [...community.profiles, ...sponsors]) {
   const en = p.i18n.en
   const title = `${en.name} · HITEX Explorer`
   const description = shorten([en.tagline, en.description].filter(Boolean).join(" — ").replace(/\s+/g, " "), 200)
-  const dir = path.join(DIST, "startups", p.slug)
+  const dir = path.join(DIST, isSponsor(p) ? "sponsors" : "startups", p.slug)
   fs.mkdirSync(dir, { recursive: true })
   fs.writeFileSync(path.join(dir, "index.html"), page(p, title, description))
-  fs.writeFileSync(path.join(DIST, "og", `${p.slug}.png`), previewPng(p))
+  fs.writeFileSync(path.join(DIST, ogPath(p)), previewPng(p))
 }
 for (const key of SECTION_KEYS) {
   fs.mkdirSync(path.join(DIST, key), { recursive: true })
@@ -397,13 +430,20 @@ for (const key of SECTION_KEYS) {
 }
 
 // the home page's plain-text summary lists the profiles
-const profiles = community.profiles.map((p) => ({ name: p.i18n.en.name as string, tagline: (p.i18n.en.tagline as string) ?? "", url: profileUrl(p.slug) }))
-if (profiles.length) {
-  const list = profiles.map((p) => `<li><a href="${escape(p.url)}">${escape(p.name)}</a>${p.tagline ? ` · ${escape(p.tagline)}` : ""}</li>`).join("")
+const summaryOf = (p: Profile) => ({ name: p.i18n.en.name as string, tagline: (p.i18n.en.tagline as string) ?? "", url: urlOf(p) })
+const profiles = community.profiles.map(summaryOf)
+const sponsorProfiles = sponsors.map(summaryOf)
+const listSection = (heading: string, list: typeof profiles) =>
+  list.length
+    ? `<section><h2 class="text-xl font-semibold">${heading}</h2><ul>${list
+        .map((p) => `<li><a href="${escape(p.url)}">${escape(p.name)}</a>${p.tagline ? ` · ${escape(p.tagline)}` : ""}</li>`)
+        .join("")}</ul></section>`
+    : ""
+if (profiles.length || sponsorProfiles.length) {
   if (!template.includes("<!-- startup-profiles -->")) throw new Error("build-share-pages: <!-- startup-profiles --> not found in dist/index.html")
   fs.writeFileSync(
     path.join(DIST, "index.html"),
-    template.replace("<!-- startup-profiles -->", `<section><h2 class="text-xl font-semibold">Startup profiles</h2><ul>${list}</ul></section>`)
+    template.replace("<!-- startup-profiles -->", listSection("Startup profiles", profiles) + listSection("Sponsor profiles", sponsorProfiles))
   )
 }
 
@@ -412,7 +452,7 @@ const today = new Date().toISOString().slice(0, 10)
 const urls = [
   { loc: `${SITE_URL}/`, changefreq: "daily", priority: "1.0" },
   ...SECTION_KEYS.map((k) => ({ loc: `${SITE_URL}${sectionPath(k)}`, changefreq: k === "about" ? "monthly" : "daily", priority: k === "about" ? "0.3" : "0.9" })),
-  ...profiles.map((p) => ({ loc: p.url, changefreq: "weekly", priority: "0.8" })),
+  ...[...profiles, ...sponsorProfiles].map((p) => ({ loc: p.url, changefreq: "weekly", priority: "0.8" })),
 ]
 fs.writeFileSync(
   path.join(DIST, "sitemap.xml"),
@@ -426,17 +466,18 @@ ${urls.map((u) => `  <url>\n    <loc>${escape(u.loc)}</loc>\n    <lastmod>${toda
 // llms.txt (https://llmstxt.org): what the site is, where things are, and the open data files
 const sections: [string, string, string][] = [
   ["Startups", "startups", "every startup HITEX lists (2022–2026), with founders and descriptions; those with a full profile link to it"],
-  ["Jobs", "jobs", "open positions at HITEX startups, with salaries in USD and IQD"],
+  ["Jobs", "jobs", "open positions at HITEX startups and sponsors, with salaries in USD and IQD"],
   ["Exhibitors", "exhibitors", "exhibitors with tier, booth number, country, sector and website"],
-  ["Sponsors", "sponsors", "sponsors and partners"],
+  ["Sponsors", "sponsors", "sponsors and partners; those with a full profile link to it"],
   ["Media", "media", "media outlets covering HITEX"],
   ["Speakers", "speakers", "conference speakers with roles and bios"],
   ["Agenda", "agenda", "HITEX 2026 sessions by day, with speakers"],
-  ["Contribution", "contribution", "how a HITEX startup completes its profile"],
+  ["Contribute as Startup", "contribution/startup", "how a HITEX startup completes its profile"],
+  ["Contribute as Sponsor", "contribution/sponsor", "how a HITEX sponsor completes its profile: offers to startups, leadership and jobs"],
 ]
 const files: [string, string][] = [
   ["startups_list.json", "HITEX startups"],
-  ["community.json", "completed startup profiles (team, products, hiring, funding)"],
+  ["community.json", "completed startup profiles (team, products, hiring, funding) and sponsor profiles (offers to startups, leadership, hiring)"],
   ["exhibitors.json", "exhibitors"],
   ["sponsors.json", "sponsors"],
   ["media.json", "media"],
@@ -449,7 +490,7 @@ fs.writeFileSync(
 
 > The ultimate third-party explorer for HITEX 2026, the technology exhibition held 6–9 October 2026 at Erbil International Fairground, Kurdistan Region of Iraq. Search startups, exhibitors and their booths, sponsors, media, speakers, the agenda and jobs, in English, Arabic, Kurdish and Persian. An independent project by Rahmat Waisi, built on HITEX's public data; not affiliated with HITEX (https://hitex.tech/en).
 
-Every section and every startup profile has its own page, listed below. Texts exist in English (en), Arabic (ar), Kurdish Sorani (ku) and Persian (fa).
+Every section and every startup and sponsor profile has its own page, listed below. Texts exist in English (en), Arabic (ar), Kurdish Sorani (ku) and Persian (fa).
 
 ## Sections
 
@@ -462,6 +503,12 @@ ${files.map(([file, what]) => `- [${file}](${SITE_URL}/data/${file}): ${what}`).
 ## Startup profiles
 
 ${profiles.length ? profiles.map((p) => `- [${p.name}](${p.url})${p.tagline ? `: ${p.tagline}` : ""}`).join("\n") : "None yet."}
+
+## Sponsor profiles
+
+${sponsorProfiles.length ? sponsorProfiles.map((p) => `- [${p.name}](${p.url})${p.tagline ? `: ${p.tagline}` : ""}`).join("\n") : "None yet."}
 `
 )
-console.log(`✓ ${SECTION_KEYS.length} section pages, ${community.profiles.length} profile page(s) with preview images; sitemap.xml and llms.txt written.`)
+console.log(
+  `✓ ${SECTION_KEYS.length} section pages, ${community.profiles.length} startup and ${sponsors.length} sponsor profile page(s) with preview images; sitemap.xml and llms.txt written.`
+)

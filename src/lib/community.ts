@@ -1,7 +1,10 @@
 import type { Lang } from "@/lib/data"
 import { fetchData, peekData } from "@/lib/data-files"
 
-/** Startup profiles contributed through public/startups/*.yml, compiled to data/community.json. */
+/**
+ * Profiles contributed through public/startups/*.yml and public/sponsors/*.yml, compiled to
+ * data/community.json.
+ */
 
 type Labels = Partial<Record<Lang, string>>
 export type Vocab = Record<string, Record<string, Labels | boolean>>
@@ -25,6 +28,10 @@ export interface ProfileTexts {
   looking_for?: string
   seeking_note?: string
   impact?: string
+  /** sponsors: what a startup gets from working with them */
+  offer_note?: string
+  /** sponsors: the partners they want */
+  partnership_note?: string
   products?: Record<string, string | null>
   positions?: Record<string, PositionTexts | null>
 }
@@ -61,15 +68,18 @@ export interface Position {
   salary?: Salary | null
 }
 
-export interface CommunityProfile {
+export type Hiring = NonNullable<BaseProfile["hiring"]>
+
+/** What startup and sponsor profiles share: company, products, links, hiring and texts. */
+export interface BaseProfile {
   file: string
   slug: string
-  /** the example built from templates/startup-profile.yml */
+  /** the example built from the kind's template (templates/*-profile.yml) */
   example?: boolean
   maintainers: string[]
   website: string
   logo_url: string
-  founded: string
+  founded?: string
   location: {
     city: string
     city_other?: string
@@ -81,15 +91,12 @@ export interface CommunityProfile {
   industry: string
   industry_other?: string
   business_model?: string
-  stage: string
-  team_size: string
   engineering_team_size?: string
-  work_mode: string
+  work_mode?: string
   work_week?: string
   tech_stack?: string[]
   tools?: string[]
   products?: { id: string; url?: string; platforms?: string[] }[]
-  traction?: { metric: string; value: string | number; as_of: string }[]
   recognition?: { name: string; year?: number | null; url?: string }[]
   hitex?: {
     years?: number[]
@@ -98,20 +105,19 @@ export interface CommunityProfile {
       attending?: boolean | null
       booth?: string
       days?: string[]
+      /** sponsors: what they do at their booth */
+      activities?: string[]
       interviewing_at_booth?: boolean | null
       walk_in_cvs?: boolean | null
       book_meeting_url?: string
     }
   }
   links?: Partial<Record<"linkedin" | "instagram" | "x" | "facebook" | "youtube" | "github" | "engineering_blog", string>>
-  media?: { demo_video?: string; pitch_deck?: string; press_kit?: string; photos?: string[] }
+  /** startups: demo_video, pitch_deck; sponsors: video, brochure */
+  media?: { demo_video?: string; pitch_deck?: string; video?: string; brochure?: string; press_kit?: string; photos?: string[] }
   clients?: { name: string; url?: string }[]
   partners?: { name: string; url?: string }[]
   impact?: { sdgs?: number[] }
-  founders: Person[]
-  core_team?: Person[]
-  seeking?: string[]
-  co_founder_role?: string
   hiring?: {
     status: string
     updated: string
@@ -155,28 +161,70 @@ export interface CommunityProfile {
     benefits?: string[]
     positions?: Position[]
   } | null
-  funding?: { raising?: string; amount?: string; stage?: string } | null
   i18n: Partial<Record<Lang, ProfileTexts | null>> & { en: ProfileTexts }
 }
+
+/** A HITEX startup's profile (public/startups/*.yml). */
+export interface CommunityProfile extends BaseProfile {
+  kind?: "startup"
+  founded: string
+  stage: string
+  team_size: string
+  work_mode: string
+  traction?: { metric: string; value: string | number; as_of: string }[]
+  founders: Person[]
+  core_team?: Person[]
+  seeking?: string[]
+  co_founder_role?: string
+  funding?: { raising?: string; amount?: string; stage?: string } | null
+}
+
+/** A HITEX sponsor's profile (public/sponsors/*.yml). */
+export interface SponsorProfile extends BaseProfile {
+  kind: "sponsor"
+  company_size: string
+  /** from HITEX's list (data/sponsors.json), added by the build */
+  tier?: string
+  leadership?: Person[]
+  for_startups?: {
+    offers?: string[]
+    seeking?: string[]
+    apply_url?: string
+    contact?: { name: string; role: string; linkedin?: string; email?: string; preferred_contact?: string } | null
+  } | null
+}
+
+export type AnyProfile = CommunityProfile | SponsorProfile
+
+export const isSponsor = (p: AnyProfile): p is SponsorProfile => p.kind === "sponsor"
 
 export interface CommunityData {
   generated_at?: string
   vocab: Vocab
-  /** the template rendered as a profile, shown under "Contribution guideline" */
+  /** templates/startup-profile.yml rendered as a profile, shown on the startup Contribution page */
   example?: CommunityProfile
   profiles: CommunityProfile[]
+  /** templates/sponsor-profile.yml rendered as a profile, shown on the sponsor Contribution page */
+  sponsor_example?: SponsorProfile
+  sponsors: SponsorProfile[]
 }
 
-const EMPTY: CommunityData = { vocab: {}, profiles: [] }
+const EMPTY: CommunityData = { vocab: {}, profiles: [], sponsors: [] }
 
 /** community.json is generated at build time; a missing file just means no profiles yet. */
 export async function loadCommunity(): Promise<CommunityData> {
   try {
-    return (await fetchData("community.json")) as CommunityData
+    const data = (await fetchData("community.json")) as CommunityData
+    // a community.json from before sponsor profiles
+    data.sponsors ??= []
+    return data
   } catch {
     return EMPTY
   }
 }
+
+/** A profile's page on this site: /startups/<slug>/ or /sponsors/<slug>/ */
+export const pageHref = (p: Pick<AnyProfile, "kind" | "slug">) => `/${p.kind === "sponsor" ? "sponsors" : "startups"}/${p.slug}/`
 
 /** community.json if it is already loaded (once per visit, see data-files.ts). */
 export const peekCommunity = () => peekData<CommunityData>("community.json")
@@ -202,15 +250,15 @@ export const vocabLabels = (vocab: Vocab, list: string, keys: (string | number)[
 type TextField = Exclude<keyof ProfileTexts, "products" | "positions">
 
 /** Profile text in the chosen language, falling back to English. */
-export function profileText(p: CommunityProfile, field: TextField, lang: Lang): string {
+export function profileText(p: BaseProfile, field: TextField, lang: Lang): string {
   return (p.i18n[lang]?.[field] || p.i18n.en[field] || "").trim()
 }
 
-export function productText(p: CommunityProfile, id: string, lang: Lang): string {
+export function productText(p: BaseProfile, id: string, lang: Lang): string {
   return (p.i18n[lang]?.products?.[id] || p.i18n.en.products?.[id] || "").trim()
 }
 
-export function positionTexts(p: CommunityProfile, id: string, lang: Lang): PositionTexts {
+export function positionTexts(p: BaseProfile, id: string, lang: Lang): PositionTexts {
   const local = p.i18n[lang]?.positions?.[id] ?? {}
   const en = p.i18n.en.positions?.[id] ?? {}
   const pick = <K extends keyof PositionTexts>(k: K) => {
@@ -229,14 +277,14 @@ export function positionTexts(p: CommunityProfile, id: string, lang: Lang): Posi
 export const HIRING_MAX_AGE_DAYS = 90
 
 /** Hiring info older than 90 days is treated as stale. */
-export function hiringIsCurrent(p: CommunityProfile, now = new Date()): boolean {
+export function hiringIsCurrent(p: BaseProfile, now = new Date()): boolean {
   if (!p.hiring?.updated) return false
   const updated = new Date(`${p.hiring.updated}T00:00:00Z`).getTime()
   return now.getTime() - updated <= HIRING_MAX_AGE_DAYS * 24 * 3600 * 1000
 }
 
 /** Open positions: hiring info is current and the deadline (if any) hasn't passed. */
-export function activePositions(p: CommunityProfile, now = new Date()): Position[] {
+export function activePositions(p: BaseProfile, now = new Date()): Position[] {
   if (!p.hiring || p.hiring.status === "not_hiring" || !hiringIsCurrent(p, now)) return []
   const today = now.toISOString().slice(0, 10)
   return (p.hiring.positions ?? []).filter((pos) => !pos.deadline || pos.deadline >= today)

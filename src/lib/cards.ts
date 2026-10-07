@@ -1,13 +1,16 @@
 import {
   activePositions,
   formatSalary,
+  isSponsor,
   positionTexts,
   profileText,
   vocabLabel,
   vocabLabels,
+  type AnyProfile,
   type CommunityData,
   type CommunityProfile,
   type ProfileTexts,
+  type SponsorProfile,
   type Vocab,
 } from "@/lib/community"
 import {
@@ -36,8 +39,8 @@ export interface CardModel {
   title: string
   /** makes the title a link: a Google search (speakers, new tab) or a page on this site */
   titleLink?: { href: string; kind: "search" | "page" }
-  /** the startup completed its profile (public/startups/*.yml): badge and button to its page */
-  profile?: { href: string }
+  /** it completed its profile (public/startups/*.yml, public/sponsors/*.yml): badge and button to its page */
+  profile?: { href: string; sponsor?: boolean }
   badges: string[]
   fields: { label: string; value: string }[]
   description: string
@@ -151,6 +154,7 @@ export function startupCard(s: Startup, lang: Lang): CardModel {
 }
 
 export const profileHref = (slug: string) => `/startups/${slug}/`
+export const sponsorHref = (slug: string) => `/sponsors/${slug}/`
 
 /**
  * Card for a HITEX startup that completed its profile through public/startups/*.yml.
@@ -211,10 +215,12 @@ const PROFILE_TEXTS: [keyof Omit<ProfileTexts, "products" | "positions">, string
   ["looking_for", "Who they want on the team"],
   ["culture", "Culture"],
   ["why_join", "Why join"],
+  ["offer_note", "For startups"],
+  ["partnership_note", "Partners they want"],
 ]
 
 /** Everything in a full profile, in all four languages, for the search. */
-function profileHidden(p: CommunityProfile, vocab: Vocab, lang: Lang): HiddenText[] {
+function profileHidden(p: AnyProfile, vocab: Vocab, lang: Lang): HiddenText[] {
   const out: HiddenText[] = []
   const add = (section: string, text: string | number | null | undefined, l?: Lang) => {
     const t = `${text ?? ""}`.trim()
@@ -235,36 +241,46 @@ function profileHidden(p: CommunityProfile, vocab: Vocab, lang: Lang): HiddenTex
 
   fixed("Industry", "industries", p.industry)
   add("Industry", p.industry_other)
-  fixed("Stage", "stages", p.stage)
   fixed("Business model", "business_models", p.business_model)
   fixed("City", "cities", p.location.city)
   add("City", p.location.city_other)
   fixed("Other offices", "cities", p.location.other_offices)
   fixed("Work mode", "work_modes", p.work_mode)
   fixed("Work week", "work_weeks", p.work_week)
-  fixed("Team", "team_sizes", p.team_size)
   fixed("Engineering team", "engineering_team_sizes", p.engineering_team_size)
   fixed("Tech stack", "technologies", p.tech_stack)
   fixed("Tools", "tools", p.tools)
-  fixed("Funding", "funding_raising", p.funding?.raising)
-  fixed("Funding", "funding_amounts", p.funding?.amount)
-  fixed("Funding", "funding_stages", p.funding?.stage)
   fixed("Impact", "sdgs", p.impact?.sdgs)
   add("At HITEX", p.hitex?.at_event?.booth ? `booth ${p.hitex.at_event.booth}` : "")
+  fixed("At HITEX", "event_activities", p.hitex?.at_event?.activities)
 
   for (const prod of p.products ?? []) {
     for (const l of ALL_LANGS) add(sec("Product", l), p.i18n[l]?.products?.[prod.id], l)
     fixed("Product", "platforms", prod.platforms)
   }
-  for (const x of p.traction ?? []) add("Traction", `${vocabLabel(vocab, "traction_metrics", x.metric, lang)}: ${x.value}`)
   for (const x of p.recognition ?? []) add("Recognition", x.name)
   for (const x of p.clients ?? []) add("Clients", x.name)
   for (const x of p.partners ?? []) add("Partners", x.name)
 
-  for (const f of p.founders) add("Team", `${f.name} · ${vocabLabel(vocab, "founder_roles", f.role, lang)}`)
-  for (const m of p.core_team ?? []) add("Team", `${m.name} · ${m.role_other || vocabLabel(vocab, "team_roles", m.role, lang)}`)
-  fixed("Looking for", "seeking", p.seeking)
-  fixed("Looking for", "co_founder_roles", p.co_founder_role)
+  if (isSponsor(p)) {
+    fixed("People", "company_sizes", p.company_size)
+    for (const m of p.leadership ?? []) add("Leadership", `${m.name} · ${m.role_other || vocabLabel(vocab, "leadership_roles", m.role, lang)}`)
+    fixed("For startups", "sponsor_offers", p.for_startups?.offers)
+    fixed("Partners they want", "partnership_seeking", p.for_startups?.seeking)
+    const c = p.for_startups?.contact
+    if (c) add("For startups", `${c.name} · ${vocabLabel(vocab, "partnership_contact_roles", c.role, lang)}`)
+  } else {
+    fixed("Stage", "stages", p.stage)
+    fixed("Team", "team_sizes", p.team_size)
+    fixed("Funding", "funding_raising", p.funding?.raising)
+    fixed("Funding", "funding_amounts", p.funding?.amount)
+    fixed("Funding", "funding_stages", p.funding?.stage)
+    for (const x of p.traction ?? []) add("Traction", `${vocabLabel(vocab, "traction_metrics", x.metric, lang)}: ${x.value}`)
+    for (const f of p.founders) add("Team", `${f.name} · ${vocabLabel(vocab, "founder_roles", f.role, lang)}`)
+    for (const m of p.core_team ?? []) add("Team", `${m.name} · ${m.role_other || vocabLabel(vocab, "team_roles", m.role, lang)}`)
+    fixed("Looking for", "seeking", p.seeking)
+    fixed("Looking for", "co_founder_roles", p.co_founder_role)
+  }
 
   if (h) {
     fixed("Hiring", "hiring_status", h.status)
@@ -308,6 +324,58 @@ export function startupCards(data: { hitex: Startup[]; community: CommunityData 
   return hitex.map((s) => {
     const p = byHitexId.get(s.id)
     return p ? { ...communityCard(p, community.vocab, lang, s.years ?? []), id: s.id } : startupCard(s, lang)
+  })
+}
+
+/**
+ * Card for a HITEX sponsor that completed its profile through public/sponsors/*.yml; tier, booth and
+ * years come from HITEX's record `o`.
+ */
+export function sponsorProfileCard(p: SponsorProfile, o: Organization, vocab: Vocab, lang: Lang): CardModel {
+  const open = activePositions(p)
+  const event = p.hitex?.at_event
+  const booth = event?.booth || o.booth_number
+  const city = p.location.city === "other" ? (p.location.city_other ?? "") : vocabLabel(vocab, "cities", p.location.city, lang)
+  const industry = p.industry === "other" ? (p.industry_other ?? "") : vocabLabel(vocab, "industries", p.industry, lang)
+  const name = profileText(p, "name", lang)
+  const card: CardModel = {
+    id: o.id,
+    image: p.logo_url || o.logo_url,
+    monogram: monogram(name, p.slug),
+    title: name,
+    titleLink: { href: sponsorHref(p.slug), kind: "page" },
+    profile: { href: sponsorHref(p.slug), sponsor: true },
+    foundIn: { label: "Found in the full profile", href: sponsorHref(p.slug), linkText: "See them in the profile" },
+    badges: [
+      ...(o.tier ? [o.tier[0].toUpperCase() + o.tier.slice(1)] : []),
+      industry,
+      ...(open.length ? [`Hiring · ${open.length} ${open.length === 1 ? "role" : "roles"}`] : []),
+      ...(event?.attending ? [booth ? `At HITEX · booth ${booth}` : "At HITEX"] : []),
+      ...(o.years ?? []).map(String),
+    ].filter(Boolean),
+    fields: fields([
+      ["Booth", booth],
+      ["City", city ? `${city}, ${p.location.country}` : ""],
+      ["People", vocabLabel(vocab, "company_sizes", p.company_size, lang)],
+      ["For startups", vocabLabels(vocab, "sponsor_offers", p.for_startups?.offers, lang).join(", ")],
+      ["Hiring", open.map((pos) => positionTexts(p, pos.id, lang).title ?? pos.id).join("\n")],
+    ]),
+    description: [profileText(p, "tagline", lang), profileText(p, "description", lang)].filter(Boolean).join("\n\n"),
+    links: [
+      { label: "Profile", href: sponsorHref(p.slug), text: "Full profile", internal: true },
+      ...links([["Website", isOnThisSite(p.website) ? null : p.website]]),
+    ],
+  }
+  return withHidden(card, profileHidden(p, vocab, lang))
+}
+
+/** Every sponsor HITEX lists, in its order; sponsors that completed their profile show the richer card. */
+export function sponsorCards(data: { hitex: Organization[]; community: CommunityData }, lang: Lang): CardModel[] {
+  const { hitex, community } = data
+  const byHitexId = new Map(community.sponsors.map((p) => [p.hitex?.existing_profile, p]))
+  return hitex.map((o) => {
+    const p = byHitexId.get(o.id)
+    return p ? sponsorProfileCard(p, o, community.vocab, lang) : organizationCard(o, lang)
   })
 }
 

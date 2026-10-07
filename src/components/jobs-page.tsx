@@ -16,7 +16,7 @@ import { JOB_FILTERS, JOB_SORTS, jobCard, openJobs, paysAtLeast } from "@/lib/jo
 import { CURRENCIES, IQD_PER_USD, type Currency } from "@/lib/salary"
 import { cn } from "@/lib/utils"
 
-/** Every open position from the startup profiles (/jobs), with filters on top of the keyword search. */
+/** Every open position from the startup and sponsor profiles (/jobs), with filters on top of the keyword search. */
 export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang: Lang }) {
   const community = useCommunity()
   const [filters, setFilters] = useState<Set<string>>(() => new Set())
@@ -37,7 +37,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
   const cards = useMemo(() => (community ? jobs.map((j) => jobCard(j, community.vocab, lang)) : []), [jobs, community, lang])
   const { matcher, matches, counts, keyframes, matching, deepOnly } = useCardMatches(cards, keywords)
 
-  const companies = new Set(all.map((j) => j.profile.slug)).size
+  const companies = new Set(all.map((j) => `${j.profile.kind}:${j.profile.slug}`)).size
   const filtered = filters.size > 0 || !!Number(minSalary)
   const toggle = (key: string) =>
     setFilters((f) => {
@@ -62,7 +62,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
             <span className="text-base font-normal text-muted-foreground">
               {empty
                 ? "· no openings yet"
-                : `${all.length} open ${all.length === 1 ? "position" : "positions"} at ${companies} ${companies === 1 ? "startup" : "startups"}`}
+                : `${all.length} open ${all.length === 1 ? "position" : "positions"} at ${companies} ${companies === 1 ? "company" : "companies"}`}
               {filtered ? ` · ${jobs.length} after filters` : ""}
               {keywords.length > 0 ? ` · ${matching} matching` : ""}
             </span>
@@ -158,7 +158,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
                   <p className="font-semibold">No open positions yet</p>
                   <p className="text-sm text-muted-foreground">
                     <HitexText>
-                      Startups that took part in HITEX list their openings in their profile, and they appear here.
+                      Startups and sponsors that took part in HITEX list their openings in their profile, and they appear here.
                     </HitexText>
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export function JobsPage({ lang, keywords, ...handlers }: KeywordProps & { lang:
         {!empty && (
           <p className="flex items-start gap-2 text-xs text-muted-foreground">
             <InfoIcon className="mt-px size-3.5 shrink-0" />
-            Salaries are shown as each startup gives them, then about the same amount in the other currency (≈), at the
+            Salaries are shown as each company gives them, then about the same amount in the other currency (≈), at the
             Central Bank of Iraq rate of {IQD_PER_USD.toLocaleString("en-US")} IQD per USD. “At least” compares monthly pay:
             yearly pay is divided by 12 and hourly pay counts the company's working hours.
           </p>

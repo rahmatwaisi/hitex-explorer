@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { GITHUB_URL } from "@/lib/links"
+import { KINDS, type ProfileKind } from "@/lib/profile-rules"
 
 export interface Issue {
   message: string
@@ -29,17 +30,18 @@ export interface Checked {
 
 /** GitHub refuses longer links (tested: ~6,900 characters), so long files are pasted instead. */
 const MAX_LINK = 6000
-const STARTUPS_PATH = "public/startups"
 
 const withoutPath = (message: string) => message.replace(/^[\w.[\]-]+: /, "")
 
 export function ReviewStep({
+  kind,
   checked,
   mode,
   hasMaintainers,
   steps,
   goTo,
 }: {
+  kind: ProfileKind
   checked: Checked
   mode: "new" | "edit"
   hasMaintainers: boolean
@@ -54,8 +56,15 @@ export function ReviewStep({
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-3">
         <h3 className="font-medium">Consent</h3>
-        <Confirm path="consent.authorized" label="I represent this startup and may publish this profile." />
-        <Confirm path="consent.people_agreed" label="Everyone listed as founder, team member or hiring contact agreed to appear." />
+        <Confirm path="consent.authorized" label={`I represent this ${kind === "sponsor" ? "organization" : "startup"} and may publish this profile.`} />
+        <Confirm
+          path="consent.people_agreed"
+          label={
+            kind === "sponsor"
+              ? "Everyone listed in leadership, as partnership contact or hiring contact agreed to appear."
+              : "Everyone listed as founder, team member or hiring contact agreed to appear."
+          }
+        />
         <Confirm path="consent.rights_to_logo" label="We own the logo, or may use it." />
         <p className="text-xs text-muted-foreground">
           Profile text is shared under{" "}
@@ -112,11 +121,11 @@ export function ReviewStep({
         </ul>
       )}
 
-      <FileCard checked={checked} />
+      <FileCard checked={checked} dir={KINDS[kind].dir} />
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <GitHubCard checked={checked} mode={mode} ready={ok} hasMaintainers={hasMaintainers} />
-        <SendCard checked={checked} mode={mode} ready={ok} />
+        <GitHubCard checked={checked} dir={KINDS[kind].dir} mode={mode} ready={ok} hasMaintainers={hasMaintainers} firstStep={steps[0]} />
+        <SendCard kind={kind} checked={checked} mode={mode} ready={ok} />
       </div>
     </div>
   )
@@ -145,7 +154,7 @@ function download(fileName: string, text: string) {
   setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
-function FileCard({ checked }: { checked: Checked }) {
+function FileCard({ checked, dir }: { checked: Checked; dir: string }) {
   const { copied, copy } = useCopy()
   return (
     <Card>
@@ -154,7 +163,7 @@ function FileCard({ checked }: { checked: Checked }) {
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <p className="font-mono text-sm break-all">
-          {STARTUPS_PATH}/{checked.fileName}
+          {dir}/{checked.fileName}
         </p>
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={() => copy(checked.yaml)}>
@@ -175,17 +184,31 @@ function FileCard({ checked }: { checked: Checked }) {
   )
 }
 
-function GitHubCard({ checked, mode, ready, hasMaintainers }: { checked: Checked; mode: "new" | "edit"; ready: boolean; hasMaintainers: boolean }) {
+function GitHubCard({
+  checked,
+  dir,
+  mode,
+  ready,
+  hasMaintainers,
+  firstStep,
+}: {
+  checked: Checked
+  dir: string
+  mode: "new" | "edit"
+  ready: boolean
+  hasMaintainers: boolean
+  firstStep: string
+}) {
   const { copied, copy } = useCopy()
   const [opened, setOpened] = useState(false)
   const base =
     mode === "new"
-      ? `${GITHUB_URL}/new/main/${STARTUPS_PATH}?filename=${encodeURIComponent(checked.fileName)}`
-      : `${GITHUB_URL}/edit/main/${STARTUPS_PATH}/${checked.fileName}`
+      ? `${GITHUB_URL}/new/main/${dir}?filename=${encodeURIComponent(checked.fileName)}`
+      : `${GITHUB_URL}/edit/main/${dir}/${checked.fileName}`
   const full = `${base}&value=${encodeURIComponent(checked.yaml)}`
   const prefilled = mode === "new" && full.length <= MAX_LINK
   const href = prefilled ? full : base
-  const blocked = !ready ? "Fix the items above first." : !hasMaintainers ? "Add your GitHub username in the Startup step first." : ""
+  const blocked = !ready ? "Fix the items above first." : !hasMaintainers ? `Add your GitHub username in the ${firstStep} step first.` : ""
 
   return (
     <Card>
@@ -243,8 +266,8 @@ function GitHubCard({ checked, mode, ready, hasMaintainers }: { checked: Checked
 
 type SendState = { status: "idle" | "sending" | "sent" } | { status: "error"; message: string }
 
-/** Netlify Forms: the form is declared in index.html so Netlify detects it when the site is deployed. */
-function SendCard({ checked, mode, ready }: { checked: Checked; mode: "new" | "edit"; ready: boolean }) {
+/** Netlify Forms: the forms are declared in index.html so Netlify detects them when the site is deployed. */
+function SendCard({ kind, checked, mode, ready }: { kind: ProfileKind; checked: Checked; mode: "new" | "edit"; ready: boolean }) {
   const [name, setName] = useState("")
   const [contact, setContact] = useState("")
   const [note, setNote] = useState("")
@@ -253,7 +276,7 @@ function SendCard({ checked, mode, ready }: { checked: Checked; mode: "new" | "e
   const send = async () => {
     setState({ status: "sending" })
     const body = new URLSearchParams({
-      "form-name": "startup-profile",
+      "form-name": `${kind}-profile`,
       "bot-field": "",
       name,
       contact,

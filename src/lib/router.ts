@@ -7,20 +7,41 @@ import { datasets, type DatasetKey } from "@/lib/datasets"
 /**
  * `profile:<slug>` is a startup page at /startups/<slug>; `form` is the profile form at
  * /contribution/form (?startup=<HITEX id> to start with one), `form:<slug>` edits a profile.
+ * Sponsors have the same: `sponsor:<slug>` at /sponsors/<slug>, `sponsor-form` at
+ * /contribution/sponsor/form (?sponsor=<HITEX id>) and `sponsor-form:<slug>`.
+ * `contribution` is the choice between the startup and sponsor Contribution pages.
  */
-export type Route = DatasetKey | "jobs" | "about" | "contribution" | "form" | `profile:${string}` | `form:${string}` | null
+export type Route =
+  | DatasetKey
+  | "jobs"
+  | "about"
+  | "contribution"
+  | "contribution/startup"
+  | "contribution/sponsor"
+  | "form"
+  | "sponsor-form"
+  | `profile:${string}`
+  | `form:${string}`
+  | `sponsor:${string}`
+  | `sponsor-form:${string}`
+  | null
 
 const BASE = import.meta.env.BASE_URL
 
 /** The route of an address path ("/jobs", "/startups/lyia_ai/"); null is the home page or unknown. */
 export function routeFromPath(pathname: string): Route {
   const key = pathname.slice(BASE.length).replace(/\/+$/, "")
-  if (key === "about" || key === "contribution" || key === "jobs") return key
+  if (key === "about" || key === "contribution" || key === "contribution/startup" || key === "contribution/sponsor" || key === "jobs") return key
   if (key === "contribution/form") return "form"
+  if (key === "contribution/sponsor/form") return "sponsor-form"
   const edit = /^contribution\/form\/([a-z0-9_]+)$/.exec(key)
   if (edit) return `form:${edit[1]}`
+  const sponsorEdit = /^contribution\/sponsor\/form\/([a-z0-9_]+)$/.exec(key)
+  if (sponsorEdit) return `sponsor-form:${sponsorEdit[1]}`
   const profile = /^startups\/([a-z0-9_]+)$/.exec(key)
   if (profile) return `profile:${profile[1]}`
+  const sponsor = /^sponsors\/([a-z0-9_]+)$/.exec(key)
+  if (sponsor) return `sponsor:${sponsor[1]}`
   return key in datasets ? (key as DatasetKey) : null
 }
 
@@ -30,8 +51,11 @@ const isAppPath = (pathname: string) => pathname === BASE || routeFromPath(pathn
 function pathOf(route: Route): string {
   if (route === null) return BASE
   if (route === "form") return `${BASE}contribution/form`
+  if (route === "sponsor-form") return `${BASE}contribution/sponsor/form`
   if (route.startsWith("form:")) return `${BASE}contribution/form/${route.slice("form:".length)}`
+  if (route.startsWith("sponsor-form:")) return `${BASE}contribution/sponsor/form/${route.slice("sponsor-form:".length)}`
   if (route.startsWith("profile:")) return `${BASE}startups/${route.slice("profile:".length)}/`
+  if (route.startsWith("sponsor:")) return `${BASE}sponsors/${route.slice("sponsor:".length)}/`
   return `${BASE}${route}/`
 }
 

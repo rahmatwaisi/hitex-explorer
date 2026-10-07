@@ -6,19 +6,20 @@ import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
 
 /**
- * In dev, rebuilds public/data/community.json whenever a profile in public/startups/ is added,
- * changed or removed, then reloads the page. Problems in a profile are printed in the terminal.
+ * In dev, rebuilds public/data/community.json whenever a profile in public/startups/ or
+ * public/sponsors/ is added, changed or removed, then reloads the page. Problems in a profile are
+ * printed in the terminal.
  */
 function communityProfiles(): Plugin {
   const root = import.meta.dirname
-  const dir = path.join(root, 'public/startups')
+  const dirs = [path.join(root, 'public/startups'), path.join(root, 'public/sponsors')]
   return {
     name: 'community-profiles',
     apply: 'serve',
     configureServer(server) {
-      server.watcher.add(dir)
+      server.watcher.add(dirs)
       const rebuild = (file: string) => {
-        if (path.dirname(file) !== dir || !/\.ya?ml$/.test(file)) return
+        if (!dirs.includes(path.dirname(file)) || !/\.ya?ml$/.test(file)) return
         try {
           execFileSync(process.execPath, ['scripts/build-community.ts'], { cwd: root, stdio: 'inherit' })
         } catch {
