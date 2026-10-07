@@ -8,12 +8,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import type { Lang } from "@/lib/data"
 import { profileUrl } from "@/lib/links"
 
-const HITEX_RED = "#EB2637"
-/** near-black modules on white in both themes: phone cameras need dark on light */
-const INK = "#111114"
+/**
+ * Colors and center icon of the code, fixed (not theme variables) so downloads look the same: dark
+ * modules on white in both themes, since phone cameras need dark on light. Startups: near-black with
+ * HITEX red finder rings and the red icon; sponsors: deep navy with brighter navy rings (14.8:1 and
+ * 7.3:1 on white) and the icon recolored to the sponsor navy (#1B387B).
+ */
+const STYLES = {
+  startup: { ink: "#111114", ring: "#EB2637", icon: `${import.meta.env.BASE_URL}brand/apple-touch-icon.png` },
+  sponsor: { ink: "#0E2459", ring: "#2E52A5", icon: `${import.meta.env.BASE_URL}brand/apple-touch-icon-navy.png` },
+}
 /** white margin around the code, in modules (the QR spec asks for 4) */
 const QUIET = 4
-const ICON_URL = `${import.meta.env.BASE_URL}brand/apple-touch-icon.png`
 /** width and height of a downloaded file, in pixels */
 const FILE_SIZE = 1024
 const XLINK = "http://www.w3.org/1999/xlink"
@@ -27,16 +33,17 @@ export function ProfileQr({
   name,
   lang,
   url = profileUrl(slug),
-  noun = "startup",
+  kind = "startup",
 }: {
   slug: string
   name: string
   lang?: Lang
   /** the page the code opens; a startup's page by default */
   url?: string
-  /** "this startup" while the name is empty */
-  noun?: string
+  /** the code's colors, and "this startup" / "this sponsor" while the name is empty */
+  kind?: "startup" | "sponsor"
 }) {
+  const { ink, ring, icon } = STYLES[kind]
   const svgRef = useRef<SVGSVGElement>(null)
   const [busy, setBusy] = useState<"svg" | "png" | null>(null)
   const qr = useMemo(() => (slug ? qrShapes(url) : null), [slug, url])
@@ -46,7 +53,7 @@ export function ProfileQr({
     if (!svgRef.current || busy) return
     setBusy(kind)
     try {
-      const svg = await svgFile(svgRef.current)
+      const svg = await svgFile(svgRef.current, icon)
       const png = kind === "png" ? await pngFile(svg).catch(() => null) : null
       // a browser that won't draw the SVG on a canvas still gets the SVG
       if (png) save(`${slug}-qr.png`, png)
@@ -64,22 +71,22 @@ export function ProfileQr({
         <div className="size-48 shrink-0 overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/10 sm:size-56">
           <svg ref={svgRef} viewBox={`0 0 ${total} ${total}`} role="img" aria-label={`QR code for ${url}`} className="block size-full">
             <rect width={total} height={total} fill="#fff" />
-            <path d={qr.modules} fill={INK} />
+            <path d={qr.modules} fill={ink} />
             {qr.finders.map(([x, y]) => (
               <g key={`${x},${y}`}>
-                <rect x={x + 0.5} y={y + 0.5} width={6} height={6} rx={1.75} fill="none" stroke={HITEX_RED} strokeWidth={1} />
-                <rect x={x + 2} y={y + 2} width={3} height={3} rx={0.9} fill={INK} />
+                <rect x={x + 0.5} y={y + 0.5} width={6} height={6} rx={1.75} fill="none" stroke={ring} strokeWidth={1} />
+                <rect x={x + 2} y={y + 2} width={3} height={3} rx={0.9} fill={ink} />
               </g>
             ))}
-            <image href={ICON_URL} x={hole.at + 0.6} y={hole.at + 0.6} width={hole.size - 1.2} height={hole.size - 1.2} />
+            <image href={icon} x={hole.at + 0.6} y={hole.at + 0.6} width={hole.size - 1.2} height={hole.size - 1.2} />
           </svg>
         </div>
         <div className="flex min-w-0 flex-1 flex-col items-center gap-3 text-center sm:items-start sm:text-start">
           <p className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-            <ScanQrCodeIcon className="size-4" style={{ color: HITEX_RED }} /> Open on your phone
+            <ScanQrCodeIcon className="size-4" style={{ color: ring }} /> Open on your phone
           </p>
           <p className="text-xl font-semibold text-balance sm:text-2xl">
-            Scan to see <bdi lang={lang}>{name || `this ${noun}`}</bdi> at a glance
+            Scan to see <bdi lang={lang}>{name || `this ${kind}`}</bdi> at a glance
           </p>
           <p className="max-w-prose text-muted-foreground">Point your phone camera at the code to open this page.</p>
           <p dir="ltr" className="font-mono text-xs break-all text-muted-foreground">
@@ -147,7 +154,7 @@ function ShareLinks({ url, name }: { url: string; name: string }) {
 
 /**
  * The code in SVG units (one per module, quiet zone included): data modules as one path, the three
- * finder patterns drawn separately (rounded, in HITEX red), and a clear square in the center for the icon.
+ * finder patterns drawn separately (rounded, in the accent color), and a clear square in the center for the icon.
  * Error correction H recovers up to 30% of the code; the icon covers about 7%.
  */
 function qrShapes(text: string) {
@@ -184,10 +191,12 @@ function qrShapes(text: string) {
   }
 }
 
-let icon: Promise<string | null> | undefined
-/** The HITEX icon as a data URL (fetched once), so downloads show it offline; null when it can't be read. */
-function iconDataUrl() {
-  icon ??= fetch(ICON_URL)
+const icons = new Map<string, Promise<string | null>>()
+/** A HITEX icon as a data URL (fetched once), so downloads show it offline; null when it can't be read. */
+function iconDataUrl(url: string) {
+  let icon = icons.get(url)
+  if (icon) return icon
+  icon = fetch(url)
     .then((res) => (res.ok ? res.blob() : Promise.reject(new Error(res.statusText))))
     .then(
       (blob) =>
@@ -199,21 +208,22 @@ function iconDataUrl() {
         })
     )
     .catch(() => {
-      icon = undefined
+      icons.delete(url)
       return null
     })
+  icons.set(url, icon)
   return icon
 }
 
 /** The rendered code as a standalone SVG file, the icon embedded (or left out when it can't be read). */
-async function svgFile(svg: SVGSVGElement) {
+async function svgFile(svg: SVGSVGElement, iconUrl: string) {
   const copy = svg.cloneNode(true) as SVGSVGElement
   copy.setAttribute("xmlns", "http://www.w3.org/2000/svg")
   copy.setAttribute("width", String(FILE_SIZE))
   copy.setAttribute("height", String(FILE_SIZE))
   copy.removeAttribute("class")
   const image = copy.querySelector("image")
-  const data = await iconDataUrl()
+  const data = await iconDataUrl(iconUrl)
   if (data) {
     // xlink:href rather than href: older print tools only read that, browsers read both
     image?.removeAttribute("href")

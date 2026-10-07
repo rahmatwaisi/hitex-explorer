@@ -166,7 +166,7 @@ export function SponsorProfile({
         </CardContent>
       </Card>
 
-      <ProfileQr slug={p.slug} url={sponsorUrl(p.slug)} noun="sponsor" name={name} lang={lang} />
+      <ProfileQr slug={p.slug} url={sponsorUrl(p.slug)} kind="sponsor" name={name} lang={lang} />
 
       <EventCard p={p} vocab={vocab} lang={lang} />
 
