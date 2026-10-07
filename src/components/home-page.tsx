@@ -79,13 +79,13 @@ export function HomePage() {
         </ContributePanel>
         <ContributePanel
           tone="sponsor"
-          title="Did your company sponsor HITEX?"
-          text="Your booth lasted four days; your page here stays. Show startups what you offer, from pilots to APIs and programs, introduce your leadership and list the roles you're hiring for, in four languages, so the right partners and people find you."
+          title="Proud sponsor of HITEX 2026?"
+          text="You make HITEX happen, so let everyone see it. Give your brand a page as bold as your booth: what you offer startups, the partners you're after and the roles you're hiring for, in four languages."
         >
           <LinkCard
             href="/contribution/sponsor/"
             name="Contribute as Sponsor"
-            subtitle="Put your brand in front of startups and talent"
+            subtitle="Shine beyond your booth"
             color="var(--sponsor)"
             icon={HandshakeIcon}
             internal

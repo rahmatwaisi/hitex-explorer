@@ -107,7 +107,7 @@ export function ContributionHub() {
         />
         <AudienceCard
           kind="sponsor"
-          lead="Turn four days at your booth into lasting partnerships."
+          lead="Turn the crowd at your booth into lasting partnerships."
           points={[
             [HandshakeIcon, "What you offer startups: pilots, APIs, programs"],
             [BriefcaseIcon, "Open roles on the Jobs page"],
@@ -217,7 +217,7 @@ export function SponsorContributionPage({ lang }: { lang: Lang }) {
   return (
     <AudiencePage
       kind="sponsor"
-      intro="Sponsored HITEX? Your booth lasted four days; your page here stays. Show startups what you offer, meet the partners you're looking for, introduce your leadership and list the roles you're hiring for. You get a full page like the example below."
+      intro="Proud sponsor of HITEX 2026? You make HITEX happen, so let everyone see it. Show startups what you offer, meet the partners you're looking for, introduce your leadership and list the roles you're hiring for. You get a full page like the example below."
       rule="Only sponsors already listed by HITEX can contribute, and only to complete their own profile. One profile per sponsor. Your tier and HITEX years come from HITEX's list."
       findText="Search below. Only sponsors listed by HITEX can have a profile."
       benefits={[

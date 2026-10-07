@@ -62,7 +62,7 @@ export const SECTIONS: Record<SectionKey, { title: string; description: string }
   "contribution/sponsor": {
     title: "Add Your Sponsor Profile | HITEX Explorer",
     description:
-      "Sponsored HITEX? Show startups and talent what you offer: partnership programs, pilots, your booth, leadership and open jobs, in four languages.",
+      "Proud sponsor of HITEX 2026? Show startups and talent what you offer: partnership programs, pilots, your booth, leadership and open jobs, in four languages.",
   },
   about: {
     title: "About | HITEX Explorer",
