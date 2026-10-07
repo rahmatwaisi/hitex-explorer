@@ -1,8 +1,8 @@
 HITEX Explorer
 Copyright (c) 2026 Rahmat Waisi. All rights reserved.
 
-This repository is public so that its source code can be read and so that startups can submit
-their profiles. Being able to read the code does not give you the right to use it.
+This repository is public so that its source code can be read and so that startups and sponsors
+can submit their profiles. Being able to read the code does not give you the right to use it.
 
 1. Source code
 
@@ -18,10 +18,11 @@ their profiles. Being able to read the code does not give you the right to use i
      GitHub's Terms of Service allow;
    - run it on your own computer only to prepare or check such a pull request.
 
-2. Startup profiles (public/startups/*.yml)
+2. Startup and sponsor profiles (public/startups/*.yml, public/sponsors/*.yml)
 
-   Each profile is submitted by the startup it describes and is shared under the Creative
-   Commons Attribution 4.0 International License (CC BY 4.0), as its `consent` section states.
+   Each profile is submitted by the startup or sponsor it describes and is shared under the
+   Creative Commons Attribution 4.0 International License (CC BY 4.0), as its `consent` section
+   states.
    By submitting a profile or any other contribution, you allow it to be published on
    HITEX Explorer and included in this repository under these terms.
 
