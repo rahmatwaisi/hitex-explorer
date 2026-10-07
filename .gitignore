@@ -25,3 +25,7 @@ dist-ssr
 
 # generated from public/startups/*.yml by scripts/build-community.ts
 public/data/community.json
+
+# local only, never committed
+public/startups/20261006_085916_lyia_ai.yml
+public/sponsors/20261007_100000_fastpay.yml
