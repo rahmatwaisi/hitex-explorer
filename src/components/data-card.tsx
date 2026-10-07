@@ -3,6 +3,7 @@ import { ArrowRightIcon, BadgeCheckIcon, CircleQuestionMarkIcon, ExternalLinkIco
 
 import { Highlight } from "@/components/highlight"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { linkText, type CardModel, type HiddenText } from "@/lib/cards"
 import { cn } from "@/lib/utils"
@@ -31,12 +32,14 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
   const style: CSSProperties | undefined = glow ? { animation: glow } : undefined
   const circle = card.imageShape === "circle"
   const showImage = card.image && !imageFailed
+  // a sponsor that completed its profile: navy ring, bar and tint, and a "View profile" button
+  const sponsor = !!card.profile?.sponsor
 
   return (
     <Card
       className={cn(
         "relative h-full transition-shadow duration-500",
-        card.profile && (card.profile.sponsor ? "ring-sponsor/55 dark:ring-sponsor/80" : "ring-[#EB2637]/45 dark:ring-[#EB2637]/55")
+        card.profile && (sponsor ? "bg-sponsor/[0.04] ring-2 ring-sponsor/70 dark:bg-sponsor/15 dark:ring-sponsor" : "ring-[#EB2637]/45 dark:ring-[#EB2637]/55")
       )}
       style={style}
       data-match={glow ? "" : undefined}
@@ -79,6 +82,7 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
       )}
 
       {/* after the image: the card styles its first child image */}
+      {sponsor && <span className="absolute inset-x-0 top-0 z-[1] h-1 bg-sponsor" aria-hidden />}
       {card.profile && <ProfileButton href={card.profile.href} name={card.title} sponsor={card.profile.sponsor} />}
       {bulbs && <Bulbs keywords={bulbs} />}
 
@@ -163,6 +167,14 @@ export const DataCard = memo(function DataCard({ card, lang, matcher, glow, deep
               </a>
             ))}
           </div>
+        )}
+
+        {sponsor && card.profile && (
+          <Button asChild className={cn("w-full bg-sponsor text-white hover:bg-sponsor/85", card.links.length === 0 && "mt-auto")}>
+            <a href={card.profile.href}>
+              View profile <ArrowRightIcon data-icon="inline-end" />
+            </a>
+          </Button>
         )}
       </CardContent>
     </Card>

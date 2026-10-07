@@ -361,22 +361,25 @@ export function sponsorProfileCard(p: SponsorProfile, o: Organization, vocab: Vo
       ["Hiring", open.map((pos) => positionTexts(p, pos.id, lang).title ?? pos.id).join("\n")],
     ]),
     description: [profileText(p, "tagline", lang), profileText(p, "description", lang)].filter(Boolean).join("\n\n"),
-    links: [
-      { label: "Profile", href: sponsorHref(p.slug), text: "Full profile", internal: true },
-      ...links([["Website", isOnThisSite(p.website) ? null : p.website]]),
-    ],
+    // the card's "View profile" button links the profile
+    links: links([["Website", isOnThisSite(p.website) ? null : p.website]]),
   }
   return withHidden(card, profileHidden(p, vocab, lang))
 }
 
-/** Every sponsor HITEX lists, in its order; sponsors that completed their profile show the richer card. */
+/**
+ * Every sponsor HITEX lists. Sponsors that completed their profile come first, on the richer card;
+ * the rest keep HITEX's order.
+ */
 export function sponsorCards(data: { hitex: Organization[]; community: CommunityData }, lang: Lang): CardModel[] {
   const { hitex, community } = data
   const byHitexId = new Map(community.sponsors.map((p) => [p.hitex?.existing_profile, p]))
-  return hitex.map((o) => {
-    const p = byHitexId.get(o.id)
-    return p ? sponsorProfileCard(p, o, community.vocab, lang) : organizationCard(o, lang)
-  })
+  const withProfile = hitex.filter((o) => byHitexId.has(o.id))
+  const others = hitex.filter((o) => !byHitexId.has(o.id))
+  return [
+    ...withProfile.map((o) => sponsorProfileCard(byHitexId.get(o.id)!, o, community.vocab, lang)),
+    ...others.map((o) => organizationCard(o, lang)),
+  ]
 }
 
 export function organizationCard(o: Organization, lang: Lang): CardModel {
